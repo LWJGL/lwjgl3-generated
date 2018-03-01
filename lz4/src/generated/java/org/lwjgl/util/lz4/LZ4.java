@@ -36,7 +36,7 @@ public class LZ4 {
     public static final int
         LZ4_VERSION_MAJOR   = 1,
         LZ4_VERSION_MINOR   = 8,
-        LZ4_VERSION_RELEASE = 1;
+        LZ4_VERSION_RELEASE = 2;
 
     /** Version number. */
     public static final int LZ4_VERSION_NUMBER = (LZ4_VERSION_MAJOR *100*100 + LZ4_VERSION_MINOR *100 + LZ4_VERSION_RELEASE);
@@ -97,8 +97,8 @@ public class LZ4 {
     /**
      * Unsafe version of: {@link #LZ4_compress_default compress_default}
      *
-     * @param srcSize     supported max value is {@link #LZ4_MAX_INPUT_SIZE MAX_INPUT_SIZE}
-     * @param dstCapacity full or partial size of buffer {@code dst} (which must be already allocated)
+     * @param srcSize     max supported value is {@link #LZ4_MAX_INPUT_SIZE MAX_INPUT_SIZE}
+     * @param dstCapacity size of buffer {@code dst} (which must be already allocated)
      */
     public static native int nLZ4_compress_default(long src, long dst, int srcSize, int dstCapacity);
 
@@ -107,10 +107,10 @@ public class LZ4 {
      * 
      * <p>Compression is guaranteed to succeed if {@code dstCapacity} &ge; {@link #LZ4_compressBound compressBound}{@code (srcSize)}. It also runs faster, so it's a recommended setting.</p>
      * 
-     * <p>If the function cannot compress {@code src} into a limited {@code dst} budget, compression stops <i>immediately</i>, and the function result is
+     * <p>If the function cannot compress {@code src} into a more limited {@code dst} budget, compression stops <i>immediately</i>, and the function result is
      * zero. As a consequence, {@code dst} content is not valid.</p>
      * 
-     * <p>This function never writes outside {@code dst} buffer, nor read outside {@code src} buffer.</p>
+     * <p>This function is protected against buffer overflow scenarios (never writes outside {@code dst} buffer, nor read outside {@code src} buffer).</p>
      *
      * @param src 
      * @param dst 
@@ -136,8 +136,7 @@ public class LZ4 {
      * 
      * <p>If the source stream is detected malformed, the function will stop decoding and return a negative result.</p>
      * 
-     * <p>This function is protected against buffer overflow exploits, including malicious data packets. It never writes outside output buffer, nor reads outside
-     * input buffer.</p>
+     * <p>This function is protected against malicious data packets.</p>
      *
      * @param src 
      * @param dst 
@@ -167,11 +166,11 @@ public class LZ4 {
      * <p>This function is primarily useful for memory allocation purposes (destination buffer size). Macro {@link #LZ4_COMPRESSBOUND COMPRESSBOUND} is also provided for
      * compilation-time evaluation (stack memory allocation for example).</p>
      * 
-     * <p>Note that {@link #LZ4_compress_default compress_default} compress faster when dest buffer size is &ge; {@link #LZ4_compressBound compressBound}{@code (srcSize)}</p>
+     * <p>Note that {@link #LZ4_compress_default compress_default} compresses faster when {@code dstCapacity} is &ge; {@link #LZ4_compressBound compressBound}{@code (srcSize)}</p>
      *
      * @param inputSize max supported value is {@link #LZ4_MAX_INPUT_SIZE MAX_INPUT_SIZE}
      *
-     * @return maximum output size in a "worst case" scenario or 0, if input size is too large (&gt; {@link #LZ4_MAX_INPUT_SIZE MAX_INPUT_SIZE})
+     * @return maximum output size in a "worst case" scenario or 0, if input size is incorrect (too large or negative)
      */
     public static native int LZ4_compressBound(int inputSize);
 
@@ -181,11 +180,11 @@ public class LZ4 {
     public static native int nLZ4_compress_fast(long src, long dst, int srcSize, int dstCapacity, int acceleration);
 
     /**
-     * Same as {@link #LZ4_compress_default compress_default}, but allows to select an "acceleration" factor.
+     * Same as {@link #LZ4_compress_default compress_default}, but allows selection of "acceleration" factor.
      * 
      * <p>The larger the acceleration value, the faster the algorithm, but also the lesser the compression. It's a trade-off. It can be fine tuned, with each
      * successive value providing roughly +~3% to speed. An acceleration value of "1" is the same as regular {@link #LZ4_compress_default compress_default}. Values &le; 0 will be
-     * replaced by {@code ACCELERATION_DEFAULT} (see {@code lz4.c}), which is 1.</p>
+     * replaced by {@code ACCELERATION_DEFAULT} (currently == 1, see lz4.c).</p>
      *
      * @param src          
      * @param dst          
@@ -254,20 +253,21 @@ public class LZ4 {
     /**
      * Unsafe version of: {@link #LZ4_decompress_fast decompress_fast}
      *
-     * @param originalSize is the original uncompressed size
+     * @param originalSize is the uncompressed size to regenerate. Destination buffer must be already allocated, and its size must be &ge; {@code originalSize} bytes.
      */
     public static native int nLZ4_decompress_fast(long src, long dst, int originalSize);
 
     /**
-     * This function respects memory boundaries for properly formed compressed data. It is a bit faster than {@link #LZ4_decompress_safe decompress_safe}. However, it does not
-     * provide any protection against intentionally modified data stream (malicious input). Use this function in trusted environment only (data to decode
-     * comes from a trusted source).
+     * This function is a bit faster than {@link #LZ4_decompress_safe decompress_safe}, but doesn't provide any security guarantee.
+     * 
+     * <p>This function respects memory boundaries for <i>properly formed</i> compressed data. However, it does not provide any protection against malicious
+     * input. It also doesn't know {@code src} size, and implies it's &ge; compressed size. Use this function in trusted environment <b>only</b>.</p>
      *
      * @param src 
      * @param dst 
      *
-     * @return the number of bytes read from the source buffer (in other words, the compressed size). If the source stream is detected malformed, the function will
-     *         stop decoding and return a negative result. Destination buffer must be already allocated. Its size must be &ge; {@code originalSize} bytes.
+     * @return the number of bytes read from the source buffer (== the compressed size). If the source stream is detected malformed, the function stops decoding and
+     *         return a negative result. Destination buffer must be already allocated. Its size must be &ge; {@code originalSize} bytes.
      */
     public static int LZ4_decompress_fast(@NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst) {
         return nLZ4_decompress_fast(memAddress(src), memAddress(dst), dst.remaining());
@@ -283,7 +283,7 @@ public class LZ4 {
      * {@code dstCapacity}.
      * 
      * <p>The function will decompress a minimum of {@code targetOutputSize} bytes, and stop after that. However, it's not accurate, and may write more than
-     * {@code targetOutputSize} (but &le; {@code dstCapacity}).</p>
+     * {@code targetOutputSize} (but always &le; {@code dstCapacity}).</p>
      * 
      * <p>This function never writes outside of output buffer, and never reads outside of input buffer. It is therefore protected against malicious data packets.</p>
      *
@@ -293,8 +293,8 @@ public class LZ4 {
      *
      * @return the number of bytes decoded in the destination buffer (necessarily &le; {@code dstCapacity})
      *         
-     *         <p>Note: this number can be &lt; {@code targetOutputSize} should the compressed block to decode be smaller. Always control how many bytes were decoded. If
-     *         the source stream is detected malformed, the function will stop decoding and return a negative result.</p>
+     *         <p>Note: this number can also be &lt; {@code targetOutputSize}, if compressed block contains less data. Therefore, always control how many bytes were
+     *         decoded. If source stream is detected malformed, function returns a negative result. This function is protected against malicious data packets.</p>
      */
     public static int LZ4_decompress_safe_partial(@NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int targetOutputSize) {
         return nLZ4_decompress_safe_partial(memAddress(src), memAddress(dst), src.remaining(), targetOutputSize, dst.remaining());
@@ -366,18 +366,19 @@ public class LZ4 {
     public static native int nLZ4_compress_fast_continue(long streamPtr, long src, long dst, int srcSize, int dstCapacity, int acceleration);
 
     /**
-     * Compress content into {@code src} using data from previously compressed blocks, improving compression ratio.
+     * Compress {@code src} content using data from previously compressed blocks, for better compression ratio.
      * 
      * <p>{@code dst} buffer must be already allocated. If {@code dstCapacity} &ge; {@link #LZ4_compressBound compressBound}{@code (srcSize)}, compression is guaranteed to succeed, and
      * runs faster.</p>
      * 
-     * <p>Important: The previous 64KB of compressed data is assumed to remain preset and unmodified in memory! If less than 64KB has been compressed all the
+     * <p>Important: The previous 64KB of compressed data is assumed to remain present and unmodified in memory! If less than 64KB has been compressed all the
      * data must be present.</p>
      * 
      * <p>Special:</p>
      * 
      * <ol>
-     * <li>If input buffer is a double-buffer, it can have any size, including &lt; 64 KB.</li>
+     * <li>When input is a double-buffer, they can have any size, including &lt; 64 KB. Make sure that buffers are separated by at least one byte. This way,
+     * each block only depends on previous block.</li>
      * <li>If input buffer is a ring-buffer, it can have any size, including &lt; 64 KB.</li>
      * </ol>
      *
@@ -386,8 +387,8 @@ public class LZ4 {
      * @param dst          
      * @param acceleration 
      *
-     * @return size of compressed block or 0 if there is an error (typically, compressed data cannot fit into {@code dst}). After an error, the stream status is
-     *         invalid, it can only be reset or freed.
+     * @return size of compressed block or 0 if there is an error (typically, cannot fit into {@code dst}). After an error, the stream status is invalid, it can only
+     *         be reset or freed.
      */
     public static int LZ4_compress_fast_continue(@NativeType("LZ4_stream_t *") long streamPtr, @NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int acceleration) {
         if (CHECKS) {
@@ -399,18 +400,18 @@ public class LZ4 {
     // --- [ LZ4_saveDict ] ---
 
     /** Unsafe version of: {@link #LZ4_saveDict saveDict} */
-    public static native int nLZ4_saveDict(long streamPtr, long safeBuffer, int dictSize);
+    public static native int nLZ4_saveDict(long streamPtr, long safeBuffer, int maxDictSize);
 
     /**
-     * If previously compressed data block is not guaranteed to remain available at its current memory location, save it into a safer place
-     * ({@code char* safeBuffer}).
+     * If last 64KB data cannot be guaranteed to remain available at its current memory location, save it into a safer place ({@code char* safeBuffer}).
      * 
-     * <p>Note: it's not necessary to call {@link #LZ4_loadDict loadDict} after {@link #LZ4_saveDict saveDict}, dictionary is immediately usable.</p>
+     * <p>This is schematically equivalent to a {@code memcpy()} followed by {@link #LZ4_loadDict loadDict}, but is much faster, because {@code LZ4_saveDict()} doesn't need to
+     * rebuild tables.</p>
      *
      * @param streamPtr  
      * @param safeBuffer 
      *
-     * @return saved dictionary size in bytes (necessarily &le; {@code dictSize}), or 0 if error
+     * @return saved dictionary size in bytes (necessarily &le; {@code maxDictSize}), or 0 if error
      */
     public static int LZ4_saveDict(@NativeType("LZ4_stream_t *") long streamPtr, @NativeType("char *") ByteBuffer safeBuffer) {
         if (CHECKS) {
@@ -455,7 +456,7 @@ public class LZ4 {
      * An {@code LZ4_streamDecode_t} structure can be allocated once and re-used multiple times. Use this function to start decompression of a new stream of
      * blocks.
      * 
-     * <p>A dictionary can optionnally be set. Use {@code NULL} or size 0 for a simple reset order.</p>
+     * <p>A dictionary can optionnally be set. Use {@code NULL} or size 0 for a reset order.</p>
      *
      * @param LZ4_streamDecode 
      * @param dictionary       
