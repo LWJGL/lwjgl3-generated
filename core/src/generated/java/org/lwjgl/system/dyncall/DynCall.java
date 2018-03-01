@@ -653,7 +653,7 @@ public class DynCall {
      * Adds a field to the specified struct.
      *
      * @param s           the struct
-     * @param type        the field type
+     * @param type        the field type. One of:<br><table><tr><td>{@link #DC_SIGCHAR_VOID SIGCHAR_VOID}</td><td>{@link #DC_SIGCHAR_BOOL SIGCHAR_BOOL}</td><td>{@link #DC_SIGCHAR_CHAR SIGCHAR_CHAR}</td><td>{@link #DC_SIGCHAR_UCHAR SIGCHAR_UCHAR}</td><td>{@link #DC_SIGCHAR_SHORT SIGCHAR_SHORT}</td><td>{@link #DC_SIGCHAR_USHORT SIGCHAR_USHORT}</td></tr><tr><td>{@link #DC_SIGCHAR_INT SIGCHAR_INT}</td><td>{@link #DC_SIGCHAR_UINT SIGCHAR_UINT}</td><td>{@link #DC_SIGCHAR_LONG SIGCHAR_LONG}</td><td>{@link #DC_SIGCHAR_ULONG SIGCHAR_ULONG}</td><td>{@link #DC_SIGCHAR_LONGLONG SIGCHAR_LONGLONG}</td><td>{@link #DC_SIGCHAR_ULONGLONG SIGCHAR_ULONGLONG}</td></tr><tr><td>{@link #DC_SIGCHAR_FLOAT SIGCHAR_FLOAT}</td><td>{@link #DC_SIGCHAR_DOUBLE SIGCHAR_DOUBLE}</td><td>{@link #DC_SIGCHAR_POINTER SIGCHAR_POINTER}</td><td>{@link #DC_SIGCHAR_STRING SIGCHAR_STRING}</td><td>{@link #DC_SIGCHAR_STRUCT SIGCHAR_STRUCT}</td><td>{@link #DC_SIGCHAR_ENDARG SIGCHAR_ENDARG}</td></tr></table>
      * @param alignment   a custom field alignment, or 0 to calculate automatically
      * @param arrayLength 1 or a higher value if the field is an array
      */

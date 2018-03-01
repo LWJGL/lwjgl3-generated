@@ -121,6 +121,59 @@ public class DynLoad {
         }
     }
 
+    // --- [ dlGetLibraryPath ] ---
+
+    /**
+     * Unsafe version of: {@link #dlGetLibraryPath GetLibraryPath}
+     *
+     * @param bufSize the size of {@code sOut}, in bytes
+     */
+    public static native int ndlGetLibraryPath(long pLib, long sOut, int bufSize);
+
+    /**
+     * Gets a copy of the path to the library loaded with handle {@code pLib}.
+     * 
+     * <p>The parameter {@code sOut} is a pointer to a buffer of size {@code bufSize} (in bytes), to hold the output string. The return value is the size of the
+     * buffer (in bytes) needed to hold the null-terminated string, or 0 if it can't be looked up. If {@code bufSize >= return value > 1}, a null-terminated
+     * string with the path to the library should be in {@code sOut}. If it returns 0, the library name wasn't able to be found. Please note that this might
+     * happen in some rare cases, so make sure to always check.</p>
+     *
+     * @param pLib the dynamic library
+     * @param sOut pointer to a buffer where the library path will be stored
+     */
+    public static int dlGetLibraryPath(@NativeType("DLLib *") long pLib, @NativeType("char *") ByteBuffer sOut) {
+        if (CHECKS) {
+            check(pLib);
+        }
+        return ndlGetLibraryPath(pLib, memAddress(sOut), sOut.remaining());
+    }
+
+    /**
+     * Gets a copy of the path to the library loaded with handle {@code pLib}.
+     * 
+     * <p>The parameter {@code sOut} is a pointer to a buffer of size {@code bufSize} (in bytes), to hold the output string. The return value is the size of the
+     * buffer (in bytes) needed to hold the null-terminated string, or 0 if it can't be looked up. If {@code bufSize >= return value > 1}, a null-terminated
+     * string with the path to the library should be in {@code sOut}. If it returns 0, the library name wasn't able to be found. Please note that this might
+     * happen in some rare cases, so make sure to always check.</p>
+     *
+     * @param pLib    the dynamic library
+     * @param bufSize the size of {@code sOut}, in bytes
+     */
+    @NativeType("int")
+    public static String dlGetLibraryPath(@NativeType("DLLib *") long pLib, int bufSize) {
+        if (CHECKS) {
+            check(pLib);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer sOut = stack.malloc(bufSize);
+            int __result = ndlGetLibraryPath(pLib, memAddress(sOut), bufSize);
+            return memASCII(sOut, __result - 1);
+        } finally {
+            stack.setPointer(stackPointer);
+        }
+    }
+
     // --- [ dlSymsInit ] ---
 
     /** Unsafe version of: {@link #dlSymsInit SymsInit} */
