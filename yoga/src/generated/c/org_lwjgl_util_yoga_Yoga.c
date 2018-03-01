@@ -102,6 +102,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeMarkDirty(JNIEnv *__
     YGNodeMarkDirty(node);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeMarkDirtyAndPropogateToDescendants(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
+    YGNodeRef const node = (YGNodeRef const)(intptr_t)nodeAddress;
+    UNUSED_PARAMS(__env, clazz)
+    YGNodeMarkDirtyAndPropogateToDescendants(node);
+}
+
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeIsDirty(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
     YGNodeRef const node = (YGNodeRef const)(intptr_t)nodeAddress;
     UNUSED_PARAMS(__env, clazz)

@@ -519,6 +519,26 @@ public class Yoga {
         nYGNodeMarkDirty(node);
     }
 
+    // --- [ YGNodeMarkDirtyAndPropogateToDescendants ] ---
+
+    /** Unsafe version of: {@link #YGNodeMarkDirtyAndPropogateToDescendants NodeMarkDirtyAndPropogateToDescendants} */
+    public static native void nYGNodeMarkDirtyAndPropogateToDescendants(long node);
+
+    /**
+     * Marks the current node and all its descendants as dirty.
+     * 
+     * <p>This function is added to test yoga benchmarks. It is not expected to be used in production as calling {@link #YGNodeCalculateLayout NodeCalculateLayout} will cause the
+     * recalculation of each and every node.</p>
+     *
+     * @param node 
+     */
+    public static void YGNodeMarkDirtyAndPropogateToDescendants(@NativeType("YGNodeRef const") long node) {
+        if (CHECKS) {
+            check(node);
+        }
+        nYGNodeMarkDirtyAndPropogateToDescendants(node);
+    }
+
     // --- [ YGNodeIsDirty ] ---
 
     public static native boolean nYGNodeIsDirty(long node);
