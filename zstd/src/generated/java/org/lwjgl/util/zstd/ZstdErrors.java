@@ -37,6 +37,7 @@ public class ZstdErrors {
      * <li>{@link #ZSTD_error_stage_wrong error_stage_wrong}</li>
      * <li>{@link #ZSTD_error_init_missing error_init_missing}</li>
      * <li>{@link #ZSTD_error_memory_allocation error_memory_allocation}</li>
+     * <li>{@link #ZSTD_error_workSpace_tooSmall error_workSpace_tooSmall}</li>
      * <li>{@link #ZSTD_error_dstSize_tooSmall error_dstSize_tooSmall}</li>
      * <li>{@link #ZSTD_error_srcSize_wrong error_srcSize_wrong}</li>
      * <li>{@link #ZSTD_error_frameIndex_tooLarge error_frameIndex_tooLarge}</li>
@@ -63,6 +64,7 @@ public class ZstdErrors {
         ZSTD_error_stage_wrong                   = 60,
         ZSTD_error_init_missing                  = 62,
         ZSTD_error_memory_allocation             = 64,
+        ZSTD_error_workSpace_tooSmall            = 66,
         ZSTD_error_dstSize_tooSmall              = 70,
         ZSTD_error_srcSize_wrong                 = 72,
         ZSTD_error_frameIndex_tooLarge           = 100,
