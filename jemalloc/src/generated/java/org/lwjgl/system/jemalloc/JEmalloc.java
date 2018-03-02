@@ -108,6 +108,14 @@ public class JEmalloc {
         return JEMALLOC;
     }
 
+    static {
+        // Force jemalloc to initialize before anyone else uses it.
+        // This avoids a dangerous race when the first jemalloc functions are called concurrently.
+        if (Platform.get() == Platform.WINDOWS) {
+            nje_free(nje_malloc(8));
+        }
+    }
+
     // --- [ je_malloc_message ] ---
 
     /** Returns the {@code je_malloc_message} variable. */
@@ -759,9 +767,9 @@ public class JEmalloc {
     // --- [ je_malloc_stats_print ] ---
 
     /** Unsafe version of: {@link #je_malloc_stats_print malloc_stats_print} */
-    public static void nje_malloc_stats_print(long write_cb, long je_cbopaque, long opts) {
+    public static void nje_malloc_stats_print(long write_cb, long cbopaque, long opts) {
         long __functionAddress = Functions.malloc_stats_print;
-        invokePPPV(__functionAddress, write_cb, je_cbopaque, opts);
+        invokePPPV(__functionAddress, write_cb, cbopaque, opts);
     }
 
     /**
@@ -773,15 +781,15 @@ public class JEmalloc {
      * omit per size class statistics for bins and large objects, respectively. Unrecognized characters are silently ignored. Note that thread caching may
      * prevent some statistics from being completely up to date, since extra locking would be required to merge counters that track thread cache operations.
      *
-     * @param write_cb    the print callback, or {@code NULL} to use {@code malloc_message()}
-     * @param je_cbopaque an opaque pointer that will be passed to {@code write_cb}
-     * @param opts        an options string
+     * @param write_cb the print callback, or {@code NULL} to use {@code malloc_message()}
+     * @param cbopaque an opaque pointer that will be passed to {@code write_cb}
+     * @param opts     an options string
      */
-    public static void je_malloc_stats_print(@Nullable @NativeType("void (*) (void *, char const *)") MallocMessageCallbackI write_cb, @NativeType("void *") long je_cbopaque, @Nullable @NativeType("char const *") ByteBuffer opts) {
+    public static void je_malloc_stats_print(@Nullable @NativeType("void (*) (void *, char const *)") MallocMessageCallbackI write_cb, @NativeType("void *") long cbopaque, @Nullable @NativeType("char const *") ByteBuffer opts) {
         if (CHECKS) {
             checkNT1Safe(opts);
         }
-        nje_malloc_stats_print(memAddressSafe(write_cb), je_cbopaque, memAddressSafe(opts));
+        nje_malloc_stats_print(memAddressSafe(write_cb), cbopaque, memAddressSafe(opts));
     }
 
     /**
@@ -793,15 +801,15 @@ public class JEmalloc {
      * omit per size class statistics for bins and large objects, respectively. Unrecognized characters are silently ignored. Note that thread caching may
      * prevent some statistics from being completely up to date, since extra locking would be required to merge counters that track thread cache operations.
      *
-     * @param write_cb    the print callback, or {@code NULL} to use {@code malloc_message()}
-     * @param je_cbopaque an opaque pointer that will be passed to {@code write_cb}
-     * @param opts        an options string
+     * @param write_cb the print callback, or {@code NULL} to use {@code malloc_message()}
+     * @param cbopaque an opaque pointer that will be passed to {@code write_cb}
+     * @param opts     an options string
      */
-    public static void je_malloc_stats_print(@Nullable @NativeType("void (*) (void *, char const *)") MallocMessageCallbackI write_cb, @NativeType("void *") long je_cbopaque, @Nullable @NativeType("char const *") CharSequence opts) {
+    public static void je_malloc_stats_print(@Nullable @NativeType("void (*) (void *, char const *)") MallocMessageCallbackI write_cb, @NativeType("void *") long cbopaque, @Nullable @NativeType("char const *") CharSequence opts) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             ByteBuffer optsEncoded = stack.ASCIISafe(opts);
-            nje_malloc_stats_print(memAddressSafe(write_cb), je_cbopaque, memAddressSafe(optsEncoded));
+            nje_malloc_stats_print(memAddressSafe(write_cb), cbopaque, memAddressSafe(optsEncoded));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -826,14 +834,6 @@ public class JEmalloc {
     @NativeType("size_t")
     public static long je_malloc_usable_size(@NativeType("void const *") ByteBuffer ptr) {
         return nje_malloc_usable_size(memAddress(ptr));
-    }
-
-    static {
-        // Force jemalloc to initialize before anyone else uses it.
-        // This avoids a dangerous race when the first jemalloc functions are called concurrently.
-        if (Platform.get() == Platform.WINDOWS) {
-            nje_free(nje_malloc(8));
-        }
     }
 
     /**
