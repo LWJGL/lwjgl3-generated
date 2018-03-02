@@ -43,6 +43,25 @@ public class GLFWVulkan {
 
     }
 
+    static {
+        if (Platform.get() == Platform.MACOSX) {
+            // Force GLFW to initialize Vulkan using the same library used by LWJGL.
+            FunctionProvider fp = VK.getFunctionProvider();
+            if (fp instanceof SharedLibrary) {
+                String path = ((SharedLibrary)fp).getPath();
+                if (path != null) {
+                    try (MemoryStack stack = stackPush()) {
+                        long _glfw_vulkan_library = apiGetFunctionAddress(GLFW.getLibrary(), "_glfw_vulkan_library");
+
+                        memPutAddress(_glfw_vulkan_library, memAddress(stack.UTF8(path)));
+                        glfwVulkanSupported();
+                        memPutAddress(_glfw_vulkan_library, NULL);
+                    }
+                }
+            }
+        }
+    }
+
     // --- [ glfwVulkanSupported ] ---
 
     /**
