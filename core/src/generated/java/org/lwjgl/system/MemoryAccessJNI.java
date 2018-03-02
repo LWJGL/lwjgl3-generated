@@ -23,7 +23,7 @@ class MemoryAccessJNI {
 
     // --- [ malloc ] ---
 
-    @NativeType("void *")
+    @NativeType("void * (*) (size_t)")
     private static native long malloc();
 
     /** Returns the address of the stdlib {@code malloc} function. */
@@ -31,7 +31,7 @@ class MemoryAccessJNI {
 
     // --- [ calloc ] ---
 
-    @NativeType("void *")
+    @NativeType("void * (*) (size_t, size_t)")
     private static native long calloc();
 
     /** Returns the address of the stdlib {@code calloc} function. */
@@ -39,7 +39,7 @@ class MemoryAccessJNI {
 
     // --- [ realloc ] ---
 
-    @NativeType("void *")
+    @NativeType("void * (*) (void *, size_t)")
     private static native long realloc();
 
     /** Returns the address of the stdlib {@code realloc} function. */
@@ -47,7 +47,7 @@ class MemoryAccessJNI {
 
     // --- [ free ] ---
 
-    @NativeType("void *")
+    @NativeType("void (*) (void *)")
     private static native long free();
 
     /** Returns the address of the stdlib {@code free} function. */
@@ -55,7 +55,7 @@ class MemoryAccessJNI {
 
     // --- [ aligned_alloc ] ---
 
-    @NativeType("void *")
+    @NativeType("void * (*) (size_t, size_t)")
     private static native long aligned_alloc();
 
     /** Returns the address of the stdlib {@code aligned_alloc} function. */
@@ -63,7 +63,7 @@ class MemoryAccessJNI {
 
     // --- [ aligned_free ] ---
 
-    @NativeType("void *")
+    @NativeType("void (*) (void *)")
     private static native long aligned_free();
 
     /** Returns the address of the stdlib {@code aligned_free} function. */

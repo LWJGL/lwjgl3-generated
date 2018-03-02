@@ -119,7 +119,7 @@ public class JEmalloc {
     // --- [ je_malloc_message ] ---
 
     /** Returns the {@code je_malloc_message} variable. */
-    @NativeType("void **")
+    @NativeType("void (*) (void *, char const *) *")
     public static PointerBuffer je_malloc_message() {
         long __result = Functions.malloc_message;
         return memPointerBuffer(__result, 1);
