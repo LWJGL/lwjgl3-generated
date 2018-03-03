@@ -33,6 +33,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code OverlayPresent} &ndash; 
  * True if a system overlay is present, such as a dashboard. In this case the application (if visible) should pause while still drawing, avoid drawing
  * near-field graphics so they don't visually fight with the system overlay, and consume fewer CPU and GPU resources.</li>
+ * <li>{@code DepthRequested} &ndash; True if runtime is requesting that the application provide depth buffers with projection layers.</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -47,6 +48,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     ovrBool ShouldRecenter;
  *     ovrBool HasInputFocus;
  *     ovrBool OverlayPresent;
+ *     ovrBool DepthRequested;
  * }</pre></code>
  */
 @NativeType("struct ovrSessionStatus")
@@ -66,10 +68,12 @@ public class OVRSessionStatus extends Struct implements NativeResource {
         SHOULDQUIT,
         SHOULDRECENTER,
         HASINPUTFOCUS,
-        OVERLAYPRESENT;
+        OVERLAYPRESENT,
+        DEPTHREQUESTED;
 
     static {
         Layout layout = __struct(
+            __member(1),
             __member(1),
             __member(1),
             __member(1),
@@ -91,6 +95,7 @@ public class OVRSessionStatus extends Struct implements NativeResource {
         SHOULDRECENTER = layout.offsetof(5);
         HASINPUTFOCUS = layout.offsetof(6);
         OVERLAYPRESENT = layout.offsetof(7);
+        DEPTHREQUESTED = layout.offsetof(8);
     }
 
     OVRSessionStatus(long address, @Nullable ByteBuffer container) {
@@ -134,6 +139,9 @@ public class OVRSessionStatus extends Struct implements NativeResource {
     /** Returns the value of the {@code OverlayPresent} field. */
     @NativeType("ovrBool")
     public boolean OverlayPresent() { return nOverlayPresent(address()); }
+    /** Returns the value of the {@code DepthRequested} field. */
+    @NativeType("ovrBool")
+    public boolean DepthRequested() { return nDepthRequested(address()); }
 
     // -----------------------------------
 
@@ -292,6 +300,8 @@ public class OVRSessionStatus extends Struct implements NativeResource {
     public static boolean nHasInputFocus(long struct) { return memGetByte(struct + OVRSessionStatus.HASINPUTFOCUS) != 0; }
     /** Unsafe version of {@link #OverlayPresent}. */
     public static boolean nOverlayPresent(long struct) { return memGetByte(struct + OVRSessionStatus.OVERLAYPRESENT) != 0; }
+    /** Unsafe version of {@link #DepthRequested}. */
+    public static boolean nDepthRequested(long struct) { return memGetByte(struct + OVRSessionStatus.DEPTHREQUESTED) != 0; }
 
     // -----------------------------------
 
@@ -363,6 +373,9 @@ public class OVRSessionStatus extends Struct implements NativeResource {
         /** Returns the value of the {@code OverlayPresent} field. */
         @NativeType("ovrBool")
         public boolean OverlayPresent() { return OVRSessionStatus.nOverlayPresent(address()); }
+        /** Returns the value of the {@code DepthRequested} field. */
+        @NativeType("ovrBool")
+        public boolean DepthRequested() { return OVRSessionStatus.nDepthRequested(address()); }
 
     }
 

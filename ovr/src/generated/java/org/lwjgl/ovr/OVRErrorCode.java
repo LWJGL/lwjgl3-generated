@@ -55,6 +55,12 @@ public class OVRErrorCode {
      * <li>{@link #ovrError_InsufficientArraySize Error_InsufficientArraySize} - Increase size of output array</li>
      * <li>{@link #ovrError_NoExternalCameraInfo Error_NoExternalCameraInfo} - There is not any external camera information stored by ovrServer.</li>
      * <li>{@link #ovrError_LostTracking Error_LostTracking} - Tracking is lost when {@link OVR#ovr_GetDevicePoses GetDevicePoses} is called.</li>
+     * <li>{@link #ovrError_ExternalCameraInitializedFailed Error_ExternalCameraInitializedFailed} - There was a problem initializing the external camera for capture</li>
+     * <li>{@link #ovrError_ExternalCameraCaptureFailed Error_ExternalCameraCaptureFailed} - There was a problem capturing external camera frames</li>
+     * <li>{@link #ovrError_ExternalCameraNameListsBufferSize Error_ExternalCameraNameListsBufferSize} - The external camera friendly name list and the external camera name list are not the fixed size({@link OVR#OVR_MAX_EXTERNAL_CAMERA_COUNT}).</li>
+     * <li>{@link #ovrError_ExternalCameraNameListsMistmatch Error_ExternalCameraNameListsMistmatch} - The external camera friendly name list is not the same size as the external camera name list.</li>
+     * <li>{@link #ovrError_ExternalCameraNotCalibrated Error_ExternalCameraNotCalibrated} - The external camera property has not been sent to OVRServer when the user tries to open the camera.</li>
+     * <li>{@link #ovrError_ExternalCameraNameWrongSize Error_ExternalCameraNameWrongSize} - The external camera name is larger than {@link OVR#OVR_EXTERNAL_CAMERA_NAME_SIZE}-1</li>
      * <li>{@link #ovrError_AudioDeviceNotFound Error_AudioDeviceNotFound} - Failure to find the specified audio device.</li>
      * <li>{@link #ovrError_AudioComError Error_AudioComError} - Generic COM error.</li>
      * <li>{@link #ovrError_Initialize Error_Initialize} - Generic initialization error.</li>
@@ -83,6 +89,7 @@ public class OVRErrorCode {
      * <li>{@link #ovrError_LibSymbols Error_LibSymbols} - LibOVRRT symbol resolution failure.</li>
      * <li>{@link #ovrError_RemoteSession Error_RemoteSession} - Failed to connect to the service because remote connections to the service are not allowed.</li>
      * <li>{@link #ovrError_InitializeVulkan Error_InitializeVulkan} - Vulkan initialization error.</li>
+     * <li>{@link #ovrError_BlacklistedGfxDriver Error_BlacklistedGfxDriver} - The graphics driver is black-listed.</li>
      * <li>{@link #ovrError_Incomplete Error_Incomplete} - Requested async work not yet complete.</li>
      * <li>{@link #ovrError_Abandoned Error_Abandoned} - Requested async work was abandoned and result is incomplete.</li>
      * <li>{@link #ovrError_DisplayLost Error_DisplayLost} - In the event of a system-wide graphics reset or cable unplug this is returned to the app.</li>
@@ -94,6 +101,7 @@ public class OVRErrorCode {
      * <li>{@link #ovrError_ApplicationInvisible Error_ApplicationInvisible} - Application declared itself as an invisible type and is not allowed to submit frames.</li>
      * <li>{@link #ovrError_Disallowed Error_Disallowed} - The given request is disallowed under the current conditions.</li>
      * <li>{@link #ovrError_DisplayPluggedIncorrectly Error_DisplayPluggedIncorrectly} - Display portion of HMD is plugged into an incompatible port (ex: IGP)</li>
+     * <li>{@link #ovrError_DisplayLimitReached Error_DisplayLimitReached} - Returned in the event a virtual display system reaches a display limit</li>
      * <li>{@link #ovrError_RuntimeException Error_RuntimeException} - A runtime exception occurred. The application is required to shutdown LibOVR and re-initialize it before this error state will be cleared.</li>
      * <li>{@link #ovrError_NoCalibration Error_NoCalibration} - Result of a missing calibration block.</li>
      * <li>{@link #ovrError_OldVersion Error_OldVersion} - Result of an old calibration block.</li>
@@ -101,66 +109,74 @@ public class OVRErrorCode {
      * </ul>
      */
     public static final int
-        ovrError_MemoryAllocationFailure       = -1000,
-        ovrError_InvalidSession                = -1002,
-        ovrError_Timeout                       = -1003,
-        ovrError_NotInitialized                = -1004,
-        ovrError_InvalidParameter              = -1005,
-        ovrError_ServiceError                  = -1006,
-        ovrError_NoHmd                         = -1007,
-        ovrError_Unsupported                   = -1009,
-        ovrError_DeviceUnavailable             = -1010,
-        ovrError_InvalidHeadsetOrientation     = -1011,
-        ovrError_ClientSkippedDestroy          = -1012,
-        ovrError_ClientSkippedShutdown         = -1013,
-        ovrError_ServiceDeadlockDetected       = -1014,
-        ovrError_InvalidOperation              = -1015,
-        ovrError_InsufficientArraySize         = -1016,
-        ovrError_NoExternalCameraInfo          = -1017,
-        ovrError_LostTracking                  = -1018,
-        ovrError_AudioDeviceNotFound           = -2001,
-        ovrError_AudioComError                 = -2002,
-        ovrError_Initialize                    = -3000,
-        ovrError_LibLoad                       = -3001,
-        ovrError_LibVersion                    = -3002,
-        ovrError_ServiceConnection             = -3003,
-        ovrError_ServiceVersion                = -3004,
-        ovrError_IncompatibleOS                = -3005,
-        ovrError_DisplayInit                   = -3006,
-        ovrError_ServerStart                   = -3007,
-        ovrError_Reinitialization              = -3008,
-        ovrError_MismatchedAdapters            = -3009,
-        ovrError_LeakingResources              = -3010,
-        ovrError_ClientVersion                 = -3011,
-        ovrError_OutOfDateOS                   = -3012,
-        ovrError_OutOfDateGfxDriver            = -3013,
-        ovrError_IncompatibleGPU               = -3014,
-        ovrError_NoValidVRDisplaySystem        = -3015,
-        ovrError_Obsolete                      = -3016,
-        ovrError_DisabledOrDefaultAdapter      = -3017,
-        ovrError_HybridGraphicsNotSupported    = -3018,
-        ovrError_DisplayManagerInit            = -3019,
-        ovrError_TrackerDriverInit             = -3020,
-        ovrError_LibSignCheck                  = -3021,
-        ovrError_LibPath                       = -3022,
-        ovrError_LibSymbols                    = -3023,
-        ovrError_RemoteSession                 = -3024,
-        ovrError_InitializeVulkan              = -3025,
-        ovrError_Incomplete                    = -5000,
-        ovrError_Abandoned                     = -5001,
-        ovrError_DisplayLost                   = -6000,
-        ovrError_TextureSwapChainFull          = -6001,
-        ovrError_TextureSwapChainInvalid       = -6002,
-        ovrError_GraphicsDeviceReset           = -6003,
-        ovrError_DisplayRemoved                = -6004,
-        ovrError_ContentProtectionNotAvailable = -6005,
-        ovrError_ApplicationInvisible          = -6006,
-        ovrError_Disallowed                    = -6007,
-        ovrError_DisplayPluggedIncorrectly     = -6008,
-        ovrError_RuntimeException              = -7000,
-        ovrError_NoCalibration                 = -9000,
-        ovrError_OldVersion                    = -9001,
-        ovrError_MisformattedBlock             = -9002;
+        ovrError_MemoryAllocationFailure           = -1000,
+        ovrError_InvalidSession                    = -1002,
+        ovrError_Timeout                           = -1003,
+        ovrError_NotInitialized                    = -1004,
+        ovrError_InvalidParameter                  = -1005,
+        ovrError_ServiceError                      = -1006,
+        ovrError_NoHmd                             = -1007,
+        ovrError_Unsupported                       = -1009,
+        ovrError_DeviceUnavailable                 = -1010,
+        ovrError_InvalidHeadsetOrientation         = -1011,
+        ovrError_ClientSkippedDestroy              = -1012,
+        ovrError_ClientSkippedShutdown             = -1013,
+        ovrError_ServiceDeadlockDetected           = -1014,
+        ovrError_InvalidOperation                  = -1015,
+        ovrError_InsufficientArraySize             = -1016,
+        ovrError_NoExternalCameraInfo              = -1017,
+        ovrError_LostTracking                      = -1018,
+        ovrError_ExternalCameraInitializedFailed   = -1019,
+        ovrError_ExternalCameraCaptureFailed       = -1020,
+        ovrError_ExternalCameraNameListsBufferSize = -1021,
+        ovrError_ExternalCameraNameListsMistmatch  = -1022,
+        ovrError_ExternalCameraNotCalibrated       = -1023,
+        ovrError_ExternalCameraNameWrongSize       = -1024,
+        ovrError_AudioDeviceNotFound               = -2001,
+        ovrError_AudioComError                     = -2002,
+        ovrError_Initialize                        = -3000,
+        ovrError_LibLoad                           = -3001,
+        ovrError_LibVersion                        = -3002,
+        ovrError_ServiceConnection                 = -3003,
+        ovrError_ServiceVersion                    = -3004,
+        ovrError_IncompatibleOS                    = -3005,
+        ovrError_DisplayInit                       = -3006,
+        ovrError_ServerStart                       = -3007,
+        ovrError_Reinitialization                  = -3008,
+        ovrError_MismatchedAdapters                = -3009,
+        ovrError_LeakingResources                  = -3010,
+        ovrError_ClientVersion                     = -3011,
+        ovrError_OutOfDateOS                       = -3012,
+        ovrError_OutOfDateGfxDriver                = -3013,
+        ovrError_IncompatibleGPU                   = -3014,
+        ovrError_NoValidVRDisplaySystem            = -3015,
+        ovrError_Obsolete                          = -3016,
+        ovrError_DisabledOrDefaultAdapter          = -3017,
+        ovrError_HybridGraphicsNotSupported        = -3018,
+        ovrError_DisplayManagerInit                = -3019,
+        ovrError_TrackerDriverInit                 = -3020,
+        ovrError_LibSignCheck                      = -3021,
+        ovrError_LibPath                           = -3022,
+        ovrError_LibSymbols                        = -3023,
+        ovrError_RemoteSession                     = -3024,
+        ovrError_InitializeVulkan                  = -3025,
+        ovrError_BlacklistedGfxDriver              = -3026,
+        ovrError_Incomplete                        = -5000,
+        ovrError_Abandoned                         = -5001,
+        ovrError_DisplayLost                       = -6000,
+        ovrError_TextureSwapChainFull              = -6001,
+        ovrError_TextureSwapChainInvalid           = -6002,
+        ovrError_GraphicsDeviceReset               = -6003,
+        ovrError_DisplayRemoved                    = -6004,
+        ovrError_ContentProtectionNotAvailable     = -6005,
+        ovrError_ApplicationInvisible              = -6006,
+        ovrError_Disallowed                        = -6007,
+        ovrError_DisplayPluggedIncorrectly         = -6008,
+        ovrError_DisplayLimitReached               = -6009,
+        ovrError_RuntimeException                  = -7000,
+        ovrError_NoCalibration                     = -9000,
+        ovrError_OldVersion                        = -9001,
+        ovrError_MisformattedBlock                 = -9002;
 
     static { LibOVR.initialize(); }
 

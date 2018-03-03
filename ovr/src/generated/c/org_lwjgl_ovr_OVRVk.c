@@ -35,11 +35,11 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRVk_novr_1GetSessionPhysicalDeviceVk
     return (jint)ovr_GetSessionPhysicalDeviceVk(session, *luid, instance, out_physicalDevice);
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRVk_novr_1SetSynchonizationQueueVk(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong queueAddress) {
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRVk_novr_1SetSynchronizationQueueVk(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong queueAddress) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
     VkQueue queue = (VkQueue)(intptr_t)queueAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jint)ovr_SetSynchonizationQueueVk(session, queue);
+    return (jint)ovr_SetSynchronizationQueueVk(session, queue);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVRVk_novr_1CreateTextureSwapChainVk(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong deviceAddress, jlong descAddress, jlong out_TextureSwapChainAddress) {

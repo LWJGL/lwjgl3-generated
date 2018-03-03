@@ -154,17 +154,17 @@ public class OVRVk {
         return novr_GetSessionPhysicalDeviceVk(session, luid.address(), instance.address(), memAddress(out_physicalDevice));
     }
 
-    // --- [ ovr_SetSynchonizationQueueVk ] ---
+    // --- [ ovr_SetSynchronizationQueueVk ] ---
 
-    /** Unsafe version of: {@link #ovr_SetSynchonizationQueueVk SetSynchonizationQueueVk} */
-    public static native int novr_SetSynchonizationQueueVk(long session, long queue);
+    /** Unsafe version of: {@link #ovr_SetSynchronizationQueueVk SetSynchronizationQueueVk} */
+    public static native int novr_SetSynchronizationQueueVk(long session, long queue);
 
     /**
      * Selects {@code VkQueue} to block on till rendering is complete.
      * 
      * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
      * 
-     * <p>The queue may be changed at any time but only the value at the time {@link OVR#ovr_SubmitFrame SubmitFrame} is called will be used. {@code ovr_SetSynchonizationQueueVk}
+     * <p>The queue may be changed at any time but only the value at the time {@link OVR#ovr_SubmitFrame SubmitFrame} is called will be used. {@code ovr_SetSynchronizationQueueVk}
      * must be called with a valid {@code VkQueue} created on the same {@code VkDevice} the texture sets were created on prior to the first call to
      * {@link OVR#ovr_SubmitFrame SubmitFrame}. An internally created {@code VkFence} object will be signalled by the completion of operations on queue and waited on to
      * synchronize the VR compositor.</p>
@@ -176,11 +176,11 @@ public class OVRVk {
      * @return an {@code ovrResult} indicating success or failure. In the case of failure, use {@link OVR#ovr_GetLastErrorInfo GetLastErrorInfo} to get more information.
      */
     @NativeType("ovrResult")
-    public static int ovr_SetSynchonizationQueueVk(@NativeType("ovrSession") long session, VkQueue queue) {
+    public static int ovr_SetSynchronizationQueueVk(@NativeType("ovrSession") long session, VkQueue queue) {
         if (CHECKS) {
             check(session);
         }
-        return novr_SetSynchonizationQueueVk(session, queue.address());
+        return novr_SetSynchronizationQueueVk(session, queue.address());
     }
 
     // --- [ ovr_CreateTextureSwapChainVk ] ---

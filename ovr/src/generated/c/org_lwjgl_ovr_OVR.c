@@ -247,6 +247,23 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1RequestBoundaryVisible(JNIEn
     return (jint)ovr_RequestBoundaryVisible(session, (ovrBool)visible);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetExternalCameras__JJJ(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong camerasAddress, jlong inoutCameraCountAddress) {
+    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+    ovrExternalCamera *cameras = (ovrExternalCamera *)(intptr_t)camerasAddress;
+    unsigned int *inoutCameraCount = (unsigned int *)(intptr_t)inoutCameraCountAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)ovr_GetExternalCameras(session, cameras, inoutCameraCount);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetExternalCameraProperties(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong nameAddress, jlong intrinsicsAddress, jlong extrinsicsAddress) {
+    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+    char const *name = (char const *)(intptr_t)nameAddress;
+    ovrCameraIntrinsics const * const intrinsics = (ovrCameraIntrinsics const * const)(intptr_t)intrinsicsAddress;
+    ovrCameraExtrinsics const * const extrinsics = (ovrCameraExtrinsics const * const)(intptr_t)extrinsicsAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)ovr_SetExternalCameraProperties(session, name, intrinsics, extrinsics);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetTextureSwapChainLength__JJJ(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong chainAddress, jlong out_LengthAddress) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
     ovrTextureSwapChain chain = (ovrTextureSwapChain)(intptr_t)chainAddress;
@@ -358,23 +375,6 @@ JNIEXPORT jdouble JNICALL Java_org_lwjgl_ovr_OVR_ovr_1GetTimeInSeconds(JNIEnv *_
     return (jdouble)ovr_GetTimeInSeconds();
 }
 
-JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetExternalCameras__JJJ(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong camerasAddress, jlong inoutCameraCountAddress) {
-    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    ovrExternalCamera *cameras = (ovrExternalCamera *)(intptr_t)camerasAddress;
-    unsigned int *inoutCameraCount = (unsigned int *)(intptr_t)inoutCameraCountAddress;
-    UNUSED_PARAMS(__env, clazz)
-    return (jint)ovr_GetExternalCameras(session, cameras, inoutCameraCount);
-}
-
-JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1SetExternalCameraProperties(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong nameAddress, jlong intrinsicsAddress, jlong extrinsicsAddress) {
-    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    char const *name = (char const *)(intptr_t)nameAddress;
-    ovrCameraIntrinsics const *intrinsics = (ovrCameraIntrinsics const *)(intptr_t)intrinsicsAddress;
-    ovrCameraExtrinsics const *extrinsics = (ovrCameraExtrinsics const *)(intptr_t)extrinsicsAddress;
-    UNUSED_PARAMS(__env, clazz)
-    return (jint)ovr_SetExternalCameraProperties(session, name, intrinsics, extrinsics);
-}
-
 JNIEXPORT jboolean JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetBool(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jboolean defaultVal) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
     char const *propertyName = (char const *)(intptr_t)propertyNameAddress;
@@ -483,6 +483,23 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_ovr_OVR_novr_1GetBoundaryGeometry_
     return (jint)ovr_GetBoundaryGeometry(session, (ovrBoundaryType)boundaryType, outFloorPoints, (int *)outFloorPointsCount);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetExternalCameras__JJ_3I(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong camerasAddress, jintArray inoutCameraCountAddress) {
+    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+    ovrExternalCamera *cameras = (ovrExternalCamera *)(intptr_t)camerasAddress;
+    jint __result;
+    jint *inoutCameraCount = (*__env)->GetPrimitiveArrayCritical(__env, inoutCameraCountAddress, 0);
+    UNUSED_PARAMS(__env, clazz)
+    __result = (jint)ovr_GetExternalCameras(session, cameras, (unsigned int *)inoutCameraCount);
+    (*__env)->ReleasePrimitiveArrayCritical(__env, inoutCameraCountAddress, inoutCameraCount, 0);
+    return __result;
+}
+JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_ovr_OVR_novr_1GetExternalCameras__JJ_3I(jlong sessionAddress, jlong camerasAddress, jint inoutCameraCount__length, jint* inoutCameraCount) {
+    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
+    ovrExternalCamera *cameras = (ovrExternalCamera *)(intptr_t)camerasAddress;
+    UNUSED_PARAM(inoutCameraCount__length)
+    return (jint)ovr_GetExternalCameras(session, cameras, (unsigned int *)inoutCameraCount);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetTextureSwapChainLength__JJ_3I(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong chainAddress, jintArray out_LengthAddress) {
     ovrSession session = (ovrSession)(intptr_t)sessionAddress;
     ovrTextureSwapChain chain = (ovrTextureSwapChain)(intptr_t)chainAddress;
@@ -515,23 +532,6 @@ JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_ovr_OVR_novr_1GetTextureSwapChainC
     ovrTextureSwapChain chain = (ovrTextureSwapChain)(intptr_t)chainAddress;
     UNUSED_PARAM(out_Index__length)
     return (jint)ovr_GetTextureSwapChainCurrentIndex(session, chain, (int *)out_Index);
-}
-
-JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetExternalCameras__JJ_3I(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong camerasAddress, jintArray inoutCameraCountAddress) {
-    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    ovrExternalCamera *cameras = (ovrExternalCamera *)(intptr_t)camerasAddress;
-    jint __result;
-    jint *inoutCameraCount = (*__env)->GetPrimitiveArrayCritical(__env, inoutCameraCountAddress, 0);
-    UNUSED_PARAMS(__env, clazz)
-    __result = (jint)ovr_GetExternalCameras(session, cameras, (unsigned int *)inoutCameraCount);
-    (*__env)->ReleasePrimitiveArrayCritical(__env, inoutCameraCountAddress, inoutCameraCount, 0);
-    return __result;
-}
-JNIEXPORT jint JNICALL JavaCritical_org_lwjgl_ovr_OVR_novr_1GetExternalCameras__JJ_3I(jlong sessionAddress, jlong camerasAddress, jint inoutCameraCount__length, jint* inoutCameraCount) {
-    ovrSession session = (ovrSession)(intptr_t)sessionAddress;
-    ovrExternalCamera *cameras = (ovrExternalCamera *)(intptr_t)camerasAddress;
-    UNUSED_PARAM(inoutCameraCount__length)
-    return (jint)ovr_GetExternalCameras(session, cameras, (unsigned int *)inoutCameraCount);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_ovr_OVR_novr_1GetFloatArray__JJ_3FI(JNIEnv *__env, jclass clazz, jlong sessionAddress, jlong propertyNameAddress, jfloatArray valuesAddress, jint valuesCapacity) {

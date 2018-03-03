@@ -272,6 +272,7 @@ public class OVR {
      * <li>{@link #OVR_FORMAT_R8G8B8A8_UNORM OVR_FORMAT_R8G8B8A8_UNORM}</li>
      * <li>{@link #OVR_FORMAT_R8G8B8A8_UNORM_SRGB OVR_FORMAT_R8G8B8A8_UNORM_SRGB}</li>
      * <li>{@link #OVR_FORMAT_B8G8R8A8_UNORM OVR_FORMAT_B8G8R8A8_UNORM}</li>
+     * <li>{@link #OVR_FORMAT_B8G8R8_UNORM OVR_FORMAT_B8G8R8_UNORM}</li>
      * <li>{@link #OVR_FORMAT_B8G8R8A8_UNORM_SRGB OVR_FORMAT_B8G8R8A8_UNORM_SRGB} - Not supported for OpenGL applications.</li>
      * <li>{@link #OVR_FORMAT_B8G8R8X8_UNORM OVR_FORMAT_B8G8R8X8_UNORM} - Not supported for OpenGL applications.</li>
      * <li>{@link #OVR_FORMAT_B8G8R8X8_UNORM_SRGB OVR_FORMAT_B8G8R8X8_UNORM_SRGB} - Not supported for OpenGL applications.</li>
@@ -301,6 +302,7 @@ public class OVR {
         OVR_FORMAT_R8G8B8A8_UNORM       = 4,
         OVR_FORMAT_R8G8B8A8_UNORM_SRGB  = 5,
         OVR_FORMAT_B8G8R8A8_UNORM       = 6,
+        OVR_FORMAT_B8G8R8_UNORM         = 27,
         OVR_FORMAT_B8G8R8A8_UNORM_SRGB  = 7,
         OVR_FORMAT_B8G8R8X8_UNORM       = 8,
         OVR_FORMAT_B8G8R8X8_UNORM_SRGB  = 9,
@@ -568,6 +570,7 @@ public class OVR {
      * <li>{@link #ovrCameraStatus_Calibrating CameraStatus_Calibrating} - Bit set when the camera is undergoing calibration.</li>
      * <li>{@link #ovrCameraStatus_CalibrationFailed CameraStatus_CalibrationFailed} - Bit set when the camera has tried & failed calibration.</li>
      * <li>{@link #ovrCameraStatus_Calibrated CameraStatus_Calibrated} - Bit set when the camera has tried & passed calibration.</li>
+     * <li>{@link #ovrCameraStatus_Capturing CameraStatus_Capturing} - Bit set when the camera is capturing.</li>
      * </ul>
      */
     public static final int
@@ -575,7 +578,8 @@ public class OVR {
         ovrCameraStatus_Connected         = 0x1,
         ovrCameraStatus_Calibrating       = 0x2,
         ovrCameraStatus_CalibrationFailed = 0x4,
-        ovrCameraStatus_Calibrated        = 0x8;
+        ovrCameraStatus_Calibrated        = 0x8,
+        ovrCameraStatus_Capturing         = 0x10;
 
     /**
      * Boundary types that specified while using the boundary system. ({@code ovrBoundaryType})
@@ -618,6 +622,11 @@ public class OVR {
 
     /** Maximum number of samples in {@link OVRHapticsBuffer}. */
     public static final int OVR_HAPTICS_BUFFER_SAMPLES_MAX = 256;
+
+    /** External camera constants */
+    public static final int
+        OVR_MAX_EXTERNAL_CAMERA_COUNT = 16,
+        OVR_EXTERNAL_CAMERA_NAME_SIZE = 32;
 
     /** Specifies the maximum number of layers supported by {@link #ovr_SubmitFrame SubmitFrame}. */
     public static final int ovrMaxLayerCount = 16;
@@ -1337,6 +1346,9 @@ public class OVR {
 
     /**
      * Returns an array of poses, where each pose matches a device type provided by the {@code deviceTypes} array parameter.
+     * 
+     * <p>If any pose cannot be retrieved, it will return a reason for the missing pose and the device pose will be zeroed out with a pose quaternion
+     * {@code [x=0, y=0, z=0, w=1]}.</p>
      *
      * @param session        an {@code ovrSession} previously returned by {@link #ovr_Create Create}
      * @param deviceTypes    array of device types to query for their poses
@@ -1730,6 +1742,90 @@ public class OVR {
             check(session);
         }
         return novr_RequestBoundaryVisible(session, visible);
+    }
+
+    // --- [ ovr_GetExternalCameras ] ---
+
+    /**
+     * Unsafe version of: {@link #ovr_GetExternalCameras GetExternalCameras}
+     *
+     * @param inoutCameraCount supply the array capacity, will return the actual \\# of cameras defined. If {@code *inoutCameraCount} is too small, will return
+     *                         {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize}.
+     */
+    public static native int novr_GetExternalCameras(long session, long cameras, long inoutCameraCount);
+
+    /**
+     * Returns the number of camera properties of all cameras
+     *
+     * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+     * @param cameras          pointer to the array. If null and the provided array capacity is sufficient, will return {@code ovrError_NullArrayPointer}.
+     * @param inoutCameraCount supply the array capacity, will return the actual \\# of cameras defined. If {@code *inoutCameraCount} is too small, will return
+     *                         {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize}.
+     *
+     * @return the list of external cameras the system knows about. Returns {@link OVRErrorCode#ovrError_NoExternalCameraInfo Error_NoExternalCameraInfo} if there is not any external camera information.
+     */
+    @NativeType("ovrResult")
+    public static int ovr_GetExternalCameras(@NativeType("ovrSession") long session, @Nullable @NativeType("ovrExternalCamera *") OVRExternalCamera.Buffer cameras, @NativeType("unsigned int *") IntBuffer inoutCameraCount) {
+        if (CHECKS) {
+            check(session);
+            check(inoutCameraCount, 1);
+            checkSafe(cameras, inoutCameraCount.get(inoutCameraCount.position()));
+        }
+        return novr_GetExternalCameras(session, memAddressSafe(cameras), memAddress(inoutCameraCount));
+    }
+
+    // --- [ ovr_SetExternalCameraProperties ] ---
+
+    /** Unsafe version of: {@link #ovr_SetExternalCameraProperties SetExternalCameraProperties} */
+    public static native int novr_SetExternalCameraProperties(long session, long name, long intrinsics, long extrinsics);
+
+    /**
+     * Sets the camera intrinsics and/or extrinsics stored for the {@code cameraName} camera.
+     * 
+     * <p>Names must be &lt; 32 characters and null-terminated.</p>
+     *
+     * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+     * @param name       specifies which camera to set the intrinsics or extrinsics for. The name must be at most {@link #OVR_EXTERNAL_CAMERA_NAME_SIZE} - 1 characters. Otherwise,
+     *                   {@link OVRErrorCode#ovrError_ExternalCameraNameWrongSize Error_ExternalCameraNameWrongSize} is returned.
+     * @param intrinsics contains the intrinsic parameters to set, can be null
+     * @param extrinsics ontains the extrinsic parameters to set, can be null
+     *
+     * @return {@link OVRErrorCode#ovrSuccess Success} or an {@code ovrError} code
+     */
+    @NativeType("ovrResult")
+    public static int ovr_SetExternalCameraProperties(@NativeType("ovrSession") long session, @NativeType("char const *") ByteBuffer name, @NativeType("ovrCameraIntrinsics const * const") OVRCameraIntrinsics intrinsics, @NativeType("ovrCameraExtrinsics const * const") OVRCameraExtrinsics extrinsics) {
+        if (CHECKS) {
+            check(session);
+            checkNT1(name);
+        }
+        return novr_SetExternalCameraProperties(session, memAddress(name), intrinsics.address(), extrinsics.address());
+    }
+
+    /**
+     * Sets the camera intrinsics and/or extrinsics stored for the {@code cameraName} camera.
+     * 
+     * <p>Names must be &lt; 32 characters and null-terminated.</p>
+     *
+     * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
+     * @param name       specifies which camera to set the intrinsics or extrinsics for. The name must be at most {@link #OVR_EXTERNAL_CAMERA_NAME_SIZE} - 1 characters. Otherwise,
+     *                   {@link OVRErrorCode#ovrError_ExternalCameraNameWrongSize Error_ExternalCameraNameWrongSize} is returned.
+     * @param intrinsics contains the intrinsic parameters to set, can be null
+     * @param extrinsics ontains the extrinsic parameters to set, can be null
+     *
+     * @return {@link OVRErrorCode#ovrSuccess Success} or an {@code ovrError} code
+     */
+    @NativeType("ovrResult")
+    public static int ovr_SetExternalCameraProperties(@NativeType("ovrSession") long session, @NativeType("char const *") CharSequence name, @NativeType("ovrCameraIntrinsics const * const") OVRCameraIntrinsics intrinsics, @NativeType("ovrCameraExtrinsics const * const") OVRCameraExtrinsics extrinsics) {
+        if (CHECKS) {
+            check(session);
+        }
+        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
+        try {
+            ByteBuffer nameEncoded = stack.ASCII(name);
+            return novr_SetExternalCameraProperties(session, memAddress(nameEncoded), intrinsics.address(), extrinsics.address());
+        } finally {
+            stack.setPointer(stackPointer);
+        }
     }
 
     // --- [ ovr_GetTextureSwapChainLength ] ---
@@ -2205,84 +2301,6 @@ public class OVR {
      * @return seconds as a floating point value
      */
     public static native double ovr_GetTimeInSeconds();
-
-    // --- [ ovr_GetExternalCameras ] ---
-
-    /**
-     * Unsafe version of: {@link #ovr_GetExternalCameras GetExternalCameras}
-     *
-     * @param inoutCameraCount supplies the array capacity, will return the actual \# of cameras defined. If {@code inoutCameraCount} is too small, will return
-     *                         {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize}.
-     */
-    public static native int novr_GetExternalCameras(long session, long cameras, long inoutCameraCount);
-
-    /**
-     * Returns the number of camera properties of all cameras.
-     *
-     * @param session          an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-     * @param cameras          pointer to the array. If {@code NULL} and the provided array capacity is sufficient, will return {@code ovrError_NullArrayPointer}.
-     * @param inoutCameraCount supplies the array capacity, will return the actual \# of cameras defined. If {@code inoutCameraCount} is too small, will return
-     *                         {@link OVRErrorCode#ovrError_InsufficientArraySize Error_InsufficientArraySize}.
-     *
-     * @return the ids of external cameras the system knows about. Returns {@link OVRErrorCode#ovrError_NoExternalCameraInfo Error_NoExternalCameraInfo} if there is not any external camera information.
-     */
-    @NativeType("ovrResult")
-    public static int ovr_GetExternalCameras(@NativeType("ovrSession") long session, @Nullable @NativeType("ovrExternalCamera *") OVRExternalCamera.Buffer cameras, @NativeType("unsigned int *") IntBuffer inoutCameraCount) {
-        if (CHECKS) {
-            check(session);
-            check(inoutCameraCount, 1);
-            checkSafe(cameras, inoutCameraCount.get(inoutCameraCount.position()));
-        }
-        return novr_GetExternalCameras(session, memAddressSafe(cameras), memAddress(inoutCameraCount));
-    }
-
-    // --- [ ovr_SetExternalCameraProperties ] ---
-
-    /** Unsafe version of: {@link #ovr_SetExternalCameraProperties SetExternalCameraProperties} */
-    public static native int novr_SetExternalCameraProperties(long session, long name, long intrinsics, long extrinsics);
-
-    /**
-     * Sets the camera intrinsics and/or extrinsics stored for the {@code name} camera.
-     * 
-     * <p>Names must be &lt; 32 characters and null-terminated.</p>
-     *
-     * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-     * @param name       specifies which camera to set the intrinsics or extrinsics for
-     * @param intrinsics contains the intrinsic parameters to set, can be null
-     * @param extrinsics contains the extrinsic parameters to set, can be null
-     */
-    @NativeType("ovrResult")
-    public static int ovr_SetExternalCameraProperties(@NativeType("ovrSession") long session, @NativeType("char const *") ByteBuffer name, @Nullable @NativeType("ovrCameraIntrinsics const *") OVRCameraIntrinsics intrinsics, @Nullable @NativeType("ovrCameraExtrinsics const *") OVRCameraExtrinsics extrinsics) {
-        if (CHECKS) {
-            check(session);
-            checkNT1(name);
-        }
-        return novr_SetExternalCameraProperties(session, memAddress(name), memAddressSafe(intrinsics), memAddressSafe(extrinsics));
-    }
-
-    /**
-     * Sets the camera intrinsics and/or extrinsics stored for the {@code name} camera.
-     * 
-     * <p>Names must be &lt; 32 characters and null-terminated.</p>
-     *
-     * @param session    an {@code ovrSession} previously returned by {@link #ovr_Create Create}
-     * @param name       specifies which camera to set the intrinsics or extrinsics for
-     * @param intrinsics contains the intrinsic parameters to set, can be null
-     * @param extrinsics contains the extrinsic parameters to set, can be null
-     */
-    @NativeType("ovrResult")
-    public static int ovr_SetExternalCameraProperties(@NativeType("ovrSession") long session, @NativeType("char const *") CharSequence name, @Nullable @NativeType("ovrCameraIntrinsics const *") OVRCameraIntrinsics intrinsics, @Nullable @NativeType("ovrCameraExtrinsics const *") OVRCameraExtrinsics extrinsics) {
-        if (CHECKS) {
-            check(session);
-        }
-        MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
-        try {
-            ByteBuffer nameEncoded = stack.ASCII(name);
-            return novr_SetExternalCameraProperties(session, memAddress(nameEncoded), memAddressSafe(intrinsics), memAddressSafe(extrinsics));
-        } finally {
-            stack.setPointer(stackPointer);
-        }
-    }
 
     // --- [ ovr_GetBool ] ---
 
@@ -2804,6 +2822,20 @@ public class OVR {
         return novr_GetBoundaryGeometry(session, boundaryType, memAddressSafe(outFloorPoints), outFloorPointsCount);
     }
 
+    /** Array version of: {@link #novr_GetExternalCameras} */
+    public static native int novr_GetExternalCameras(long session, long cameras, int[] inoutCameraCount);
+
+    /** Array version of: {@link #ovr_GetExternalCameras GetExternalCameras} */
+    @NativeType("ovrResult")
+    public static int ovr_GetExternalCameras(@NativeType("ovrSession") long session, @Nullable @NativeType("ovrExternalCamera *") OVRExternalCamera.Buffer cameras, @NativeType("unsigned int *") int[] inoutCameraCount) {
+        if (CHECKS) {
+            check(session);
+            check(inoutCameraCount, 1);
+            checkSafe(cameras, inoutCameraCount[0]);
+        }
+        return novr_GetExternalCameras(session, memAddressSafe(cameras), inoutCameraCount);
+    }
+
     /** Array version of: {@link #novr_GetTextureSwapChainLength} */
     public static native int novr_GetTextureSwapChainLength(long session, long chain, int[] out_Length);
 
@@ -2830,20 +2862,6 @@ public class OVR {
             check(out_Index, 1);
         }
         return novr_GetTextureSwapChainCurrentIndex(session, chain, out_Index);
-    }
-
-    /** Array version of: {@link #novr_GetExternalCameras} */
-    public static native int novr_GetExternalCameras(long session, long cameras, int[] inoutCameraCount);
-
-    /** Array version of: {@link #ovr_GetExternalCameras GetExternalCameras} */
-    @NativeType("ovrResult")
-    public static int ovr_GetExternalCameras(@NativeType("ovrSession") long session, @Nullable @NativeType("ovrExternalCamera *") OVRExternalCamera.Buffer cameras, @NativeType("unsigned int *") int[] inoutCameraCount) {
-        if (CHECKS) {
-            check(session);
-            check(inoutCameraCount, 1);
-            checkSafe(cameras, inoutCameraCount[0]);
-        }
-        return novr_GetExternalCameras(session, memAddressSafe(cameras), inoutCameraCount);
     }
 
     /** Array version of: {@link #novr_GetFloatArray} */

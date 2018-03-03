@@ -18,6 +18,10 @@ import static org.lwjgl.system.MemoryStack.*;
 /**
  * Multiresolution descriptor for Octilinear.
  * 
+ * <p>Usage of this layer must be successfully enabled via {@link OVR#ovr_EnableExtension EnableExtension} before it can be used.</p>
+ * 
+ * <p>Size of W quadrants:</p>
+ * 
  * <code><pre>
  * SizeLeft + SizeRight <= Viewport.Size.w
  * SizeUp   + sizeDown  <= Viewport.Size.h
