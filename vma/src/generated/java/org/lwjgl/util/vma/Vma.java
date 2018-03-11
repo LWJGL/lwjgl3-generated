@@ -255,15 +255,58 @@ vmaDestroyAllocator(allocator);</code></p>
  * <p>Also, Windows drivers from all 3 PC GPU vendors (AMD, Intel, NVIDIA) currently provide {@code VK_MEMORY_PROPERTY_HOST_COHERENT_BIT} flag on all memory
  * types that are {@code VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT}, so on this platform you may not need to bother.</p>
  * 
+ * <h4>Finding out if memory is mappable</h4>
+ * 
+ * <p>It may happen that your allocation ends up in memory that is {@code HOST_VISIBLE} (available for mapping) despite it wasn't explicitly requested. For
+ * example, application may work on integrated graphics with unified memory (like Intel) or allocation from video memory might have failed, so the library
+ * chose system memory as fallback.</p>
+ * 
+ * <p>You can detect this case and map such allocation to access its memory on CPU directly, instead of launching a transfer operation. In order to do that:
+ * inspect {@code allocInfo.memoryType}, call {@link #vmaGetMemoryTypeProperties GetMemoryTypeProperties}, and look for {@code VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT} flag in properties of
+ * that memory type.</p>
+ * 
+ * <p>You can even use {@link #VMA_ALLOCATION_CREATE_MAPPED_BIT ALLOCATION_CREATE_MAPPED_BIT} flag while creating allocations that are not necessarily {@code HOST_VISIBLE} (e.g. using
+ * {@link #VMA_MEMORY_USAGE_GPU_ONLY MEMORY_USAGE_GPU_ONLY}). If the allocation ends up in memory type that is {@code HOST_VISIBL}E, it will be persistently mapped and you can use it
+ * directly. If not, the flag is just ignored. Example:</p>
+ * 
+ * <p><code>
+VkBufferCreateInfo bufCreateInfo = { VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO };
+bufCreateInfo.size = sizeof(ConstantBuffer);
+bufCreateInfo.usage = VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT | VK_BUFFER_USAGE_TRANSFER_DST_BIT;</p>
+ * 
+ * <p>VmaAllocationCreateInfo allocCreateInfo = {};
+allocCreateInfo.usage = VMA_MEMORY_USAGE_GPU_ONLY;
+allocCreateInfo.flags = VMA_ALLOCATION_CREATE_MAPPED_BIT;</p>
+ * 
+ * <p>VkBuffer buf;
+VmaAllocation alloc;
+VmaAllocationInfo allocInfo;
+vmaCreateBuffer(allocator, &bufCreateInfo, &allocCreateInfo, &buf, &alloc, &allocInfo);</p>
+ * 
+ * <p>if(allocInfo.pUserData != nullptr)
+{
+ * // Allocation ended up in mappable memory.
+ * // It's persistently mapped. You can access it directly.
+ * memcpy(allocInfo.pMappedData, &constantBufferData, sizeof(constantBufferData));
+}
+else
+{
+ * // Allocation ended up in non-mappable memory.
+ * // You need to create CPU-side copy in VMA_MEMORY_USAGE_CPU_ONLY and make a transfer.
+}</code></p>
+ * 
  * <h3>Custom memory pools</h3>
  * 
- * <p>The library automatically creates and manages default memory pool for each memory type available on the device. A pool contains a number of
- * {@code VkDeviceMemory} blocks. You can create custom pool and allocate memory out of it. It can be useful if you want to:</p>
+ * <p>A memory pool contains a number of {@code VkDeviceMemory} blocks. The library automatically creates and manages default pool for each memory type
+ * available on the device. Default memory pool automatically grows in size. Size of allocated blocks is also variable and managed automatically.</p>
+ * 
+ * <p>You can create custom pool and allocate memory out of it. It can be useful if you want to:</p>
  * 
  * <ul>
  * <li>Keep certain kind of allocations separate from others.</li>
- * <li>Enforce particular size of Vulkan memory blocks.</li>
+ * <li>Enforce particular, fixed size of Vulkan memory blocks.</li>
  * <li>Limit maximum amount of Vulkan memory allocated for that pool.</li>
+ * <li>Reserve minimum or fixed amount of Vulkan memory always preallocated for that pool.</li>
  * </ul>
  * 
  * <p>To use custom memory pools:</p>
@@ -278,7 +321,7 @@ vmaDestroyAllocator(allocator);</code></p>
  * <p>Example:</p>
  * 
  * <code><pre>
- * // Create a pool that could have at most 2 blocks, 128 MiB each.
+ * // Create a pool that can have at most 2 blocks, 128 MiB each.
  * VmaPoolCreateInfo poolCreateInfo = {};
  * poolCreateInfo.memoryTypeIndex = ...
  * poolCreateInfo.blockSize = 128ull * 1024 * 1024;
@@ -1427,12 +1470,16 @@ public class Vma {
      *     }
      * }</pre></code>
      * 
-     * <p>Warning! This function is not correct according to Vulkan specification. Use it at your own risk. That's because Vulkan doesn't guarantee that memory
-     * requirements (size and alignment) for a new buffer or image are consistent. They may be different even for subsequent calls with the same parameters.
-     * It really does happen on some platforms, especially with images.</p>
+     * <p>Note: Please don't expect memory to be fully compacted after this call. Algorithms inside are based on some heuristics that try to maximize number of
+     * Vulkan memory blocks to make totally empty to release them, as well as to maximimze continuous empty space inside remaining blocks, while minimizing
+     * the number and size of data that needs to be moved. Some fragmentation still remains after this call. This is normal.</p>
      * 
-     * <p>This function may be time-consuming, so you shouldn't call it too often (like every frame or after every resource creation/destruction), but rather you
-     * can call it on special occasions (like when reloading a game level, when you just destroyed a lot of objects).</p>
+     * <p>Warning: This function is not 100% correct according to Vulkan specification. Use it at your own risk. That's because Vulkan doesn't guarantee that
+     * memory requirements (size and alignment) for a new buffer or image are consistent. They may be different even for subsequent calls with the same
+     * parameters. It really does happen on some platforms, especially with images.</p>
+     * 
+     * <p>Warning: This function may be time-consuming, so you shouldn't call it too often (like every frame or after every resource creation/destruction). You
+     * can call it on special occasions (like when reloading a game level or when you just destroyed a lot of objects).</p>
      *
      * @param allocator             
      * @param pAllocations          array of allocations that can be moved during this compaction

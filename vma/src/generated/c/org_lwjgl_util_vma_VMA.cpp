@@ -4,9 +4,12 @@
  * MACHINE GENERATED FILE, DO NOT EDIT
  */
 #include "common_tools.h"
+#include "lwjgl_malloc.h"
+DISABLE_WARNINGS()
 #define VMA_IMPLEMENTATION
 #define VMA_STATIC_VULKAN_FUNCTIONS 0
-DISABLE_WARNINGS()
+#define VMA_SYSTEM_ALIGNED_MALLOC org_lwjgl_aligned_alloc
+#define VMA_SYSTEM_FREE org_lwjgl_aligned_free
 #include "vk_mem_alloc.h"
 ENABLE_WARNINGS()
 
