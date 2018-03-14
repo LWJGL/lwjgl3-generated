@@ -20,6 +20,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <ul>
  * <li>{@code caps} &ndash; renderer capabilities</li>
+ * <li>{@code context} &ndash; GL context, or D3D device</li>
  * </ul>
  * 
  * <h3>Layout</h3>
@@ -27,6 +28,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <code><pre>
  * struct bgfx_internal_data_t {
  *     {@link BGFXCaps bgfx_caps_t} * caps;
+ *     void * context;
  * }</pre></code>
  */
 @NativeType("struct bgfx_internal_data_t")
@@ -39,10 +41,12 @@ public class BGFXInternalData extends Struct {
 
     /** The struct member offsets. */
     public static final int
-        CAPS;
+        CAPS,
+        CONTEXT;
 
     static {
         Layout layout = __struct(
+            __member(POINTER_SIZE),
             __member(POINTER_SIZE)
         );
 
@@ -50,6 +54,7 @@ public class BGFXInternalData extends Struct {
         ALIGNOF = layout.getAlignment();
 
         CAPS = layout.offsetof(0);
+        CONTEXT = layout.offsetof(1);
     }
 
     BGFXInternalData(long address, @Nullable ByteBuffer container) {
@@ -72,6 +77,9 @@ public class BGFXInternalData extends Struct {
     /** Returns a {@link BGFXCaps} view of the struct pointed to by the {@code caps} field. */
     @NativeType("bgfx_caps_t *")
     public BGFXCaps caps() { return ncaps(address()); }
+    /** Returns the value of the {@code context} field. */
+    @NativeType("void *")
+    public long context() { return ncontext(address()); }
 
     // -----------------------------------
 
@@ -106,6 +114,8 @@ public class BGFXInternalData extends Struct {
 
     /** Unsafe version of {@link #caps}. */
     public static BGFXCaps ncaps(long struct) { return BGFXCaps.create(memGetAddress(struct + BGFXInternalData.CAPS)); }
+    /** Unsafe version of {@link #context}. */
+    public static long ncontext(long struct) { return memGetAddress(struct + BGFXInternalData.CONTEXT); }
 
     // -----------------------------------
 
@@ -156,6 +166,9 @@ public class BGFXInternalData extends Struct {
         /** Returns a {@link BGFXCaps} view of the struct pointed to by the {@code caps} field. */
         @NativeType("bgfx_caps_t *")
         public BGFXCaps caps() { return BGFXInternalData.ncaps(address()); }
+        /** Returns the value of the {@code context} field. */
+        @NativeType("void *")
+        public long context() { return BGFXInternalData.ncontext(address()); }
 
     }
 
