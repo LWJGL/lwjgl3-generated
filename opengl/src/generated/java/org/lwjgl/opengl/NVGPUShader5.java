@@ -245,7 +245,7 @@ public class NVGPUShader5 {
 
     public static native void nglGetUniformui64vNV(int program, int location, long params);
 
-    public static void glGetUniformui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint64EXT *") LongBuffer params) {
+    public static void glGetUniformui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64EXT *") LongBuffer params) {
         if (CHECKS) {
             check(params, 1);
         }
@@ -443,7 +443,7 @@ public class NVGPUShader5 {
     }
 
     /** Array version of: {@link #glGetUniformui64vNV GetUniformui64vNV} */
-    public static void glGetUniformui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLint64EXT *") long[] params) {
+    public static void glGetUniformui64vNV(@NativeType("GLuint") int program, @NativeType("GLint") int location, @NativeType("GLuint64EXT *") long[] params) {
         long __functionAddress = GL.getICD().glGetUniformui64vNV;
         if (CHECKS) {
             check(__functionAddress);

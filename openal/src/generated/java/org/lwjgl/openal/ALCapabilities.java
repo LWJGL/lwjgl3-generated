@@ -15,124 +15,124 @@ import static org.lwjgl.system.APIUtil.*;
 public final class ALCapabilities {
 
     public final long
-        alAuxiliaryEffectSlotf,
-        alAuxiliaryEffectSlotfv,
-        alAuxiliaryEffectSloti,
-        alAuxiliaryEffectSlotiv,
-        alBuffer3f,
-        alBuffer3i,
-        alBufferData,
-        alBufferDataStatic,
-        alBufferf,
-        alBufferfv,
-        alBufferi,
-        alBufferiv,
-        alDeferUpdatesSOFT,
-        alDeleteAuxiliaryEffectSlots,
-        alDeleteBuffers,
-        alDeleteEffects,
-        alDeleteFilters,
-        alDeleteSources,
+        alGetError,
+        alEnable,
         alDisable,
+        alIsEnabled,
+        alGetBoolean,
+        alGetInteger,
+        alGetFloat,
+        alGetDouble,
+        alGetBooleanv,
+        alGetIntegerv,
+        alGetFloatv,
+        alGetDoublev,
+        alGetString,
         alDistanceModel,
         alDopplerFactor,
         alDopplerVelocity,
-        alEffectf,
-        alEffectfv,
-        alEffecti,
-        alEffectiv,
-        alEnable,
-        alFilterf,
-        alFilterfv,
-        alFilteri,
-        alFilteriv,
-        alGenAuxiliaryEffectSlots,
-        alGenBuffers,
-        alGenEffects,
-        alGenFilters,
-        alGenSources,
-        alGetAuxiliaryEffectSlotf,
-        alGetAuxiliaryEffectSlotfv,
-        alGetAuxiliaryEffectSloti,
-        alGetAuxiliaryEffectSlotiv,
-        alGetBoolean,
-        alGetBooleanv,
-        alGetBufferf,
-        alGetBufferfv,
-        alGetBufferi,
-        alGetBufferiv,
-        alGetDouble,
-        alGetDoublev,
-        alGetEffectf,
-        alGetEffectfv,
-        alGetEffecti,
-        alGetEffectiv,
-        alGetEnumValue,
-        alGetError,
-        alGetFilterf,
-        alGetFilterfv,
-        alGetFilteri,
-        alGetFilteriv,
-        alGetFloat,
-        alGetFloatv,
-        alGetInteger,
-        alGetIntegerv,
-        alGetListener3f,
-        alGetListenerf,
-        alGetListenerfv,
-        alGetListeneri,
-        alGetListeneriv,
-        alGetProcAddress,
-        alGetSource3dSOFT,
-        alGetSource3f,
-        alGetSource3i64SOFT,
-        alGetSourcedSOFT,
-        alGetSourcedvSOFT,
-        alGetSourcef,
-        alGetSourcefv,
-        alGetSourcei,
-        alGetSourcei64SOFT,
-        alGetSourcei64vSOFT,
-        alGetSourceiv,
-        alGetString,
-        alGetStringiSOFT,
-        alIsAuxiliaryEffectSlot,
-        alIsBuffer,
-        alIsEffect,
-        alIsEnabled,
-        alIsExtensionPresent,
-        alIsFilter,
-        alIsSource,
-        alListener3f,
-        alListener3i,
         alListenerf,
-        alListenerfv,
         alListeneri,
-        alListeneriv,
-        alProcessUpdatesSOFT,
-        alSource3dSOFT,
-        alSource3f,
-        alSource3i,
-        alSource3i64SOFT,
-        alSourcePause,
-        alSourcePausev,
-        alSourcePlay,
-        alSourcePlayv,
-        alSourceQueueBuffers,
-        alSourceRewind,
-        alSourceRewindv,
-        alSourceStop,
-        alSourceStopv,
-        alSourceUnqueueBuffers,
-        alSourcedSOFT,
-        alSourcedvSOFT,
+        alListener3f,
+        alListenerfv,
+        alGetListenerf,
+        alGetListeneri,
+        alGetListener3f,
+        alGetListenerfv,
+        alGenSources,
+        alDeleteSources,
+        alIsSource,
         alSourcef,
+        alSource3f,
         alSourcefv,
         alSourcei,
-        alSourcei64SOFT,
-        alSourcei64vSOFT,
+        alGetSourcef,
+        alGetSource3f,
+        alGetSourcefv,
+        alGetSourcei,
+        alGetSourceiv,
+        alSourceQueueBuffers,
+        alSourceUnqueueBuffers,
+        alSourcePlay,
+        alSourcePause,
+        alSourceStop,
+        alSourceRewind,
+        alSourcePlayv,
+        alSourcePausev,
+        alSourceStopv,
+        alSourceRewindv,
+        alGenBuffers,
+        alDeleteBuffers,
+        alIsBuffer,
+        alGetBufferf,
+        alGetBufferi,
+        alBufferData,
+        alGetEnumValue,
+        alGetProcAddress,
+        alIsExtensionPresent,
+        alListener3i,
+        alGetListeneriv,
+        alSource3i,
+        alListeneriv,
         alSourceiv,
-        alSpeedOfSound;
+        alBufferf,
+        alBuffer3f,
+        alBufferfv,
+        alBufferi,
+        alBuffer3i,
+        alBufferiv,
+        alGetBufferiv,
+        alGetBufferfv,
+        alSpeedOfSound,
+        alGenEffects,
+        alDeleteEffects,
+        alIsEffect,
+        alEffecti,
+        alEffectiv,
+        alEffectf,
+        alEffectfv,
+        alGetEffecti,
+        alGetEffectiv,
+        alGetEffectf,
+        alGetEffectfv,
+        alGenFilters,
+        alDeleteFilters,
+        alIsFilter,
+        alFilteri,
+        alFilteriv,
+        alFilterf,
+        alFilterfv,
+        alGetFilteri,
+        alGetFilteriv,
+        alGetFilterf,
+        alGetFilterfv,
+        alGenAuxiliaryEffectSlots,
+        alDeleteAuxiliaryEffectSlots,
+        alIsAuxiliaryEffectSlot,
+        alAuxiliaryEffectSloti,
+        alAuxiliaryEffectSlotiv,
+        alAuxiliaryEffectSlotf,
+        alAuxiliaryEffectSlotfv,
+        alGetAuxiliaryEffectSloti,
+        alGetAuxiliaryEffectSlotiv,
+        alGetAuxiliaryEffectSlotf,
+        alGetAuxiliaryEffectSlotfv,
+        alBufferDataStatic,
+        alDeferUpdatesSOFT,
+        alProcessUpdatesSOFT,
+        alSourcedSOFT,
+        alSource3dSOFT,
+        alSourcedvSOFT,
+        alGetSourcedSOFT,
+        alGetSource3dSOFT,
+        alGetSourcedvSOFT,
+        alSourcei64SOFT,
+        alSource3i64SOFT,
+        alSourcei64vSOFT,
+        alGetSourcei64SOFT,
+        alGetSource3i64SOFT,
+        alGetSourcei64vSOFT,
+        alGetStringiSOFT;
 
     /** When true, {@link AL10} is supported. */
     public final boolean OpenAL10;
@@ -205,124 +205,124 @@ public final class ALCapabilities {
     final PointerBuffer addresses;
 
     ALCapabilities(FunctionProvider provider, Set<String> ext) {
-        alAuxiliaryEffectSlotf = provider.getFunctionAddress("alAuxiliaryEffectSlotf");
-        alAuxiliaryEffectSlotfv = provider.getFunctionAddress("alAuxiliaryEffectSlotfv");
-        alAuxiliaryEffectSloti = provider.getFunctionAddress("alAuxiliaryEffectSloti");
-        alAuxiliaryEffectSlotiv = provider.getFunctionAddress("alAuxiliaryEffectSlotiv");
-        alBuffer3f = provider.getFunctionAddress("alBuffer3f");
-        alBuffer3i = provider.getFunctionAddress("alBuffer3i");
-        alBufferData = provider.getFunctionAddress("alBufferData");
-        alBufferDataStatic = provider.getFunctionAddress("alBufferDataStatic");
-        alBufferf = provider.getFunctionAddress("alBufferf");
-        alBufferfv = provider.getFunctionAddress("alBufferfv");
-        alBufferi = provider.getFunctionAddress("alBufferi");
-        alBufferiv = provider.getFunctionAddress("alBufferiv");
-        alDeferUpdatesSOFT = provider.getFunctionAddress("alDeferUpdatesSOFT");
-        alDeleteAuxiliaryEffectSlots = provider.getFunctionAddress("alDeleteAuxiliaryEffectSlots");
-        alDeleteBuffers = provider.getFunctionAddress("alDeleteBuffers");
-        alDeleteEffects = provider.getFunctionAddress("alDeleteEffects");
-        alDeleteFilters = provider.getFunctionAddress("alDeleteFilters");
-        alDeleteSources = provider.getFunctionAddress("alDeleteSources");
+        alGetError = provider.getFunctionAddress("alGetError");
+        alEnable = provider.getFunctionAddress("alEnable");
         alDisable = provider.getFunctionAddress("alDisable");
+        alIsEnabled = provider.getFunctionAddress("alIsEnabled");
+        alGetBoolean = provider.getFunctionAddress("alGetBoolean");
+        alGetInteger = provider.getFunctionAddress("alGetInteger");
+        alGetFloat = provider.getFunctionAddress("alGetFloat");
+        alGetDouble = provider.getFunctionAddress("alGetDouble");
+        alGetBooleanv = provider.getFunctionAddress("alGetBooleanv");
+        alGetIntegerv = provider.getFunctionAddress("alGetIntegerv");
+        alGetFloatv = provider.getFunctionAddress("alGetFloatv");
+        alGetDoublev = provider.getFunctionAddress("alGetDoublev");
+        alGetString = provider.getFunctionAddress("alGetString");
         alDistanceModel = provider.getFunctionAddress("alDistanceModel");
         alDopplerFactor = provider.getFunctionAddress("alDopplerFactor");
         alDopplerVelocity = provider.getFunctionAddress("alDopplerVelocity");
-        alEffectf = provider.getFunctionAddress("alEffectf");
-        alEffectfv = provider.getFunctionAddress("alEffectfv");
-        alEffecti = provider.getFunctionAddress("alEffecti");
-        alEffectiv = provider.getFunctionAddress("alEffectiv");
-        alEnable = provider.getFunctionAddress("alEnable");
-        alFilterf = provider.getFunctionAddress("alFilterf");
-        alFilterfv = provider.getFunctionAddress("alFilterfv");
-        alFilteri = provider.getFunctionAddress("alFilteri");
-        alFilteriv = provider.getFunctionAddress("alFilteriv");
-        alGenAuxiliaryEffectSlots = provider.getFunctionAddress("alGenAuxiliaryEffectSlots");
-        alGenBuffers = provider.getFunctionAddress("alGenBuffers");
-        alGenEffects = provider.getFunctionAddress("alGenEffects");
-        alGenFilters = provider.getFunctionAddress("alGenFilters");
-        alGenSources = provider.getFunctionAddress("alGenSources");
-        alGetAuxiliaryEffectSlotf = provider.getFunctionAddress("alGetAuxiliaryEffectSlotf");
-        alGetAuxiliaryEffectSlotfv = provider.getFunctionAddress("alGetAuxiliaryEffectSlotfv");
-        alGetAuxiliaryEffectSloti = provider.getFunctionAddress("alGetAuxiliaryEffectSloti");
-        alGetAuxiliaryEffectSlotiv = provider.getFunctionAddress("alGetAuxiliaryEffectSlotiv");
-        alGetBoolean = provider.getFunctionAddress("alGetBoolean");
-        alGetBooleanv = provider.getFunctionAddress("alGetBooleanv");
-        alGetBufferf = provider.getFunctionAddress("alGetBufferf");
-        alGetBufferfv = provider.getFunctionAddress("alGetBufferfv");
-        alGetBufferi = provider.getFunctionAddress("alGetBufferi");
-        alGetBufferiv = provider.getFunctionAddress("alGetBufferiv");
-        alGetDouble = provider.getFunctionAddress("alGetDouble");
-        alGetDoublev = provider.getFunctionAddress("alGetDoublev");
-        alGetEffectf = provider.getFunctionAddress("alGetEffectf");
-        alGetEffectfv = provider.getFunctionAddress("alGetEffectfv");
-        alGetEffecti = provider.getFunctionAddress("alGetEffecti");
-        alGetEffectiv = provider.getFunctionAddress("alGetEffectiv");
-        alGetEnumValue = provider.getFunctionAddress("alGetEnumValue");
-        alGetError = provider.getFunctionAddress("alGetError");
-        alGetFilterf = provider.getFunctionAddress("alGetFilterf");
-        alGetFilterfv = provider.getFunctionAddress("alGetFilterfv");
-        alGetFilteri = provider.getFunctionAddress("alGetFilteri");
-        alGetFilteriv = provider.getFunctionAddress("alGetFilteriv");
-        alGetFloat = provider.getFunctionAddress("alGetFloat");
-        alGetFloatv = provider.getFunctionAddress("alGetFloatv");
-        alGetInteger = provider.getFunctionAddress("alGetInteger");
-        alGetIntegerv = provider.getFunctionAddress("alGetIntegerv");
-        alGetListener3f = provider.getFunctionAddress("alGetListener3f");
-        alGetListenerf = provider.getFunctionAddress("alGetListenerf");
-        alGetListenerfv = provider.getFunctionAddress("alGetListenerfv");
-        alGetListeneri = provider.getFunctionAddress("alGetListeneri");
-        alGetListeneriv = provider.getFunctionAddress("alGetListeneriv");
-        alGetProcAddress = provider.getFunctionAddress("alGetProcAddress");
-        alGetSource3dSOFT = provider.getFunctionAddress("alGetSource3dSOFT");
-        alGetSource3f = provider.getFunctionAddress("alGetSource3f");
-        alGetSource3i64SOFT = provider.getFunctionAddress("alGetSource3i64SOFT");
-        alGetSourcedSOFT = provider.getFunctionAddress("alGetSourcedSOFT");
-        alGetSourcedvSOFT = provider.getFunctionAddress("alGetSourcedvSOFT");
-        alGetSourcef = provider.getFunctionAddress("alGetSourcef");
-        alGetSourcefv = provider.getFunctionAddress("alGetSourcefv");
-        alGetSourcei = provider.getFunctionAddress("alGetSourcei");
-        alGetSourcei64SOFT = provider.getFunctionAddress("alGetSourcei64SOFT");
-        alGetSourcei64vSOFT = provider.getFunctionAddress("alGetSourcei64vSOFT");
-        alGetSourceiv = provider.getFunctionAddress("alGetSourceiv");
-        alGetString = provider.getFunctionAddress("alGetString");
-        alGetStringiSOFT = provider.getFunctionAddress("alGetStringiSOFT");
-        alIsAuxiliaryEffectSlot = provider.getFunctionAddress("alIsAuxiliaryEffectSlot");
-        alIsBuffer = provider.getFunctionAddress("alIsBuffer");
-        alIsEffect = provider.getFunctionAddress("alIsEffect");
-        alIsEnabled = provider.getFunctionAddress("alIsEnabled");
-        alIsExtensionPresent = provider.getFunctionAddress("alIsExtensionPresent");
-        alIsFilter = provider.getFunctionAddress("alIsFilter");
-        alIsSource = provider.getFunctionAddress("alIsSource");
-        alListener3f = provider.getFunctionAddress("alListener3f");
-        alListener3i = provider.getFunctionAddress("alListener3i");
         alListenerf = provider.getFunctionAddress("alListenerf");
-        alListenerfv = provider.getFunctionAddress("alListenerfv");
         alListeneri = provider.getFunctionAddress("alListeneri");
-        alListeneriv = provider.getFunctionAddress("alListeneriv");
-        alProcessUpdatesSOFT = provider.getFunctionAddress("alProcessUpdatesSOFT");
-        alSource3dSOFT = provider.getFunctionAddress("alSource3dSOFT");
-        alSource3f = provider.getFunctionAddress("alSource3f");
-        alSource3i = provider.getFunctionAddress("alSource3i");
-        alSource3i64SOFT = provider.getFunctionAddress("alSource3i64SOFT");
-        alSourcePause = provider.getFunctionAddress("alSourcePause");
-        alSourcePausev = provider.getFunctionAddress("alSourcePausev");
-        alSourcePlay = provider.getFunctionAddress("alSourcePlay");
-        alSourcePlayv = provider.getFunctionAddress("alSourcePlayv");
-        alSourceQueueBuffers = provider.getFunctionAddress("alSourceQueueBuffers");
-        alSourceRewind = provider.getFunctionAddress("alSourceRewind");
-        alSourceRewindv = provider.getFunctionAddress("alSourceRewindv");
-        alSourceStop = provider.getFunctionAddress("alSourceStop");
-        alSourceStopv = provider.getFunctionAddress("alSourceStopv");
-        alSourceUnqueueBuffers = provider.getFunctionAddress("alSourceUnqueueBuffers");
-        alSourcedSOFT = provider.getFunctionAddress("alSourcedSOFT");
-        alSourcedvSOFT = provider.getFunctionAddress("alSourcedvSOFT");
+        alListener3f = provider.getFunctionAddress("alListener3f");
+        alListenerfv = provider.getFunctionAddress("alListenerfv");
+        alGetListenerf = provider.getFunctionAddress("alGetListenerf");
+        alGetListeneri = provider.getFunctionAddress("alGetListeneri");
+        alGetListener3f = provider.getFunctionAddress("alGetListener3f");
+        alGetListenerfv = provider.getFunctionAddress("alGetListenerfv");
+        alGenSources = provider.getFunctionAddress("alGenSources");
+        alDeleteSources = provider.getFunctionAddress("alDeleteSources");
+        alIsSource = provider.getFunctionAddress("alIsSource");
         alSourcef = provider.getFunctionAddress("alSourcef");
+        alSource3f = provider.getFunctionAddress("alSource3f");
         alSourcefv = provider.getFunctionAddress("alSourcefv");
         alSourcei = provider.getFunctionAddress("alSourcei");
-        alSourcei64SOFT = provider.getFunctionAddress("alSourcei64SOFT");
-        alSourcei64vSOFT = provider.getFunctionAddress("alSourcei64vSOFT");
+        alGetSourcef = provider.getFunctionAddress("alGetSourcef");
+        alGetSource3f = provider.getFunctionAddress("alGetSource3f");
+        alGetSourcefv = provider.getFunctionAddress("alGetSourcefv");
+        alGetSourcei = provider.getFunctionAddress("alGetSourcei");
+        alGetSourceiv = provider.getFunctionAddress("alGetSourceiv");
+        alSourceQueueBuffers = provider.getFunctionAddress("alSourceQueueBuffers");
+        alSourceUnqueueBuffers = provider.getFunctionAddress("alSourceUnqueueBuffers");
+        alSourcePlay = provider.getFunctionAddress("alSourcePlay");
+        alSourcePause = provider.getFunctionAddress("alSourcePause");
+        alSourceStop = provider.getFunctionAddress("alSourceStop");
+        alSourceRewind = provider.getFunctionAddress("alSourceRewind");
+        alSourcePlayv = provider.getFunctionAddress("alSourcePlayv");
+        alSourcePausev = provider.getFunctionAddress("alSourcePausev");
+        alSourceStopv = provider.getFunctionAddress("alSourceStopv");
+        alSourceRewindv = provider.getFunctionAddress("alSourceRewindv");
+        alGenBuffers = provider.getFunctionAddress("alGenBuffers");
+        alDeleteBuffers = provider.getFunctionAddress("alDeleteBuffers");
+        alIsBuffer = provider.getFunctionAddress("alIsBuffer");
+        alGetBufferf = provider.getFunctionAddress("alGetBufferf");
+        alGetBufferi = provider.getFunctionAddress("alGetBufferi");
+        alBufferData = provider.getFunctionAddress("alBufferData");
+        alGetEnumValue = provider.getFunctionAddress("alGetEnumValue");
+        alGetProcAddress = provider.getFunctionAddress("alGetProcAddress");
+        alIsExtensionPresent = provider.getFunctionAddress("alIsExtensionPresent");
+        alListener3i = provider.getFunctionAddress("alListener3i");
+        alGetListeneriv = provider.getFunctionAddress("alGetListeneriv");
+        alSource3i = provider.getFunctionAddress("alSource3i");
+        alListeneriv = provider.getFunctionAddress("alListeneriv");
         alSourceiv = provider.getFunctionAddress("alSourceiv");
+        alBufferf = provider.getFunctionAddress("alBufferf");
+        alBuffer3f = provider.getFunctionAddress("alBuffer3f");
+        alBufferfv = provider.getFunctionAddress("alBufferfv");
+        alBufferi = provider.getFunctionAddress("alBufferi");
+        alBuffer3i = provider.getFunctionAddress("alBuffer3i");
+        alBufferiv = provider.getFunctionAddress("alBufferiv");
+        alGetBufferiv = provider.getFunctionAddress("alGetBufferiv");
+        alGetBufferfv = provider.getFunctionAddress("alGetBufferfv");
         alSpeedOfSound = provider.getFunctionAddress("alSpeedOfSound");
+        alGenEffects = provider.getFunctionAddress("alGenEffects");
+        alDeleteEffects = provider.getFunctionAddress("alDeleteEffects");
+        alIsEffect = provider.getFunctionAddress("alIsEffect");
+        alEffecti = provider.getFunctionAddress("alEffecti");
+        alEffectiv = provider.getFunctionAddress("alEffectiv");
+        alEffectf = provider.getFunctionAddress("alEffectf");
+        alEffectfv = provider.getFunctionAddress("alEffectfv");
+        alGetEffecti = provider.getFunctionAddress("alGetEffecti");
+        alGetEffectiv = provider.getFunctionAddress("alGetEffectiv");
+        alGetEffectf = provider.getFunctionAddress("alGetEffectf");
+        alGetEffectfv = provider.getFunctionAddress("alGetEffectfv");
+        alGenFilters = provider.getFunctionAddress("alGenFilters");
+        alDeleteFilters = provider.getFunctionAddress("alDeleteFilters");
+        alIsFilter = provider.getFunctionAddress("alIsFilter");
+        alFilteri = provider.getFunctionAddress("alFilteri");
+        alFilteriv = provider.getFunctionAddress("alFilteriv");
+        alFilterf = provider.getFunctionAddress("alFilterf");
+        alFilterfv = provider.getFunctionAddress("alFilterfv");
+        alGetFilteri = provider.getFunctionAddress("alGetFilteri");
+        alGetFilteriv = provider.getFunctionAddress("alGetFilteriv");
+        alGetFilterf = provider.getFunctionAddress("alGetFilterf");
+        alGetFilterfv = provider.getFunctionAddress("alGetFilterfv");
+        alGenAuxiliaryEffectSlots = provider.getFunctionAddress("alGenAuxiliaryEffectSlots");
+        alDeleteAuxiliaryEffectSlots = provider.getFunctionAddress("alDeleteAuxiliaryEffectSlots");
+        alIsAuxiliaryEffectSlot = provider.getFunctionAddress("alIsAuxiliaryEffectSlot");
+        alAuxiliaryEffectSloti = provider.getFunctionAddress("alAuxiliaryEffectSloti");
+        alAuxiliaryEffectSlotiv = provider.getFunctionAddress("alAuxiliaryEffectSlotiv");
+        alAuxiliaryEffectSlotf = provider.getFunctionAddress("alAuxiliaryEffectSlotf");
+        alAuxiliaryEffectSlotfv = provider.getFunctionAddress("alAuxiliaryEffectSlotfv");
+        alGetAuxiliaryEffectSloti = provider.getFunctionAddress("alGetAuxiliaryEffectSloti");
+        alGetAuxiliaryEffectSlotiv = provider.getFunctionAddress("alGetAuxiliaryEffectSlotiv");
+        alGetAuxiliaryEffectSlotf = provider.getFunctionAddress("alGetAuxiliaryEffectSlotf");
+        alGetAuxiliaryEffectSlotfv = provider.getFunctionAddress("alGetAuxiliaryEffectSlotfv");
+        alBufferDataStatic = provider.getFunctionAddress("alBufferDataStatic");
+        alDeferUpdatesSOFT = provider.getFunctionAddress("alDeferUpdatesSOFT");
+        alProcessUpdatesSOFT = provider.getFunctionAddress("alProcessUpdatesSOFT");
+        alSourcedSOFT = provider.getFunctionAddress("alSourcedSOFT");
+        alSource3dSOFT = provider.getFunctionAddress("alSource3dSOFT");
+        alSourcedvSOFT = provider.getFunctionAddress("alSourcedvSOFT");
+        alGetSourcedSOFT = provider.getFunctionAddress("alGetSourcedSOFT");
+        alGetSource3dSOFT = provider.getFunctionAddress("alGetSource3dSOFT");
+        alGetSourcedvSOFT = provider.getFunctionAddress("alGetSourcedvSOFT");
+        alSourcei64SOFT = provider.getFunctionAddress("alSourcei64SOFT");
+        alSource3i64SOFT = provider.getFunctionAddress("alSource3i64SOFT");
+        alSourcei64vSOFT = provider.getFunctionAddress("alSourcei64vSOFT");
+        alGetSourcei64SOFT = provider.getFunctionAddress("alGetSourcei64SOFT");
+        alGetSource3i64SOFT = provider.getFunctionAddress("alGetSource3i64SOFT");
+        alGetSourcei64vSOFT = provider.getFunctionAddress("alGetSourcei64vSOFT");
+        alGetStringiSOFT = provider.getFunctionAddress("alGetStringiSOFT");
 
         OpenAL10 = ext.contains("OpenAL10") && checkExtension("OpenAL10", AL10.isAvailable(this));
         OpenAL11 = ext.contains("OpenAL11") && checkExtension("OpenAL11", AL11.isAvailable(this));

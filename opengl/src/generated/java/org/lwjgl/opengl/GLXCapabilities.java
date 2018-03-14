@@ -14,75 +14,75 @@ import static org.lwjgl.system.APIUtil.*;
 public final class GLXCapabilities {
 
     public final long
-        glXBindSwapBarrierNV,
-        glXBindSwapBarrierSGIX,
-        glXBindTexImageEXT,
-        glXBlitContextFramebufferAMD,
+        glXQueryExtensionsString,
+        glXGetClientString,
+        glXQueryServerString,
+        glXGetCurrentDisplay,
+        glXGetFBConfigs,
         glXChooseFBConfig,
-        glXChooseFBConfigSGIX,
-        glXCopyBufferSubDataNV,
-        glXCopyImageSubDataNV,
+        glXGetFBConfigAttrib,
+        glXGetVisualFromFBConfig,
+        glXCreateWindow,
+        glXCreatePixmap,
+        glXDestroyPixmap,
+        glXCreatePbuffer,
+        glXDestroyPbuffer,
+        glXQueryDrawable,
+        glXCreateNewContext,
+        glXMakeContextCurrent,
+        glXGetCurrentReadDrawable,
+        glXQueryContext,
+        glXSelectEvent,
+        glXGetSelectedEvent,
+        glXGetProcAddress,
+        glXBlitContextFramebufferAMD,
         glXCreateAssociatedContextAMD,
         glXCreateAssociatedContextAttribsAMD,
-        glXCreateContextAttribsARB,
-        glXCreateContextWithConfigSGIX,
-        glXCreateGLXPbufferSGIX,
-        glXCreateGLXPixmapWithConfigSGIX,
-        glXCreateNewContext,
-        glXCreatePbuffer,
-        glXCreatePixmap,
-        glXCreateWindow,
-        glXDelayBeforeSwapNV,
         glXDeleteAssociatedContextAMD,
-        glXDestroyGLXPbufferSGIX,
-        glXDestroyPbuffer,
-        glXDestroyPixmap,
-        glXFreeContextEXT,
-        glXGetClientString,
         glXGetContextGPUIDAMD,
-        glXGetContextIDEXT,
         glXGetCurrentAssociatedContextAMD,
-        glXGetCurrentDisplay,
-        glXGetCurrentDisplayEXT,
-        glXGetCurrentReadDrawable,
-        glXGetCurrentReadDrawableSGI,
-        glXGetFBConfigAttrib,
-        glXGetFBConfigAttribSGIX,
-        glXGetFBConfigFromVisualSGIX,
-        glXGetFBConfigs,
         glXGetGPUIDsAMD,
         glXGetGPUInfoAMD,
-        glXGetProcAddress,
-        glXGetProcAddressARB,
-        glXGetSelectedEvent,
-        glXGetSelectedEventSGIX,
-        glXGetVideoSyncSGI,
-        glXGetVisualFromFBConfig,
-        glXGetVisualFromFBConfigSGIX,
-        glXImportContextEXT,
-        glXJoinSwapGroupNV,
-        glXJoinSwapGroupSGIX,
         glXMakeAssociatedContextCurrentAMD,
-        glXMakeContextCurrent,
-        glXMakeCurrentReadSGI,
-        glXNamedCopyBufferSubDataNV,
-        glXQueryContext,
+        glXCreateContextAttribsARB,
+        glXGetProcAddressARB,
+        glXGetCurrentDisplayEXT,
         glXQueryContextInfoEXT,
-        glXQueryDrawable,
-        glXQueryExtensionsString,
-        glXQueryFrameCountNV,
-        glXQueryGLXPbufferSGIX,
-        glXQueryMaxSwapBarriersSGIX,
-        glXQueryMaxSwapGroupsNV,
-        glXQueryServerString,
-        glXQuerySwapGroupNV,
-        glXReleaseTexImageEXT,
-        glXResetFrameCountNV,
-        glXSelectEvent,
-        glXSelectEventSGIX,
+        glXGetContextIDEXT,
+        glXImportContextEXT,
+        glXFreeContextEXT,
         glXSwapIntervalEXT,
+        glXBindTexImageEXT,
+        glXReleaseTexImageEXT,
+        glXCopyBufferSubDataNV,
+        glXNamedCopyBufferSubDataNV,
+        glXCopyImageSubDataNV,
+        glXDelayBeforeSwapNV,
+        glXJoinSwapGroupNV,
+        glXBindSwapBarrierNV,
+        glXQuerySwapGroupNV,
+        glXQueryMaxSwapGroupsNV,
+        glXQueryFrameCountNV,
+        glXResetFrameCountNV,
+        glXMakeCurrentReadSGI,
+        glXGetCurrentReadDrawableSGI,
         glXSwapIntervalSGI,
-        glXWaitVideoSyncSGI;
+        glXGetVideoSyncSGI,
+        glXWaitVideoSyncSGI,
+        glXGetFBConfigAttribSGIX,
+        glXChooseFBConfigSGIX,
+        glXCreateGLXPixmapWithConfigSGIX,
+        glXCreateContextWithConfigSGIX,
+        glXGetVisualFromFBConfigSGIX,
+        glXGetFBConfigFromVisualSGIX,
+        glXCreateGLXPbufferSGIX,
+        glXDestroyGLXPbufferSGIX,
+        glXQueryGLXPbufferSGIX,
+        glXSelectEventSGIX,
+        glXGetSelectedEventSGIX,
+        glXBindSwapBarrierSGIX,
+        glXQueryMaxSwapBarriersSGIX,
+        glXJoinSwapGroupSGIX;
 
     /** When true, {@link GLX11} is supported. */
     public final boolean GLX11;
@@ -198,75 +198,75 @@ public final class GLXCapabilities {
     public final boolean GLX_SGIX_swap_group;
 
     GLXCapabilities(FunctionProvider provider, Set<String> ext) {
-        glXBindSwapBarrierNV = provider.getFunctionAddress("glXBindSwapBarrierNV");
-        glXBindSwapBarrierSGIX = provider.getFunctionAddress("glXBindSwapBarrierSGIX");
-        glXBindTexImageEXT = provider.getFunctionAddress("glXBindTexImageEXT");
-        glXBlitContextFramebufferAMD = provider.getFunctionAddress("glXBlitContextFramebufferAMD");
+        glXQueryExtensionsString = provider.getFunctionAddress("glXQueryExtensionsString");
+        glXGetClientString = provider.getFunctionAddress("glXGetClientString");
+        glXQueryServerString = provider.getFunctionAddress("glXQueryServerString");
+        glXGetCurrentDisplay = provider.getFunctionAddress("glXGetCurrentDisplay");
+        glXGetFBConfigs = provider.getFunctionAddress("glXGetFBConfigs");
         glXChooseFBConfig = provider.getFunctionAddress("glXChooseFBConfig");
-        glXChooseFBConfigSGIX = provider.getFunctionAddress("glXChooseFBConfigSGIX");
-        glXCopyBufferSubDataNV = provider.getFunctionAddress("glXCopyBufferSubDataNV");
-        glXCopyImageSubDataNV = provider.getFunctionAddress("glXCopyImageSubDataNV");
+        glXGetFBConfigAttrib = provider.getFunctionAddress("glXGetFBConfigAttrib");
+        glXGetVisualFromFBConfig = provider.getFunctionAddress("glXGetVisualFromFBConfig");
+        glXCreateWindow = provider.getFunctionAddress("glXCreateWindow");
+        glXCreatePixmap = provider.getFunctionAddress("glXCreatePixmap");
+        glXDestroyPixmap = provider.getFunctionAddress("glXDestroyPixmap");
+        glXCreatePbuffer = provider.getFunctionAddress("glXCreatePbuffer");
+        glXDestroyPbuffer = provider.getFunctionAddress("glXDestroyPbuffer");
+        glXQueryDrawable = provider.getFunctionAddress("glXQueryDrawable");
+        glXCreateNewContext = provider.getFunctionAddress("glXCreateNewContext");
+        glXMakeContextCurrent = provider.getFunctionAddress("glXMakeContextCurrent");
+        glXGetCurrentReadDrawable = provider.getFunctionAddress("glXGetCurrentReadDrawable");
+        glXQueryContext = provider.getFunctionAddress("glXQueryContext");
+        glXSelectEvent = provider.getFunctionAddress("glXSelectEvent");
+        glXGetSelectedEvent = provider.getFunctionAddress("glXGetSelectedEvent");
+        glXGetProcAddress = provider.getFunctionAddress("glXGetProcAddress");
+        glXBlitContextFramebufferAMD = provider.getFunctionAddress("glXBlitContextFramebufferAMD");
         glXCreateAssociatedContextAMD = provider.getFunctionAddress("glXCreateAssociatedContextAMD");
         glXCreateAssociatedContextAttribsAMD = provider.getFunctionAddress("glXCreateAssociatedContextAttribsAMD");
-        glXCreateContextAttribsARB = provider.getFunctionAddress("glXCreateContextAttribsARB");
-        glXCreateContextWithConfigSGIX = provider.getFunctionAddress("glXCreateContextWithConfigSGIX");
-        glXCreateGLXPbufferSGIX = provider.getFunctionAddress("glXCreateGLXPbufferSGIX");
-        glXCreateGLXPixmapWithConfigSGIX = provider.getFunctionAddress("glXCreateGLXPixmapWithConfigSGIX");
-        glXCreateNewContext = provider.getFunctionAddress("glXCreateNewContext");
-        glXCreatePbuffer = provider.getFunctionAddress("glXCreatePbuffer");
-        glXCreatePixmap = provider.getFunctionAddress("glXCreatePixmap");
-        glXCreateWindow = provider.getFunctionAddress("glXCreateWindow");
-        glXDelayBeforeSwapNV = provider.getFunctionAddress("glXDelayBeforeSwapNV");
         glXDeleteAssociatedContextAMD = provider.getFunctionAddress("glXDeleteAssociatedContextAMD");
-        glXDestroyGLXPbufferSGIX = provider.getFunctionAddress("glXDestroyGLXPbufferSGIX");
-        glXDestroyPbuffer = provider.getFunctionAddress("glXDestroyPbuffer");
-        glXDestroyPixmap = provider.getFunctionAddress("glXDestroyPixmap");
-        glXFreeContextEXT = provider.getFunctionAddress("glXFreeContextEXT");
-        glXGetClientString = provider.getFunctionAddress("glXGetClientString");
         glXGetContextGPUIDAMD = provider.getFunctionAddress("glXGetContextGPUIDAMD");
-        glXGetContextIDEXT = provider.getFunctionAddress("glXGetContextIDEXT");
         glXGetCurrentAssociatedContextAMD = provider.getFunctionAddress("glXGetCurrentAssociatedContextAMD");
-        glXGetCurrentDisplay = provider.getFunctionAddress("glXGetCurrentDisplay");
-        glXGetCurrentDisplayEXT = provider.getFunctionAddress("glXGetCurrentDisplayEXT");
-        glXGetCurrentReadDrawable = provider.getFunctionAddress("glXGetCurrentReadDrawable");
-        glXGetCurrentReadDrawableSGI = provider.getFunctionAddress("glXGetCurrentReadDrawableSGI");
-        glXGetFBConfigAttrib = provider.getFunctionAddress("glXGetFBConfigAttrib");
-        glXGetFBConfigAttribSGIX = provider.getFunctionAddress("glXGetFBConfigAttribSGIX");
-        glXGetFBConfigFromVisualSGIX = provider.getFunctionAddress("glXGetFBConfigFromVisualSGIX");
-        glXGetFBConfigs = provider.getFunctionAddress("glXGetFBConfigs");
         glXGetGPUIDsAMD = provider.getFunctionAddress("glXGetGPUIDsAMD");
         glXGetGPUInfoAMD = provider.getFunctionAddress("glXGetGPUInfoAMD");
-        glXGetProcAddress = provider.getFunctionAddress("glXGetProcAddress");
-        glXGetProcAddressARB = provider.getFunctionAddress("glXGetProcAddressARB");
-        glXGetSelectedEvent = provider.getFunctionAddress("glXGetSelectedEvent");
-        glXGetSelectedEventSGIX = provider.getFunctionAddress("glXGetSelectedEventSGIX");
-        glXGetVideoSyncSGI = provider.getFunctionAddress("glXGetVideoSyncSGI");
-        glXGetVisualFromFBConfig = provider.getFunctionAddress("glXGetVisualFromFBConfig");
-        glXGetVisualFromFBConfigSGIX = provider.getFunctionAddress("glXGetVisualFromFBConfigSGIX");
-        glXImportContextEXT = provider.getFunctionAddress("glXImportContextEXT");
-        glXJoinSwapGroupNV = provider.getFunctionAddress("glXJoinSwapGroupNV");
-        glXJoinSwapGroupSGIX = provider.getFunctionAddress("glXJoinSwapGroupSGIX");
         glXMakeAssociatedContextCurrentAMD = provider.getFunctionAddress("glXMakeAssociatedContextCurrentAMD");
-        glXMakeContextCurrent = provider.getFunctionAddress("glXMakeContextCurrent");
-        glXMakeCurrentReadSGI = provider.getFunctionAddress("glXMakeCurrentReadSGI");
-        glXNamedCopyBufferSubDataNV = provider.getFunctionAddress("glXNamedCopyBufferSubDataNV");
-        glXQueryContext = provider.getFunctionAddress("glXQueryContext");
+        glXCreateContextAttribsARB = provider.getFunctionAddress("glXCreateContextAttribsARB");
+        glXGetProcAddressARB = provider.getFunctionAddress("glXGetProcAddressARB");
+        glXGetCurrentDisplayEXT = provider.getFunctionAddress("glXGetCurrentDisplayEXT");
         glXQueryContextInfoEXT = provider.getFunctionAddress("glXQueryContextInfoEXT");
-        glXQueryDrawable = provider.getFunctionAddress("glXQueryDrawable");
-        glXQueryExtensionsString = provider.getFunctionAddress("glXQueryExtensionsString");
-        glXQueryFrameCountNV = provider.getFunctionAddress("glXQueryFrameCountNV");
-        glXQueryGLXPbufferSGIX = provider.getFunctionAddress("glXQueryGLXPbufferSGIX");
-        glXQueryMaxSwapBarriersSGIX = provider.getFunctionAddress("glXQueryMaxSwapBarriersSGIX");
-        glXQueryMaxSwapGroupsNV = provider.getFunctionAddress("glXQueryMaxSwapGroupsNV");
-        glXQueryServerString = provider.getFunctionAddress("glXQueryServerString");
-        glXQuerySwapGroupNV = provider.getFunctionAddress("glXQuerySwapGroupNV");
-        glXReleaseTexImageEXT = provider.getFunctionAddress("glXReleaseTexImageEXT");
-        glXResetFrameCountNV = provider.getFunctionAddress("glXResetFrameCountNV");
-        glXSelectEvent = provider.getFunctionAddress("glXSelectEvent");
-        glXSelectEventSGIX = provider.getFunctionAddress("glXSelectEventSGIX");
+        glXGetContextIDEXT = provider.getFunctionAddress("glXGetContextIDEXT");
+        glXImportContextEXT = provider.getFunctionAddress("glXImportContextEXT");
+        glXFreeContextEXT = provider.getFunctionAddress("glXFreeContextEXT");
         glXSwapIntervalEXT = provider.getFunctionAddress("glXSwapIntervalEXT");
+        glXBindTexImageEXT = provider.getFunctionAddress("glXBindTexImageEXT");
+        glXReleaseTexImageEXT = provider.getFunctionAddress("glXReleaseTexImageEXT");
+        glXCopyBufferSubDataNV = provider.getFunctionAddress("glXCopyBufferSubDataNV");
+        glXNamedCopyBufferSubDataNV = provider.getFunctionAddress("glXNamedCopyBufferSubDataNV");
+        glXCopyImageSubDataNV = provider.getFunctionAddress("glXCopyImageSubDataNV");
+        glXDelayBeforeSwapNV = provider.getFunctionAddress("glXDelayBeforeSwapNV");
+        glXJoinSwapGroupNV = provider.getFunctionAddress("glXJoinSwapGroupNV");
+        glXBindSwapBarrierNV = provider.getFunctionAddress("glXBindSwapBarrierNV");
+        glXQuerySwapGroupNV = provider.getFunctionAddress("glXQuerySwapGroupNV");
+        glXQueryMaxSwapGroupsNV = provider.getFunctionAddress("glXQueryMaxSwapGroupsNV");
+        glXQueryFrameCountNV = provider.getFunctionAddress("glXQueryFrameCountNV");
+        glXResetFrameCountNV = provider.getFunctionAddress("glXResetFrameCountNV");
+        glXMakeCurrentReadSGI = provider.getFunctionAddress("glXMakeCurrentReadSGI");
+        glXGetCurrentReadDrawableSGI = provider.getFunctionAddress("glXGetCurrentReadDrawableSGI");
         glXSwapIntervalSGI = provider.getFunctionAddress("glXSwapIntervalSGI");
+        glXGetVideoSyncSGI = provider.getFunctionAddress("glXGetVideoSyncSGI");
         glXWaitVideoSyncSGI = provider.getFunctionAddress("glXWaitVideoSyncSGI");
+        glXGetFBConfigAttribSGIX = provider.getFunctionAddress("glXGetFBConfigAttribSGIX");
+        glXChooseFBConfigSGIX = provider.getFunctionAddress("glXChooseFBConfigSGIX");
+        glXCreateGLXPixmapWithConfigSGIX = provider.getFunctionAddress("glXCreateGLXPixmapWithConfigSGIX");
+        glXCreateContextWithConfigSGIX = provider.getFunctionAddress("glXCreateContextWithConfigSGIX");
+        glXGetVisualFromFBConfigSGIX = provider.getFunctionAddress("glXGetVisualFromFBConfigSGIX");
+        glXGetFBConfigFromVisualSGIX = provider.getFunctionAddress("glXGetFBConfigFromVisualSGIX");
+        glXCreateGLXPbufferSGIX = provider.getFunctionAddress("glXCreateGLXPbufferSGIX");
+        glXDestroyGLXPbufferSGIX = provider.getFunctionAddress("glXDestroyGLXPbufferSGIX");
+        glXQueryGLXPbufferSGIX = provider.getFunctionAddress("glXQueryGLXPbufferSGIX");
+        glXSelectEventSGIX = provider.getFunctionAddress("glXSelectEventSGIX");
+        glXGetSelectedEventSGIX = provider.getFunctionAddress("glXGetSelectedEventSGIX");
+        glXBindSwapBarrierSGIX = provider.getFunctionAddress("glXBindSwapBarrierSGIX");
+        glXQueryMaxSwapBarriersSGIX = provider.getFunctionAddress("glXQueryMaxSwapBarriersSGIX");
+        glXJoinSwapGroupSGIX = provider.getFunctionAddress("glXJoinSwapGroupSGIX");
 
         GLX11 = ext.contains("GLX11") && checkExtension("GLX11", org.lwjgl.opengl.GLX11.isAvailable(this));
         GLX12 = ext.contains("GLX12") && checkExtension("GLX12", org.lwjgl.opengl.GLX12.isAvailable(this));

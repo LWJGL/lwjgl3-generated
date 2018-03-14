@@ -13,19 +13,19 @@ typedef intptr_t (APIENTRY *glGetUniformOffsetEXTPROC) (jint, jint);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_EXTBindableUniform_glUniformBufferEXT(JNIEnv *__env, jclass clazz, jint program, jint location, jint buffer) {
-    glUniformBufferEXTPROC glUniformBufferEXT = (glUniformBufferEXTPROC)tlsGetFunction(1831);
+    glUniformBufferEXTPROC glUniformBufferEXT = (glUniformBufferEXTPROC)tlsGetFunction(1457);
     UNUSED_PARAM(clazz)
     glUniformBufferEXT(program, location, buffer);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_opengl_EXTBindableUniform_glGetUniformBufferSizeEXT(JNIEnv *__env, jclass clazz, jint program, jint location) {
-    glGetUniformBufferSizeEXTPROC glGetUniformBufferSizeEXT = (glGetUniformBufferSizeEXTPROC)tlsGetFunction(758);
+    glGetUniformBufferSizeEXTPROC glGetUniformBufferSizeEXT = (glGetUniformBufferSizeEXTPROC)tlsGetFunction(1458);
     UNUSED_PARAM(clazz)
     return (jint)glGetUniformBufferSizeEXT(program, location);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_opengl_EXTBindableUniform_glGetUniformOffsetEXT(JNIEnv *__env, jclass clazz, jint program, jint location) {
-    glGetUniformOffsetEXTPROC glGetUniformOffsetEXT = (glGetUniformOffsetEXTPROC)tlsGetFunction(762);
+    glGetUniformOffsetEXTPROC glGetUniformOffsetEXT = (glGetUniformOffsetEXTPROC)tlsGetFunction(1459);
     UNUSED_PARAM(clazz)
     return (jlong)glGetUniformOffsetEXT(program, location);
 }

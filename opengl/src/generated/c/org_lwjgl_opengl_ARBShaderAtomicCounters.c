@@ -11,7 +11,7 @@ typedef void (APIENTRY *glGetActiveAtomicCounterBufferivPROC) (jint, jint, jint,
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_ARBShaderAtomicCounters_nglGetActiveAtomicCounterBufferiv__IIIJ(JNIEnv *__env, jclass clazz, jint program, jint bufferIndex, jint pname, jlong paramsAddress) {
-    glGetActiveAtomicCounterBufferivPROC glGetActiveAtomicCounterBufferiv = (glGetActiveAtomicCounterBufferivPROC)tlsGetFunction(500);
+    glGetActiveAtomicCounterBufferivPROC glGetActiveAtomicCounterBufferiv = (glGetActiveAtomicCounterBufferivPROC)tlsGetFunction(858);
     intptr_t params = (intptr_t)paramsAddress;
     UNUSED_PARAM(clazz)
     glGetActiveAtomicCounterBufferiv(program, bufferIndex, pname, params);

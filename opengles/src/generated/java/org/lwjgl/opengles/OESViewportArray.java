@@ -50,7 +50,8 @@ public class OESViewportArray {
     static boolean isAvailable(GLESCapabilities caps) {
         return checkFunctions(
             caps.glViewportArrayvOES, caps.glViewportIndexedfOES, caps.glViewportIndexedfvOES, caps.glScissorArrayvOES, caps.glScissorIndexedOES, 
-            caps.glScissorIndexedvOES, caps.glDepthRangeArrayfvOES, caps.glDepthRangeIndexedfOES, caps.glGetFloati_vOES
+            caps.glScissorIndexedvOES, caps.glDepthRangeArrayfvOES, caps.glDepthRangeIndexedfOES, caps.glGetFloati_vOES, caps.glEnableiOES, caps.glDisableiOES, 
+            caps.glIsEnablediOES
         );
     }
 

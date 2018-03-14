@@ -189,22 +189,22 @@ public class EXTTransformFeedback {
 
     // --- [ glGetIntegerIndexedvEXT ] ---
 
-    public static native void nglGetIntegerIndexedvEXT(int param, int index, long values);
+    public static native void nglGetIntegerIndexedvEXT(int target, int index, long data);
 
-    public static void glGetIntegerIndexedvEXT(@NativeType("GLenum") int param, @NativeType("GLuint") int index, @NativeType("GLint *") IntBuffer values) {
+    public static void glGetIntegerIndexedvEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLint *") IntBuffer data) {
         if (CHECKS) {
-            check(values, 1);
+            check(data, 1);
         }
-        nglGetIntegerIndexedvEXT(param, index, memAddress(values));
+        nglGetIntegerIndexedvEXT(target, index, memAddress(data));
     }
 
     @NativeType("void")
-    public static int glGetIntegerIndexedEXT(@NativeType("GLenum") int param, @NativeType("GLuint") int index) {
+    public static int glGetIntegerIndexedEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            IntBuffer values = stack.callocInt(1);
-            nglGetIntegerIndexedvEXT(param, index, memAddress(values));
-            return values.get(0);
+            IntBuffer data = stack.callocInt(1);
+            nglGetIntegerIndexedvEXT(target, index, memAddress(data));
+            return data.get(0);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -212,22 +212,22 @@ public class EXTTransformFeedback {
 
     // --- [ glGetBooleanIndexedvEXT ] ---
 
-    public static native void nglGetBooleanIndexedvEXT(int param, int index, long values);
+    public static native void nglGetBooleanIndexedvEXT(int target, int index, long data);
 
-    public static void glGetBooleanIndexedvEXT(@NativeType("GLenum") int param, @NativeType("GLuint") int index, @NativeType("GLboolean *") ByteBuffer values) {
+    public static void glGetBooleanIndexedvEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLboolean *") ByteBuffer data) {
         if (CHECKS) {
-            check(values, 1);
+            check(data, 1);
         }
-        nglGetBooleanIndexedvEXT(param, index, memAddress(values));
+        nglGetBooleanIndexedvEXT(target, index, memAddress(data));
     }
 
     @NativeType("void")
-    public static boolean glGetBooleanIndexedEXT(@NativeType("GLenum") int param, @NativeType("GLuint") int index) {
+    public static boolean glGetBooleanIndexedEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer values = stack.calloc(1);
-            nglGetBooleanIndexedvEXT(param, index, memAddress(values));
-            return values.get(0) != 0;
+            ByteBuffer data = stack.calloc(1);
+            nglGetBooleanIndexedvEXT(target, index, memAddress(data));
+            return data.get(0) != 0;
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -246,13 +246,13 @@ public class EXTTransformFeedback {
     }
 
     /** Array version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
-    public static void glGetIntegerIndexedvEXT(@NativeType("GLenum") int param, @NativeType("GLuint") int index, @NativeType("GLint *") int[] values) {
+    public static void glGetIntegerIndexedvEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLint *") int[] data) {
         long __functionAddress = GL.getICD().glGetIntegerIndexedvEXT;
         if (CHECKS) {
             check(__functionAddress);
-            check(values, 1);
+            check(data, 1);
         }
-        callPV(__functionAddress, param, index, values);
+        callPV(__functionAddress, target, index, data);
     }
 
 }

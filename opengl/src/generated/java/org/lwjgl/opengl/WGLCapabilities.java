@@ -14,60 +14,60 @@ import static org.lwjgl.system.APIUtil.*;
 public final class WGLCapabilities {
 
     public final long
-        wglAllocateMemoryNV,
-        wglBindSwapBarrierNV,
-        wglBindTexImageARB,
-        wglBlitContextFramebufferAMD,
-        wglChoosePixelFormatARB,
-        wglCopyImageSubDataNV,
-        wglCreateAffinityDCNV,
-        wglCreateAssociatedContextAMD,
-        wglCreateAssociatedContextAttribsAMD,
-        wglCreateBufferRegionARB,
-        wglCreateContextAttribsARB,
-        wglCreatePbufferARB,
-        wglDXCloseDeviceNV,
-        wglDXLockObjectsNV,
-        wglDXObjectAccessNV,
-        wglDXOpenDeviceNV,
-        wglDXRegisterObjectNV,
-        wglDXSetResourceShareHandleNV,
-        wglDXUnlockObjectsNV,
-        wglDXUnregisterObjectNV,
-        wglDelayBeforeSwapNV,
-        wglDeleteAssociatedContextAMD,
-        wglDeleteBufferRegionARB,
-        wglDeleteDCNV,
-        wglDestroyPbufferARB,
-        wglEnumGpuDevicesNV,
-        wglEnumGpusFromAffinityDCNV,
-        wglEnumGpusNV,
-        wglFreeMemoryNV,
-        wglGetContextGPUIDAMD,
-        wglGetCurrentAssociatedContextAMD,
-        wglGetCurrentReadDCARB,
-        wglGetExtensionsStringARB,
-        wglGetExtensionsStringEXT,
         wglGetGPUIDsAMD,
         wglGetGPUInfoAMD,
-        wglGetPbufferDCARB,
-        wglGetPixelFormatAttribfvARB,
-        wglGetPixelFormatAttribivARB,
-        wglGetSwapIntervalEXT,
-        wglJoinSwapGroupNV,
+        wglGetContextGPUIDAMD,
+        wglCreateAssociatedContextAMD,
+        wglCreateAssociatedContextAttribsAMD,
+        wglDeleteAssociatedContextAMD,
         wglMakeAssociatedContextCurrentAMD,
-        wglMakeContextCurrentARB,
-        wglQueryFrameCountNV,
-        wglQueryMaxSwapGroupsNV,
-        wglQueryPbufferARB,
-        wglQuerySwapGroupNV,
-        wglReleasePbufferDCARB,
-        wglReleaseTexImageARB,
-        wglResetFrameCountNV,
-        wglRestoreBufferRegionARB,
+        wglGetCurrentAssociatedContextAMD,
+        wglBlitContextFramebufferAMD,
+        wglCreateBufferRegionARB,
+        wglDeleteBufferRegionARB,
         wglSaveBufferRegionARB,
+        wglRestoreBufferRegionARB,
+        wglCreateContextAttribsARB,
+        wglGetExtensionsStringARB,
+        wglMakeContextCurrentARB,
+        wglGetCurrentReadDCARB,
+        wglCreatePbufferARB,
+        wglGetPbufferDCARB,
+        wglReleasePbufferDCARB,
+        wglDestroyPbufferARB,
+        wglQueryPbufferARB,
+        wglGetPixelFormatAttribivARB,
+        wglGetPixelFormatAttribfvARB,
+        wglChoosePixelFormatARB,
+        wglBindTexImageARB,
+        wglReleaseTexImageARB,
         wglSetPbufferAttribARB,
-        wglSwapIntervalEXT;
+        wglGetExtensionsStringEXT,
+        wglSwapIntervalEXT,
+        wglGetSwapIntervalEXT,
+        wglCopyImageSubDataNV,
+        wglDelayBeforeSwapNV,
+        wglDXSetResourceShareHandleNV,
+        wglDXOpenDeviceNV,
+        wglDXCloseDeviceNV,
+        wglDXRegisterObjectNV,
+        wglDXUnregisterObjectNV,
+        wglDXObjectAccessNV,
+        wglDXLockObjectsNV,
+        wglDXUnlockObjectsNV,
+        wglEnumGpusNV,
+        wglEnumGpuDevicesNV,
+        wglCreateAffinityDCNV,
+        wglEnumGpusFromAffinityDCNV,
+        wglDeleteDCNV,
+        wglJoinSwapGroupNV,
+        wglBindSwapBarrierNV,
+        wglQuerySwapGroupNV,
+        wglQueryMaxSwapGroupsNV,
+        wglQueryFrameCountNV,
+        wglResetFrameCountNV,
+        wglAllocateMemoryNV,
+        wglFreeMemoryNV;
 
     /** When true, {@link WGLAMDGPUAssociation} is supported. */
     public final boolean WGL_AMD_gpu_association;
@@ -176,60 +176,60 @@ public final class WGLCapabilities {
     public final boolean WGL_NV_vertex_array_range;
 
     WGLCapabilities(FunctionProvider provider, Set<String> ext) {
-        wglAllocateMemoryNV = provider.getFunctionAddress("wglAllocateMemoryNV");
-        wglBindSwapBarrierNV = provider.getFunctionAddress("wglBindSwapBarrierNV");
-        wglBindTexImageARB = provider.getFunctionAddress("wglBindTexImageARB");
-        wglBlitContextFramebufferAMD = provider.getFunctionAddress("wglBlitContextFramebufferAMD");
-        wglChoosePixelFormatARB = provider.getFunctionAddress("wglChoosePixelFormatARB");
-        wglCopyImageSubDataNV = provider.getFunctionAddress("wglCopyImageSubDataNV");
-        wglCreateAffinityDCNV = provider.getFunctionAddress("wglCreateAffinityDCNV");
-        wglCreateAssociatedContextAMD = provider.getFunctionAddress("wglCreateAssociatedContextAMD");
-        wglCreateAssociatedContextAttribsAMD = provider.getFunctionAddress("wglCreateAssociatedContextAttribsAMD");
-        wglCreateBufferRegionARB = provider.getFunctionAddress("wglCreateBufferRegionARB");
-        wglCreateContextAttribsARB = provider.getFunctionAddress("wglCreateContextAttribsARB");
-        wglCreatePbufferARB = provider.getFunctionAddress("wglCreatePbufferARB");
-        wglDXCloseDeviceNV = provider.getFunctionAddress("wglDXCloseDeviceNV");
-        wglDXLockObjectsNV = provider.getFunctionAddress("wglDXLockObjectsNV");
-        wglDXObjectAccessNV = provider.getFunctionAddress("wglDXObjectAccessNV");
-        wglDXOpenDeviceNV = provider.getFunctionAddress("wglDXOpenDeviceNV");
-        wglDXRegisterObjectNV = provider.getFunctionAddress("wglDXRegisterObjectNV");
-        wglDXSetResourceShareHandleNV = provider.getFunctionAddress("wglDXSetResourceShareHandleNV");
-        wglDXUnlockObjectsNV = provider.getFunctionAddress("wglDXUnlockObjectsNV");
-        wglDXUnregisterObjectNV = provider.getFunctionAddress("wglDXUnregisterObjectNV");
-        wglDelayBeforeSwapNV = provider.getFunctionAddress("wglDelayBeforeSwapNV");
-        wglDeleteAssociatedContextAMD = provider.getFunctionAddress("wglDeleteAssociatedContextAMD");
-        wglDeleteBufferRegionARB = provider.getFunctionAddress("wglDeleteBufferRegionARB");
-        wglDeleteDCNV = provider.getFunctionAddress("wglDeleteDCNV");
-        wglDestroyPbufferARB = provider.getFunctionAddress("wglDestroyPbufferARB");
-        wglEnumGpuDevicesNV = provider.getFunctionAddress("wglEnumGpuDevicesNV");
-        wglEnumGpusFromAffinityDCNV = provider.getFunctionAddress("wglEnumGpusFromAffinityDCNV");
-        wglEnumGpusNV = provider.getFunctionAddress("wglEnumGpusNV");
-        wglFreeMemoryNV = provider.getFunctionAddress("wglFreeMemoryNV");
-        wglGetContextGPUIDAMD = provider.getFunctionAddress("wglGetContextGPUIDAMD");
-        wglGetCurrentAssociatedContextAMD = provider.getFunctionAddress("wglGetCurrentAssociatedContextAMD");
-        wglGetCurrentReadDCARB = provider.getFunctionAddress("wglGetCurrentReadDCARB");
-        wglGetExtensionsStringARB = provider.getFunctionAddress("wglGetExtensionsStringARB");
-        wglGetExtensionsStringEXT = provider.getFunctionAddress("wglGetExtensionsStringEXT");
         wglGetGPUIDsAMD = provider.getFunctionAddress("wglGetGPUIDsAMD");
         wglGetGPUInfoAMD = provider.getFunctionAddress("wglGetGPUInfoAMD");
-        wglGetPbufferDCARB = provider.getFunctionAddress("wglGetPbufferDCARB");
-        wglGetPixelFormatAttribfvARB = provider.getFunctionAddress("wglGetPixelFormatAttribfvARB");
-        wglGetPixelFormatAttribivARB = provider.getFunctionAddress("wglGetPixelFormatAttribivARB");
-        wglGetSwapIntervalEXT = provider.getFunctionAddress("wglGetSwapIntervalEXT");
-        wglJoinSwapGroupNV = provider.getFunctionAddress("wglJoinSwapGroupNV");
+        wglGetContextGPUIDAMD = provider.getFunctionAddress("wglGetContextGPUIDAMD");
+        wglCreateAssociatedContextAMD = provider.getFunctionAddress("wglCreateAssociatedContextAMD");
+        wglCreateAssociatedContextAttribsAMD = provider.getFunctionAddress("wglCreateAssociatedContextAttribsAMD");
+        wglDeleteAssociatedContextAMD = provider.getFunctionAddress("wglDeleteAssociatedContextAMD");
         wglMakeAssociatedContextCurrentAMD = provider.getFunctionAddress("wglMakeAssociatedContextCurrentAMD");
-        wglMakeContextCurrentARB = provider.getFunctionAddress("wglMakeContextCurrentARB");
-        wglQueryFrameCountNV = provider.getFunctionAddress("wglQueryFrameCountNV");
-        wglQueryMaxSwapGroupsNV = provider.getFunctionAddress("wglQueryMaxSwapGroupsNV");
-        wglQueryPbufferARB = provider.getFunctionAddress("wglQueryPbufferARB");
-        wglQuerySwapGroupNV = provider.getFunctionAddress("wglQuerySwapGroupNV");
-        wglReleasePbufferDCARB = provider.getFunctionAddress("wglReleasePbufferDCARB");
-        wglReleaseTexImageARB = provider.getFunctionAddress("wglReleaseTexImageARB");
-        wglResetFrameCountNV = provider.getFunctionAddress("wglResetFrameCountNV");
-        wglRestoreBufferRegionARB = provider.getFunctionAddress("wglRestoreBufferRegionARB");
+        wglGetCurrentAssociatedContextAMD = provider.getFunctionAddress("wglGetCurrentAssociatedContextAMD");
+        wglBlitContextFramebufferAMD = provider.getFunctionAddress("wglBlitContextFramebufferAMD");
+        wglCreateBufferRegionARB = provider.getFunctionAddress("wglCreateBufferRegionARB");
+        wglDeleteBufferRegionARB = provider.getFunctionAddress("wglDeleteBufferRegionARB");
         wglSaveBufferRegionARB = provider.getFunctionAddress("wglSaveBufferRegionARB");
+        wglRestoreBufferRegionARB = provider.getFunctionAddress("wglRestoreBufferRegionARB");
+        wglCreateContextAttribsARB = provider.getFunctionAddress("wglCreateContextAttribsARB");
+        wglGetExtensionsStringARB = provider.getFunctionAddress("wglGetExtensionsStringARB");
+        wglMakeContextCurrentARB = provider.getFunctionAddress("wglMakeContextCurrentARB");
+        wglGetCurrentReadDCARB = provider.getFunctionAddress("wglGetCurrentReadDCARB");
+        wglCreatePbufferARB = provider.getFunctionAddress("wglCreatePbufferARB");
+        wglGetPbufferDCARB = provider.getFunctionAddress("wglGetPbufferDCARB");
+        wglReleasePbufferDCARB = provider.getFunctionAddress("wglReleasePbufferDCARB");
+        wglDestroyPbufferARB = provider.getFunctionAddress("wglDestroyPbufferARB");
+        wglQueryPbufferARB = provider.getFunctionAddress("wglQueryPbufferARB");
+        wglGetPixelFormatAttribivARB = provider.getFunctionAddress("wglGetPixelFormatAttribivARB");
+        wglGetPixelFormatAttribfvARB = provider.getFunctionAddress("wglGetPixelFormatAttribfvARB");
+        wglChoosePixelFormatARB = provider.getFunctionAddress("wglChoosePixelFormatARB");
+        wglBindTexImageARB = provider.getFunctionAddress("wglBindTexImageARB");
+        wglReleaseTexImageARB = provider.getFunctionAddress("wglReleaseTexImageARB");
         wglSetPbufferAttribARB = provider.getFunctionAddress("wglSetPbufferAttribARB");
+        wglGetExtensionsStringEXT = provider.getFunctionAddress("wglGetExtensionsStringEXT");
         wglSwapIntervalEXT = provider.getFunctionAddress("wglSwapIntervalEXT");
+        wglGetSwapIntervalEXT = provider.getFunctionAddress("wglGetSwapIntervalEXT");
+        wglCopyImageSubDataNV = provider.getFunctionAddress("wglCopyImageSubDataNV");
+        wglDelayBeforeSwapNV = provider.getFunctionAddress("wglDelayBeforeSwapNV");
+        wglDXSetResourceShareHandleNV = provider.getFunctionAddress("wglDXSetResourceShareHandleNV");
+        wglDXOpenDeviceNV = provider.getFunctionAddress("wglDXOpenDeviceNV");
+        wglDXCloseDeviceNV = provider.getFunctionAddress("wglDXCloseDeviceNV");
+        wglDXRegisterObjectNV = provider.getFunctionAddress("wglDXRegisterObjectNV");
+        wglDXUnregisterObjectNV = provider.getFunctionAddress("wglDXUnregisterObjectNV");
+        wglDXObjectAccessNV = provider.getFunctionAddress("wglDXObjectAccessNV");
+        wglDXLockObjectsNV = provider.getFunctionAddress("wglDXLockObjectsNV");
+        wglDXUnlockObjectsNV = provider.getFunctionAddress("wglDXUnlockObjectsNV");
+        wglEnumGpusNV = provider.getFunctionAddress("wglEnumGpusNV");
+        wglEnumGpuDevicesNV = provider.getFunctionAddress("wglEnumGpuDevicesNV");
+        wglCreateAffinityDCNV = provider.getFunctionAddress("wglCreateAffinityDCNV");
+        wglEnumGpusFromAffinityDCNV = provider.getFunctionAddress("wglEnumGpusFromAffinityDCNV");
+        wglDeleteDCNV = provider.getFunctionAddress("wglDeleteDCNV");
+        wglJoinSwapGroupNV = provider.getFunctionAddress("wglJoinSwapGroupNV");
+        wglBindSwapBarrierNV = provider.getFunctionAddress("wglBindSwapBarrierNV");
+        wglQuerySwapGroupNV = provider.getFunctionAddress("wglQuerySwapGroupNV");
+        wglQueryMaxSwapGroupsNV = provider.getFunctionAddress("wglQueryMaxSwapGroupsNV");
+        wglQueryFrameCountNV = provider.getFunctionAddress("wglQueryFrameCountNV");
+        wglResetFrameCountNV = provider.getFunctionAddress("wglResetFrameCountNV");
+        wglAllocateMemoryNV = provider.getFunctionAddress("wglAllocateMemoryNV");
+        wglFreeMemoryNV = provider.getFunctionAddress("wglFreeMemoryNV");
 
         WGL_AMD_gpu_association = ext.contains("WGL_AMD_gpu_association") && checkExtension("WGL_AMD_gpu_association", WGLAMDGPUAssociation.isAvailable(this));
         WGL_ARB_buffer_region = ext.contains("WGL_ARB_buffer_region") && checkExtension("WGL_ARB_buffer_region", WGLARBBufferRegion.isAvailable(this));

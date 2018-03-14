@@ -13,21 +13,21 @@ typedef void (APIENTRY *glResolveDepthValuesNVPROC) (void);
 EXTERN_C_ENTER
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVSampleLocations_nglFramebufferSampleLocationsfvNV__IIIJ(JNIEnv *__env, jclass clazz, jint target, jint start, jint count, jlong vAddress) {
-    glFramebufferSampleLocationsfvNVPROC glFramebufferSampleLocationsfvNV = (glFramebufferSampleLocationsfvNVPROC)tlsGetFunction(456);
+    glFramebufferSampleLocationsfvNVPROC glFramebufferSampleLocationsfvNV = (glFramebufferSampleLocationsfvNVPROC)tlsGetFunction(2096);
     intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glFramebufferSampleLocationsfvNV(target, start, count, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVSampleLocations_nglNamedFramebufferSampleLocationsfvNV__IIIJ(JNIEnv *__env, jclass clazz, jint framebuffer, jint start, jint count, jlong vAddress) {
-    glNamedFramebufferSampleLocationsfvNVPROC glNamedFramebufferSampleLocationsfvNV = (glNamedFramebufferSampleLocationsfvNVPROC)tlsGetFunction(1162);
+    glNamedFramebufferSampleLocationsfvNVPROC glNamedFramebufferSampleLocationsfvNV = (glNamedFramebufferSampleLocationsfvNVPROC)tlsGetFunction(2097);
     intptr_t v = (intptr_t)vAddress;
     UNUSED_PARAM(clazz)
     glNamedFramebufferSampleLocationsfvNV(framebuffer, start, count, v);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_opengl_NVSampleLocations_glResolveDepthValuesNV(JNIEnv *__env, jclass clazz) {
-    glResolveDepthValuesNVPROC glResolveDepthValuesNV = (glResolveDepthValuesNVPROC)tlsGetFunction(1488);
+    glResolveDepthValuesNVPROC glResolveDepthValuesNV = (glResolveDepthValuesNVPROC)tlsGetFunction(2098);
     UNUSED_PARAM(clazz)
     glResolveDepthValuesNV();
 }

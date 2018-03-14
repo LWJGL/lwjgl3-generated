@@ -5,6 +5,8 @@
  */
 package org.lwjgl.egl;
 
+import javax.annotation.*;
+
 import java.nio.*;
 
 import org.lwjgl.system.*;
@@ -64,11 +66,11 @@ public class KHRFenceSync {
     }
 
     @NativeType("EGLSyncKHR")
-    public static long eglCreateSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @NativeType("EGLint const *") IntBuffer attrib_list) {
+    public static long eglCreateSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @Nullable @NativeType("EGLint const *") IntBuffer attrib_list) {
         if (CHECKS) {
-            checkNT(attrib_list, EGL10.EGL_NONE);
+            checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
-        return neglCreateSyncKHR(dpy, type, memAddress(attrib_list));
+        return neglCreateSyncKHR(dpy, type, memAddressSafe(attrib_list));
     }
 
     // --- [ eglDestroySyncKHR ] ---
@@ -119,12 +121,12 @@ public class KHRFenceSync {
 
     /** Array version of: {@link #eglCreateSyncKHR CreateSyncKHR} */
     @NativeType("EGLSyncKHR")
-    public static long eglCreateSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @NativeType("EGLint const *") int[] attrib_list) {
+    public static long eglCreateSyncKHR(@NativeType("EGLDisplay") long dpy, @NativeType("EGLenum") int type, @Nullable @NativeType("EGLint const *") int[] attrib_list) {
         long __functionAddress = EGL.getCapabilities().eglCreateSyncKHR;
         if (CHECKS) {
             check(__functionAddress);
             check(dpy);
-            checkNT(attrib_list, EGL10.EGL_NONE);
+            checkNTSafe(attrib_list, EGL10.EGL_NONE);
         }
         return callPPP(__functionAddress, dpy, type, attrib_list);
     }

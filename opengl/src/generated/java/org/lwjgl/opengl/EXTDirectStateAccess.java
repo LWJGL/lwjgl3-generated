@@ -1447,11 +1447,11 @@ public class EXTDirectStateAccess {
 
     // --- [ glEnableIndexedEXT ] ---
 
-    public static native void glEnableIndexedEXT(@NativeType("GLenum") int cap, @NativeType("GLuint") int index);
+    public static native void glEnableIndexedEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index);
 
     // --- [ glDisableIndexedEXT ] ---
 
-    public static native void glDisableIndexedEXT(@NativeType("GLenum") int cap, @NativeType("GLuint") int index);
+    public static native void glDisableIndexedEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index);
 
     // --- [ glIsEnabledIndexedEXT ] ---
 
@@ -1460,22 +1460,22 @@ public class EXTDirectStateAccess {
 
     // --- [ glGetIntegerIndexedvEXT ] ---
 
-    public static native void nglGetIntegerIndexedvEXT(int target, int index, long params);
+    public static native void nglGetIntegerIndexedvEXT(int target, int index, long data);
 
-    public static void glGetIntegerIndexedvEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLint *") IntBuffer params) {
+    public static void glGetIntegerIndexedvEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLint *") IntBuffer data) {
         if (CHECKS) {
-            check(params, 1);
+            check(data, 1);
         }
-        nglGetIntegerIndexedvEXT(target, index, memAddress(params));
+        nglGetIntegerIndexedvEXT(target, index, memAddress(data));
     }
 
     @NativeType("void")
     public static int glGetIntegerIndexedEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            IntBuffer params = stack.callocInt(1);
-            nglGetIntegerIndexedvEXT(target, index, memAddress(params));
-            return params.get(0);
+            IntBuffer data = stack.callocInt(1);
+            nglGetIntegerIndexedvEXT(target, index, memAddress(data));
+            return data.get(0);
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -1483,22 +1483,22 @@ public class EXTDirectStateAccess {
 
     // --- [ glGetBooleanIndexedvEXT ] ---
 
-    public static native void nglGetBooleanIndexedvEXT(int target, int index, long params);
+    public static native void nglGetBooleanIndexedvEXT(int target, int index, long data);
 
-    public static void glGetBooleanIndexedvEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLboolean *") ByteBuffer params) {
+    public static void glGetBooleanIndexedvEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLboolean *") ByteBuffer data) {
         if (CHECKS) {
-            check(params, 1);
+            check(data, 1);
         }
-        nglGetBooleanIndexedvEXT(target, index, memAddress(params));
+        nglGetBooleanIndexedvEXT(target, index, memAddress(data));
     }
 
     @NativeType("void")
     public static boolean glGetBooleanIndexedEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index) {
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
-            ByteBuffer params = stack.calloc(1);
-            nglGetBooleanIndexedvEXT(target, index, memAddress(params));
-            return params.get(0) != 0;
+            ByteBuffer data = stack.calloc(1);
+            nglGetBooleanIndexedvEXT(target, index, memAddress(data));
+            return data.get(0) != 0;
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -3544,13 +3544,13 @@ public class EXTDirectStateAccess {
     }
 
     /** Array version of: {@link #glGetIntegerIndexedvEXT GetIntegerIndexedvEXT} */
-    public static void glGetIntegerIndexedvEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLint *") int[] params) {
+    public static void glGetIntegerIndexedvEXT(@NativeType("GLenum") int target, @NativeType("GLuint") int index, @NativeType("GLint *") int[] data) {
         long __functionAddress = GL.getICD().glGetIntegerIndexedvEXT;
         if (CHECKS) {
             check(__functionAddress);
-            check(params, 1);
+            check(data, 1);
         }
-        callPV(__functionAddress, target, index, params);
+        callPV(__functionAddress, target, index, data);
     }
 
     /** Array version of: {@link #glNamedProgramLocalParameter4dvEXT NamedProgramLocalParameter4dvEXT} */

@@ -12,140 +12,140 @@ import java.util.Set;
 public class EGLCapabilities {
 
     public final long
-        eglBindAPI,
-        eglBindTexImage,
         eglChooseConfig,
-        eglClientWaitSync,
-        eglClientWaitSyncKHR,
-        eglClientWaitSyncNV,
-        eglCompositorBindTexWindowEXT,
-        eglCompositorSetContextAttributesEXT,
-        eglCompositorSetContextListEXT,
-        eglCompositorSetSizeEXT,
-        eglCompositorSetWindowAttributesEXT,
-        eglCompositorSetWindowListEXT,
-        eglCompositorSwapPolicyEXT,
         eglCopyBuffers,
         eglCreateContext,
-        eglCreateDRMImageMESA,
-        eglCreateFenceSyncNV,
-        eglCreateImage,
-        eglCreateImageKHR,
-        eglCreateNativeClientBufferANDROID,
-        eglCreatePbufferFromClientBuffer,
         eglCreatePbufferSurface,
         eglCreatePixmapSurface,
-        eglCreatePixmapSurfaceHI,
-        eglCreatePlatformPixmapSurface,
-        eglCreatePlatformPixmapSurfaceEXT,
-        eglCreatePlatformWindowSurface,
-        eglCreatePlatformWindowSurfaceEXT,
-        eglCreateStreamAttribKHR,
-        eglCreateStreamFromFileDescriptorKHR,
-        eglCreateStreamKHR,
-        eglCreateStreamProducerSurfaceKHR,
-        eglCreateStreamSyncNV,
-        eglCreateSync,
-        eglCreateSync64KHR,
-        eglCreateSyncKHR,
         eglCreateWindowSurface,
-        eglDebugMessageControlKHR,
         eglDestroyContext,
-        eglDestroyImage,
-        eglDestroyImageKHR,
-        eglDestroyStreamKHR,
         eglDestroySurface,
-        eglDestroySync,
-        eglDestroySyncKHR,
-        eglDestroySyncNV,
-        eglDupNativeFenceFDANDROID,
-        eglExportDMABUFImageMESA,
-        eglExportDMABUFImageQueryMESA,
-        eglExportDRMImageMESA,
-        eglFenceNV,
         eglGetConfigAttrib,
         eglGetConfigs,
-        eglGetCurrentContext,
         eglGetCurrentDisplay,
         eglGetCurrentSurface,
         eglGetDisplay,
         eglGetError,
-        eglGetOutputLayersEXT,
-        eglGetOutputPortsEXT,
-        eglGetPlatformDisplay,
-        eglGetPlatformDisplayEXT,
         eglGetProcAddress,
-        eglGetStreamFileDescriptorKHR,
-        eglGetSyncAttrib,
-        eglGetSyncAttribKHR,
-        eglGetSyncAttribNV,
-        eglGetSystemTimeFrequencyNV,
-        eglGetSystemTimeNV,
         eglInitialize,
-        eglLabelObjectKHR,
-        eglLockSurfaceKHR,
         eglMakeCurrent,
-        eglOutputLayerAttribEXT,
-        eglOutputPortAttribEXT,
-        eglPostSubBufferNV,
-        eglPresentationTimeANDROID,
-        eglQueryAPI,
         eglQueryContext,
-        eglQueryDebugKHR,
-        eglQueryDeviceAttribEXT,
-        eglQueryDeviceStringEXT,
-        eglQueryDevicesEXT,
-        eglQueryDisplayAttribEXT,
-        eglQueryDisplayAttribKHR,
-        eglQueryDisplayAttribNV,
-        eglQueryDmaBufFormatsEXT,
-        eglQueryDmaBufModifiersEXT,
-        eglQueryNativeDisplayNV,
-        eglQueryNativePixmapNV,
-        eglQueryNativeWindowNV,
-        eglQueryOutputLayerAttribEXT,
-        eglQueryOutputLayerStringEXT,
-        eglQueryOutputPortAttribEXT,
-        eglQueryOutputPortStringEXT,
-        eglQueryStreamAttribKHR,
-        eglQueryStreamKHR,
-        eglQueryStreamMetadataNV,
-        eglQueryStreamTimeKHR,
-        eglQueryStreamu64KHR,
         eglQueryString,
         eglQuerySurface,
-        eglQuerySurface64KHR,
-        eglQuerySurfacePointerANGLE,
-        eglReleaseTexImage,
-        eglReleaseThread,
-        eglResetStreamNV,
-        eglSetBlobCacheFuncsANDROID,
-        eglSetDamageRegionKHR,
-        eglSetStreamAttribKHR,
-        eglSetStreamMetadataNV,
-        eglSignalSyncKHR,
-        eglSignalSyncNV,
-        eglStreamAttribKHR,
-        eglStreamConsumerAcquireAttribKHR,
-        eglStreamConsumerAcquireKHR,
-        eglStreamConsumerGLTextureExternalAttribsNV,
-        eglStreamConsumerGLTextureExternalKHR,
-        eglStreamConsumerOutputEXT,
-        eglStreamConsumerReleaseAttribKHR,
-        eglStreamConsumerReleaseKHR,
-        eglSurfaceAttrib,
         eglSwapBuffers,
-        eglSwapBuffersRegion2NOK,
-        eglSwapBuffersWithDamageEXT,
-        eglSwapBuffersWithDamageKHR,
-        eglSwapInterval,
         eglTerminate,
-        eglUnlockSurfaceKHR,
-        eglWaitClient,
         eglWaitGL,
         eglWaitNative,
+        eglBindTexImage,
+        eglReleaseTexImage,
+        eglSurfaceAttrib,
+        eglSwapInterval,
+        eglBindAPI,
+        eglQueryAPI,
+        eglCreatePbufferFromClientBuffer,
+        eglReleaseThread,
+        eglWaitClient,
+        eglGetCurrentContext,
+        eglCreateSync,
+        eglDestroySync,
+        eglClientWaitSync,
+        eglGetSyncAttrib,
+        eglCreateImage,
+        eglDestroyImage,
+        eglGetPlatformDisplay,
+        eglCreatePlatformWindowSurface,
+        eglCreatePlatformPixmapSurface,
         eglWaitSync,
-        eglWaitSyncKHR;
+        eglSetBlobCacheFuncsANDROID,
+        eglCreateNativeClientBufferANDROID,
+        eglDupNativeFenceFDANDROID,
+        eglPresentationTimeANDROID,
+        eglQuerySurfacePointerANGLE,
+        eglCompositorSetContextListEXT,
+        eglCompositorSetContextAttributesEXT,
+        eglCompositorSetWindowListEXT,
+        eglCompositorSetWindowAttributesEXT,
+        eglCompositorBindTexWindowEXT,
+        eglCompositorSetSizeEXT,
+        eglCompositorSwapPolicyEXT,
+        eglQueryDevicesEXT,
+        eglQueryDeviceAttribEXT,
+        eglQueryDeviceStringEXT,
+        eglQueryDisplayAttribEXT,
+        eglQueryDmaBufFormatsEXT,
+        eglQueryDmaBufModifiersEXT,
+        eglGetOutputLayersEXT,
+        eglGetOutputPortsEXT,
+        eglOutputLayerAttribEXT,
+        eglQueryOutputLayerAttribEXT,
+        eglQueryOutputLayerStringEXT,
+        eglOutputPortAttribEXT,
+        eglQueryOutputPortAttribEXT,
+        eglQueryOutputPortStringEXT,
+        eglGetPlatformDisplayEXT,
+        eglCreatePlatformWindowSurfaceEXT,
+        eglCreatePlatformPixmapSurfaceEXT,
+        eglStreamConsumerOutputEXT,
+        eglSwapBuffersWithDamageEXT,
+        eglCreatePixmapSurfaceHI,
+        eglCreateSync64KHR,
+        eglDebugMessageControlKHR,
+        eglQueryDebugKHR,
+        eglLabelObjectKHR,
+        eglQueryDisplayAttribKHR,
+        eglCreateImageKHR,
+        eglDestroyImageKHR,
+        eglLockSurfaceKHR,
+        eglUnlockSurfaceKHR,
+        eglQuerySurface64KHR,
+        eglSetDamageRegionKHR,
+        eglCreateSyncKHR,
+        eglDestroySyncKHR,
+        eglClientWaitSyncKHR,
+        eglSignalSyncKHR,
+        eglGetSyncAttribKHR,
+        eglCreateStreamKHR,
+        eglDestroyStreamKHR,
+        eglStreamAttribKHR,
+        eglQueryStreamKHR,
+        eglQueryStreamu64KHR,
+        eglCreateStreamAttribKHR,
+        eglSetStreamAttribKHR,
+        eglQueryStreamAttribKHR,
+        eglStreamConsumerAcquireAttribKHR,
+        eglStreamConsumerReleaseAttribKHR,
+        eglStreamConsumerGLTextureExternalKHR,
+        eglStreamConsumerAcquireKHR,
+        eglStreamConsumerReleaseKHR,
+        eglGetStreamFileDescriptorKHR,
+        eglCreateStreamFromFileDescriptorKHR,
+        eglQueryStreamTimeKHR,
+        eglCreateStreamProducerSurfaceKHR,
+        eglSwapBuffersWithDamageKHR,
+        eglWaitSyncKHR,
+        eglCreateDRMImageMESA,
+        eglExportDRMImageMESA,
+        eglExportDMABUFImageQueryMESA,
+        eglExportDMABUFImageMESA,
+        eglSwapBuffersRegion2NOK,
+        eglQueryNativeDisplayNV,
+        eglQueryNativeWindowNV,
+        eglQueryNativePixmapNV,
+        eglPostSubBufferNV,
+        eglStreamConsumerGLTextureExternalAttribsNV,
+        eglQueryDisplayAttribNV,
+        eglSetStreamMetadataNV,
+        eglQueryStreamMetadataNV,
+        eglResetStreamNV,
+        eglCreateStreamSyncNV,
+        eglCreateFenceSyncNV,
+        eglDestroySyncNV,
+        eglFenceNV,
+        eglClientWaitSyncNV,
+        eglSignalSyncNV,
+        eglGetSyncAttribNV,
+        eglGetSystemTimeFrequencyNV,
+        eglGetSystemTimeNV;
 
     /** When true, {@link EGL10} is supported. */
     public final boolean EGL10;
@@ -513,417 +513,417 @@ public class EGLCapabilities {
 
     EGLCapabilities(FunctionProvider provider, Set<String> ext) {
         this(ext,
-            provider.getFunctionAddress("eglBindAPI"),
-            provider.getFunctionAddress("eglBindTexImage"),
             provider.getFunctionAddress("eglChooseConfig"),
-            provider.getFunctionAddress("eglClientWaitSync"),
-            provider.getFunctionAddress("eglClientWaitSyncKHR"),
-            provider.getFunctionAddress("eglClientWaitSyncNV"),
-            provider.getFunctionAddress("eglCompositorBindTexWindowEXT"),
-            provider.getFunctionAddress("eglCompositorSetContextAttributesEXT"),
-            provider.getFunctionAddress("eglCompositorSetContextListEXT"),
-            provider.getFunctionAddress("eglCompositorSetSizeEXT"),
-            provider.getFunctionAddress("eglCompositorSetWindowAttributesEXT"),
-            provider.getFunctionAddress("eglCompositorSetWindowListEXT"),
-            provider.getFunctionAddress("eglCompositorSwapPolicyEXT"),
             provider.getFunctionAddress("eglCopyBuffers"),
             provider.getFunctionAddress("eglCreateContext"),
-            provider.getFunctionAddress("eglCreateDRMImageMESA"),
-            provider.getFunctionAddress("eglCreateFenceSyncNV"),
-            provider.getFunctionAddress("eglCreateImage"),
-            provider.getFunctionAddress("eglCreateImageKHR"),
-            provider.getFunctionAddress("eglCreateNativeClientBufferANDROID"),
-            provider.getFunctionAddress("eglCreatePbufferFromClientBuffer"),
             provider.getFunctionAddress("eglCreatePbufferSurface"),
             provider.getFunctionAddress("eglCreatePixmapSurface"),
-            provider.getFunctionAddress("eglCreatePixmapSurfaceHI"),
-            provider.getFunctionAddress("eglCreatePlatformPixmapSurface"),
-            provider.getFunctionAddress("eglCreatePlatformPixmapSurfaceEXT"),
-            provider.getFunctionAddress("eglCreatePlatformWindowSurface"),
-            provider.getFunctionAddress("eglCreatePlatformWindowSurfaceEXT"),
-            provider.getFunctionAddress("eglCreateStreamAttribKHR"),
-            provider.getFunctionAddress("eglCreateStreamFromFileDescriptorKHR"),
-            provider.getFunctionAddress("eglCreateStreamKHR"),
-            provider.getFunctionAddress("eglCreateStreamProducerSurfaceKHR"),
-            provider.getFunctionAddress("eglCreateStreamSyncNV"),
-            provider.getFunctionAddress("eglCreateSync"),
-            provider.getFunctionAddress("eglCreateSync64KHR"),
-            provider.getFunctionAddress("eglCreateSyncKHR"),
             provider.getFunctionAddress("eglCreateWindowSurface"),
-            provider.getFunctionAddress("eglDebugMessageControlKHR"),
             provider.getFunctionAddress("eglDestroyContext"),
-            provider.getFunctionAddress("eglDestroyImage"),
-            provider.getFunctionAddress("eglDestroyImageKHR"),
-            provider.getFunctionAddress("eglDestroyStreamKHR"),
             provider.getFunctionAddress("eglDestroySurface"),
-            provider.getFunctionAddress("eglDestroySync"),
-            provider.getFunctionAddress("eglDestroySyncKHR"),
-            provider.getFunctionAddress("eglDestroySyncNV"),
-            provider.getFunctionAddress("eglDupNativeFenceFDANDROID"),
-            provider.getFunctionAddress("eglExportDMABUFImageMESA"),
-            provider.getFunctionAddress("eglExportDMABUFImageQueryMESA"),
-            provider.getFunctionAddress("eglExportDRMImageMESA"),
-            provider.getFunctionAddress("eglFenceNV"),
             provider.getFunctionAddress("eglGetConfigAttrib"),
             provider.getFunctionAddress("eglGetConfigs"),
-            provider.getFunctionAddress("eglGetCurrentContext"),
             provider.getFunctionAddress("eglGetCurrentDisplay"),
             provider.getFunctionAddress("eglGetCurrentSurface"),
             provider.getFunctionAddress("eglGetDisplay"),
             provider.getFunctionAddress("eglGetError"),
-            provider.getFunctionAddress("eglGetOutputLayersEXT"),
-            provider.getFunctionAddress("eglGetOutputPortsEXT"),
-            provider.getFunctionAddress("eglGetPlatformDisplay"),
-            provider.getFunctionAddress("eglGetPlatformDisplayEXT"),
             provider.getFunctionAddress("eglGetProcAddress"),
-            provider.getFunctionAddress("eglGetStreamFileDescriptorKHR"),
-            provider.getFunctionAddress("eglGetSyncAttrib"),
-            provider.getFunctionAddress("eglGetSyncAttribKHR"),
-            provider.getFunctionAddress("eglGetSyncAttribNV"),
-            provider.getFunctionAddress("eglGetSystemTimeFrequencyNV"),
-            provider.getFunctionAddress("eglGetSystemTimeNV"),
             provider.getFunctionAddress("eglInitialize"),
-            provider.getFunctionAddress("eglLabelObjectKHR"),
-            provider.getFunctionAddress("eglLockSurfaceKHR"),
             provider.getFunctionAddress("eglMakeCurrent"),
-            provider.getFunctionAddress("eglOutputLayerAttribEXT"),
-            provider.getFunctionAddress("eglOutputPortAttribEXT"),
-            provider.getFunctionAddress("eglPostSubBufferNV"),
-            provider.getFunctionAddress("eglPresentationTimeANDROID"),
-            provider.getFunctionAddress("eglQueryAPI"),
             provider.getFunctionAddress("eglQueryContext"),
-            provider.getFunctionAddress("eglQueryDebugKHR"),
-            provider.getFunctionAddress("eglQueryDeviceAttribEXT"),
-            provider.getFunctionAddress("eglQueryDeviceStringEXT"),
-            provider.getFunctionAddress("eglQueryDevicesEXT"),
-            provider.getFunctionAddress("eglQueryDisplayAttribEXT"),
-            provider.getFunctionAddress("eglQueryDisplayAttribKHR"),
-            provider.getFunctionAddress("eglQueryDisplayAttribNV"),
-            provider.getFunctionAddress("eglQueryDmaBufFormatsEXT"),
-            provider.getFunctionAddress("eglQueryDmaBufModifiersEXT"),
-            provider.getFunctionAddress("eglQueryNativeDisplayNV"),
-            provider.getFunctionAddress("eglQueryNativePixmapNV"),
-            provider.getFunctionAddress("eglQueryNativeWindowNV"),
-            provider.getFunctionAddress("eglQueryOutputLayerAttribEXT"),
-            provider.getFunctionAddress("eglQueryOutputLayerStringEXT"),
-            provider.getFunctionAddress("eglQueryOutputPortAttribEXT"),
-            provider.getFunctionAddress("eglQueryOutputPortStringEXT"),
-            provider.getFunctionAddress("eglQueryStreamAttribKHR"),
-            provider.getFunctionAddress("eglQueryStreamKHR"),
-            provider.getFunctionAddress("eglQueryStreamMetadataNV"),
-            provider.getFunctionAddress("eglQueryStreamTimeKHR"),
-            provider.getFunctionAddress("eglQueryStreamu64KHR"),
             provider.getFunctionAddress("eglQueryString"),
             provider.getFunctionAddress("eglQuerySurface"),
-            provider.getFunctionAddress("eglQuerySurface64KHR"),
-            provider.getFunctionAddress("eglQuerySurfacePointerANGLE"),
-            provider.getFunctionAddress("eglReleaseTexImage"),
-            provider.getFunctionAddress("eglReleaseThread"),
-            provider.getFunctionAddress("eglResetStreamNV"),
-            provider.getFunctionAddress("eglSetBlobCacheFuncsANDROID"),
-            provider.getFunctionAddress("eglSetDamageRegionKHR"),
-            provider.getFunctionAddress("eglSetStreamAttribKHR"),
-            provider.getFunctionAddress("eglSetStreamMetadataNV"),
-            provider.getFunctionAddress("eglSignalSyncKHR"),
-            provider.getFunctionAddress("eglSignalSyncNV"),
-            provider.getFunctionAddress("eglStreamAttribKHR"),
-            provider.getFunctionAddress("eglStreamConsumerAcquireAttribKHR"),
-            provider.getFunctionAddress("eglStreamConsumerAcquireKHR"),
-            provider.getFunctionAddress("eglStreamConsumerGLTextureExternalAttribsNV"),
-            provider.getFunctionAddress("eglStreamConsumerGLTextureExternalKHR"),
-            provider.getFunctionAddress("eglStreamConsumerOutputEXT"),
-            provider.getFunctionAddress("eglStreamConsumerReleaseAttribKHR"),
-            provider.getFunctionAddress("eglStreamConsumerReleaseKHR"),
-            provider.getFunctionAddress("eglSurfaceAttrib"),
             provider.getFunctionAddress("eglSwapBuffers"),
-            provider.getFunctionAddress("eglSwapBuffersRegion2NOK"),
-            provider.getFunctionAddress("eglSwapBuffersWithDamageEXT"),
-            provider.getFunctionAddress("eglSwapBuffersWithDamageKHR"),
-            provider.getFunctionAddress("eglSwapInterval"),
             provider.getFunctionAddress("eglTerminate"),
-            provider.getFunctionAddress("eglUnlockSurfaceKHR"),
-            provider.getFunctionAddress("eglWaitClient"),
             provider.getFunctionAddress("eglWaitGL"),
             provider.getFunctionAddress("eglWaitNative"),
+            provider.getFunctionAddress("eglBindTexImage"),
+            provider.getFunctionAddress("eglReleaseTexImage"),
+            provider.getFunctionAddress("eglSurfaceAttrib"),
+            provider.getFunctionAddress("eglSwapInterval"),
+            provider.getFunctionAddress("eglBindAPI"),
+            provider.getFunctionAddress("eglQueryAPI"),
+            provider.getFunctionAddress("eglCreatePbufferFromClientBuffer"),
+            provider.getFunctionAddress("eglReleaseThread"),
+            provider.getFunctionAddress("eglWaitClient"),
+            provider.getFunctionAddress("eglGetCurrentContext"),
+            provider.getFunctionAddress("eglCreateSync"),
+            provider.getFunctionAddress("eglDestroySync"),
+            provider.getFunctionAddress("eglClientWaitSync"),
+            provider.getFunctionAddress("eglGetSyncAttrib"),
+            provider.getFunctionAddress("eglCreateImage"),
+            provider.getFunctionAddress("eglDestroyImage"),
+            provider.getFunctionAddress("eglGetPlatformDisplay"),
+            provider.getFunctionAddress("eglCreatePlatformWindowSurface"),
+            provider.getFunctionAddress("eglCreatePlatformPixmapSurface"),
             provider.getFunctionAddress("eglWaitSync"),
-            provider.getFunctionAddress("eglWaitSyncKHR")
+            provider.getFunctionAddress("eglSetBlobCacheFuncsANDROID"),
+            provider.getFunctionAddress("eglCreateNativeClientBufferANDROID"),
+            provider.getFunctionAddress("eglDupNativeFenceFDANDROID"),
+            provider.getFunctionAddress("eglPresentationTimeANDROID"),
+            provider.getFunctionAddress("eglQuerySurfacePointerANGLE"),
+            provider.getFunctionAddress("eglCompositorSetContextListEXT"),
+            provider.getFunctionAddress("eglCompositorSetContextAttributesEXT"),
+            provider.getFunctionAddress("eglCompositorSetWindowListEXT"),
+            provider.getFunctionAddress("eglCompositorSetWindowAttributesEXT"),
+            provider.getFunctionAddress("eglCompositorBindTexWindowEXT"),
+            provider.getFunctionAddress("eglCompositorSetSizeEXT"),
+            provider.getFunctionAddress("eglCompositorSwapPolicyEXT"),
+            provider.getFunctionAddress("eglQueryDevicesEXT"),
+            provider.getFunctionAddress("eglQueryDeviceAttribEXT"),
+            provider.getFunctionAddress("eglQueryDeviceStringEXT"),
+            provider.getFunctionAddress("eglQueryDisplayAttribEXT"),
+            provider.getFunctionAddress("eglQueryDmaBufFormatsEXT"),
+            provider.getFunctionAddress("eglQueryDmaBufModifiersEXT"),
+            provider.getFunctionAddress("eglGetOutputLayersEXT"),
+            provider.getFunctionAddress("eglGetOutputPortsEXT"),
+            provider.getFunctionAddress("eglOutputLayerAttribEXT"),
+            provider.getFunctionAddress("eglQueryOutputLayerAttribEXT"),
+            provider.getFunctionAddress("eglQueryOutputLayerStringEXT"),
+            provider.getFunctionAddress("eglOutputPortAttribEXT"),
+            provider.getFunctionAddress("eglQueryOutputPortAttribEXT"),
+            provider.getFunctionAddress("eglQueryOutputPortStringEXT"),
+            provider.getFunctionAddress("eglGetPlatformDisplayEXT"),
+            provider.getFunctionAddress("eglCreatePlatformWindowSurfaceEXT"),
+            provider.getFunctionAddress("eglCreatePlatformPixmapSurfaceEXT"),
+            provider.getFunctionAddress("eglStreamConsumerOutputEXT"),
+            provider.getFunctionAddress("eglSwapBuffersWithDamageEXT"),
+            provider.getFunctionAddress("eglCreatePixmapSurfaceHI"),
+            provider.getFunctionAddress("eglCreateSync64KHR"),
+            provider.getFunctionAddress("eglDebugMessageControlKHR"),
+            provider.getFunctionAddress("eglQueryDebugKHR"),
+            provider.getFunctionAddress("eglLabelObjectKHR"),
+            provider.getFunctionAddress("eglQueryDisplayAttribKHR"),
+            provider.getFunctionAddress("eglCreateImageKHR"),
+            provider.getFunctionAddress("eglDestroyImageKHR"),
+            provider.getFunctionAddress("eglLockSurfaceKHR"),
+            provider.getFunctionAddress("eglUnlockSurfaceKHR"),
+            provider.getFunctionAddress("eglQuerySurface64KHR"),
+            provider.getFunctionAddress("eglSetDamageRegionKHR"),
+            provider.getFunctionAddress("eglCreateSyncKHR"),
+            provider.getFunctionAddress("eglDestroySyncKHR"),
+            provider.getFunctionAddress("eglClientWaitSyncKHR"),
+            provider.getFunctionAddress("eglSignalSyncKHR"),
+            provider.getFunctionAddress("eglGetSyncAttribKHR"),
+            provider.getFunctionAddress("eglCreateStreamKHR"),
+            provider.getFunctionAddress("eglDestroyStreamKHR"),
+            provider.getFunctionAddress("eglStreamAttribKHR"),
+            provider.getFunctionAddress("eglQueryStreamKHR"),
+            provider.getFunctionAddress("eglQueryStreamu64KHR"),
+            provider.getFunctionAddress("eglCreateStreamAttribKHR"),
+            provider.getFunctionAddress("eglSetStreamAttribKHR"),
+            provider.getFunctionAddress("eglQueryStreamAttribKHR"),
+            provider.getFunctionAddress("eglStreamConsumerAcquireAttribKHR"),
+            provider.getFunctionAddress("eglStreamConsumerReleaseAttribKHR"),
+            provider.getFunctionAddress("eglStreamConsumerGLTextureExternalKHR"),
+            provider.getFunctionAddress("eglStreamConsumerAcquireKHR"),
+            provider.getFunctionAddress("eglStreamConsumerReleaseKHR"),
+            provider.getFunctionAddress("eglGetStreamFileDescriptorKHR"),
+            provider.getFunctionAddress("eglCreateStreamFromFileDescriptorKHR"),
+            provider.getFunctionAddress("eglQueryStreamTimeKHR"),
+            provider.getFunctionAddress("eglCreateStreamProducerSurfaceKHR"),
+            provider.getFunctionAddress("eglSwapBuffersWithDamageKHR"),
+            provider.getFunctionAddress("eglWaitSyncKHR"),
+            provider.getFunctionAddress("eglCreateDRMImageMESA"),
+            provider.getFunctionAddress("eglExportDRMImageMESA"),
+            provider.getFunctionAddress("eglExportDMABUFImageQueryMESA"),
+            provider.getFunctionAddress("eglExportDMABUFImageMESA"),
+            provider.getFunctionAddress("eglSwapBuffersRegion2NOK"),
+            provider.getFunctionAddress("eglQueryNativeDisplayNV"),
+            provider.getFunctionAddress("eglQueryNativeWindowNV"),
+            provider.getFunctionAddress("eglQueryNativePixmapNV"),
+            provider.getFunctionAddress("eglPostSubBufferNV"),
+            provider.getFunctionAddress("eglStreamConsumerGLTextureExternalAttribsNV"),
+            provider.getFunctionAddress("eglQueryDisplayAttribNV"),
+            provider.getFunctionAddress("eglSetStreamMetadataNV"),
+            provider.getFunctionAddress("eglQueryStreamMetadataNV"),
+            provider.getFunctionAddress("eglResetStreamNV"),
+            provider.getFunctionAddress("eglCreateStreamSyncNV"),
+            provider.getFunctionAddress("eglCreateFenceSyncNV"),
+            provider.getFunctionAddress("eglDestroySyncNV"),
+            provider.getFunctionAddress("eglFenceNV"),
+            provider.getFunctionAddress("eglClientWaitSyncNV"),
+            provider.getFunctionAddress("eglSignalSyncNV"),
+            provider.getFunctionAddress("eglGetSyncAttribNV"),
+            provider.getFunctionAddress("eglGetSystemTimeFrequencyNV"),
+            provider.getFunctionAddress("eglGetSystemTimeNV")
         );
     }
 
     EGLCapabilities(EGLCapabilities caps, Set<String> ext) {
         this(ext,
-            caps.eglBindAPI,
-            caps.eglBindTexImage,
             caps.eglChooseConfig,
-            caps.eglClientWaitSync,
-            caps.eglClientWaitSyncKHR,
-            caps.eglClientWaitSyncNV,
-            caps.eglCompositorBindTexWindowEXT,
-            caps.eglCompositorSetContextAttributesEXT,
-            caps.eglCompositorSetContextListEXT,
-            caps.eglCompositorSetSizeEXT,
-            caps.eglCompositorSetWindowAttributesEXT,
-            caps.eglCompositorSetWindowListEXT,
-            caps.eglCompositorSwapPolicyEXT,
             caps.eglCopyBuffers,
             caps.eglCreateContext,
-            caps.eglCreateDRMImageMESA,
-            caps.eglCreateFenceSyncNV,
-            caps.eglCreateImage,
-            caps.eglCreateImageKHR,
-            caps.eglCreateNativeClientBufferANDROID,
-            caps.eglCreatePbufferFromClientBuffer,
             caps.eglCreatePbufferSurface,
             caps.eglCreatePixmapSurface,
-            caps.eglCreatePixmapSurfaceHI,
-            caps.eglCreatePlatformPixmapSurface,
-            caps.eglCreatePlatformPixmapSurfaceEXT,
-            caps.eglCreatePlatformWindowSurface,
-            caps.eglCreatePlatformWindowSurfaceEXT,
-            caps.eglCreateStreamAttribKHR,
-            caps.eglCreateStreamFromFileDescriptorKHR,
-            caps.eglCreateStreamKHR,
-            caps.eglCreateStreamProducerSurfaceKHR,
-            caps.eglCreateStreamSyncNV,
-            caps.eglCreateSync,
-            caps.eglCreateSync64KHR,
-            caps.eglCreateSyncKHR,
             caps.eglCreateWindowSurface,
-            caps.eglDebugMessageControlKHR,
             caps.eglDestroyContext,
-            caps.eglDestroyImage,
-            caps.eglDestroyImageKHR,
-            caps.eglDestroyStreamKHR,
             caps.eglDestroySurface,
-            caps.eglDestroySync,
-            caps.eglDestroySyncKHR,
-            caps.eglDestroySyncNV,
-            caps.eglDupNativeFenceFDANDROID,
-            caps.eglExportDMABUFImageMESA,
-            caps.eglExportDMABUFImageQueryMESA,
-            caps.eglExportDRMImageMESA,
-            caps.eglFenceNV,
             caps.eglGetConfigAttrib,
             caps.eglGetConfigs,
-            caps.eglGetCurrentContext,
             caps.eglGetCurrentDisplay,
             caps.eglGetCurrentSurface,
             caps.eglGetDisplay,
             caps.eglGetError,
-            caps.eglGetOutputLayersEXT,
-            caps.eglGetOutputPortsEXT,
-            caps.eglGetPlatformDisplay,
-            caps.eglGetPlatformDisplayEXT,
             caps.eglGetProcAddress,
-            caps.eglGetStreamFileDescriptorKHR,
-            caps.eglGetSyncAttrib,
-            caps.eglGetSyncAttribKHR,
-            caps.eglGetSyncAttribNV,
-            caps.eglGetSystemTimeFrequencyNV,
-            caps.eglGetSystemTimeNV,
             caps.eglInitialize,
-            caps.eglLabelObjectKHR,
-            caps.eglLockSurfaceKHR,
             caps.eglMakeCurrent,
-            caps.eglOutputLayerAttribEXT,
-            caps.eglOutputPortAttribEXT,
-            caps.eglPostSubBufferNV,
-            caps.eglPresentationTimeANDROID,
-            caps.eglQueryAPI,
             caps.eglQueryContext,
-            caps.eglQueryDebugKHR,
-            caps.eglQueryDeviceAttribEXT,
-            caps.eglQueryDeviceStringEXT,
-            caps.eglQueryDevicesEXT,
-            caps.eglQueryDisplayAttribEXT,
-            caps.eglQueryDisplayAttribKHR,
-            caps.eglQueryDisplayAttribNV,
-            caps.eglQueryDmaBufFormatsEXT,
-            caps.eglQueryDmaBufModifiersEXT,
-            caps.eglQueryNativeDisplayNV,
-            caps.eglQueryNativePixmapNV,
-            caps.eglQueryNativeWindowNV,
-            caps.eglQueryOutputLayerAttribEXT,
-            caps.eglQueryOutputLayerStringEXT,
-            caps.eglQueryOutputPortAttribEXT,
-            caps.eglQueryOutputPortStringEXT,
-            caps.eglQueryStreamAttribKHR,
-            caps.eglQueryStreamKHR,
-            caps.eglQueryStreamMetadataNV,
-            caps.eglQueryStreamTimeKHR,
-            caps.eglQueryStreamu64KHR,
             caps.eglQueryString,
             caps.eglQuerySurface,
-            caps.eglQuerySurface64KHR,
-            caps.eglQuerySurfacePointerANGLE,
-            caps.eglReleaseTexImage,
-            caps.eglReleaseThread,
-            caps.eglResetStreamNV,
-            caps.eglSetBlobCacheFuncsANDROID,
-            caps.eglSetDamageRegionKHR,
-            caps.eglSetStreamAttribKHR,
-            caps.eglSetStreamMetadataNV,
-            caps.eglSignalSyncKHR,
-            caps.eglSignalSyncNV,
-            caps.eglStreamAttribKHR,
-            caps.eglStreamConsumerAcquireAttribKHR,
-            caps.eglStreamConsumerAcquireKHR,
-            caps.eglStreamConsumerGLTextureExternalAttribsNV,
-            caps.eglStreamConsumerGLTextureExternalKHR,
-            caps.eglStreamConsumerOutputEXT,
-            caps.eglStreamConsumerReleaseAttribKHR,
-            caps.eglStreamConsumerReleaseKHR,
-            caps.eglSurfaceAttrib,
             caps.eglSwapBuffers,
-            caps.eglSwapBuffersRegion2NOK,
-            caps.eglSwapBuffersWithDamageEXT,
-            caps.eglSwapBuffersWithDamageKHR,
-            caps.eglSwapInterval,
             caps.eglTerminate,
-            caps.eglUnlockSurfaceKHR,
-            caps.eglWaitClient,
             caps.eglWaitGL,
             caps.eglWaitNative,
+            caps.eglBindTexImage,
+            caps.eglReleaseTexImage,
+            caps.eglSurfaceAttrib,
+            caps.eglSwapInterval,
+            caps.eglBindAPI,
+            caps.eglQueryAPI,
+            caps.eglCreatePbufferFromClientBuffer,
+            caps.eglReleaseThread,
+            caps.eglWaitClient,
+            caps.eglGetCurrentContext,
+            caps.eglCreateSync,
+            caps.eglDestroySync,
+            caps.eglClientWaitSync,
+            caps.eglGetSyncAttrib,
+            caps.eglCreateImage,
+            caps.eglDestroyImage,
+            caps.eglGetPlatformDisplay,
+            caps.eglCreatePlatformWindowSurface,
+            caps.eglCreatePlatformPixmapSurface,
             caps.eglWaitSync,
-            caps.eglWaitSyncKHR
+            caps.eglSetBlobCacheFuncsANDROID,
+            caps.eglCreateNativeClientBufferANDROID,
+            caps.eglDupNativeFenceFDANDROID,
+            caps.eglPresentationTimeANDROID,
+            caps.eglQuerySurfacePointerANGLE,
+            caps.eglCompositorSetContextListEXT,
+            caps.eglCompositorSetContextAttributesEXT,
+            caps.eglCompositorSetWindowListEXT,
+            caps.eglCompositorSetWindowAttributesEXT,
+            caps.eglCompositorBindTexWindowEXT,
+            caps.eglCompositorSetSizeEXT,
+            caps.eglCompositorSwapPolicyEXT,
+            caps.eglQueryDevicesEXT,
+            caps.eglQueryDeviceAttribEXT,
+            caps.eglQueryDeviceStringEXT,
+            caps.eglQueryDisplayAttribEXT,
+            caps.eglQueryDmaBufFormatsEXT,
+            caps.eglQueryDmaBufModifiersEXT,
+            caps.eglGetOutputLayersEXT,
+            caps.eglGetOutputPortsEXT,
+            caps.eglOutputLayerAttribEXT,
+            caps.eglQueryOutputLayerAttribEXT,
+            caps.eglQueryOutputLayerStringEXT,
+            caps.eglOutputPortAttribEXT,
+            caps.eglQueryOutputPortAttribEXT,
+            caps.eglQueryOutputPortStringEXT,
+            caps.eglGetPlatformDisplayEXT,
+            caps.eglCreatePlatformWindowSurfaceEXT,
+            caps.eglCreatePlatformPixmapSurfaceEXT,
+            caps.eglStreamConsumerOutputEXT,
+            caps.eglSwapBuffersWithDamageEXT,
+            caps.eglCreatePixmapSurfaceHI,
+            caps.eglCreateSync64KHR,
+            caps.eglDebugMessageControlKHR,
+            caps.eglQueryDebugKHR,
+            caps.eglLabelObjectKHR,
+            caps.eglQueryDisplayAttribKHR,
+            caps.eglCreateImageKHR,
+            caps.eglDestroyImageKHR,
+            caps.eglLockSurfaceKHR,
+            caps.eglUnlockSurfaceKHR,
+            caps.eglQuerySurface64KHR,
+            caps.eglSetDamageRegionKHR,
+            caps.eglCreateSyncKHR,
+            caps.eglDestroySyncKHR,
+            caps.eglClientWaitSyncKHR,
+            caps.eglSignalSyncKHR,
+            caps.eglGetSyncAttribKHR,
+            caps.eglCreateStreamKHR,
+            caps.eglDestroyStreamKHR,
+            caps.eglStreamAttribKHR,
+            caps.eglQueryStreamKHR,
+            caps.eglQueryStreamu64KHR,
+            caps.eglCreateStreamAttribKHR,
+            caps.eglSetStreamAttribKHR,
+            caps.eglQueryStreamAttribKHR,
+            caps.eglStreamConsumerAcquireAttribKHR,
+            caps.eglStreamConsumerReleaseAttribKHR,
+            caps.eglStreamConsumerGLTextureExternalKHR,
+            caps.eglStreamConsumerAcquireKHR,
+            caps.eglStreamConsumerReleaseKHR,
+            caps.eglGetStreamFileDescriptorKHR,
+            caps.eglCreateStreamFromFileDescriptorKHR,
+            caps.eglQueryStreamTimeKHR,
+            caps.eglCreateStreamProducerSurfaceKHR,
+            caps.eglSwapBuffersWithDamageKHR,
+            caps.eglWaitSyncKHR,
+            caps.eglCreateDRMImageMESA,
+            caps.eglExportDRMImageMESA,
+            caps.eglExportDMABUFImageQueryMESA,
+            caps.eglExportDMABUFImageMESA,
+            caps.eglSwapBuffersRegion2NOK,
+            caps.eglQueryNativeDisplayNV,
+            caps.eglQueryNativeWindowNV,
+            caps.eglQueryNativePixmapNV,
+            caps.eglPostSubBufferNV,
+            caps.eglStreamConsumerGLTextureExternalAttribsNV,
+            caps.eglQueryDisplayAttribNV,
+            caps.eglSetStreamMetadataNV,
+            caps.eglQueryStreamMetadataNV,
+            caps.eglResetStreamNV,
+            caps.eglCreateStreamSyncNV,
+            caps.eglCreateFenceSyncNV,
+            caps.eglDestroySyncNV,
+            caps.eglFenceNV,
+            caps.eglClientWaitSyncNV,
+            caps.eglSignalSyncNV,
+            caps.eglGetSyncAttribNV,
+            caps.eglGetSystemTimeFrequencyNV,
+            caps.eglGetSystemTimeNV
         );
     }
 
     private EGLCapabilities(Set<String> ext, long... functions) {
-        eglBindAPI = functions[0];
-        eglBindTexImage = functions[1];
-        eglChooseConfig = functions[2];
-        eglClientWaitSync = functions[3];
-        eglClientWaitSyncKHR = functions[4];
-        eglClientWaitSyncNV = functions[5];
-        eglCompositorBindTexWindowEXT = functions[6];
-        eglCompositorSetContextAttributesEXT = functions[7];
-        eglCompositorSetContextListEXT = functions[8];
-        eglCompositorSetSizeEXT = functions[9];
-        eglCompositorSetWindowAttributesEXT = functions[10];
-        eglCompositorSetWindowListEXT = functions[11];
-        eglCompositorSwapPolicyEXT = functions[12];
-        eglCopyBuffers = functions[13];
-        eglCreateContext = functions[14];
-        eglCreateDRMImageMESA = functions[15];
-        eglCreateFenceSyncNV = functions[16];
-        eglCreateImage = functions[17];
-        eglCreateImageKHR = functions[18];
-        eglCreateNativeClientBufferANDROID = functions[19];
-        eglCreatePbufferFromClientBuffer = functions[20];
-        eglCreatePbufferSurface = functions[21];
-        eglCreatePixmapSurface = functions[22];
-        eglCreatePixmapSurfaceHI = functions[23];
-        eglCreatePlatformPixmapSurface = functions[24];
-        eglCreatePlatformPixmapSurfaceEXT = functions[25];
-        eglCreatePlatformWindowSurface = functions[26];
-        eglCreatePlatformWindowSurfaceEXT = functions[27];
-        eglCreateStreamAttribKHR = functions[28];
-        eglCreateStreamFromFileDescriptorKHR = functions[29];
-        eglCreateStreamKHR = functions[30];
-        eglCreateStreamProducerSurfaceKHR = functions[31];
-        eglCreateStreamSyncNV = functions[32];
-        eglCreateSync = functions[33];
-        eglCreateSync64KHR = functions[34];
-        eglCreateSyncKHR = functions[35];
-        eglCreateWindowSurface = functions[36];
-        eglDebugMessageControlKHR = functions[37];
-        eglDestroyContext = functions[38];
+        eglChooseConfig = functions[0];
+        eglCopyBuffers = functions[1];
+        eglCreateContext = functions[2];
+        eglCreatePbufferSurface = functions[3];
+        eglCreatePixmapSurface = functions[4];
+        eglCreateWindowSurface = functions[5];
+        eglDestroyContext = functions[6];
+        eglDestroySurface = functions[7];
+        eglGetConfigAttrib = functions[8];
+        eglGetConfigs = functions[9];
+        eglGetCurrentDisplay = functions[10];
+        eglGetCurrentSurface = functions[11];
+        eglGetDisplay = functions[12];
+        eglGetError = functions[13];
+        eglGetProcAddress = functions[14];
+        eglInitialize = functions[15];
+        eglMakeCurrent = functions[16];
+        eglQueryContext = functions[17];
+        eglQueryString = functions[18];
+        eglQuerySurface = functions[19];
+        eglSwapBuffers = functions[20];
+        eglTerminate = functions[21];
+        eglWaitGL = functions[22];
+        eglWaitNative = functions[23];
+        eglBindTexImage = functions[24];
+        eglReleaseTexImage = functions[25];
+        eglSurfaceAttrib = functions[26];
+        eglSwapInterval = functions[27];
+        eglBindAPI = functions[28];
+        eglQueryAPI = functions[29];
+        eglCreatePbufferFromClientBuffer = functions[30];
+        eglReleaseThread = functions[31];
+        eglWaitClient = functions[32];
+        eglGetCurrentContext = functions[33];
+        eglCreateSync = functions[34];
+        eglDestroySync = functions[35];
+        eglClientWaitSync = functions[36];
+        eglGetSyncAttrib = functions[37];
+        eglCreateImage = functions[38];
         eglDestroyImage = functions[39];
-        eglDestroyImageKHR = functions[40];
-        eglDestroyStreamKHR = functions[41];
-        eglDestroySurface = functions[42];
-        eglDestroySync = functions[43];
-        eglDestroySyncKHR = functions[44];
-        eglDestroySyncNV = functions[45];
+        eglGetPlatformDisplay = functions[40];
+        eglCreatePlatformWindowSurface = functions[41];
+        eglCreatePlatformPixmapSurface = functions[42];
+        eglWaitSync = functions[43];
+        eglSetBlobCacheFuncsANDROID = functions[44];
+        eglCreateNativeClientBufferANDROID = functions[45];
         eglDupNativeFenceFDANDROID = functions[46];
-        eglExportDMABUFImageMESA = functions[47];
-        eglExportDMABUFImageQueryMESA = functions[48];
-        eglExportDRMImageMESA = functions[49];
-        eglFenceNV = functions[50];
-        eglGetConfigAttrib = functions[51];
-        eglGetConfigs = functions[52];
-        eglGetCurrentContext = functions[53];
-        eglGetCurrentDisplay = functions[54];
-        eglGetCurrentSurface = functions[55];
-        eglGetDisplay = functions[56];
-        eglGetError = functions[57];
-        eglGetOutputLayersEXT = functions[58];
-        eglGetOutputPortsEXT = functions[59];
-        eglGetPlatformDisplay = functions[60];
-        eglGetPlatformDisplayEXT = functions[61];
-        eglGetProcAddress = functions[62];
-        eglGetStreamFileDescriptorKHR = functions[63];
-        eglGetSyncAttrib = functions[64];
-        eglGetSyncAttribKHR = functions[65];
-        eglGetSyncAttribNV = functions[66];
-        eglGetSystemTimeFrequencyNV = functions[67];
-        eglGetSystemTimeNV = functions[68];
-        eglInitialize = functions[69];
-        eglLabelObjectKHR = functions[70];
-        eglLockSurfaceKHR = functions[71];
-        eglMakeCurrent = functions[72];
-        eglOutputLayerAttribEXT = functions[73];
-        eglOutputPortAttribEXT = functions[74];
-        eglPostSubBufferNV = functions[75];
-        eglPresentationTimeANDROID = functions[76];
-        eglQueryAPI = functions[77];
-        eglQueryContext = functions[78];
-        eglQueryDebugKHR = functions[79];
-        eglQueryDeviceAttribEXT = functions[80];
-        eglQueryDeviceStringEXT = functions[81];
-        eglQueryDevicesEXT = functions[82];
-        eglQueryDisplayAttribEXT = functions[83];
-        eglQueryDisplayAttribKHR = functions[84];
-        eglQueryDisplayAttribNV = functions[85];
-        eglQueryDmaBufFormatsEXT = functions[86];
-        eglQueryDmaBufModifiersEXT = functions[87];
-        eglQueryNativeDisplayNV = functions[88];
-        eglQueryNativePixmapNV = functions[89];
-        eglQueryNativeWindowNV = functions[90];
-        eglQueryOutputLayerAttribEXT = functions[91];
-        eglQueryOutputLayerStringEXT = functions[92];
-        eglQueryOutputPortAttribEXT = functions[93];
-        eglQueryOutputPortStringEXT = functions[94];
-        eglQueryStreamAttribKHR = functions[95];
-        eglQueryStreamKHR = functions[96];
-        eglQueryStreamMetadataNV = functions[97];
-        eglQueryStreamTimeKHR = functions[98];
-        eglQueryStreamu64KHR = functions[99];
-        eglQueryString = functions[100];
-        eglQuerySurface = functions[101];
-        eglQuerySurface64KHR = functions[102];
-        eglQuerySurfacePointerANGLE = functions[103];
-        eglReleaseTexImage = functions[104];
-        eglReleaseThread = functions[105];
-        eglResetStreamNV = functions[106];
-        eglSetBlobCacheFuncsANDROID = functions[107];
-        eglSetDamageRegionKHR = functions[108];
-        eglSetStreamAttribKHR = functions[109];
-        eglSetStreamMetadataNV = functions[110];
-        eglSignalSyncKHR = functions[111];
-        eglSignalSyncNV = functions[112];
-        eglStreamAttribKHR = functions[113];
-        eglStreamConsumerAcquireAttribKHR = functions[114];
-        eglStreamConsumerAcquireKHR = functions[115];
-        eglStreamConsumerGLTextureExternalAttribsNV = functions[116];
-        eglStreamConsumerGLTextureExternalKHR = functions[117];
-        eglStreamConsumerOutputEXT = functions[118];
-        eglStreamConsumerReleaseAttribKHR = functions[119];
-        eglStreamConsumerReleaseKHR = functions[120];
-        eglSurfaceAttrib = functions[121];
-        eglSwapBuffers = functions[122];
-        eglSwapBuffersRegion2NOK = functions[123];
-        eglSwapBuffersWithDamageEXT = functions[124];
-        eglSwapBuffersWithDamageKHR = functions[125];
-        eglSwapInterval = functions[126];
-        eglTerminate = functions[127];
-        eglUnlockSurfaceKHR = functions[128];
-        eglWaitClient = functions[129];
-        eglWaitGL = functions[130];
-        eglWaitNative = functions[131];
-        eglWaitSync = functions[132];
-        eglWaitSyncKHR = functions[133];
+        eglPresentationTimeANDROID = functions[47];
+        eglQuerySurfacePointerANGLE = functions[48];
+        eglCompositorSetContextListEXT = functions[49];
+        eglCompositorSetContextAttributesEXT = functions[50];
+        eglCompositorSetWindowListEXT = functions[51];
+        eglCompositorSetWindowAttributesEXT = functions[52];
+        eglCompositorBindTexWindowEXT = functions[53];
+        eglCompositorSetSizeEXT = functions[54];
+        eglCompositorSwapPolicyEXT = functions[55];
+        eglQueryDevicesEXT = functions[56];
+        eglQueryDeviceAttribEXT = functions[57];
+        eglQueryDeviceStringEXT = functions[58];
+        eglQueryDisplayAttribEXT = functions[59];
+        eglQueryDmaBufFormatsEXT = functions[60];
+        eglQueryDmaBufModifiersEXT = functions[61];
+        eglGetOutputLayersEXT = functions[62];
+        eglGetOutputPortsEXT = functions[63];
+        eglOutputLayerAttribEXT = functions[64];
+        eglQueryOutputLayerAttribEXT = functions[65];
+        eglQueryOutputLayerStringEXT = functions[66];
+        eglOutputPortAttribEXT = functions[67];
+        eglQueryOutputPortAttribEXT = functions[68];
+        eglQueryOutputPortStringEXT = functions[69];
+        eglGetPlatformDisplayEXT = functions[70];
+        eglCreatePlatformWindowSurfaceEXT = functions[71];
+        eglCreatePlatformPixmapSurfaceEXT = functions[72];
+        eglStreamConsumerOutputEXT = functions[73];
+        eglSwapBuffersWithDamageEXT = functions[74];
+        eglCreatePixmapSurfaceHI = functions[75];
+        eglCreateSync64KHR = functions[76];
+        eglDebugMessageControlKHR = functions[77];
+        eglQueryDebugKHR = functions[78];
+        eglLabelObjectKHR = functions[79];
+        eglQueryDisplayAttribKHR = functions[80];
+        eglCreateImageKHR = functions[81];
+        eglDestroyImageKHR = functions[82];
+        eglLockSurfaceKHR = functions[83];
+        eglUnlockSurfaceKHR = functions[84];
+        eglQuerySurface64KHR = functions[85];
+        eglSetDamageRegionKHR = functions[86];
+        eglCreateSyncKHR = functions[87];
+        eglDestroySyncKHR = functions[88];
+        eglClientWaitSyncKHR = functions[89];
+        eglSignalSyncKHR = functions[90];
+        eglGetSyncAttribKHR = functions[91];
+        eglCreateStreamKHR = functions[92];
+        eglDestroyStreamKHR = functions[93];
+        eglStreamAttribKHR = functions[94];
+        eglQueryStreamKHR = functions[95];
+        eglQueryStreamu64KHR = functions[96];
+        eglCreateStreamAttribKHR = functions[97];
+        eglSetStreamAttribKHR = functions[98];
+        eglQueryStreamAttribKHR = functions[99];
+        eglStreamConsumerAcquireAttribKHR = functions[100];
+        eglStreamConsumerReleaseAttribKHR = functions[101];
+        eglStreamConsumerGLTextureExternalKHR = functions[102];
+        eglStreamConsumerAcquireKHR = functions[103];
+        eglStreamConsumerReleaseKHR = functions[104];
+        eglGetStreamFileDescriptorKHR = functions[105];
+        eglCreateStreamFromFileDescriptorKHR = functions[106];
+        eglQueryStreamTimeKHR = functions[107];
+        eglCreateStreamProducerSurfaceKHR = functions[108];
+        eglSwapBuffersWithDamageKHR = functions[109];
+        eglWaitSyncKHR = functions[110];
+        eglCreateDRMImageMESA = functions[111];
+        eglExportDRMImageMESA = functions[112];
+        eglExportDMABUFImageQueryMESA = functions[113];
+        eglExportDMABUFImageMESA = functions[114];
+        eglSwapBuffersRegion2NOK = functions[115];
+        eglQueryNativeDisplayNV = functions[116];
+        eglQueryNativeWindowNV = functions[117];
+        eglQueryNativePixmapNV = functions[118];
+        eglPostSubBufferNV = functions[119];
+        eglStreamConsumerGLTextureExternalAttribsNV = functions[120];
+        eglQueryDisplayAttribNV = functions[121];
+        eglSetStreamMetadataNV = functions[122];
+        eglQueryStreamMetadataNV = functions[123];
+        eglResetStreamNV = functions[124];
+        eglCreateStreamSyncNV = functions[125];
+        eglCreateFenceSyncNV = functions[126];
+        eglDestroySyncNV = functions[127];
+        eglFenceNV = functions[128];
+        eglClientWaitSyncNV = functions[129];
+        eglSignalSyncNV = functions[130];
+        eglGetSyncAttribNV = functions[131];
+        eglGetSystemTimeFrequencyNV = functions[132];
+        eglGetSystemTimeNV = functions[133];
 
         EGL10 = ext.contains("EGL10") && EGL.checkExtension("EGL10", org.lwjgl.egl.EGL10.isAvailable(this));
         EGL11 = ext.contains("EGL11") && EGL.checkExtension("EGL11", org.lwjgl.egl.EGL11.isAvailable(this));
