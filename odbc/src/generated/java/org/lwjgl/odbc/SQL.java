@@ -2009,19 +2009,19 @@ public class SQL {
         public static final long
             AllocHandle      = apiGetFunctionAddress(ODBC, "SQLAllocHandle"),
             Connect          = apiGetFunctionAddress(ODBC, "SQLConnectW"),
-            DataSources      = apiGetFunctionAddress(ODBC, "SQLDataSourcesW"),
+            DataSources      = ODBC.getFunctionAddress("SQLDataSourcesW"),
             GetInfo          = apiGetFunctionAddress(ODBC, "SQLGetInfoW"),
             GetFunctions     = apiGetFunctionAddress(ODBC, "SQLGetFunctions"),
-            GetTypeInfo      = apiGetFunctionAddress(ODBC, "SQLGetTypeInfo"),
-            SetConnectAttr   = apiGetFunctionAddress(ODBC, "SQLSetConnectAttr"),
-            GetConnectAttr   = apiGetFunctionAddress(ODBC, "SQLGetConnectAttr"),
+            GetTypeInfo      = apiGetFunctionAddress(ODBC, "SQLGetTypeInfoW"),
+            SetConnectAttr   = apiGetFunctionAddress(ODBC, "SQLSetConnectAttrW"),
+            GetConnectAttr   = apiGetFunctionAddress(ODBC, "SQLGetConnectAttrW"),
             SetEnvAttr       = apiGetFunctionAddress(ODBC, "SQLSetEnvAttr"),
             GetEnvAttr       = apiGetFunctionAddress(ODBC, "SQLGetEnvAttr"),
-            SetStmtAttr      = apiGetFunctionAddress(ODBC, "SQLSetStmtAttr"),
-            GetStmtAttr      = apiGetFunctionAddress(ODBC, "SQLGetStmtAttr"),
-            GetDescField     = apiGetFunctionAddress(ODBC, "SQLGetDescField"),
+            SetStmtAttr      = apiGetFunctionAddress(ODBC, "SQLSetStmtAttrW"),
+            GetStmtAttr      = apiGetFunctionAddress(ODBC, "SQLGetStmtAttrW"),
+            GetDescField     = apiGetFunctionAddress(ODBC, "SQLGetDescFieldW"),
             GetDescRec       = apiGetFunctionAddress(ODBC, "SQLGetDescRecW"),
-            SetDescField     = apiGetFunctionAddress(ODBC, "SQLSetDescField"),
+            SetDescField     = apiGetFunctionAddress(ODBC, "SQLSetDescFieldW"),
             SetDescRec       = apiGetFunctionAddress(ODBC, "SQLSetDescRec"),
             CopyDesc         = apiGetFunctionAddress(ODBC, "SQLCopyDesc"),
             Prepare          = apiGetFunctionAddress(ODBC, "SQLPrepareW"),
@@ -2034,12 +2034,12 @@ public class SQL {
             RowCount         = apiGetFunctionAddress(ODBC, "SQLRowCount"),
             NumResultCols    = apiGetFunctionAddress(ODBC, "SQLNumResultCols"),
             DescribeCol      = apiGetFunctionAddress(ODBC, "SQLDescribeColW"),
-            ColAttribute     = apiGetFunctionAddress(ODBC, "SQLColAttribute"),
+            ColAttribute     = apiGetFunctionAddress(ODBC, "SQLColAttributeW"),
             BindCol          = apiGetFunctionAddress(ODBC, "SQLBindCol"),
             Fetch            = apiGetFunctionAddress(ODBC, "SQLFetch"),
             FetchScroll      = apiGetFunctionAddress(ODBC, "SQLFetchScroll"),
             GetData          = apiGetFunctionAddress(ODBC, "SQLGetData"),
-            GetDiagField     = apiGetFunctionAddress(ODBC, "SQLGetDiagField"),
+            GetDiagField     = apiGetFunctionAddress(ODBC, "SQLGetDiagFieldW"),
             GetDiagRec       = apiGetFunctionAddress(ODBC, "SQLGetDiagRecW"),
             FreeStmt         = apiGetFunctionAddress(ODBC, "SQLFreeStmt"),
             CloseCursor      = apiGetFunctionAddress(ODBC, "SQLCloseCursor"),
@@ -2053,7 +2053,7 @@ public class SQL {
             SpecialColumns   = apiGetFunctionAddress(ODBC, "SQLSpecialColumnsW"),
             Statistics       = apiGetFunctionAddress(ODBC, "SQLStatisticsW"),
             Tables           = apiGetFunctionAddress(ODBC, "SQLTablesW"),
-            Transact         = apiGetFunctionAddress(ODBC, "SQLTransact"),
+            Transact         = ODBC.getFunctionAddress("SQLTransact"),
             DriverConnect    = apiGetFunctionAddress(ODBC, "SQLDriverConnectW"),
             BrowseConnect    = apiGetFunctionAddress(ODBC, "SQLBrowseConnectW"),
             BulkOperations   = apiGetFunctionAddress(ODBC, "SQLBulkOperations"),
@@ -2070,9 +2070,9 @@ public class SQL {
             Procedures       = apiGetFunctionAddress(ODBC, "SQLProceduresW"),
             SetPos           = apiGetFunctionAddress(ODBC, "SQLSetPos"),
             TablePrivileges  = apiGetFunctionAddress(ODBC, "SQLTablePrivilegesW"),
-            Drivers          = apiGetFunctionAddress(ODBC, "SQLDriversW"),
+            Drivers          = ODBC.getFunctionAddress("SQLDriversW"),
             BindParameter    = apiGetFunctionAddress(ODBC, "SQLBindParameter"),
-            AllocHandleStd   = apiGetFunctionAddress(ODBC, "SQLAllocHandleStd");
+            AllocHandleStd   = ODBC.getFunctionAddress("SQLAllocHandleStd");
 
     }
 
@@ -2185,6 +2185,7 @@ public class SQL {
     public static short nSQLDataSources(long EnvironmentHandle, short Direction, long ServerName, short BufferLength1, long NameLength1Ptr, long Description, short BufferLength2, long NameLength2Ptr) {
         long __functionAddress = Functions.DataSources;
         if (CHECKS) {
+            check(__functionAddress);
             check(EnvironmentHandle);
         }
         return callPPPPPS(__functionAddress, EnvironmentHandle, Direction, ServerName, BufferLength1, NameLength1Ptr, Description, BufferLength2, NameLength2Ptr);
@@ -3598,6 +3599,7 @@ public class SQL {
     public static short SQLTransact(@NativeType("SQLHENV") long EnvironmentHandle, @NativeType("SQLHDBC") long ConnectionHandle, @NativeType("SQLUSMALLINT") short CompletionType) {
         long __functionAddress = Functions.Transact;
         if (CHECKS) {
+            check(__functionAddress);
             check(EnvironmentHandle);
             check(ConnectionHandle);
         }
@@ -4096,6 +4098,7 @@ public class SQL {
     public static short nSQLDrivers(long EnvironmentHandle, short Direction, long DriverDescription, short BufferLength1, long DescriptionLengthPtr, long DriverAttributes, short BufferLength2, long AttributesLengthPtr) {
         long __functionAddress = Functions.Drivers;
         if (CHECKS) {
+            check(__functionAddress);
             check(EnvironmentHandle);
         }
         return callPPPPPS(__functionAddress, EnvironmentHandle, Direction, DriverDescription, BufferLength1, DescriptionLengthPtr, DriverAttributes, BufferLength2, AttributesLengthPtr);
@@ -4162,6 +4165,7 @@ public class SQL {
     public static short nSQLAllocHandleStd(short fHandleType, long hInput, long phOutput) {
         long __functionAddress = Functions.AllocHandleStd;
         if (CHECKS) {
+            check(__functionAddress);
             check(hInput);
         }
         return callPPS(__functionAddress, fHandleType, hInput, phOutput);
