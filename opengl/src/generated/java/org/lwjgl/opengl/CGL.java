@@ -311,9 +311,6 @@ public class CGL {
     @NativeType("CGLError")
     public static int CGLSetCurrentContext(@NativeType("CGLContextObj") long context) {
         long __functionAddress = Functions.SetCurrentContext;
-        if (CHECKS) {
-            check(context);
-        }
         return callPI(__functionAddress, context);
     }
 
@@ -353,13 +350,13 @@ public class CGL {
      * @param npix    on return, points to the number of virtual screens referenced by pix. If pix is {@code NULL}, the value of {@code npix} is set to 0.
      */
     @NativeType("CGLError")
-    public static int CGLChoosePixelFormat(@NativeType("CGLPixelFormatAttribute const *") IntBuffer attribs, @Nullable @NativeType("CGLPixelFormatObj *") PointerBuffer pix, @NativeType("GLint *") IntBuffer npix) {
+    public static int CGLChoosePixelFormat(@NativeType("CGLPixelFormatAttribute const *") IntBuffer attribs, @NativeType("CGLPixelFormatObj *") PointerBuffer pix, @NativeType("GLint *") IntBuffer npix) {
         if (CHECKS) {
             checkNT(attribs);
-            checkSafe(pix, 1);
+            check(pix, 1);
             check(npix, 1);
         }
-        return nCGLChoosePixelFormat(memAddress(attribs), memAddressSafe(pix), memAddress(npix));
+        return nCGLChoosePixelFormat(memAddress(attribs), memAddress(pix), memAddress(npix));
     }
 
     // --- [ CGLDestroyPixelFormat ] ---
@@ -543,7 +540,6 @@ public class CGL {
         long __functionAddress = Functions.CreateContext;
         if (CHECKS) {
             check(pix);
-            check(share);
         }
         return callPPPI(__functionAddress, pix, share, ctx);
     }
@@ -1491,14 +1487,14 @@ public class CGL {
 
     /** Array version of: {@link #CGLChoosePixelFormat ChoosePixelFormat} */
     @NativeType("CGLError")
-    public static int CGLChoosePixelFormat(@NativeType("CGLPixelFormatAttribute const *") int[] attribs, @Nullable @NativeType("CGLPixelFormatObj *") PointerBuffer pix, @NativeType("GLint *") int[] npix) {
+    public static int CGLChoosePixelFormat(@NativeType("CGLPixelFormatAttribute const *") int[] attribs, @NativeType("CGLPixelFormatObj *") PointerBuffer pix, @NativeType("GLint *") int[] npix) {
         long __functionAddress = Functions.ChoosePixelFormat;
         if (CHECKS) {
             checkNT(attribs);
-            checkSafe(pix, 1);
+            check(pix, 1);
             check(npix, 1);
         }
-        return callPPPI(__functionAddress, attribs, memAddressSafe(pix), npix);
+        return callPPPI(__functionAddress, attribs, memAddress(pix), npix);
     }
 
     /** Array version of: {@link #CGLDescribePixelFormat DescribePixelFormat} */
