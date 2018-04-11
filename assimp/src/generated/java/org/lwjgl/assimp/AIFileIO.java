@@ -278,7 +278,7 @@ public class AIFileIO extends Struct implements NativeResource {
     /** Unsafe version of {@link #CloseProc(AIFileCloseProcI) CloseProc}. */
     public static void nCloseProc(long struct, AIFileCloseProcI value) { memPutAddress(struct + AIFileIO.CLOSEPROC, value.address()); }
     /** Unsafe version of {@link #UserData(long) UserData}. */
-    public static void nUserData(long struct, long value) { memPutAddress(struct + AIFileIO.USERDATA, check(value)); }
+    public static void nUserData(long struct, long value) { memPutAddress(struct + AIFileIO.USERDATA, value); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -288,7 +288,6 @@ public class AIFileIO extends Struct implements NativeResource {
     public static void validate(long struct) {
         check(memGetAddress(struct + AIFileIO.OPENPROC));
         check(memGetAddress(struct + AIFileIO.CLOSEPROC));
-        check(memGetAddress(struct + AIFileIO.USERDATA));
     }
 
     /**

@@ -344,7 +344,7 @@ public class AIFile extends Struct implements NativeResource {
     /** Unsafe version of {@link #FlushProc(AIFileFlushProcI) FlushProc}. */
     public static void nFlushProc(long struct, AIFileFlushProcI value) { memPutAddress(struct + AIFile.FLUSHPROC, value.address()); }
     /** Unsafe version of {@link #UserData(long) UserData}. */
-    public static void nUserData(long struct, long value) { memPutAddress(struct + AIFile.USERDATA, check(value)); }
+    public static void nUserData(long struct, long value) { memPutAddress(struct + AIFile.USERDATA, value); }
 
     /**
      * Validates pointer members that should not be {@code NULL}.
@@ -358,7 +358,6 @@ public class AIFile extends Struct implements NativeResource {
         check(memGetAddress(struct + AIFile.FILESIZEPROC));
         check(memGetAddress(struct + AIFile.SEEKPROC));
         check(memGetAddress(struct + AIFile.FLUSHPROC));
-        check(memGetAddress(struct + AIFile.USERDATA));
     }
 
     /**
