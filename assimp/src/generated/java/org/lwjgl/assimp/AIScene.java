@@ -486,6 +486,10 @@ public class AIScene extends Struct implements NativeResource {
      * @param struct the struct to validate
      */
     public static void validate(long struct) {
+        long mRootNode = memGetAddress(struct + AIScene.MROOTNODE);
+        if (mRootNode != NULL) {
+            AINode.validate(mRootNode);
+        }
         if (nmNumMeshes(struct) != 0) {
             check(memGetAddress(struct + AIScene.MMESHES));
         }
