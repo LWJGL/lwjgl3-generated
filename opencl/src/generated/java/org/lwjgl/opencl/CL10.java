@@ -719,12 +719,12 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_context")
-    public static long clCreateContext(@NativeType("cl_context_properties const *") PointerBuffer properties, @NativeType("cl_device_id const *") PointerBuffer devices, @Nullable @NativeType("void (*) (cl_char const *, void const *, size_t, void *)") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateContext(@Nullable @NativeType("cl_context_properties const *") PointerBuffer properties, @NativeType("cl_device_id const *") PointerBuffer devices, @Nullable @NativeType("void (*) (cl_char const *, void const *, size_t, void *)") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
-            checkNT(properties);
+            checkNTSafe(properties);
             checkSafe(errcode_ret, 1);
         }
-        return nclCreateContext(memAddress(properties), devices.remaining(), memAddress(devices), memAddressSafe(pfn_notify), user_data, memAddressSafe(errcode_ret));
+        return nclCreateContext(memAddressSafe(properties), devices.remaining(), memAddress(devices), memAddressSafe(pfn_notify), user_data, memAddressSafe(errcode_ret));
     }
 
     /**
@@ -761,15 +761,15 @@ public class CL10 {
      *         </ul>
      */
     @NativeType("cl_context")
-    public static long clCreateContext(@NativeType("cl_context_properties const *") PointerBuffer properties, @NativeType("cl_device_id const *") long device, @Nullable @NativeType("void (*) (cl_char const *, void const *, size_t, void *)") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateContext(@Nullable @NativeType("cl_context_properties const *") PointerBuffer properties, @NativeType("cl_device_id const *") long device, @Nullable @NativeType("void (*) (cl_char const *, void const *, size_t, void *)") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
-            checkNT(properties);
+            checkNTSafe(properties);
             checkSafe(errcode_ret, 1);
         }
         MemoryStack stack = stackGet(); int stackPointer = stack.getPointer();
         try {
             PointerBuffer devices = stack.pointers(device);
-            return nclCreateContext(memAddress(properties), 1, memAddress(devices), memAddressSafe(pfn_notify), user_data, memAddressSafe(errcode_ret));
+            return nclCreateContext(memAddressSafe(properties), 1, memAddress(devices), memAddressSafe(pfn_notify), user_data, memAddressSafe(errcode_ret));
         } finally {
             stack.setPointer(stackPointer);
         }
@@ -796,12 +796,12 @@ public class CL10 {
      * @param errcode_ret will return an appropriate error code. If {@code errcode_ret} is {@code NULL}, no error code is returned.
      */
     @NativeType("cl_context")
-    public static long clCreateContextFromType(@NativeType("cl_context_properties const *") PointerBuffer properties, @NativeType("cl_device_type") long device_type, @Nullable @NativeType("void (*) (cl_char const *, void const *, size_t, void *)") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
+    public static long clCreateContextFromType(@Nullable @NativeType("cl_context_properties const *") PointerBuffer properties, @NativeType("cl_device_type") long device_type, @Nullable @NativeType("void (*) (cl_char const *, void const *, size_t, void *)") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") IntBuffer errcode_ret) {
         if (CHECKS) {
-            checkNT(properties);
+            checkNTSafe(properties);
             checkSafe(errcode_ret, 1);
         }
-        return nclCreateContextFromType(memAddress(properties), device_type, memAddressSafe(pfn_notify), user_data, memAddressSafe(errcode_ret));
+        return nclCreateContextFromType(memAddressSafe(properties), device_type, memAddressSafe(pfn_notify), user_data, memAddressSafe(errcode_ret));
     }
 
     // --- [ clRetainContext ] ---
@@ -9221,13 +9221,13 @@ public class CL10 {
      * Array version of: {@link #clCreateContext CreateContext}
      */
     @NativeType("cl_context")
-    public static long clCreateContext(@NativeType("cl_context_properties const *") PointerBuffer properties, @NativeType("cl_device_id const *") PointerBuffer devices, @Nullable @NativeType("void (*) (cl_char const *, void const *, size_t, void *)") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateContext(@Nullable @NativeType("cl_context_properties const *") PointerBuffer properties, @NativeType("cl_device_id const *") PointerBuffer devices, @Nullable @NativeType("void (*) (cl_char const *, void const *, size_t, void *)") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateContext;
         if (CHECKS) {
-            checkNT(properties);
+            checkNTSafe(properties);
             checkSafe(errcode_ret, 1);
         }
-        return callPPPPPP(__functionAddress, memAddress(properties), devices.remaining(), memAddress(devices), memAddressSafe(pfn_notify), user_data, errcode_ret);
+        return callPPPPPP(__functionAddress, memAddressSafe(properties), devices.remaining(), memAddress(devices), memAddressSafe(pfn_notify), user_data, errcode_ret);
     }
 
     /**
@@ -9236,13 +9236,13 @@ public class CL10 {
      * Array version of: {@link #clCreateContextFromType CreateContextFromType}
      */
     @NativeType("cl_context")
-    public static long clCreateContextFromType(@NativeType("cl_context_properties const *") PointerBuffer properties, @NativeType("cl_device_type") long device_type, @Nullable @NativeType("void (*) (cl_char const *, void const *, size_t, void *)") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
+    public static long clCreateContextFromType(@Nullable @NativeType("cl_context_properties const *") PointerBuffer properties, @NativeType("cl_device_type") long device_type, @Nullable @NativeType("void (*) (cl_char const *, void const *, size_t, void *)") CLContextCallbackI pfn_notify, @NativeType("void *") long user_data, @Nullable @NativeType("cl_int *") int[] errcode_ret) {
         long __functionAddress = CL.getICD().clCreateContextFromType;
         if (CHECKS) {
-            checkNT(properties);
+            checkNTSafe(properties);
             checkSafe(errcode_ret, 1);
         }
-        return callPJPPPP(__functionAddress, memAddress(properties), device_type, memAddressSafe(pfn_notify), user_data, errcode_ret);
+        return callPJPPPP(__functionAddress, memAddressSafe(properties), device_type, memAddressSafe(pfn_notify), user_data, errcode_ret);
     }
 
     /**
