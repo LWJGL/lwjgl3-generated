@@ -29,9 +29,9 @@ import org.lwjgl.vulkan.*;
  * <li>{@code device} &ndash; Vulkan device. It must be valid throughout whole lifetime of created allocator.</li>
  * <li>{@code preferredLargeHeapBlockSize} &ndash; 
  * preferred size of a single {@code VkDeviceMemory} block to be allocated from large heaps &gt; 1 GiB. Set to 0 to use default, which is currently 256
- * MiB.</li>
- * <li>{@code pAllocationCallbacks} &ndash; custom CPU memory allocation callbacks. Optional, can be null. When specified, will also be used for all CPU-side memory allocations.</li>
- * <li>{@code pDeviceMemoryCallbacks} &ndash; informative callbacks for {@code vkAllocateMemory}, {@code vkFreeMemory}. Optional, can be null.</li>
+ * MiB. Optional.</li>
+ * <li>{@code pAllocationCallbacks} &ndash; custom CPU memory allocation callbacks. Optional, can be null. When specified, will also be used for all CPU-side memory allocations. Optional.</li>
+ * <li>{@code pDeviceMemoryCallbacks} &ndash; informative callbacks for {@code vkAllocateMemory}, {@code vkFreeMemory}. Optional.</li>
  * <li>{@code frameInUseCount} &ndash; 
  * Maximum number of additional frames that are in use at the same time as current frame.
  * 

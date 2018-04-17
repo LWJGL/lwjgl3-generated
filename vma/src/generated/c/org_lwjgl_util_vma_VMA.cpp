@@ -84,6 +84,24 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_vma_Vma_nvmaFindMemoryTypeIndex__JIJJ
     return (jint)vmaFindMemoryTypeIndex(allocator, (uint32_t)memoryTypeBits, pAllocationCreateInfo, pMemoryTypeIndex);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_vma_Vma_nvmaFindMemoryTypeIndexForBufferInfo__JJJJ(JNIEnv *__env, jclass clazz, jlong allocatorAddress, jlong pBufferCreateInfoAddress, jlong pAllocationCreateInfoAddress, jlong pMemoryTypeIndexAddress) {
+    VmaAllocator allocator = (VmaAllocator)(intptr_t)allocatorAddress;
+    VkBufferCreateInfo const *pBufferCreateInfo = (VkBufferCreateInfo const *)(intptr_t)pBufferCreateInfoAddress;
+    VmaAllocationCreateInfo const *pAllocationCreateInfo = (VmaAllocationCreateInfo const *)(intptr_t)pAllocationCreateInfoAddress;
+    uint32_t *pMemoryTypeIndex = (uint32_t *)(intptr_t)pMemoryTypeIndexAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)vmaFindMemoryTypeIndexForBufferInfo(allocator, pBufferCreateInfo, pAllocationCreateInfo, pMemoryTypeIndex);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_vma_Vma_nvmaFindMemoryTypeIndexForImageInfo__JJJJ(JNIEnv *__env, jclass clazz, jlong allocatorAddress, jlong pImageCreateInfoAddress, jlong pAllocationCreateInfoAddress, jlong pMemoryTypeIndexAddress) {
+    VmaAllocator allocator = (VmaAllocator)(intptr_t)allocatorAddress;
+    VkImageCreateInfo const *pImageCreateInfo = (VkImageCreateInfo const *)(intptr_t)pImageCreateInfoAddress;
+    VmaAllocationCreateInfo const *pAllocationCreateInfo = (VmaAllocationCreateInfo const *)(intptr_t)pAllocationCreateInfoAddress;
+    uint32_t *pMemoryTypeIndex = (uint32_t *)(intptr_t)pMemoryTypeIndexAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)vmaFindMemoryTypeIndexForImageInfo(allocator, pImageCreateInfo, pAllocationCreateInfo, pMemoryTypeIndex);
+}
+
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_vma_Vma_nvmaCreatePool(JNIEnv *__env, jclass clazz, jlong allocatorAddress, jlong pCreateInfoAddress, jlong pPoolAddress) {
     VmaAllocator allocator = (VmaAllocator)(intptr_t)allocatorAddress;
     VmaPoolCreateInfo const *pCreateInfo = (VmaPoolCreateInfo const *)(intptr_t)pCreateInfoAddress;
@@ -158,6 +176,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_vma_Vma_nvmaGetAllocationInfo(JNIEnv 
     vmaGetAllocationInfo(allocator, allocation, pAllocationInfo);
 }
 
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_vma_Vma_nvmaTouchAllocation(JNIEnv *__env, jclass clazz, jlong allocatorAddress, jlong allocationAddress) {
+    VmaAllocator allocator = (VmaAllocator)(intptr_t)allocatorAddress;
+    VmaAllocation allocation = (VmaAllocation)(intptr_t)allocationAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)vmaTouchAllocation(allocator, allocation);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_util_vma_Vma_nvmaSetAllocationUserData(JNIEnv *__env, jclass clazz, jlong allocatorAddress, jlong allocationAddress, jlong pUserDataAddress) {
     VmaAllocator allocator = (VmaAllocator)(intptr_t)allocatorAddress;
     VmaAllocation allocation = (VmaAllocation)(intptr_t)allocationAddress;
@@ -196,6 +221,20 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_vma_Vma_nvmaDefragment__JJJJJJ(JNIEnv
     VmaDefragmentationStats *pDefragmentationStats = (VmaDefragmentationStats *)(intptr_t)pDefragmentationStatsAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)vmaDefragment(allocator, pAllocations, (size_t)allocationCount, pAllocationsChanged, pDefragmentationInfo, pDefragmentationStats);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_vma_Vma_nvmaBindBufferMemory(JNIEnv *__env, jclass clazz, jlong allocatorAddress, jlong allocationAddress, jlong buffer) {
+    VmaAllocator allocator = (VmaAllocator)(intptr_t)allocatorAddress;
+    VmaAllocation allocation = (VmaAllocation)(intptr_t)allocationAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)vmaBindBufferMemory(allocator, allocation, (VkBuffer)buffer);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_vma_Vma_nvmaBindImageMemory(JNIEnv *__env, jclass clazz, jlong allocatorAddress, jlong allocationAddress, jlong image) {
+    VmaAllocator allocator = (VmaAllocator)(intptr_t)allocatorAddress;
+    VmaAllocation allocation = (VmaAllocation)(intptr_t)allocationAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)vmaBindImageMemory(allocator, allocation, (VkImage)image);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_vma_Vma_nvmaCreateBuffer__JJJJJJ(JNIEnv *__env, jclass clazz, jlong allocatorAddress, jlong pBufferCreateInfoAddress, jlong pAllocationCreateInfoAddress, jlong pBufferAddress, jlong pAllocationAddress, jlong pAllocationInfoAddress) {

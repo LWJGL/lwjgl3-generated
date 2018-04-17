@@ -32,7 +32,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code maxBlockCount} &ndash; 
  * maximum number of blocks that can be allocated in this pool.
  * 
- * <p>Optional. Set to 0 to use {@code SIZE_MA}X, which means no limit.</p>
+ * <p>Optional. Set to 0 to use {@code SIZE_MAX}, which means no limit.</p>
  * 
  * <p>Set to same value as {@code minBlockCount} to have fixed amount of memory allocated throuout whole lifetime of this pool.</p></li>
  * <li>{@code frameInUseCount} &ndash; 
