@@ -28,6 +28,10 @@ package org.lwjgl.vulkan;
  * <li>{@code in int gl_DrawIDARB;} &#8594; {@code DrawIndex}.</li>
  * </ul>
  * 
+ * <h5>Promotion to Vulkan 1.1</h5>
+ * 
+ * <p>All functionality in this extension is included in core Vulkan 1.1, however a <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#features-features-shaderDrawParameters">feature bit was added</a> to distinguish whether it's actually available or not.</p>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>{@code VK_KHR_shader_draw_parameters}</dd>
@@ -46,13 +50,14 @@ package org.lwjgl.vulkan;
  * <li>Daniel Koch @dgkoch</li>
  * </ul></dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>2016-10-05</dd>
+ * <dd>2017-09-05</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
  * <dt><b>Interactions and External Dependencies</b></dt>
  * <dd><ul>
  * <li>Requires the <a target="_blank" href="https://www.khronos.org/registry/spir-v/extensions/KHR/SPV_KHR_shader_draw_parameters.html">SPV_KHR_shader_draw_parameters</a> SPIR-V extension.</li>
  * <li>Requires <a target="_blank" href="https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_shader_draw_parameters.txt">GL_ARB_shader_draw_parameters</a> for GLSL source languages.</li>
+ * <li>Promoted to Vulkan 1.1 Core</li>
  * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>

@@ -48,7 +48,7 @@ package org.lwjgl.vulkan;
  * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
  * <li>Requires Vulkan 1.0</li>
- * <li>Requires {@link KHXMultiview VK_KHX_multiview}</li>
+ * <li>Requires {@link KHRMultiview VK_KHR_multiview}</li>
  * </ul></dd>
  * <dt><b>Contact</b></dt>
  * <dd><ul>

@@ -35,7 +35,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link KHRImageFormatList#VK_STRUCTURE_TYPE_IMAGE_FORMAT_LIST_CREATE_INFO_KHR STRUCTURE_TYPE_IMAGE_FORMAT_LIST_CREATE_INFO_KHR}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>If {@code viewFormatCount} is not 0, {@code pViewFormats} <b>must</b> be a valid pointer to an array of {@code viewFormatCount} valid {@code VkFormat} values</li>
  * </ul>
  * 

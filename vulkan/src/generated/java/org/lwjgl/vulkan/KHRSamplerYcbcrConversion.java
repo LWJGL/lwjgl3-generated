@@ -18,6 +18,10 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * This extension provides the ability to perform specified color space conversions during texture sampling operations. It also adds a selection of multi-planar formats, including the ability to bind memory to the planes of an image collectively or separately.
  * 
+ * <h5>Promotion to Vulkan 1.1</h5>
+ * 
+ * <p>All functionality in this extension is included in core Vulkan 1.1, with the KHR suffix omitted. The original type, enum and command names are still available as aliases of the core functionality.</p>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>{@code VK_KHR_sampler_ycbcr_conversion}</dd>
@@ -45,6 +49,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <dd>No known IP claims.</dd>
  * <dt><b>Interactions and External Dependencies</b></dt>
  * <dd><ul>
+ * <li>Promoted to Vulkan 1.1 Core</li>
  * <li>This extension interacts with {@link EXTDebugReport VK_EXT_debug_report}</li>
  * </ul></dd>
  * <dt><b>Contributors</b></dt>
@@ -226,44 +231,17 @@ public class KHRSamplerYcbcrConversion {
         VK_FORMAT_FEATURE_COSITED_CHROMA_SAMPLES_BIT_KHR                                                  = 0x800000;
 
     /**
-     * VkSamplerYcbcrModelConversionKHR - Color model component of a color space
+     * Extends {@code VkSamplerYcbcrModelConversion}.
      * 
-     * <h5>Description</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_SAMPLER_YCBCR_MODEL_CONVERSION_RGB_IDENTITY_KHR SAMPLER_YCBCR_MODEL_CONVERSION_RGB_IDENTITY_KHR} specifies that the input values to the conversion are unmodified.</li>
-     * <li>{@link #VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_IDENTITY_KHR SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_IDENTITY_KHR} specifies no model conversion but the inputs are range expanded as for Y&#8217;C<sub>B</sub>C<sub>R</sub>.</li>
-     * <li>{@link #VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_709_KHR SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_709_KHR} specifies the color model conversion from Y&#8217;C<sub>B</sub>C<sub>R</sub> to R&#8217;G&#8217;B' defined in BT.709 and described in the “BT.709 Y’C<sub>B</sub>C<sub>R</sub> conversion” section of the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#data-format">Khronos Data Format Specification</a>.</li>
-     * <li>{@link #VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_601_KHR SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_601_KHR} specifies the color model conversion from Y&#8217;C<sub>B</sub>C<sub>R</sub> to R&#8217;G&#8217;B' defined in BT.601 and described in the “BT.601 Y’C<sub>B</sub>C<sub>R</sub> conversion” section of the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#data-format">Khronos Data Format Specification</a>.</li>
-     * <li>{@link #VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_2020_KHR SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_2020_KHR} specifies the color model conversion from Y&#8217;C<sub>B</sub>C<sub>R</sub> to R&#8217;G&#8217;B' defined in BT.2020 and described in the “BT.2020 Y’C<sub>B</sub>C<sub>R</sub> conversion” section of the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#data-format">Khronos Data Format Specification</a>.</li>
-     * </ul>
-     * 
-     * <p>In the {@code VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_*_KHR} color models, for the input to the sampler Y'C<sub>B</sub>C<sub>R</sub> range expansion and model conversion:</p>
+     * <h5>Enum values:</h5>
      * 
      * <ul>
-     * <li>the Y (Y' luma) channel corresponds to the G channel of an RGB image.</li>
-     * <li>the CB (C<sub>B</sub> or “U” blue color difference) channel corresponds to the B channel of an RGB image.</li>
-     * <li>the CR (C<sub>R</sub> or “V” red color difference) channel corresponds to the R channel of an RGB image.</li>
-     * <li>the alpha channel, if present, is not modified by color model conversion.</li>
+     * <li>{@link #VK_SAMPLER_YCBCR_MODEL_CONVERSION_RGB_IDENTITY_KHR SAMPLER_YCBCR_MODEL_CONVERSION_RGB_IDENTITY_KHR}</li>
+     * <li>{@link #VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_IDENTITY_KHR SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_IDENTITY_KHR}</li>
+     * <li>{@link #VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_709_KHR SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_709_KHR}</li>
+     * <li>{@link #VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_601_KHR SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_601_KHR}</li>
+     * <li>{@link #VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_2020_KHR SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_2020_KHR}</li>
      * </ul>
-     * 
-     * <p>These rules reflect the mapping of channels after the channel swizzle operation (controlled by {@link VkSamplerYcbcrConversionCreateInfoKHR}{@code ::components}).</p>
-     * 
-     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-     * 
-     * <p>For example, an "{@code YUVA}" 32-bit format comprising four 8-bit channels can be implemented as {@link VK10#VK_FORMAT_R8G8B8A8_UNORM FORMAT_R8G8B8A8_UNORM} with a component mapping:</p>
-     * 
-     * <ul>
-     * <li>{@code components.a} = {@link VK10#VK_COMPONENT_SWIZZLE_IDENTITY COMPONENT_SWIZZLE_IDENTITY}</li>
-     * <li>{@code components.r} = {@link VK10#VK_COMPONENT_SWIZZLE_B COMPONENT_SWIZZLE_B}</li>
-     * <li>{@code components.g} = {@link VK10#VK_COMPONENT_SWIZZLE_R COMPONENT_SWIZZLE_R}</li>
-     * <li>{@code components.b} = {@link VK10#VK_COMPONENT_SWIZZLE_G COMPONENT_SWIZZLE_G}</li>
-     * </ul>
-     * </div>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkSamplerYcbcrConversionCreateInfoKHR}</p>
      */
     public static final int
         VK_SAMPLER_YCBCR_MODEL_CONVERSION_RGB_IDENTITY_KHR   = 0,
@@ -273,52 +251,44 @@ public class KHRSamplerYcbcrConversion {
         VK_SAMPLER_YCBCR_MODEL_CONVERSION_YCBCR_2020_KHR     = 4;
 
     /**
-     * VkSamplerYcbcrRangeKHR - Range of encoded values in a color space
+     * Extends {@code VkSamplerYcbcrRange}.
      * 
-     * <h5>Description</h5>
+     * <h5>Enum values:</h5>
      * 
      * <ul>
-     * <li>{@link #VK_SAMPLER_YCBCR_RANGE_ITU_FULL_KHR SAMPLER_YCBCR_RANGE_ITU_FULL_KHR} indicates that the full range of the encoded values are valid and interpreted according to the ITU “full range” quantization rules.</li>
-     * <li>{@link #VK_SAMPLER_YCBCR_RANGE_ITU_NARROW_KHR SAMPLER_YCBCR_RANGE_ITU_NARROW_KHR} indicates that headroom and foot room are reserved in the numerical range of encoded values, and the remaining values are expanded according to the ITU “narrow range” quantization rules.</li>
+     * <li>{@link #VK_SAMPLER_YCBCR_RANGE_ITU_FULL_KHR SAMPLER_YCBCR_RANGE_ITU_FULL_KHR}</li>
+     * <li>{@link #VK_SAMPLER_YCBCR_RANGE_ITU_NARROW_KHR SAMPLER_YCBCR_RANGE_ITU_NARROW_KHR}</li>
      * </ul>
-     * 
-     * <p>The formulae for these conversions is described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#textures-sampler-YCbCr-conversion-rangeexpand">Sampler Y'C<sub>B</sub>C<sub>R</sub> Range Expansion</a> section of the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#textures">Image Operations</a> chapter.</p>
-     * 
-     * <p>No range modification takes place if {@code ycbcrModel} is {@link #VK_SAMPLER_YCBCR_MODEL_CONVERSION_RGB_IDENTITY_KHR SAMPLER_YCBCR_MODEL_CONVERSION_RGB_IDENTITY_KHR}; the {@code ycbcrRange} field of {@link VkSamplerYcbcrConversionCreateInfoKHR} is ignored in this case.</p>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkSamplerYcbcrConversionCreateInfoKHR}</p>
      */
     public static final int
         VK_SAMPLER_YCBCR_RANGE_ITU_FULL_KHR   = 0,
         VK_SAMPLER_YCBCR_RANGE_ITU_NARROW_KHR = 1;
 
     /**
-     * VkChromaLocationKHR - Position of downsampled chroma samples
+     * Extends {@code VkChromaLocation}.
      * 
-     * <h5>Description</h5>
+     * <h5>Enum values:</h5>
      * 
      * <ul>
-     * <li>{@link #VK_CHROMA_LOCATION_COSITED_EVEN_KHR CHROMA_LOCATION_COSITED_EVEN_KHR} indicates that downsampled chroma samples are aligned with luma samples with even coordinates.</li>
-     * <li>{@link #VK_CHROMA_LOCATION_MIDPOINT_KHR CHROMA_LOCATION_MIDPOINT_KHR} indicates that downsampled chroma samples are located half way between each even luma sample and the nearest higher odd luma sample.</li>
+     * <li>{@link #VK_CHROMA_LOCATION_COSITED_EVEN_KHR CHROMA_LOCATION_COSITED_EVEN_KHR}</li>
+     * <li>{@link #VK_CHROMA_LOCATION_MIDPOINT_KHR CHROMA_LOCATION_MIDPOINT_KHR}</li>
      * </ul>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkSamplerYcbcrConversionCreateInfoKHR}</p>
      */
     public static final int
         VK_CHROMA_LOCATION_COSITED_EVEN_KHR = 0,
         VK_CHROMA_LOCATION_MIDPOINT_KHR     = 1;
 
+    /** Extends {@code VkDebugReportObjectTypeEXT}. */
+    public static final int VK_DEBUG_REPORT_OBJECT_TYPE_SAMPLER_YCBCR_CONVERSION_EXT = 1000156000;
+
     protected KHRSamplerYcbcrConversion() {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesDevice caps) {
-        return checkFunctions(
-            caps.vkCreateSamplerYcbcrConversionKHR, caps.vkDestroySamplerYcbcrConversionKHR
+    static boolean checkCapsDevice(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_KHR_sampler_ycbcr_conversion") && VK.checkExtension("VK_KHR_sampler_ycbcr_conversion",
+               VK.isSupported(provider, "vkCreateSamplerYcbcrConversionKHR", caps)
+            && VK.isSupported(provider, "vkDestroySamplerYcbcrConversionKHR", caps)
         );
     }
 
@@ -335,63 +305,15 @@ public class KHRSamplerYcbcrConversion {
     }
 
     /**
-     * Create a new Ycbcr conversion.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To create a {@code VkSamplerYcbcrConversionKHR}, call:</p>
-     * 
-     * <code><pre>
-     * VkResult vkCreateSamplerYcbcrConversionKHR(
-     *     VkDevice                                    device,
-     *     const VkSamplerYcbcrConversionCreateInfoKHR* pCreateInfo,
-     *     const VkAllocationCallbacks*                pAllocator,
-     *     VkSamplerYcbcrConversionKHR*                pYcbcrConversion);</pre></code>
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>The interpretation of the configured sampler Y'C<sub>B</sub>C<sub>R</sub> conversion is described in more detail in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#textures-sampler-YCbCr-conversion">the description of sampler Y'C<sub>B</sub>C<sub>R</sub> conversion</a> in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#textures">Image Operations</a> chapter.</p>
-     * 
-     * <h5>Valid Usage</h5>
-     * 
-     * <ul>
-     * <li>The <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#features-features-sampler-YCbCr-conversion">sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion feature</a> <b>must</b> be enabled</li>
-     * </ul>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pCreateInfo} <b>must</b> be a valid pointer to a valid {@link VkSamplerYcbcrConversionCreateInfoKHR} structure</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>{@code pYcbcrConversion} <b>must</b> be a valid pointer to a {@code VkSamplerYcbcrConversionKHR} handle</li>
-     * </ul>
-     * 
-     * <h5>Return Codes</h5>
-     * 
-     * <dl>
-     * <dt>On success, this command returns</dt>
-     * <dd><ul>
-     * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
-     * </ul></dd>
-     * <dt>On failure, this command returns</dt>
-     * <dd><ul>
-     * <li>{@link VK10#VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
-     * <li>{@link VK10#VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
-     * </ul></dd>
-     * </dl>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkAllocationCallbacks}, {@link VkSamplerYcbcrConversionCreateInfoKHR}</p>
+     * See {@link VK11#vkCreateSamplerYcbcrConversion CreateSamplerYcbcrConversion}.
      *
      * @param device           the logical device that creates the sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion.
-     * @param pCreateInfo      a pointer to an instance of the {@link VkSamplerYcbcrConversionCreateInfoKHR} specifying the requested sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion.
+     * @param pCreateInfo      a pointer to an instance of the {@link VkSamplerYcbcrConversionCreateInfo} specifying the requested sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion.
      * @param pAllocator       controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
-     * @param pYcbcrConversion points to a {@code VkSamplerYcbcrConversionKHR} handle in which the resulting sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion is returned.
+     * @param pYcbcrConversion points to a {@code VkSamplerYcbcrConversion} handle in which the resulting sampler Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion is returned.
      */
     @NativeType("VkResult")
-    public static int vkCreateSamplerYcbcrConversionKHR(VkDevice device, @NativeType("VkSamplerYcbcrConversionCreateInfoKHR const *") VkSamplerYcbcrConversionCreateInfoKHR pCreateInfo, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks pAllocator, @NativeType("VkSamplerYcbcrConversionKHR *") LongBuffer pYcbcrConversion) {
+    public static int vkCreateSamplerYcbcrConversionKHR(VkDevice device, @NativeType("VkSamplerYcbcrConversionCreateInfo const *") VkSamplerYcbcrConversionCreateInfo pCreateInfo, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks pAllocator, @NativeType("VkSamplerYcbcrConversion *") LongBuffer pYcbcrConversion) {
         if (CHECKS) {
             check(pYcbcrConversion, 1);
         }
@@ -411,48 +333,19 @@ public class KHRSamplerYcbcrConversion {
     }
 
     /**
-     * Destroy a created Y'CbCr conversion.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To destroy a sampler Y'C<sub>B</sub>C<sub>R</sub> conversion, call:</p>
-     * 
-     * <code><pre>
-     * void vkDestroySamplerYcbcrConversionKHR(
-     *     VkDevice                                    device,
-     *     VkSamplerYcbcrConversionKHR                 ycbcrConversion,
-     *     const VkAllocationCallbacks*                pAllocator);</pre></code>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>If {@code ycbcrConversion} is not {@link VK10#VK_NULL_HANDLE NULL_HANDLE}, {@code ycbcrConversion} <b>must</b> be a valid {@code VkSamplerYcbcrConversionKHR} handle</li>
-     * <li>If {@code pAllocator} is not {@code NULL}, {@code pAllocator} <b>must</b> be a valid pointer to a valid {@link VkAllocationCallbacks} structure</li>
-     * <li>If {@code ycbcrConversion} is a valid handle, it <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-     * </ul>
-     * 
-     * <h5>Host Synchronization</h5>
-     * 
-     * <ul>
-     * <li>Host access to {@code ycbcrConversion} <b>must</b> be externally synchronized</li>
-     * </ul>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkAllocationCallbacks}</p>
+     * See {@link VK11#vkDestroySamplerYcbcrConversion DestroySamplerYcbcrConversion}.
      *
      * @param device          the logical device that destroys the Y&#8217;C<sub>B</sub>C<sub>R</sub> conversion.
      * @param ycbcrConversion the conversion to destroy.
      * @param pAllocator      controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
      */
-    public static void vkDestroySamplerYcbcrConversionKHR(VkDevice device, @NativeType("VkSamplerYcbcrConversionKHR") long ycbcrConversion, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks pAllocator) {
+    public static void vkDestroySamplerYcbcrConversionKHR(VkDevice device, @NativeType("VkSamplerYcbcrConversion") long ycbcrConversion, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks pAllocator) {
         nvkDestroySamplerYcbcrConversionKHR(device, ycbcrConversion, memAddressSafe(pAllocator));
     }
 
     /** Array version of: {@link #vkCreateSamplerYcbcrConversionKHR CreateSamplerYcbcrConversionKHR} */
     @NativeType("VkResult")
-    public static int vkCreateSamplerYcbcrConversionKHR(VkDevice device, @NativeType("VkSamplerYcbcrConversionCreateInfoKHR const *") VkSamplerYcbcrConversionCreateInfoKHR pCreateInfo, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks pAllocator, @NativeType("VkSamplerYcbcrConversionKHR *") long[] pYcbcrConversion) {
+    public static int vkCreateSamplerYcbcrConversionKHR(VkDevice device, @NativeType("VkSamplerYcbcrConversionCreateInfo const *") VkSamplerYcbcrConversionCreateInfo pCreateInfo, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks pAllocator, @NativeType("VkSamplerYcbcrConversion *") long[] pYcbcrConversion) {
         long __functionAddress = device.getCapabilities().vkCreateSamplerYcbcrConversionKHR;
         if (CHECKS) {
             check(__functionAddress);

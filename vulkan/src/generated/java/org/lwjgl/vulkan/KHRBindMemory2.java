@@ -15,6 +15,10 @@ import static org.lwjgl.system.JNI.*;
  * 
  * <p>This extension also introduces {@link #VK_IMAGE_CREATE_ALIAS_BIT_KHR IMAGE_CREATE_ALIAS_BIT_KHR}, which allows "{@code identical}" images that alias the same memory to interpret the contents consistently, even across image layout changes.</p>
  * 
+ * <h5>Promotion to Vulkan 1.1</h5>
+ * 
+ * <p>All functionality in this extension is included in core Vulkan 1.1, with the KHR suffix omitted. The original type, enum and command names are still available as aliases of the core functionality.</p>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>{@code VK_KHR_bind_memory2}</dd>
@@ -33,9 +37,13 @@ import static org.lwjgl.system.JNI.*;
  * <li>Tobias Hector @tobias</li>
  * </ul></dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>2017-05-19</dd>
+ * <dd>2017-09-05</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
+ * <dt><b>Interactions and External Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Promoted to Vulkan 1.1 Core</li>
+ * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Jeff Bolz, NVIDIA</li>
@@ -72,9 +80,10 @@ public class KHRBindMemory2 {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesDevice caps) {
-        return checkFunctions(
-            caps.vkBindBufferMemory2KHR, caps.vkBindImageMemory2KHR
+    static boolean checkCapsDevice(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_KHR_bind_memory2") && VK.checkExtension("VK_KHR_bind_memory2",
+               VK.isSupported(provider, "vkBindBufferMemory2KHR", caps)
+            && VK.isSupported(provider, "vkBindImageMemory2KHR", caps)
         );
     }
 
@@ -94,53 +103,13 @@ public class KHRBindMemory2 {
     }
 
     /**
-     * Bind device memory to buffer objects.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To attach memory to buffer objects for one or more buffers at a time, call:</p>
-     * 
-     * <code><pre>
-     * VkResult vkBindBufferMemory2KHR(
-     *     VkDevice                                    device,
-     *     uint32_t                                    bindInfoCount,
-     *     const VkBindBufferMemoryInfoKHR*            pBindInfos);</pre></code>
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>On some implementations, it <b>may</b> be more efficient to batch memory bindings into a single command.</p>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pBindInfos} <b>must</b> be a valid pointer to an array of {@code bindInfoCount} valid {@link VkBindBufferMemoryInfoKHR} structures</li>
-     * <li>{@code bindInfoCount} <b>must</b> be greater than 0</li>
-     * </ul>
-     * 
-     * <h5>Return Codes</h5>
-     * 
-     * <dl>
-     * <dt>On success, this command returns</dt>
-     * <dd><ul>
-     * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
-     * </ul></dd>
-     * <dt>On failure, this command returns</dt>
-     * <dd><ul>
-     * <li>{@link VK10#VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
-     * <li>{@link VK10#VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
-     * </ul></dd>
-     * </dl>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkBindBufferMemoryInfoKHR}</p>
+     * See {@link VK11#vkBindBufferMemory2 BindBufferMemory2}.
      *
      * @param device     the logical device that owns the buffers and memory.
-     * @param pBindInfos a pointer to an array of structures of type {@link VkBindBufferMemoryInfoKHR}, describing buffers and memory to bind.
+     * @param pBindInfos a pointer to an array of structures of type {@link VkBindBufferMemoryInfo}, describing buffers and memory to bind.
      */
     @NativeType("VkResult")
-    public static int vkBindBufferMemory2KHR(VkDevice device, @NativeType("VkBindBufferMemoryInfoKHR const *") VkBindBufferMemoryInfoKHR.Buffer pBindInfos) {
+    public static int vkBindBufferMemory2KHR(VkDevice device, @NativeType("VkBindBufferMemoryInfo const *") VkBindBufferMemoryInfo.Buffer pBindInfos) {
         return nvkBindBufferMemory2KHR(device, pBindInfos.remaining(), pBindInfos.address());
     }
 
@@ -160,53 +129,13 @@ public class KHRBindMemory2 {
     }
 
     /**
-     * Bind device memory to image objects.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To attach memory to image objects for one or more images at a time, call:</p>
-     * 
-     * <code><pre>
-     * VkResult vkBindImageMemory2KHR(
-     *     VkDevice                                    device,
-     *     uint32_t                                    bindInfoCount,
-     *     const VkBindImageMemoryInfoKHR*             pBindInfos);</pre></code>
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>On some implementations, it <b>may</b> be more efficient to batch memory bindings into a single command.</p>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pBindInfos} <b>must</b> be a valid pointer to an array of {@code bindInfoCount} valid {@link VkBindImageMemoryInfoKHR} structures</li>
-     * <li>{@code bindInfoCount} <b>must</b> be greater than 0</li>
-     * </ul>
-     * 
-     * <h5>Return Codes</h5>
-     * 
-     * <dl>
-     * <dt>On success, this command returns</dt>
-     * <dd><ul>
-     * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
-     * </ul></dd>
-     * <dt>On failure, this command returns</dt>
-     * <dd><ul>
-     * <li>{@link VK10#VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
-     * <li>{@link VK10#VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
-     * </ul></dd>
-     * </dl>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkBindImageMemoryInfoKHR}</p>
+     * See {@link VK11#vkBindImageMemory2 BindImageMemory2}.
      *
      * @param device     the logical device that owns the images and memory.
-     * @param pBindInfos a pointer to an array of structures of type {@link VkBindImageMemoryInfoKHR}, describing images and memory to bind.
+     * @param pBindInfos a pointer to an array of structures of type {@link VkBindImageMemoryInfo}, describing images and memory to bind.
      */
     @NativeType("VkResult")
-    public static int vkBindImageMemory2KHR(VkDevice device, @NativeType("VkBindImageMemoryInfoKHR const *") VkBindImageMemoryInfoKHR.Buffer pBindInfos) {
+    public static int vkBindImageMemory2KHR(VkDevice device, @NativeType("VkBindImageMemoryInfo const *") VkBindImageMemoryInfo.Buffer pBindInfos) {
         return nvkBindImageMemory2KHR(device, pBindInfos.remaining(), pBindInfos.address());
     }
 

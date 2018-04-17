@@ -26,6 +26,10 @@ import static org.lwjgl.system.JNI.*;
  * <li>Add a new command {@link #vkTrimCommandPoolKHR TrimCommandPoolKHR} which gives the implementation an opportunity to release any unused command pool memory back to the system.</li>
  * </ul>
  * 
+ * <h5>Promotion to Vulkan 1.1</h5>
+ * 
+ * <p>All functionality in this extension is included in core Vulkan 1.1, with the KHR suffix omitted. The original type, enum and command names are still available as aliases of the core functionality.</p>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>{@code VK_KHR_maintenance1}</dd>
@@ -34,7 +38,7 @@ import static org.lwjgl.system.JNI.*;
  * <dt><b>Registered Extension Number</b></dt>
  * <dd>70</dd>
  * <dt><b>Revision</b></dt>
- * <dd>1</dd>
+ * <dd>2</dd>
  * <dt><b>Extension and Version Dependencies</b></dt>
  * <dd><ul>
  * <li>Requires Vulkan 1.0</li>
@@ -44,7 +48,11 @@ import static org.lwjgl.system.JNI.*;
  * <li>Piers Daniell @pdaniell</li>
  * </ul></dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>2016-10-26</dd>
+ * <dd>2018-03-13</dd>
+ * <dt><b>Interactions and External Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Promoted to Vulkan 1.1 Core</li>
+ * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Dan Ginsburg, Valve</li>
@@ -67,7 +75,7 @@ import static org.lwjgl.system.JNI.*;
 public class KHRMaintenance1 {
 
     /** The extension specification version. */
-    public static final int VK_KHR_MAINTENANCE1_SPEC_VERSION = 1;
+    public static final int VK_KHR_MAINTENANCE1_SPEC_VERSION = 2;
 
     /** The extension name. */
     public static final String VK_KHR_MAINTENANCE1_EXTENSION_NAME = "VK_KHR_maintenance1";
@@ -96,66 +104,22 @@ public class KHRMaintenance1 {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesDevice caps) {
-        return checkFunctions(
-            caps.vkTrimCommandPoolKHR
+    static boolean checkCapsDevice(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_KHR_maintenance1") && VK.checkExtension("VK_KHR_maintenance1",
+               VK.isSupported(provider, "vkTrimCommandPoolKHR", caps)
         );
     }
 
     // --- [ vkTrimCommandPoolKHR ] ---
 
     /**
-     * Trim a command pool.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To trim a command pool, call:</p>
-     * 
-     * <code><pre>
-     * void vkTrimCommandPoolKHR(
-     *     VkDevice                                    device,
-     *     VkCommandPool                               commandPool,
-     *     VkCommandPoolTrimFlagsKHR                   flags);</pre></code>
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>Trimming a command pool recycles unused memory from the command pool back to the system. Command buffers allocated from the pool are not affected by the command.</p>
-     * 
-     * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
-     * 
-     * <p>This command provides applications with some control over the internal memory allocations used by command pools.</p>
-     * 
-     * <p>Unused memory normally arises from command buffers that have been recorded and later reset, such that they are no longer using the memory. On reset, a command buffer can return memory to its command pool, but the only way to release memory from a command pool to the system requires calling {@link VK10#vkResetCommandPool ResetCommandPool}, which cannot be executed while any command buffers from that pool are still in use. Subsequent recording operations into command buffers will re-use this memory but since total memory requirements fluctuate over time, unused memory can accumulate.</p>
-     * 
-     * <p>In this situation, trimming a command pool <b>may</b> be useful to return unused memory back to the system, returning the total outstanding memory allocated by the pool back to a more "{@code average}" value.</p>
-     * 
-     * <p>Implementations utilize many internal allocation strategies that make it impossible to guarantee that all unused memory is released back to the system. For instance, an implementation of a command pool <b>may</b> involve allocating memory in bulk from the system and sub-allocating from that memory. In such an implementation any live command buffer that holds a reference to a bulk allocation would prevent that allocation from being freed, even if only a small proportion of the bulk allocation is in use.</p>
-     * 
-     * <p>In most cases trimming will result in a reduction in allocated but unused memory, but it does not guarantee the "{@code ideal}" behaviour.</p>
-     * 
-     * <p>Trimming <b>may</b> be an expensive operation, and <b>should</b> not be called frequently. Trimming <b>should</b> be treated as a way to relieve memory pressure after application-known points when there exists enough unused memory that the cost of trimming is "{@code worth}" it.</p>
-     * </div>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code commandPool} <b>must</b> be a valid {@code VkCommandPool} handle</li>
-     * <li>{@code flags} <b>must</b> be 0</li>
-     * <li>{@code commandPool} <b>must</b> have been created, allocated, or retrieved from {@code device}</li>
-     * </ul>
-     * 
-     * <h5>Host Synchronization</h5>
-     * 
-     * <ul>
-     * <li>Host access to {@code commandPool} <b>must</b> be externally synchronized</li>
-     * </ul>
+     * See {@link VK11#vkTrimCommandPool TrimCommandPool}.
      *
      * @param device      the logical device that owns the command pool.
      * @param commandPool the command pool to trim.
      * @param flags       reserved for future use.
      */
-    public static void vkTrimCommandPoolKHR(VkDevice device, @NativeType("VkCommandPool") long commandPool, @NativeType("VkCommandPoolTrimFlagsKHR") int flags) {
+    public static void vkTrimCommandPoolKHR(VkDevice device, @NativeType("VkCommandPool") long commandPool, @NativeType("VkCommandPoolTrimFlags") int flags) {
         long __functionAddress = device.getCapabilities().vkTrimCommandPoolKHR;
         if (CHECKS) {
             check(__functionAddress);

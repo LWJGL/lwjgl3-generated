@@ -60,9 +60,9 @@ public class AMDBufferMarker {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesDevice caps) {
-        return checkFunctions(
-            caps.vkCmdWriteBufferMarkerAMD
+    static boolean checkCapsDevice(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_AMD_buffer_marker") && VK.checkExtension("VK_AMD_buffer_marker",
+               VK.isSupported(provider, "vkCmdWriteBufferMarkerAMD", caps)
         );
     }
 

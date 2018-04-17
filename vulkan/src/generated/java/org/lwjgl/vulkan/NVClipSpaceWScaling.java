@@ -145,9 +145,9 @@ public class NVClipSpaceWScaling {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesDevice caps) {
-        return checkFunctions(
-            caps.vkCmdSetViewportWScalingNV
+    static boolean checkCapsDevice(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_NV_clip_space_w_scaling") && VK.checkExtension("VK_NV_clip_space_w_scaling",
+               VK.isSupported(provider, "vkCmdSetViewportWScalingNV", caps)
         );
     }
 
@@ -187,7 +187,7 @@ public class NVClipSpaceWScaling {
      * <h5>Valid Usage</h5>
      * 
      * <ul>
-     * <li>The currently bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV DYNAMIC_STATE_VIEWPORT_W_SCALING_NV} dynamic state enabled</li>
+     * <li>The bound graphics pipeline <b>must</b> have been created with the {@link #VK_DYNAMIC_STATE_VIEWPORT_W_SCALING_NV DYNAMIC_STATE_VIEWPORT_W_SCALING_NV} dynamic state enabled</li>
      * <li>{@code firstViewport} <b>must</b> be less than {@link VkPhysicalDeviceLimits}{@code ::maxViewports}</li>
      * <li>The sum of {@code firstViewport} and {@code viewportCount} <b>must</b> be between 1 and {@link VkPhysicalDeviceLimits}{@code ::maxViewports}, inclusive</li>
      * </ul>

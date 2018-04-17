@@ -6,12 +6,12 @@
 package org.lwjgl.vulkan;
 
 /**
- * This extension defines a special queue family, {@link #VK_QUEUE_FAMILY_FOREIGN_EXT QUEUE_FAMILY_FOREIGN_EXT}, which can be used to transfer ownership of resources backed by external memory to foreign, external queues. This is similar to {@link VK10#VK_QUEUE_FAMILY_EXTERNAL_KHR QUEUE_FAMILY_EXTERNAL_KHR}, defined in {@link KHRExternalMemory VK_KHR_external_memory}. The key differences between the two are:
+ * This extension defines a special queue family, {@link #VK_QUEUE_FAMILY_FOREIGN_EXT QUEUE_FAMILY_FOREIGN_EXT}, which can be used to transfer ownership of resources backed by external memory to foreign, external queues. This is similar to {@link KHRExternalMemory#VK_QUEUE_FAMILY_EXTERNAL_KHR QUEUE_FAMILY_EXTERNAL_KHR}, defined in {@link KHRExternalMemory VK_KHR_external_memory}. The key differences between the two are:
  * 
  * <ul>
- * <li>The queues represented by {@link VK10#VK_QUEUE_FAMILY_EXTERNAL_KHR QUEUE_FAMILY_EXTERNAL_KHR} must share the same physical device and the same driver version as the current {@code VkInstance}. {@link #VK_QUEUE_FAMILY_FOREIGN_EXT QUEUE_FAMILY_FOREIGN_EXT} has no such restrictions. It can represent devices and drivers from other vendors, and can even represent non-Vulkan-capable devices.</li>
- * <li>All resources backed by external memory support {@link VK10#VK_QUEUE_FAMILY_EXTERNAL_KHR QUEUE_FAMILY_EXTERNAL_KHR}. Support for {@link #VK_QUEUE_FAMILY_FOREIGN_EXT QUEUE_FAMILY_FOREIGN_EXT} is more restrictive.</li>
- * <li>Applications should expect transitions to/from {@link #VK_QUEUE_FAMILY_FOREIGN_EXT QUEUE_FAMILY_FOREIGN_EXT} to be more expensive than transitions to/from {@link VK10#VK_QUEUE_FAMILY_EXTERNAL_KHR QUEUE_FAMILY_EXTERNAL_KHR}.</li>
+ * <li>The queues represented by {@link KHRExternalMemory#VK_QUEUE_FAMILY_EXTERNAL_KHR QUEUE_FAMILY_EXTERNAL_KHR} must share the same physical device and the same driver version as the current {@code VkInstance}. {@link #VK_QUEUE_FAMILY_FOREIGN_EXT QUEUE_FAMILY_FOREIGN_EXT} has no such restrictions. It can represent devices and drivers from other vendors, and can even represent non-Vulkan-capable devices.</li>
+ * <li>All resources backed by external memory support {@link KHRExternalMemory#VK_QUEUE_FAMILY_EXTERNAL_KHR QUEUE_FAMILY_EXTERNAL_KHR}. Support for {@link #VK_QUEUE_FAMILY_FOREIGN_EXT QUEUE_FAMILY_FOREIGN_EXT} is more restrictive.</li>
+ * <li>Applications should expect transitions to/from {@link #VK_QUEUE_FAMILY_FOREIGN_EXT QUEUE_FAMILY_FOREIGN_EXT} to be more expensive than transitions to/from {@link KHRExternalMemory#VK_QUEUE_FAMILY_EXTERNAL_KHR QUEUE_FAMILY_EXTERNAL_KHR}.</li>
  * </ul>
  * 
  * <dl>

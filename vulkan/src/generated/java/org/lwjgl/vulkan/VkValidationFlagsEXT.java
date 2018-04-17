@@ -23,7 +23,6 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <ul>
  * <li>{@code sType} <b>must</b> be {@link EXTValidationFlags#VK_STRUCTURE_TYPE_VALIDATION_FLAGS_EXT STRUCTURE_TYPE_VALIDATION_FLAGS_EXT}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code pDisabledValidationChecks} <b>must</b> be a valid pointer to an array of {@code disabledValidationCheckCount} {@code VkValidationCheckEXT} values</li>
  * <li>{@code disabledValidationCheckCount} <b>must</b> be greater than 0</li>
  * </ul>

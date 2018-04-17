@@ -62,7 +62,7 @@ public class EXTDisplaySurfaceCounter {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_SURFACE_COUNTER_VBLANK_EXT SURFACE_COUNTER_VBLANK_EXT} indicates a counter incrementing once every time a vertical blanking period occurs on the display associated with the surface.</li>
+     * <li>{@link #VK_SURFACE_COUNTER_VBLANK_EXT SURFACE_COUNTER_VBLANK_EXT} specifies a counter incrementing once every time a vertical blanking period occurs on the display associated with the surface.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -75,9 +75,9 @@ public class EXTDisplaySurfaceCounter {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesInstance caps) {
-        return checkFunctions(
-            caps.vkGetPhysicalDeviceSurfaceCapabilities2EXT
+    static boolean checkCapsInstance(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_EXT_display_surface_counter") && VK.checkExtension("VK_EXT_display_surface_counter",
+               VK.isSupported(provider, "vkGetPhysicalDeviceSurfaceCapabilities2EXT", caps)
         );
     }
 

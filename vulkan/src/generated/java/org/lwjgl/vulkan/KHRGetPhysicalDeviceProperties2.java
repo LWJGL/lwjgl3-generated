@@ -20,6 +20,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  * 
  * <p>This extension also allows applications to use the physical-device components of device extensions before {@link VK10#vkCreateDevice CreateDevice} is called.</p>
  * 
+ * <h5>Promotion to Vulkan 1.1</h5>
+ * 
+ * <p>All functionality in this extension is included in core Vulkan 1.1, with the KHR suffix omitted. The original type, enum and command names are still available as aliases of the core functionality.</p>
+ * 
  * <h5>Examples</h5>
  * 
  * <code><pre>
@@ -86,9 +90,13 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>Jeff Bolz @jbolz</li>
  * </ul></dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>2016-11-02</dd>
+ * <dd>2017-09-05</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
+ * <dt><b>Interactions and External Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Promoted to Vulkan 1.1 Core</li>
+ * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Jeff Bolz, NVIDIA</li>
@@ -136,11 +144,15 @@ public class KHRGetPhysicalDeviceProperties2 {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesInstance caps) {
-        return checkFunctions(
-            caps.vkGetPhysicalDeviceFeatures2KHR, caps.vkGetPhysicalDeviceProperties2KHR, caps.vkGetPhysicalDeviceFormatProperties2KHR, 
-            caps.vkGetPhysicalDeviceImageFormatProperties2KHR, caps.vkGetPhysicalDeviceQueueFamilyProperties2KHR, caps.vkGetPhysicalDeviceMemoryProperties2KHR, 
-            caps.vkGetPhysicalDeviceSparseImageFormatProperties2KHR
+    static boolean checkCapsInstance(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_KHR_get_physical_device_properties2") && VK.checkExtension("VK_KHR_get_physical_device_properties2",
+               VK.isSupported(provider, "vkGetPhysicalDeviceFeatures2KHR", caps)
+            && VK.isSupported(provider, "vkGetPhysicalDeviceProperties2KHR", caps)
+            && VK.isSupported(provider, "vkGetPhysicalDeviceFormatProperties2KHR", caps)
+            && VK.isSupported(provider, "vkGetPhysicalDeviceImageFormatProperties2KHR", caps)
+            && VK.isSupported(provider, "vkGetPhysicalDeviceQueueFamilyProperties2KHR", caps)
+            && VK.isSupported(provider, "vkGetPhysicalDeviceMemoryProperties2KHR", caps)
+            && VK.isSupported(provider, "vkGetPhysicalDeviceSparseImageFormatProperties2KHR", caps)
         );
     }
 
@@ -156,36 +168,12 @@ public class KHRGetPhysicalDeviceProperties2 {
     }
 
     /**
-     * Reports capabilities of a physical device.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To query supported features defined by the core or extensions, call:</p>
-     * 
-     * <code><pre>
-     * void vkGetPhysicalDeviceFeatures2KHR(
-     *     VkPhysicalDevice                            physicalDevice,
-     *     VkPhysicalDeviceFeatures2KHR*               pFeatures);</pre></code>
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>Each structure in {@code pFeatures} and its {@code pNext} chain contain members corresponding to fine-grained features. {@link #vkGetPhysicalDeviceFeatures2KHR GetPhysicalDeviceFeatures2KHR} writes each member to a boolean value indicating whether that feature is supported.</p>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pFeatures} <b>must</b> be a valid pointer to a {@link VkPhysicalDeviceFeatures2KHR} structure</li>
-     * </ul>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkPhysicalDeviceFeatures2KHR}</p>
+     * See {@link VK11#vkGetPhysicalDeviceFeatures2 GetPhysicalDeviceFeatures2}.
      *
      * @param physicalDevice the physical device from which to query the supported features.
-     * @param pFeatures      a pointer to a {@link VkPhysicalDeviceFeatures2KHR} structure in which the physical device features are returned.
+     * @param pFeatures      a pointer to a {@link VkPhysicalDeviceFeatures2} structure in which the physical device features are returned.
      */
-    public static void vkGetPhysicalDeviceFeatures2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceFeatures2KHR *") VkPhysicalDeviceFeatures2KHR pFeatures) {
+    public static void vkGetPhysicalDeviceFeatures2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceFeatures2 *") VkPhysicalDeviceFeatures2 pFeatures) {
         nvkGetPhysicalDeviceFeatures2KHR(physicalDevice, pFeatures.address());
     }
 
@@ -201,36 +189,12 @@ public class KHRGetPhysicalDeviceProperties2 {
     }
 
     /**
-     * Returns properties of a physical device.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To query general properties of physical devices once enumerated, call:</p>
-     * 
-     * <code><pre>
-     * void vkGetPhysicalDeviceProperties2KHR(
-     *     VkPhysicalDevice                            physicalDevice,
-     *     VkPhysicalDeviceProperties2KHR*             pProperties);</pre></code>
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>Each structure in {@code pProperties} and its {@code pNext} chain contain members corresponding to properties or implementation-dependent limits. {@link #vkGetPhysicalDeviceProperties2KHR GetPhysicalDeviceProperties2KHR} writes each member to a value indicating the value of that property or limit.</p>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pProperties} <b>must</b> be a valid pointer to a {@link VkPhysicalDeviceProperties2KHR} structure</li>
-     * </ul>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkPhysicalDeviceProperties2KHR}</p>
+     * See {@link VK11#vkGetPhysicalDeviceProperties2 GetPhysicalDeviceProperties2}.
      *
      * @param physicalDevice the handle to the physical device whose properties will be queried.
-     * @param pProperties    points to an instance of the {@link VkPhysicalDeviceProperties2KHR} structure, that will be filled with returned information.
+     * @param pProperties    points to an instance of the {@link VkPhysicalDeviceProperties2} structure, that will be filled with returned information.
      */
-    public static void vkGetPhysicalDeviceProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceProperties2KHR *") VkPhysicalDeviceProperties2KHR pProperties) {
+    public static void vkGetPhysicalDeviceProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceProperties2 *") VkPhysicalDeviceProperties2 pProperties) {
         nvkGetPhysicalDeviceProperties2KHR(physicalDevice, pProperties.address());
     }
 
@@ -246,39 +210,13 @@ public class KHRGetPhysicalDeviceProperties2 {
     }
 
     /**
-     * Lists physical device's format capabilities.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To query supported format features which are properties of the physical device, call:</p>
-     * 
-     * <code><pre>
-     * void vkGetPhysicalDeviceFormatProperties2KHR(
-     *     VkPhysicalDevice                            physicalDevice,
-     *     VkFormat                                    format,
-     *     VkFormatProperties2KHR*                     pFormatProperties);</pre></code>
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>{@link #vkGetPhysicalDeviceFormatProperties2KHR GetPhysicalDeviceFormatProperties2KHR} behaves similarly to {@link VK10#vkGetPhysicalDeviceFormatProperties GetPhysicalDeviceFormatProperties}, with the ability to return extended information in a {@code pNext} chain of output structures.</p>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code format} <b>must</b> be a valid {@code VkFormat} value</li>
-     * <li>{@code pFormatProperties} <b>must</b> be a valid pointer to a {@link VkFormatProperties2KHR} structure</li>
-     * </ul>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkFormatProperties2KHR}</p>
+     * See {@link VK11#vkGetPhysicalDeviceFormatProperties2 GetPhysicalDeviceFormatProperties2}.
      *
      * @param physicalDevice    the physical device from which to query the format properties.
      * @param format            the format whose properties are queried.
-     * @param pFormatProperties a pointer to a {@link VkFormatProperties2KHR} structure in which physical device properties for {@code format} are returned.
+     * @param pFormatProperties a pointer to a {@link VkFormatProperties2} structure in which physical device properties for {@code format} are returned.
      */
-    public static void vkGetPhysicalDeviceFormatProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkFormat") int format, @NativeType("VkFormatProperties2KHR *") VkFormatProperties2KHR pFormatProperties) {
+    public static void vkGetPhysicalDeviceFormatProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkFormat") int format, @NativeType("VkFormatProperties2 *") VkFormatProperties2 pFormatProperties) {
         nvkGetPhysicalDeviceFormatProperties2KHR(physicalDevice, format, pFormatProperties.address());
     }
 
@@ -294,57 +232,14 @@ public class KHRGetPhysicalDeviceProperties2 {
     }
 
     /**
-     * Lists physical device's image format capabilities.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To query additional capabilities specific to image types, call:</p>
-     * 
-     * <code><pre>
-     * VkResult vkGetPhysicalDeviceImageFormatProperties2KHR(
-     *     VkPhysicalDevice                            physicalDevice,
-     *     const VkPhysicalDeviceImageFormatInfo2KHR*  pImageFormatInfo,
-     *     VkImageFormatProperties2KHR*                pImageFormatProperties);</pre></code>
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>{@link #vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} behaves similarly to {@link VK10#vkGetPhysicalDeviceImageFormatProperties GetPhysicalDeviceImageFormatProperties}, with the ability to return extended information in a {@code pNext} chain of output structures.</p>
-     * 
-     * <p>If the loader implementation emulates {@link #vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} on a device that does not support the extension, and the query involves a structure the loader does not support, {@link #vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} returns {@link VK10#VK_ERROR_FORMAT_NOT_SUPPORTED ERROR_FORMAT_NOT_SUPPORTED}.</p>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pImageFormatInfo} <b>must</b> be a valid pointer to a valid {@link VkPhysicalDeviceImageFormatInfo2KHR} structure</li>
-     * <li>{@code pImageFormatProperties} <b>must</b> be a valid pointer to a {@link VkImageFormatProperties2KHR} structure</li>
-     * </ul>
-     * 
-     * <h5>Return Codes</h5>
-     * 
-     * <dl>
-     * <dt>On success, this command returns</dt>
-     * <dd><ul>
-     * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
-     * </ul></dd>
-     * <dt>On failure, this command returns</dt>
-     * <dd><ul>
-     * <li>{@link VK10#VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
-     * <li>{@link VK10#VK_ERROR_OUT_OF_DEVICE_MEMORY ERROR_OUT_OF_DEVICE_MEMORY}</li>
-     * <li>{@link VK10#VK_ERROR_FORMAT_NOT_SUPPORTED ERROR_FORMAT_NOT_SUPPORTED}</li>
-     * </ul></dd>
-     * </dl>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkImageFormatProperties2KHR}, {@link VkPhysicalDeviceImageFormatInfo2KHR}</p>
+     * See {@link VK11#vkGetPhysicalDeviceImageFormatProperties2 GetPhysicalDeviceImageFormatProperties2}.
      *
      * @param physicalDevice         the physical device from which to query the image capabilities.
-     * @param pImageFormatInfo       points to an instance of the {@link VkPhysicalDeviceImageFormatInfo2KHR} structure, describing the parameters that would be consumed by {@link VK10#vkCreateImage CreateImage}.
-     * @param pImageFormatProperties points to an instance of the {@link VkImageFormatProperties2KHR} structure in which capabilities are returned.
+     * @param pImageFormatInfo       points to an instance of the {@link VkPhysicalDeviceImageFormatInfo2} structure, describing the parameters that would be consumed by {@link VK10#vkCreateImage CreateImage}.
+     * @param pImageFormatProperties points to an instance of the {@link VkImageFormatProperties2} structure in which capabilities are returned.
      */
     @NativeType("VkResult")
-    public static int vkGetPhysicalDeviceImageFormatProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceImageFormatInfo2KHR const *") VkPhysicalDeviceImageFormatInfo2KHR pImageFormatInfo, @NativeType("VkImageFormatProperties2KHR *") VkImageFormatProperties2KHR pImageFormatProperties) {
+    public static int vkGetPhysicalDeviceImageFormatProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceImageFormatInfo2 const *") VkPhysicalDeviceImageFormatInfo2 pImageFormatInfo, @NativeType("VkImageFormatProperties2 *") VkImageFormatProperties2 pImageFormatProperties) {
         return nvkGetPhysicalDeviceImageFormatProperties2KHR(physicalDevice, pImageFormatInfo.address(), pImageFormatProperties.address());
     }
 
@@ -364,39 +259,13 @@ public class KHRGetPhysicalDeviceProperties2 {
     }
 
     /**
-     * Reports properties of the queues of the specified physical device.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To query properties of queues available on a physical device, call:</p>
-     * 
-     * <code><pre>
-     * void vkGetPhysicalDeviceQueueFamilyProperties2KHR(
-     *     VkPhysicalDevice                            physicalDevice,
-     *     uint32_t*                                   pQueueFamilyPropertyCount,
-     *     VkQueueFamilyProperties2KHR*                pQueueFamilyProperties);</pre></code>
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>{@link #vkGetPhysicalDeviceQueueFamilyProperties2KHR GetPhysicalDeviceQueueFamilyProperties2KHR} behaves similarly to {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties}, with the ability to return extended information in a {@code pNext} chain of output structures.</p>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pQueueFamilyPropertyCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pQueueFamilyPropertyCount} is not 0, and {@code pQueueFamilyProperties} is not {@code NULL}, {@code pQueueFamilyProperties} <b>must</b> be a valid pointer to an array of {@code pQueueFamilyPropertyCount} {@link VkQueueFamilyProperties2KHR} structures</li>
-     * </ul>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkQueueFamilyProperties2KHR}</p>
+     * See {@link VK11#vkGetPhysicalDeviceQueueFamilyProperties2 GetPhysicalDeviceQueueFamilyProperties2}.
      *
      * @param physicalDevice            the handle to the physical device whose properties will be queried.
      * @param pQueueFamilyPropertyCount a pointer to an integer related to the number of queue families available or queried, as described in {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties}.
-     * @param pQueueFamilyProperties    either {@code NULL} or a pointer to an array of {@link VkQueueFamilyProperties2KHR} structures.
+     * @param pQueueFamilyProperties    either {@code NULL} or a pointer to an array of {@link VkQueueFamilyProperties2} structures.
      */
-    public static void vkGetPhysicalDeviceQueueFamilyProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("uint32_t *") IntBuffer pQueueFamilyPropertyCount, @Nullable @NativeType("VkQueueFamilyProperties2KHR *") VkQueueFamilyProperties2KHR.Buffer pQueueFamilyProperties) {
+    public static void vkGetPhysicalDeviceQueueFamilyProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("uint32_t *") IntBuffer pQueueFamilyPropertyCount, @Nullable @NativeType("VkQueueFamilyProperties2 *") VkQueueFamilyProperties2.Buffer pQueueFamilyProperties) {
         if (CHECKS) {
             check(pQueueFamilyPropertyCount, 1);
             checkSafe(pQueueFamilyProperties, pQueueFamilyPropertyCount.get(pQueueFamilyPropertyCount.position()));
@@ -416,36 +285,12 @@ public class KHRGetPhysicalDeviceProperties2 {
     }
 
     /**
-     * Reports memory information for the specified physical device.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To query memory properties, call:</p>
-     * 
-     * <code><pre>
-     * void vkGetPhysicalDeviceMemoryProperties2KHR(
-     *     VkPhysicalDevice                            physicalDevice,
-     *     VkPhysicalDeviceMemoryProperties2KHR*       pMemoryProperties);</pre></code>
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>{@link #vkGetPhysicalDeviceMemoryProperties2KHR GetPhysicalDeviceMemoryProperties2KHR} behaves similarly to {@link VK10#vkGetPhysicalDeviceMemoryProperties GetPhysicalDeviceMemoryProperties}, with the ability to return extended information in a {@code pNext} chain of output structures.</p>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pMemoryProperties} <b>must</b> be a valid pointer to a {@link VkPhysicalDeviceMemoryProperties2KHR} structure</li>
-     * </ul>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkPhysicalDeviceMemoryProperties2KHR}</p>
+     * See {@link VK11#vkGetPhysicalDeviceMemoryProperties2 GetPhysicalDeviceMemoryProperties2}.
      *
      * @param physicalDevice    the handle to the device to query.
-     * @param pMemoryProperties points to an instance of {@link VkPhysicalDeviceMemoryProperties2KHR} structure in which the properties are returned.
+     * @param pMemoryProperties points to an instance of {@link VkPhysicalDeviceMemoryProperties2} structure in which the properties are returned.
      */
-    public static void vkGetPhysicalDeviceMemoryProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceMemoryProperties2KHR *") VkPhysicalDeviceMemoryProperties2KHR pMemoryProperties) {
+    public static void vkGetPhysicalDeviceMemoryProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceMemoryProperties2 *") VkPhysicalDeviceMemoryProperties2 pMemoryProperties) {
         nvkGetPhysicalDeviceMemoryProperties2KHR(physicalDevice, pMemoryProperties.address());
     }
 
@@ -465,42 +310,14 @@ public class KHRGetPhysicalDeviceProperties2 {
     }
 
     /**
-     * Retrieve properties of an image format applied to sparse images.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>{@link #vkGetPhysicalDeviceSparseImageFormatProperties2KHR GetPhysicalDeviceSparseImageFormatProperties2KHR} returns an array of {@link VkSparseImageFormatProperties2KHR}. Each element will describe properties for one set of image aspects that are bound simultaneously in the image. This is usually one element for each aspect in the image, but for interleaved depth/stencil images there is only one element describing the combined aspects.</p>
-     * 
-     * <code><pre>
-     * void vkGetPhysicalDeviceSparseImageFormatProperties2KHR(
-     *     VkPhysicalDevice                            physicalDevice,
-     *     const VkPhysicalDeviceSparseImageFormatInfo2KHR* pFormatInfo,
-     *     uint32_t*                                   pPropertyCount,
-     *     VkSparseImageFormatProperties2KHR*          pProperties);</pre></code>
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>{@link #vkGetPhysicalDeviceSparseImageFormatProperties2KHR GetPhysicalDeviceSparseImageFormatProperties2KHR} behaves identically to {@link VK10#vkGetPhysicalDeviceSparseImageFormatProperties GetPhysicalDeviceSparseImageFormatProperties}, with the ability to return extended information by adding extension structures to the {@code pNext} chain of its {@code pProperties} parameter.</p>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code physicalDevice} <b>must</b> be a valid {@code VkPhysicalDevice} handle</li>
-     * <li>{@code pFormatInfo} <b>must</b> be a valid pointer to a valid {@link VkPhysicalDeviceSparseImageFormatInfo2KHR} structure</li>
-     * <li>{@code pPropertyCount} <b>must</b> be a valid pointer to a {@code uint32_t} value</li>
-     * <li>If the value referenced by {@code pPropertyCount} is not 0, and {@code pProperties} is not {@code NULL}, {@code pProperties} <b>must</b> be a valid pointer to an array of {@code pPropertyCount} {@link VkSparseImageFormatProperties2KHR} structures</li>
-     * </ul>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkPhysicalDeviceSparseImageFormatInfo2KHR}, {@link VkSparseImageFormatProperties2KHR}</p>
+     * See {@link VK11#vkGetPhysicalDeviceSparseImageFormatProperties2 GetPhysicalDeviceSparseImageFormatProperties2}.
      *
      * @param physicalDevice the physical device from which to query the sparse image capabilities.
-     * @param pFormatInfo    a pointer to a structure of type {@link VkPhysicalDeviceSparseImageFormatInfo2KHR} containing input parameters to the command.
+     * @param pFormatInfo    a pointer to a structure of type {@link VkPhysicalDeviceSparseImageFormatInfo2} containing input parameters to the command.
      * @param pPropertyCount a pointer to an integer related to the number of sparse format properties available or queried, as described below.
-     * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkSparseImageFormatProperties2KHR} structures.
+     * @param pProperties    either {@code NULL} or a pointer to an array of {@link VkSparseImageFormatProperties2} structures.
      */
-    public static void vkGetPhysicalDeviceSparseImageFormatProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceSparseImageFormatInfo2KHR const *") VkPhysicalDeviceSparseImageFormatInfo2KHR pFormatInfo, @NativeType("uint32_t *") IntBuffer pPropertyCount, @Nullable @NativeType("VkSparseImageFormatProperties2KHR *") VkSparseImageFormatProperties2KHR.Buffer pProperties) {
+    public static void vkGetPhysicalDeviceSparseImageFormatProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceSparseImageFormatInfo2 const *") VkPhysicalDeviceSparseImageFormatInfo2 pFormatInfo, @NativeType("uint32_t *") IntBuffer pPropertyCount, @Nullable @NativeType("VkSparseImageFormatProperties2 *") VkSparseImageFormatProperties2.Buffer pProperties) {
         if (CHECKS) {
             check(pPropertyCount, 1);
             checkSafe(pProperties, pPropertyCount.get(pPropertyCount.position()));
@@ -509,7 +326,7 @@ public class KHRGetPhysicalDeviceProperties2 {
     }
 
     /** Array version of: {@link #vkGetPhysicalDeviceQueueFamilyProperties2KHR GetPhysicalDeviceQueueFamilyProperties2KHR} */
-    public static void vkGetPhysicalDeviceQueueFamilyProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("uint32_t *") int[] pQueueFamilyPropertyCount, @Nullable @NativeType("VkQueueFamilyProperties2KHR *") VkQueueFamilyProperties2KHR.Buffer pQueueFamilyProperties) {
+    public static void vkGetPhysicalDeviceQueueFamilyProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("uint32_t *") int[] pQueueFamilyPropertyCount, @Nullable @NativeType("VkQueueFamilyProperties2 *") VkQueueFamilyProperties2.Buffer pQueueFamilyProperties) {
         long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceQueueFamilyProperties2KHR;
         if (CHECKS) {
             check(__functionAddress);
@@ -520,7 +337,7 @@ public class KHRGetPhysicalDeviceProperties2 {
     }
 
     /** Array version of: {@link #vkGetPhysicalDeviceSparseImageFormatProperties2KHR GetPhysicalDeviceSparseImageFormatProperties2KHR} */
-    public static void vkGetPhysicalDeviceSparseImageFormatProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceSparseImageFormatInfo2KHR const *") VkPhysicalDeviceSparseImageFormatInfo2KHR pFormatInfo, @NativeType("uint32_t *") int[] pPropertyCount, @Nullable @NativeType("VkSparseImageFormatProperties2KHR *") VkSparseImageFormatProperties2KHR.Buffer pProperties) {
+    public static void vkGetPhysicalDeviceSparseImageFormatProperties2KHR(VkPhysicalDevice physicalDevice, @NativeType("VkPhysicalDeviceSparseImageFormatInfo2 const *") VkPhysicalDeviceSparseImageFormatInfo2 pFormatInfo, @NativeType("uint32_t *") int[] pPropertyCount, @Nullable @NativeType("VkSparseImageFormatProperties2 *") VkSparseImageFormatProperties2.Buffer pProperties) {
         long __functionAddress = physicalDevice.getCapabilities().vkGetPhysicalDeviceSparseImageFormatProperties2KHR;
         if (CHECKS) {
             check(__functionAddress);

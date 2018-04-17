@@ -16,28 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Structure specifying external image creation parameters.
- * 
- * <h5>Description</h5>
- * 
- * <p>If {@code handleType} is 0, {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} will behave as if {@link VkPhysicalDeviceExternalImageFormatInfoKHR} was not present, and {@link VkExternalImageFormatPropertiesKHR} will be ignored.</p>
- * 
- * <p>If {@code handleType} is not compatible with the parameters specified in {@link VkPhysicalDeviceImageFormatInfo2KHR} and its {@code pNext} chain, then {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceImageFormatProperties2KHR GetPhysicalDeviceImageFormatProperties2KHR} returns {@link VK10#VK_ERROR_FORMAT_NOT_SUPPORTED ERROR_FORMAT_NOT_SUPPORTED}.</p>
- * 
- * <h5>Valid Usage (Implicit)</h5>
- * 
- * <ul>
- * <li>{@code sType} <b>must</b> be {@link KHRExternalMemoryCapabilities#VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO_KHR STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_IMAGE_FORMAT_INFO_KHR}</li>
- * <li>If {@code handleType} is not 0, {@code handleType} <b>must</b> be a valid {@code VkExternalMemoryHandleTypeFlagBitsKHR} value</li>
- * </ul>
- * 
- * <h3>Member documentation</h3>
- * 
- * <ul>
- * <li>{@code sType} &ndash; the type of this structure.</li>
- * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code handleType} &ndash; a {@code VkExternalMemoryHandleTypeFlagBitsKHR} value specifying the memory handle type that will be used with the memory associated with the image.</li>
- * </ul>
+ * See {@link VkPhysicalDeviceExternalImageFormatInfo}.
  * 
  * <h3>Layout</h3>
  * 
@@ -45,36 +24,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * struct VkPhysicalDeviceExternalImageFormatInfoKHR {
  *     VkStructureType sType;
  *     void const * pNext;
- *     VkExternalMemoryHandleTypeFlagBitsKHR handleType;
+ *     VkExternalMemoryHandleTypeFlagBits handleType;
  * }</pre></code>
  */
-public class VkPhysicalDeviceExternalImageFormatInfoKHR extends Struct implements NativeResource {
-
-    /** The struct size in bytes. */
-    public static final int SIZEOF;
-
-    public static final int ALIGNOF;
-
-    /** The struct member offsets. */
-    public static final int
-        STYPE,
-        PNEXT,
-        HANDLETYPE;
-
-    static {
-        Layout layout = __struct(
-            __member(4),
-            __member(POINTER_SIZE),
-            __member(4)
-        );
-
-        SIZEOF = layout.getSize();
-        ALIGNOF = layout.getAlignment();
-
-        STYPE = layout.offsetof(0);
-        PNEXT = layout.offsetof(1);
-        HANDLETYPE = layout.offsetof(2);
-    }
+public class VkPhysicalDeviceExternalImageFormatInfoKHR extends VkPhysicalDeviceExternalImageFormatInfo {
 
     VkPhysicalDeviceExternalImageFormatInfoKHR(long address, @Nullable ByteBuffer container) {
         super(address, container);
@@ -90,27 +43,18 @@ public class VkPhysicalDeviceExternalImageFormatInfoKHR extends Struct implement
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
-    @Override
-    public int sizeof() { return SIZEOF; }
-
-    /** Returns the value of the {@code sType} field. */
-    @NativeType("VkStructureType")
-    public int sType() { return nsType(address()); }
-    /** Returns the value of the {@code pNext} field. */
-    @NativeType("void const *")
-    public long pNext() { return npNext(address()); }
-    /** Returns the value of the {@code handleType} field. */
-    @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR")
-    public int handleType() { return nhandleType(address()); }
-
     /** Sets the specified value to the {@code sType} field. */
+    @Override
     public VkPhysicalDeviceExternalImageFormatInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
+    @Override
     public VkPhysicalDeviceExternalImageFormatInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
-    public VkPhysicalDeviceExternalImageFormatInfoKHR handleType(@NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int value) { nhandleType(address(), value); return this; }
+    @Override
+    public VkPhysicalDeviceExternalImageFormatInfoKHR handleType(@NativeType("VkExternalMemoryHandleTypeFlagBits") int value) { nhandleType(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
+    @Override
     public VkPhysicalDeviceExternalImageFormatInfoKHR set(
         int sType,
         long pNext,
@@ -276,24 +220,8 @@ public class VkPhysicalDeviceExternalImageFormatInfoKHR extends Struct implement
 
     // -----------------------------------
 
-    /** Unsafe version of {@link #sType}. */
-    public static int nsType(long struct) { return memGetInt(struct + VkPhysicalDeviceExternalImageFormatInfoKHR.STYPE); }
-    /** Unsafe version of {@link #pNext}. */
-    public static long npNext(long struct) { return memGetAddress(struct + VkPhysicalDeviceExternalImageFormatInfoKHR.PNEXT); }
-    /** Unsafe version of {@link #handleType}. */
-    public static int nhandleType(long struct) { return memGetInt(struct + VkPhysicalDeviceExternalImageFormatInfoKHR.HANDLETYPE); }
-
-    /** Unsafe version of {@link #sType(int) sType}. */
-    public static void nsType(long struct, int value) { memPutInt(struct + VkPhysicalDeviceExternalImageFormatInfoKHR.STYPE, value); }
-    /** Unsafe version of {@link #pNext(long) pNext}. */
-    public static void npNext(long struct, long value) { memPutAddress(struct + VkPhysicalDeviceExternalImageFormatInfoKHR.PNEXT, value); }
-    /** Unsafe version of {@link #handleType(int) handleType}. */
-    public static void nhandleType(long struct, int value) { memPutInt(struct + VkPhysicalDeviceExternalImageFormatInfoKHR.HANDLETYPE, value); }
-
-    // -----------------------------------
-
     /** An array of {@link VkPhysicalDeviceExternalImageFormatInfoKHR} structs. */
-    public static class Buffer extends StructBuffer<VkPhysicalDeviceExternalImageFormatInfoKHR, Buffer> implements NativeResource {
+    public static class Buffer extends VkPhysicalDeviceExternalImageFormatInfo.Buffer {
 
         /**
          * Creates a new {@link VkPhysicalDeviceExternalImageFormatInfoKHR.Buffer} instance backed by the specified container.
@@ -305,7 +233,7 @@ public class VkPhysicalDeviceExternalImageFormatInfoKHR extends Struct implement
          * <p>The created buffer instance holds a strong reference to the container object.</p>
          */
         public Buffer(ByteBuffer container) {
-            super(container, container.remaining() / SIZEOF);
+            super(container);
         }
 
         public Buffer(long address, int cap) {
@@ -331,27 +259,15 @@ public class VkPhysicalDeviceExternalImageFormatInfoKHR extends Struct implement
             return new VkPhysicalDeviceExternalImageFormatInfoKHR(address, container);
         }
 
-        @Override
-        public int sizeof() {
-            return SIZEOF;
-        }
-
-        /** Returns the value of the {@code sType} field. */
-        @NativeType("VkStructureType")
-        public int sType() { return VkPhysicalDeviceExternalImageFormatInfoKHR.nsType(address()); }
-        /** Returns the value of the {@code pNext} field. */
-        @NativeType("void const *")
-        public long pNext() { return VkPhysicalDeviceExternalImageFormatInfoKHR.npNext(address()); }
-        /** Returns the value of the {@code handleType} field. */
-        @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR")
-        public int handleType() { return VkPhysicalDeviceExternalImageFormatInfoKHR.nhandleType(address()); }
-
         /** Sets the specified value to the {@code sType} field. */
+        @Override
         public VkPhysicalDeviceExternalImageFormatInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceExternalImageFormatInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
+        @Override
         public VkPhysicalDeviceExternalImageFormatInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkPhysicalDeviceExternalImageFormatInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */
-        public VkPhysicalDeviceExternalImageFormatInfoKHR.Buffer handleType(@NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int value) { VkPhysicalDeviceExternalImageFormatInfoKHR.nhandleType(address(), value); return this; }
+        @Override
+        public VkPhysicalDeviceExternalImageFormatInfoKHR.Buffer handleType(@NativeType("VkExternalMemoryHandleTypeFlagBits") int value) { VkPhysicalDeviceExternalImageFormatInfoKHR.nhandleType(address(), value); return this; }
 
     }
 

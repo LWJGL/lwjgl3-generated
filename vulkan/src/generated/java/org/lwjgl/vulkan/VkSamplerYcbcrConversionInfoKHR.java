@@ -16,22 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Structure specifying Y'CbCr conversion to a sampler or image view.
- * 
- * <h5>Valid Usage (Implicit)</h5>
- * 
- * <ul>
- * <li>{@code sType} <b>must</b> be {@link KHRSamplerYcbcrConversion#VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_INFO_KHR STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_INFO_KHR}</li>
- * <li>{@code conversion} <b>must</b> be a valid {@code VkSamplerYcbcrConversionKHR} handle</li>
- * </ul>
- * 
- * <h3>Member documentation</h3>
- * 
- * <ul>
- * <li>{@code sType} &ndash; the type of this structure.</li>
- * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code conversion} &ndash; a {@code VkSamplerYcbcrConversionKHR} handle created with {@link KHRSamplerYcbcrConversion#vkCreateSamplerYcbcrConversionKHR CreateSamplerYcbcrConversionKHR}.</li>
- * </ul>
+ * See {@link VkSamplerYcbcrConversionInfo}.
  * 
  * <h3>Layout</h3>
  * 
@@ -39,36 +24,10 @@ import static org.lwjgl.system.MemoryStack.*;
  * struct VkSamplerYcbcrConversionInfoKHR {
  *     VkStructureType sType;
  *     void const * pNext;
- *     VkSamplerYcbcrConversionKHR conversion;
+ *     VkSamplerYcbcrConversion conversion;
  * }</pre></code>
  */
-public class VkSamplerYcbcrConversionInfoKHR extends Struct implements NativeResource {
-
-    /** The struct size in bytes. */
-    public static final int SIZEOF;
-
-    public static final int ALIGNOF;
-
-    /** The struct member offsets. */
-    public static final int
-        STYPE,
-        PNEXT,
-        CONVERSION;
-
-    static {
-        Layout layout = __struct(
-            __member(4),
-            __member(POINTER_SIZE),
-            __member(8)
-        );
-
-        SIZEOF = layout.getSize();
-        ALIGNOF = layout.getAlignment();
-
-        STYPE = layout.offsetof(0);
-        PNEXT = layout.offsetof(1);
-        CONVERSION = layout.offsetof(2);
-    }
+public class VkSamplerYcbcrConversionInfoKHR extends VkSamplerYcbcrConversionInfo {
 
     VkSamplerYcbcrConversionInfoKHR(long address, @Nullable ByteBuffer container) {
         super(address, container);
@@ -84,27 +43,18 @@ public class VkSamplerYcbcrConversionInfoKHR extends Struct implements NativeRes
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
-    @Override
-    public int sizeof() { return SIZEOF; }
-
-    /** Returns the value of the {@code sType} field. */
-    @NativeType("VkStructureType")
-    public int sType() { return nsType(address()); }
-    /** Returns the value of the {@code pNext} field. */
-    @NativeType("void const *")
-    public long pNext() { return npNext(address()); }
-    /** Returns the value of the {@code conversion} field. */
-    @NativeType("VkSamplerYcbcrConversionKHR")
-    public long conversion() { return nconversion(address()); }
-
     /** Sets the specified value to the {@code sType} field. */
+    @Override
     public VkSamplerYcbcrConversionInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
+    @Override
     public VkSamplerYcbcrConversionInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code conversion} field. */
-    public VkSamplerYcbcrConversionInfoKHR conversion(@NativeType("VkSamplerYcbcrConversionKHR") long value) { nconversion(address(), value); return this; }
+    @Override
+    public VkSamplerYcbcrConversionInfoKHR conversion(@NativeType("VkSamplerYcbcrConversion") long value) { nconversion(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
+    @Override
     public VkSamplerYcbcrConversionInfoKHR set(
         int sType,
         long pNext,
@@ -270,24 +220,8 @@ public class VkSamplerYcbcrConversionInfoKHR extends Struct implements NativeRes
 
     // -----------------------------------
 
-    /** Unsafe version of {@link #sType}. */
-    public static int nsType(long struct) { return memGetInt(struct + VkSamplerYcbcrConversionInfoKHR.STYPE); }
-    /** Unsafe version of {@link #pNext}. */
-    public static long npNext(long struct) { return memGetAddress(struct + VkSamplerYcbcrConversionInfoKHR.PNEXT); }
-    /** Unsafe version of {@link #conversion}. */
-    public static long nconversion(long struct) { return memGetLong(struct + VkSamplerYcbcrConversionInfoKHR.CONVERSION); }
-
-    /** Unsafe version of {@link #sType(int) sType}. */
-    public static void nsType(long struct, int value) { memPutInt(struct + VkSamplerYcbcrConversionInfoKHR.STYPE, value); }
-    /** Unsafe version of {@link #pNext(long) pNext}. */
-    public static void npNext(long struct, long value) { memPutAddress(struct + VkSamplerYcbcrConversionInfoKHR.PNEXT, value); }
-    /** Unsafe version of {@link #conversion(long) conversion}. */
-    public static void nconversion(long struct, long value) { memPutLong(struct + VkSamplerYcbcrConversionInfoKHR.CONVERSION, value); }
-
-    // -----------------------------------
-
     /** An array of {@link VkSamplerYcbcrConversionInfoKHR} structs. */
-    public static class Buffer extends StructBuffer<VkSamplerYcbcrConversionInfoKHR, Buffer> implements NativeResource {
+    public static class Buffer extends VkSamplerYcbcrConversionInfo.Buffer {
 
         /**
          * Creates a new {@link VkSamplerYcbcrConversionInfoKHR.Buffer} instance backed by the specified container.
@@ -299,7 +233,7 @@ public class VkSamplerYcbcrConversionInfoKHR extends Struct implements NativeRes
          * <p>The created buffer instance holds a strong reference to the container object.</p>
          */
         public Buffer(ByteBuffer container) {
-            super(container, container.remaining() / SIZEOF);
+            super(container);
         }
 
         public Buffer(long address, int cap) {
@@ -325,27 +259,15 @@ public class VkSamplerYcbcrConversionInfoKHR extends Struct implements NativeRes
             return new VkSamplerYcbcrConversionInfoKHR(address, container);
         }
 
-        @Override
-        public int sizeof() {
-            return SIZEOF;
-        }
-
-        /** Returns the value of the {@code sType} field. */
-        @NativeType("VkStructureType")
-        public int sType() { return VkSamplerYcbcrConversionInfoKHR.nsType(address()); }
-        /** Returns the value of the {@code pNext} field. */
-        @NativeType("void const *")
-        public long pNext() { return VkSamplerYcbcrConversionInfoKHR.npNext(address()); }
-        /** Returns the value of the {@code conversion} field. */
-        @NativeType("VkSamplerYcbcrConversionKHR")
-        public long conversion() { return VkSamplerYcbcrConversionInfoKHR.nconversion(address()); }
-
         /** Sets the specified value to the {@code sType} field. */
+        @Override
         public VkSamplerYcbcrConversionInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkSamplerYcbcrConversionInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
+        @Override
         public VkSamplerYcbcrConversionInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkSamplerYcbcrConversionInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code conversion} field. */
-        public VkSamplerYcbcrConversionInfoKHR.Buffer conversion(@NativeType("VkSamplerYcbcrConversionKHR") long value) { VkSamplerYcbcrConversionInfoKHR.nconversion(address(), value); return this; }
+        @Override
+        public VkSamplerYcbcrConversionInfoKHR.Buffer conversion(@NativeType("VkSamplerYcbcrConversion") long value) { VkSamplerYcbcrConversionInfoKHR.nconversion(address(), value); return this; }
 
     }
 

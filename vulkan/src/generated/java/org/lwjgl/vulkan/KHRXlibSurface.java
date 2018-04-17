@@ -76,9 +76,10 @@ public class KHRXlibSurface {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesInstance caps) {
-        return checkFunctions(
-            caps.vkCreateXlibSurfaceKHR, caps.vkGetPhysicalDeviceXlibPresentationSupportKHR
+    static boolean checkCapsInstance(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_KHR_xlib_surface") && VK.checkExtension("VK_KHR_xlib_surface",
+               VK.isSupported(provider, "vkCreateXlibSurfaceKHR", caps)
+            && VK.isSupported(provider, "vkGetPhysicalDeviceXlibPresentationSupportKHR", caps)
         );
     }
 

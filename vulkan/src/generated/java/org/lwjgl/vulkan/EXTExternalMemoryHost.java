@@ -71,7 +71,7 @@ public class EXTExternalMemoryHost {
         VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_HOST_PROPERTIES_EXT = 1000178002;
 
     /**
-     * Extends {@code VkExternalMemoryHandleTypeFlagBitsKHR}.
+     * Extends {@code VkExternalMemoryHandleTypeFlagBits}.
      * 
      * <h5>Enum values:</h5>
      * 
@@ -88,9 +88,9 @@ public class EXTExternalMemoryHost {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesDevice caps) {
-        return checkFunctions(
-            caps.vkGetMemoryHostPointerPropertiesEXT
+    static boolean checkCapsDevice(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_EXT_external_memory_host") && VK.checkExtension("VK_EXT_external_memory_host",
+               VK.isSupported(provider, "vkGetMemoryHostPointerPropertiesEXT", caps)
         );
     }
 
@@ -116,7 +116,7 @@ public class EXTExternalMemoryHost {
      * <code><pre>
      * VkResult vkGetMemoryHostPointerPropertiesEXT(
      *     VkDevice                                    device,
-     *     VkExternalMemoryHandleTypeFlagBitsKHR       handleType,
+     *     VkExternalMemoryHandleTypeFlagBits          handleType,
      *     const void*                                 pHostPointer,
      *     VkMemoryHostPointerPropertiesEXT*           pMemoryHostPointerProperties);</pre></code>
      * 
@@ -133,7 +133,7 @@ public class EXTExternalMemoryHost {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code handleType} <b>must</b> be a valid {@code VkExternalMemoryHandleTypeFlagBitsKHR} value</li>
+     * <li>{@code handleType} <b>must</b> be a valid {@code VkExternalMemoryHandleTypeFlagBits} value</li>
      * <li>{@code pMemoryHostPointerProperties} <b>must</b> be a valid pointer to a {@link VkMemoryHostPointerPropertiesEXT} structure</li>
      * </ul>
      * 
@@ -146,7 +146,7 @@ public class EXTExternalMemoryHost {
      * </ul></dd>
      * <dt>On failure, this command returns</dt>
      * <dd><ul>
-     * <li>{@link KHRExternalMemory#VK_ERROR_INVALID_EXTERNAL_HANDLE_KHR ERROR_INVALID_EXTERNAL_HANDLE_KHR}</li>
+     * <li>{@link VK11#VK_ERROR_INVALID_EXTERNAL_HANDLE ERROR_INVALID_EXTERNAL_HANDLE}</li>
      * </ul></dd>
      * </dl>
      * 
@@ -160,7 +160,7 @@ public class EXTExternalMemoryHost {
      * @param pMemoryHostPointerProperties 
      */
     @NativeType("VkResult")
-    public static int vkGetMemoryHostPointerPropertiesEXT(VkDevice device, @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int handleType, @NativeType("void const *") long pHostPointer, @NativeType("VkMemoryHostPointerPropertiesEXT *") VkMemoryHostPointerPropertiesEXT pMemoryHostPointerProperties) {
+    public static int vkGetMemoryHostPointerPropertiesEXT(VkDevice device, @NativeType("VkExternalMemoryHandleTypeFlagBits") int handleType, @NativeType("void const *") long pHostPointer, @NativeType("VkMemoryHostPointerPropertiesEXT *") VkMemoryHostPointerPropertiesEXT pMemoryHostPointerProperties) {
         return nvkGetMemoryHostPointerPropertiesEXT(device, handleType, pHostPointer, pMemoryHostPointerProperties.address());
     }
 

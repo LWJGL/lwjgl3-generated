@@ -11,7 +11,7 @@ import static org.lwjgl.system.Checks.*;
 import static org.lwjgl.system.JNI.*;
 
 /**
- * The {@code VK_EXT_debug_marker} extension is a device extension. It introduces concepts of object naming and tagging, for better tracking of Vulkan objects, as well as additional commands for recording annotations of named sections of a workload to aid organisation and offline analysis in external tools.
+ * The {@code VK_EXT_debug_marker} extension is a device extension. It introduces concepts of object naming and tagging, for better tracking of Vulkan objects, as well as additional commands for recording annotations of named sections of a workload to aid organization and offline analysis in external tools.
  * 
  * <h5>Examples</h5>
  * 
@@ -164,10 +164,13 @@ public class EXTDebugMarker {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesDevice caps) {
-        return checkFunctions(
-            caps.vkDebugMarkerSetObjectTagEXT, caps.vkDebugMarkerSetObjectNameEXT, caps.vkCmdDebugMarkerBeginEXT, caps.vkCmdDebugMarkerEndEXT, 
-            caps.vkCmdDebugMarkerInsertEXT
+    static boolean checkCapsDevice(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_EXT_debug_marker") && VK.checkExtension("VK_EXT_debug_marker",
+               VK.isSupported(provider, "vkDebugMarkerSetObjectTagEXT", caps)
+            && VK.isSupported(provider, "vkDebugMarkerSetObjectNameEXT", caps)
+            && VK.isSupported(provider, "vkCmdDebugMarkerBeginEXT", caps)
+            && VK.isSupported(provider, "vkCmdDebugMarkerEndEXT", caps)
+            && VK.isSupported(provider, "vkCmdDebugMarkerInsertEXT", caps)
         );
     }
 

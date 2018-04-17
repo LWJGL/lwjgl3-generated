@@ -8,6 +8,10 @@ package org.lwjgl.vulkan;
 /**
  * An application using external memory may wish to synchronize access to that memory using fences. This extension enables an application to create fences from which non-Vulkan handles that reference the underlying synchronization primitive can be exported.
  * 
+ * <h5>Promotion to Vulkan 1.1</h5>
+ * 
+ * <p>All functionality in this extension is included in core Vulkan 1.1, with the KHR suffix omitted. The original type, enum and command names are still available as aliases of the core functionality.</p>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>{@code VK_KHR_external_fence}</dd>
@@ -30,6 +34,10 @@ package org.lwjgl.vulkan;
  * <dd>2017-05-08</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
+ * <dt><b>Interactions and External Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Promoted to Vulkan 1.1 Core</li>
+ * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Jesse Hall, Google</li>
@@ -51,19 +59,7 @@ public final class KHRExternalFence {
     /** Extends {@code VkStructureType}. */
     public static final int VK_STRUCTURE_TYPE_EXPORT_FENCE_CREATE_INFO_KHR = 1000113000;
 
-    /**
-     * VkFenceImportFlagBitsKHR - Bitmask specifying additional parameters of fence payload import
-     * 
-     * <h5>Description</h5>
-     * 
-     * <ul>
-     * <li>{@link #VK_FENCE_IMPORT_TEMPORARY_BIT_KHR FENCE_IMPORT_TEMPORARY_BIT_KHR} specifies that the fence payload will be imported only temporarily, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-fences-importing">Importing Fence Payloads</a>, regardless of the permanence of {@code handleType}.</li>
-     * </ul>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@code VkFenceImportFlagsKHR}</p>
-     */
+    /** Extends {@code VkFenceImportFlagBits}. */
     public static final int VK_FENCE_IMPORT_TEMPORARY_BIT_KHR = 0x1;
 
     private KHRExternalFence() {}

@@ -9,37 +9,12 @@ import javax.annotation.*;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Structure describing supported external fence handle features.
- * 
- * <h5>Description</h5>
- * 
- * <p>If {@code handleType} is not supported by the implementation, then {@link VkExternalFencePropertiesKHR}{@code ::externalFenceFeatures} will be set to zero.</p>
- * 
- * <h5>Valid Usage (Implicit)</h5>
- * 
- * <ul>
- * <li>{@code sType} <b>must</b> be {@link KHRExternalFenceCapabilities#VK_STRUCTURE_TYPE_EXTERNAL_FENCE_PROPERTIES_KHR STRUCTURE_TYPE_EXTERNAL_FENCE_PROPERTIES_KHR}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * </ul>
- * 
- * <h5>See Also</h5>
- * 
- * <p>{@link KHRExternalFenceCapabilities#vkGetPhysicalDeviceExternalFencePropertiesKHR GetPhysicalDeviceExternalFencePropertiesKHR}</p>
- * 
- * <h3>Member documentation</h3>
- * 
- * <ul>
- * <li>{@code exportFromImportedHandleTypes} &ndash; a bitmask of {@code VkExternalFenceHandleTypeFlagBitsKHR} indicating which types of imported handle {@code handleType} <b>can</b> be exported from.</li>
- * <li>{@code compatibleHandleTypes} &ndash; a bitmask of {@code VkExternalFenceHandleTypeFlagBitsKHR} specifying handle types which <b>can</b> be specified at the same time as {@code handleType} when creating a fence.</li>
- * <li>{@code externalFenceFeatures} &ndash; a bitmask of {@code VkExternalFenceFeatureFlagBitsKHR} indicating the features of {@code handleType}.</li>
- * </ul>
+ * See {@link VkExternalFenceProperties}.
  * 
  * <h3>Layout</h3>
  * 
@@ -47,44 +22,12 @@ import static org.lwjgl.system.MemoryStack.*;
  * struct VkExternalFencePropertiesKHR {
  *     VkStructureType sType;
  *     void * pNext;
- *     VkExternalFenceHandleTypeFlagsKHR exportFromImportedHandleTypes;
- *     VkExternalFenceHandleTypeFlagsKHR compatibleHandleTypes;
- *     VkExternalFenceFeatureFlagsKHR externalFenceFeatures;
+ *     VkExternalFenceHandleTypeFlags exportFromImportedHandleTypes;
+ *     VkExternalFenceHandleTypeFlags compatibleHandleTypes;
+ *     VkExternalFenceFeatureFlags externalFenceFeatures;
  * }</pre></code>
  */
-public class VkExternalFencePropertiesKHR extends Struct implements NativeResource {
-
-    /** The struct size in bytes. */
-    public static final int SIZEOF;
-
-    public static final int ALIGNOF;
-
-    /** The struct member offsets. */
-    public static final int
-        STYPE,
-        PNEXT,
-        EXPORTFROMIMPORTEDHANDLETYPES,
-        COMPATIBLEHANDLETYPES,
-        EXTERNALFENCEFEATURES;
-
-    static {
-        Layout layout = __struct(
-            __member(4),
-            __member(POINTER_SIZE),
-            __member(4),
-            __member(4),
-            __member(4)
-        );
-
-        SIZEOF = layout.getSize();
-        ALIGNOF = layout.getAlignment();
-
-        STYPE = layout.offsetof(0);
-        PNEXT = layout.offsetof(1);
-        EXPORTFROMIMPORTEDHANDLETYPES = layout.offsetof(2);
-        COMPATIBLEHANDLETYPES = layout.offsetof(3);
-        EXTERNALFENCEFEATURES = layout.offsetof(4);
-    }
+public class VkExternalFencePropertiesKHR extends VkExternalFenceProperties {
 
     VkExternalFencePropertiesKHR(long address, @Nullable ByteBuffer container) {
         super(address, container);
@@ -100,41 +43,7 @@ public class VkExternalFencePropertiesKHR extends Struct implements NativeResour
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
-    @Override
-    public int sizeof() { return SIZEOF; }
-
-    /** Returns the value of the {@code sType} field. */
-    @NativeType("VkStructureType")
-    public int sType() { return nsType(address()); }
-    /** Returns the value of the {@code pNext} field. */
-    @NativeType("void *")
-    public long pNext() { return npNext(address()); }
-    /** Returns the value of the {@code exportFromImportedHandleTypes} field. */
-    @NativeType("VkExternalFenceHandleTypeFlagsKHR")
-    public int exportFromImportedHandleTypes() { return nexportFromImportedHandleTypes(address()); }
-    /** Returns the value of the {@code compatibleHandleTypes} field. */
-    @NativeType("VkExternalFenceHandleTypeFlagsKHR")
-    public int compatibleHandleTypes() { return ncompatibleHandleTypes(address()); }
-    /** Returns the value of the {@code externalFenceFeatures} field. */
-    @NativeType("VkExternalFenceFeatureFlagsKHR")
-    public int externalFenceFeatures() { return nexternalFenceFeatures(address()); }
-
     // -----------------------------------
-
-    /** Returns a new {@link VkExternalFencePropertiesKHR} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static VkExternalFencePropertiesKHR malloc() {
-        return create(nmemAllocChecked(SIZEOF));
-    }
-
-    /** Returns a new {@link VkExternalFencePropertiesKHR} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static VkExternalFencePropertiesKHR calloc() {
-        return create(nmemCallocChecked(1, SIZEOF));
-    }
-
-    /** Returns a new {@link VkExternalFencePropertiesKHR} instance allocated with {@link BufferUtils}. */
-    public static VkExternalFencePropertiesKHR create() {
-        return new VkExternalFencePropertiesKHR(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link VkExternalFencePropertiesKHR} instance for the specified memory address. */
     public static VkExternalFencePropertiesKHR create(long address) {
@@ -145,33 +54,6 @@ public class VkExternalFencePropertiesKHR extends Struct implements NativeResour
     @Nullable
     public static VkExternalFencePropertiesKHR createSafe(long address) {
         return address == NULL ? null : create(address);
-    }
-
-    /**
-     * Returns a new {@link VkExternalFencePropertiesKHR.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkExternalFencePropertiesKHR.Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VkExternalFencePropertiesKHR.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkExternalFencePropertiesKHR.Buffer calloc(int capacity) {
-        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VkExternalFencePropertiesKHR.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkExternalFencePropertiesKHR.Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -192,89 +74,8 @@ public class VkExternalFencePropertiesKHR extends Struct implements NativeResour
 
     // -----------------------------------
 
-    /** Returns a new {@link VkExternalFencePropertiesKHR} instance allocated on the thread-local {@link MemoryStack}. */
-    public static VkExternalFencePropertiesKHR mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link VkExternalFencePropertiesKHR} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static VkExternalFencePropertiesKHR callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link VkExternalFencePropertiesKHR} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VkExternalFencePropertiesKHR mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VkExternalFencePropertiesKHR} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VkExternalFencePropertiesKHR callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VkExternalFencePropertiesKHR.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkExternalFencePropertiesKHR.Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VkExternalFencePropertiesKHR.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkExternalFencePropertiesKHR.Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VkExternalFencePropertiesKHR.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static VkExternalFencePropertiesKHR.Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VkExternalFencePropertiesKHR.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static VkExternalFencePropertiesKHR.Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
-
-    /** Unsafe version of {@link #sType}. */
-    public static int nsType(long struct) { return memGetInt(struct + VkExternalFencePropertiesKHR.STYPE); }
-    /** Unsafe version of {@link #pNext}. */
-    public static long npNext(long struct) { return memGetAddress(struct + VkExternalFencePropertiesKHR.PNEXT); }
-    /** Unsafe version of {@link #exportFromImportedHandleTypes}. */
-    public static int nexportFromImportedHandleTypes(long struct) { return memGetInt(struct + VkExternalFencePropertiesKHR.EXPORTFROMIMPORTEDHANDLETYPES); }
-    /** Unsafe version of {@link #compatibleHandleTypes}. */
-    public static int ncompatibleHandleTypes(long struct) { return memGetInt(struct + VkExternalFencePropertiesKHR.COMPATIBLEHANDLETYPES); }
-    /** Unsafe version of {@link #externalFenceFeatures}. */
-    public static int nexternalFenceFeatures(long struct) { return memGetInt(struct + VkExternalFencePropertiesKHR.EXTERNALFENCEFEATURES); }
-
-    // -----------------------------------
-
     /** An array of {@link VkExternalFencePropertiesKHR} structs. */
-    public static class Buffer extends StructBuffer<VkExternalFencePropertiesKHR, Buffer> implements NativeResource {
+    public static class Buffer extends VkExternalFenceProperties.Buffer {
 
         /**
          * Creates a new {@link VkExternalFencePropertiesKHR.Buffer} instance backed by the specified container.
@@ -286,7 +87,7 @@ public class VkExternalFencePropertiesKHR extends Struct implements NativeResour
          * <p>The created buffer instance holds a strong reference to the container object.</p>
          */
         public Buffer(ByteBuffer container) {
-            super(container, container.remaining() / SIZEOF);
+            super(container);
         }
 
         public Buffer(long address, int cap) {
@@ -311,27 +112,6 @@ public class VkExternalFencePropertiesKHR extends Struct implements NativeResour
         protected VkExternalFencePropertiesKHR newInstance(long address) {
             return new VkExternalFencePropertiesKHR(address, container);
         }
-
-        @Override
-        public int sizeof() {
-            return SIZEOF;
-        }
-
-        /** Returns the value of the {@code sType} field. */
-        @NativeType("VkStructureType")
-        public int sType() { return VkExternalFencePropertiesKHR.nsType(address()); }
-        /** Returns the value of the {@code pNext} field. */
-        @NativeType("void *")
-        public long pNext() { return VkExternalFencePropertiesKHR.npNext(address()); }
-        /** Returns the value of the {@code exportFromImportedHandleTypes} field. */
-        @NativeType("VkExternalFenceHandleTypeFlagsKHR")
-        public int exportFromImportedHandleTypes() { return VkExternalFencePropertiesKHR.nexportFromImportedHandleTypes(address()); }
-        /** Returns the value of the {@code compatibleHandleTypes} field. */
-        @NativeType("VkExternalFenceHandleTypeFlagsKHR")
-        public int compatibleHandleTypes() { return VkExternalFencePropertiesKHR.ncompatibleHandleTypes(address()); }
-        /** Returns the value of the {@code externalFenceFeatures} field. */
-        @NativeType("VkExternalFenceFeatureFlagsKHR")
-        public int externalFenceFeatures() { return VkExternalFencePropertiesKHR.nexternalFenceFeatures(address()); }
 
     }
 

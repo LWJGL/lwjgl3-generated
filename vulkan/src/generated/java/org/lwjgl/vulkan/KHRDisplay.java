@@ -118,10 +118,15 @@ public class KHRDisplay {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesInstance caps) {
-        return checkFunctions(
-            caps.vkGetPhysicalDeviceDisplayPropertiesKHR, caps.vkGetPhysicalDeviceDisplayPlanePropertiesKHR, caps.vkGetDisplayPlaneSupportedDisplaysKHR, 
-            caps.vkGetDisplayModePropertiesKHR, caps.vkCreateDisplayModeKHR, caps.vkGetDisplayPlaneCapabilitiesKHR, caps.vkCreateDisplayPlaneSurfaceKHR
+    static boolean checkCapsInstance(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_KHR_display") && VK.checkExtension("VK_KHR_display",
+               VK.isSupported(provider, "vkGetPhysicalDeviceDisplayPropertiesKHR", caps)
+            && VK.isSupported(provider, "vkGetPhysicalDeviceDisplayPlanePropertiesKHR", caps)
+            && VK.isSupported(provider, "vkGetDisplayPlaneSupportedDisplaysKHR", caps)
+            && VK.isSupported(provider, "vkGetDisplayModePropertiesKHR", caps)
+            && VK.isSupported(provider, "vkCreateDisplayModeKHR", caps)
+            && VK.isSupported(provider, "vkGetDisplayPlaneCapabilitiesKHR", caps)
+            && VK.isSupported(provider, "vkCreateDisplayPlaneSurfaceKHR", caps)
         );
     }
 

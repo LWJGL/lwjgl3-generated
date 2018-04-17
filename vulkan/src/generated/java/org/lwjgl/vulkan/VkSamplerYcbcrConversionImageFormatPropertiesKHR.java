@@ -14,21 +14,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Structure specifying combined image sampler descriptor count for multi-planar images.
- * 
- * <h5>Valid Usage (Implicit)</h5>
- * 
- * <ul>
- * <li>{@code sType} <b>must</b> be {@link KHRSamplerYcbcrConversion#VK_STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES_KHR STRUCTURE_TYPE_SAMPLER_YCBCR_CONVERSION_IMAGE_FORMAT_PROPERTIES_KHR}</li>
- * </ul>
- * 
- * <h3>Member documentation</h3>
- * 
- * <ul>
- * <li>{@code sType} &ndash; the type of this structure.</li>
- * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code combinedImageSamplerDescriptorCount} &ndash; the number of combined image sampler descriptors that the implementation uses to access the format.</li>
- * </ul>
+ * See {@link VkSamplerYcbcrConversionImageFormatProperties}.
  * 
  * <h3>Layout</h3>
  * 
@@ -39,33 +25,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint32_t combinedImageSamplerDescriptorCount;
  * }</pre></code>
  */
-public class VkSamplerYcbcrConversionImageFormatPropertiesKHR extends Struct {
-
-    /** The struct size in bytes. */
-    public static final int SIZEOF;
-
-    public static final int ALIGNOF;
-
-    /** The struct member offsets. */
-    public static final int
-        STYPE,
-        PNEXT,
-        COMBINEDIMAGESAMPLERDESCRIPTORCOUNT;
-
-    static {
-        Layout layout = __struct(
-            __member(4),
-            __member(POINTER_SIZE),
-            __member(4)
-        );
-
-        SIZEOF = layout.getSize();
-        ALIGNOF = layout.getAlignment();
-
-        STYPE = layout.offsetof(0);
-        PNEXT = layout.offsetof(1);
-        COMBINEDIMAGESAMPLERDESCRIPTORCOUNT = layout.offsetof(2);
-    }
+public class VkSamplerYcbcrConversionImageFormatPropertiesKHR extends VkSamplerYcbcrConversionImageFormatProperties {
 
     VkSamplerYcbcrConversionImageFormatPropertiesKHR(long address, @Nullable ByteBuffer container) {
         super(address, container);
@@ -80,19 +40,6 @@ public class VkSamplerYcbcrConversionImageFormatPropertiesKHR extends Struct {
     public VkSamplerYcbcrConversionImageFormatPropertiesKHR(ByteBuffer container) {
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
-
-    @Override
-    public int sizeof() { return SIZEOF; }
-
-    /** Returns the value of the {@code sType} field. */
-    @NativeType("VkStructureType")
-    public int sType() { return nsType(address()); }
-    /** Returns the value of the {@code pNext} field. */
-    @NativeType("void *")
-    public long pNext() { return npNext(address()); }
-    /** Returns the value of the {@code combinedImageSamplerDescriptorCount} field. */
-    @NativeType("uint32_t")
-    public int combinedImageSamplerDescriptorCount() { return ncombinedImageSamplerDescriptorCount(address()); }
 
     // -----------------------------------
 
@@ -125,17 +72,8 @@ public class VkSamplerYcbcrConversionImageFormatPropertiesKHR extends Struct {
 
     // -----------------------------------
 
-    /** Unsafe version of {@link #sType}. */
-    public static int nsType(long struct) { return memGetInt(struct + VkSamplerYcbcrConversionImageFormatPropertiesKHR.STYPE); }
-    /** Unsafe version of {@link #pNext}. */
-    public static long npNext(long struct) { return memGetAddress(struct + VkSamplerYcbcrConversionImageFormatPropertiesKHR.PNEXT); }
-    /** Unsafe version of {@link #combinedImageSamplerDescriptorCount}. */
-    public static int ncombinedImageSamplerDescriptorCount(long struct) { return memGetInt(struct + VkSamplerYcbcrConversionImageFormatPropertiesKHR.COMBINEDIMAGESAMPLERDESCRIPTORCOUNT); }
-
-    // -----------------------------------
-
     /** An array of {@link VkSamplerYcbcrConversionImageFormatPropertiesKHR} structs. */
-    public static class Buffer extends StructBuffer<VkSamplerYcbcrConversionImageFormatPropertiesKHR, Buffer> {
+    public static class Buffer extends VkSamplerYcbcrConversionImageFormatProperties.Buffer {
 
         /**
          * Creates a new {@link VkSamplerYcbcrConversionImageFormatPropertiesKHR.Buffer} instance backed by the specified container.
@@ -147,7 +85,7 @@ public class VkSamplerYcbcrConversionImageFormatPropertiesKHR extends Struct {
          * <p>The created buffer instance holds a strong reference to the container object.</p>
          */
         public Buffer(ByteBuffer container) {
-            super(container, container.remaining() / SIZEOF);
+            super(container);
         }
 
         public Buffer(long address, int cap) {
@@ -172,21 +110,6 @@ public class VkSamplerYcbcrConversionImageFormatPropertiesKHR extends Struct {
         protected VkSamplerYcbcrConversionImageFormatPropertiesKHR newInstance(long address) {
             return new VkSamplerYcbcrConversionImageFormatPropertiesKHR(address, container);
         }
-
-        @Override
-        public int sizeof() {
-            return SIZEOF;
-        }
-
-        /** Returns the value of the {@code sType} field. */
-        @NativeType("VkStructureType")
-        public int sType() { return VkSamplerYcbcrConversionImageFormatPropertiesKHR.nsType(address()); }
-        /** Returns the value of the {@code pNext} field. */
-        @NativeType("void *")
-        public long pNext() { return VkSamplerYcbcrConversionImageFormatPropertiesKHR.npNext(address()); }
-        /** Returns the value of the {@code combinedImageSamplerDescriptorCount} field. */
-        @NativeType("uint32_t")
-        public int combinedImageSamplerDescriptorCount() { return VkSamplerYcbcrConversionImageFormatPropertiesKHR.ncombinedImageSamplerDescriptorCount(address()); }
 
     }
 

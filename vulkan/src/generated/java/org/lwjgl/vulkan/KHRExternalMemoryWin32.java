@@ -76,9 +76,10 @@ public class KHRExternalMemoryWin32 {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesDevice caps) {
-        return checkFunctions(
-            caps.vkGetMemoryWin32HandleKHR, caps.vkGetMemoryWin32HandlePropertiesKHR
+    static boolean checkCapsDevice(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_KHR_external_memory_win32") && VK.checkExtension("VK_KHR_external_memory_win32",
+               VK.isSupported(provider, "vkGetMemoryWin32HandleKHR", caps)
+            && VK.isSupported(provider, "vkGetMemoryWin32HandlePropertiesKHR", caps)
         );
     }
 
@@ -170,7 +171,7 @@ public class KHRExternalMemoryWin32 {
      * <code><pre>
      * VkResult vkGetMemoryWin32HandlePropertiesKHR(
      *     VkDevice                                    device,
-     *     VkExternalMemoryHandleTypeFlagBitsKHR       handleType,
+     *     VkExternalMemoryHandleTypeFlagBits          handleType,
      *     HANDLE                                      handle,
      *     VkMemoryWin32HandlePropertiesKHR*           pMemoryWin32HandleProperties);</pre></code>
      * 
@@ -185,7 +186,7 @@ public class KHRExternalMemoryWin32 {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code handleType} <b>must</b> be a valid {@code VkExternalMemoryHandleTypeFlagBitsKHR} value</li>
+     * <li>{@code handleType} <b>must</b> be a valid {@code VkExternalMemoryHandleTypeFlagBits} value</li>
      * <li>{@code pMemoryWin32HandleProperties} <b>must</b> be a valid pointer to a {@link VkMemoryWin32HandlePropertiesKHR} structure</li>
      * </ul>
      * 
@@ -198,7 +199,7 @@ public class KHRExternalMemoryWin32 {
      * </ul></dd>
      * <dt>On failure, this command returns</dt>
      * <dd><ul>
-     * <li>{@link KHRExternalMemory#VK_ERROR_INVALID_EXTERNAL_HANDLE_KHR ERROR_INVALID_EXTERNAL_HANDLE_KHR}</li>
+     * <li>{@link VK11#VK_ERROR_INVALID_EXTERNAL_HANDLE ERROR_INVALID_EXTERNAL_HANDLE}</li>
      * </ul></dd>
      * </dl>
      * 
@@ -212,7 +213,7 @@ public class KHRExternalMemoryWin32 {
      * @param pMemoryWin32HandleProperties will return properties of {@code handle}.
      */
     @NativeType("VkResult")
-    public static int vkGetMemoryWin32HandlePropertiesKHR(VkDevice device, @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int handleType, @NativeType("HANDLE") long handle, @NativeType("VkMemoryWin32HandlePropertiesKHR *") VkMemoryWin32HandlePropertiesKHR pMemoryWin32HandleProperties) {
+    public static int vkGetMemoryWin32HandlePropertiesKHR(VkDevice device, @NativeType("VkExternalMemoryHandleTypeFlagBits") int handleType, @NativeType("HANDLE") long handle, @NativeType("VkMemoryWin32HandlePropertiesKHR *") VkMemoryWin32HandlePropertiesKHR pMemoryWin32HandleProperties) {
         return nvkGetMemoryWin32HandlePropertiesKHR(device, handleType, handle, pMemoryWin32HandleProperties.address());
     }
 

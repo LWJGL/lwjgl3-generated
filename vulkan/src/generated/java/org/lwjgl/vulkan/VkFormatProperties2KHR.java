@@ -9,33 +9,12 @@ import javax.annotation.*;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Structure specifying image format properties.
- * 
- * <h5>Valid Usage (Implicit)</h5>
- * 
- * <ul>
- * <li>{@code sType} <b>must</b> be {@link KHRGetPhysicalDeviceProperties2#VK_STRUCTURE_TYPE_FORMAT_PROPERTIES_2_KHR STRUCTURE_TYPE_FORMAT_PROPERTIES_2_KHR}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * </ul>
- * 
- * <h5>See Also</h5>
- * 
- * <p>{@link VkFormatProperties}, {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceFormatProperties2KHR GetPhysicalDeviceFormatProperties2KHR}</p>
- * 
- * <h3>Member documentation</h3>
- * 
- * <ul>
- * <li>{@code sType} &ndash; the type of this structure.</li>
- * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code formatProperties} &ndash; a structure of type {@link VkFormatProperties} describing features supported by the requested format.</li>
- * </ul>
+ * See {@link VkFormatProperties2}.
  * 
  * <h3>Layout</h3>
  * 
@@ -46,33 +25,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link VkFormatProperties VkFormatProperties} formatProperties;
  * }</pre></code>
  */
-public class VkFormatProperties2KHR extends Struct implements NativeResource {
-
-    /** The struct size in bytes. */
-    public static final int SIZEOF;
-
-    public static final int ALIGNOF;
-
-    /** The struct member offsets. */
-    public static final int
-        STYPE,
-        PNEXT,
-        FORMATPROPERTIES;
-
-    static {
-        Layout layout = __struct(
-            __member(4),
-            __member(POINTER_SIZE),
-            __member(VkFormatProperties.SIZEOF, VkFormatProperties.ALIGNOF)
-        );
-
-        SIZEOF = layout.getSize();
-        ALIGNOF = layout.getAlignment();
-
-        STYPE = layout.offsetof(0);
-        PNEXT = layout.offsetof(1);
-        FORMATPROPERTIES = layout.offsetof(2);
-    }
+public class VkFormatProperties2KHR extends VkFormatProperties2 {
 
     VkFormatProperties2KHR(long address, @Nullable ByteBuffer container) {
         super(address, container);
@@ -88,34 +41,7 @@ public class VkFormatProperties2KHR extends Struct implements NativeResource {
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
-    @Override
-    public int sizeof() { return SIZEOF; }
-
-    /** Returns the value of the {@code sType} field. */
-    @NativeType("VkStructureType")
-    public int sType() { return nsType(address()); }
-    /** Returns the value of the {@code pNext} field. */
-    @NativeType("void *")
-    public long pNext() { return npNext(address()); }
-    /** Returns a {@link VkFormatProperties} view of the {@code formatProperties} field. */
-    public VkFormatProperties formatProperties() { return nformatProperties(address()); }
-
     // -----------------------------------
-
-    /** Returns a new {@link VkFormatProperties2KHR} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static VkFormatProperties2KHR malloc() {
-        return create(nmemAllocChecked(SIZEOF));
-    }
-
-    /** Returns a new {@link VkFormatProperties2KHR} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static VkFormatProperties2KHR calloc() {
-        return create(nmemCallocChecked(1, SIZEOF));
-    }
-
-    /** Returns a new {@link VkFormatProperties2KHR} instance allocated with {@link BufferUtils}. */
-    public static VkFormatProperties2KHR create() {
-        return new VkFormatProperties2KHR(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link VkFormatProperties2KHR} instance for the specified memory address. */
     public static VkFormatProperties2KHR create(long address) {
@@ -126,33 +52,6 @@ public class VkFormatProperties2KHR extends Struct implements NativeResource {
     @Nullable
     public static VkFormatProperties2KHR createSafe(long address) {
         return address == NULL ? null : create(address);
-    }
-
-    /**
-     * Returns a new {@link VkFormatProperties2KHR.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkFormatProperties2KHR.Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VkFormatProperties2KHR.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkFormatProperties2KHR.Buffer calloc(int capacity) {
-        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VkFormatProperties2KHR.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkFormatProperties2KHR.Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -173,85 +72,8 @@ public class VkFormatProperties2KHR extends Struct implements NativeResource {
 
     // -----------------------------------
 
-    /** Returns a new {@link VkFormatProperties2KHR} instance allocated on the thread-local {@link MemoryStack}. */
-    public static VkFormatProperties2KHR mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link VkFormatProperties2KHR} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static VkFormatProperties2KHR callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link VkFormatProperties2KHR} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VkFormatProperties2KHR mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VkFormatProperties2KHR} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VkFormatProperties2KHR callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VkFormatProperties2KHR.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkFormatProperties2KHR.Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VkFormatProperties2KHR.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkFormatProperties2KHR.Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VkFormatProperties2KHR.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static VkFormatProperties2KHR.Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VkFormatProperties2KHR.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static VkFormatProperties2KHR.Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
-
-    /** Unsafe version of {@link #sType}. */
-    public static int nsType(long struct) { return memGetInt(struct + VkFormatProperties2KHR.STYPE); }
-    /** Unsafe version of {@link #pNext}. */
-    public static long npNext(long struct) { return memGetAddress(struct + VkFormatProperties2KHR.PNEXT); }
-    /** Unsafe version of {@link #formatProperties}. */
-    public static VkFormatProperties nformatProperties(long struct) { return VkFormatProperties.create(struct + VkFormatProperties2KHR.FORMATPROPERTIES); }
-
-    // -----------------------------------
-
     /** An array of {@link VkFormatProperties2KHR} structs. */
-    public static class Buffer extends StructBuffer<VkFormatProperties2KHR, Buffer> implements NativeResource {
+    public static class Buffer extends VkFormatProperties2.Buffer {
 
         /**
          * Creates a new {@link VkFormatProperties2KHR.Buffer} instance backed by the specified container.
@@ -263,7 +85,7 @@ public class VkFormatProperties2KHR extends Struct implements NativeResource {
          * <p>The created buffer instance holds a strong reference to the container object.</p>
          */
         public Buffer(ByteBuffer container) {
-            super(container, container.remaining() / SIZEOF);
+            super(container);
         }
 
         public Buffer(long address, int cap) {
@@ -288,20 +110,6 @@ public class VkFormatProperties2KHR extends Struct implements NativeResource {
         protected VkFormatProperties2KHR newInstance(long address) {
             return new VkFormatProperties2KHR(address, container);
         }
-
-        @Override
-        public int sizeof() {
-            return SIZEOF;
-        }
-
-        /** Returns the value of the {@code sType} field. */
-        @NativeType("VkStructureType")
-        public int sType() { return VkFormatProperties2KHR.nsType(address()); }
-        /** Returns the value of the {@code pNext} field. */
-        @NativeType("void *")
-        public long pNext() { return VkFormatProperties2KHR.npNext(address()); }
-        /** Returns a {@link VkFormatProperties} view of the {@code formatProperties} field. */
-        public VkFormatProperties formatProperties() { return VkFormatProperties2KHR.nformatProperties(address()); }
 
     }
 

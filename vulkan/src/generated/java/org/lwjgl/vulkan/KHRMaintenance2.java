@@ -25,6 +25,10 @@ package org.lwjgl.vulkan;
  * 
  * <p>On some implementations there <b>may</b> be a performance penalty if the implementation does not know (at {@link VK10#vkCreateRenderPass CreateRenderPass} time) which aspect(s) of multi-aspect images <b>can</b> be be accessed as input attachments.</p>
  * 
+ * <h5>Promotion to Vulkan 1.1</h5>
+ * 
+ * <p>All functionality in this extension is included in core Vulkan 1.1, with the KHR suffix omitted. The original type, enum and command names are still available as aliases of the core functionality.</p>
+ * 
  * <h5>Input Attachment Specification Example</h5>
  * 
  * <p>Consider the case where a render pass has two subpasses and two attachments.</p>
@@ -37,7 +41,7 @@ package org.lwjgl.vulkan;
  *     VkInputAttachmentAspectReferenceKHR references[] = {
  *         {
  *             .subpass = 1,
- *             .inputAttachment = 0,
+ *             .inputAttachmentIndex = 0,
  *             .aspectMask = VK_IMAGE_ASPECT_DEPTH_BIT
  *         }
  *     };
@@ -76,7 +80,11 @@ package org.lwjgl.vulkan;
  * <li>Michael Worcester @michaelworcester</li>
  * </ul></dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>2017-04-28</dd>
+ * <dd>2017-09-05</dd>
+ * <dt><b>Interactions and External Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Promoted to Vulkan 1.1 Core</li>
+ * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Michael Worcester, Imagination Technologies</li>
@@ -145,38 +153,28 @@ public final class KHRMaintenance2 {
         VK_IMAGE_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_OPTIMAL_KHR = 1000117001;
 
     /**
-     * VkPointClippingBehaviorKHR - Enum specifying the point clipping behaviour
+     * Extends {@code VkPointClippingBehavior}.
      * 
-     * <h5>Description</h5>
+     * <h5>Enum values:</h5>
      * 
      * <ul>
-     * <li>{@link #VK_POINT_CLIPPING_BEHAVIOR_ALL_CLIP_PLANES_KHR POINT_CLIPPING_BEHAVIOR_ALL_CLIP_PLANES_KHR} specifies that the primitive is discarded if the vertex lies outside any clip plane, including the planes bounding the view volume.</li>
-     * <li>{@link #VK_POINT_CLIPPING_BEHAVIOR_USER_CLIP_PLANES_ONLY_KHR POINT_CLIPPING_BEHAVIOR_USER_CLIP_PLANES_ONLY_KHR} specifies that the primitive is discarded only if the vertex lies outside any user clip plane.</li>
+     * <li>{@link #VK_POINT_CLIPPING_BEHAVIOR_ALL_CLIP_PLANES_KHR POINT_CLIPPING_BEHAVIOR_ALL_CLIP_PLANES_KHR}</li>
+     * <li>{@link #VK_POINT_CLIPPING_BEHAVIOR_USER_CLIP_PLANES_ONLY_KHR POINT_CLIPPING_BEHAVIOR_USER_CLIP_PLANES_ONLY_KHR}</li>
      * </ul>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkPhysicalDevicePointClippingPropertiesKHR}</p>
      */
     public static final int
         VK_POINT_CLIPPING_BEHAVIOR_ALL_CLIP_PLANES_KHR       = 0,
         VK_POINT_CLIPPING_BEHAVIOR_USER_CLIP_PLANES_ONLY_KHR = 1;
 
     /**
-     * VkTessellationDomainOriginKHR - Enum describing tessellation domain origin
+     * Extends {@code VkTessellationDomainOrigin}.
      * 
-     * <h5>Description</h5>
+     * <h5>Enum values:</h5>
      * 
      * <ul>
-     * <li>{@link #VK_TESSELLATION_DOMAIN_ORIGIN_UPPER_LEFT_KHR TESSELLATION_DOMAIN_ORIGIN_UPPER_LEFT_KHR} indicates that the origin of the domain space is in the upper left corner, as shown in figure <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#img-tessellation-topology-ul">Domain parameterization for tessellation primitive modes (upper-left origin)</a>.</li>
-     * <li>{@link #VK_TESSELLATION_DOMAIN_ORIGIN_LOWER_LEFT_KHR TESSELLATION_DOMAIN_ORIGIN_LOWER_LEFT_KHR} indicates that the origin of the domain space is in the lower left corner, as shown in figure <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#img-tessellation-topology-ll">Domain parameterization for tessellation primitive modes (lower-left origin)</a>.</li>
+     * <li>{@link #VK_TESSELLATION_DOMAIN_ORIGIN_UPPER_LEFT_KHR TESSELLATION_DOMAIN_ORIGIN_UPPER_LEFT_KHR}</li>
+     * <li>{@link #VK_TESSELLATION_DOMAIN_ORIGIN_LOWER_LEFT_KHR TESSELLATION_DOMAIN_ORIGIN_LOWER_LEFT_KHR}</li>
      * </ul>
-     * 
-     * <p>This enum affects how the {@code VertexOrderCw} and {@code VertexOrderCcw} tessellation execution modes are interpreted, since the winding is defined relative to the orientation of the domain.</p>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkPipelineTessellationDomainOriginStateCreateInfoKHR}</p>
      */
     public static final int
         VK_TESSELLATION_DOMAIN_ORIGIN_UPPER_LEFT_KHR = 0,

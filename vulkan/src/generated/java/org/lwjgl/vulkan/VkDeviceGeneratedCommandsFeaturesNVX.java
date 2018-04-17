@@ -34,7 +34,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code computeBindingPointSupport} &ndash; indicates whether the {@code VkObjectTableNVX} supports entries with {@link NVXDeviceGeneratedCommands#VK_OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX} bit set and {@code VkIndirectCommandsLayoutNVX} supports {@link VK10#VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}.</li>
+ * <li>{@code computeBindingPointSupport} &ndash; specifies whether the {@code VkObjectTableNVX} supports entries with {@link NVXDeviceGeneratedCommands#VK_OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX} bit set and {@code VkIndirectCommandsLayoutNVX} supports {@link VK10#VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

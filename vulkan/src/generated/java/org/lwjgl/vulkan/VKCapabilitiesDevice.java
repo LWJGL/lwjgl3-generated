@@ -5,10 +5,8 @@
  */
 package org.lwjgl.vulkan;
 
-import java.util.Set;
+import java.util.*;
 import org.lwjgl.system.*;
-
-import static org.lwjgl.vulkan.VK.*;
 
 /** Defines the capabilities of a Vulkan {@code VkDevice}. */
 public class VKCapabilitiesDevice {
@@ -137,6 +135,25 @@ public class VKCapabilitiesDevice {
         vkCmdEndRenderPass,
         vkCmdExecuteCommands;
 
+    // VK11
+    public final long
+        vkBindBufferMemory2,
+        vkBindImageMemory2,
+        vkGetDeviceGroupPeerMemoryFeatures,
+        vkCmdSetDeviceMask,
+        vkCmdDispatchBase,
+        vkGetImageMemoryRequirements2,
+        vkGetBufferMemoryRequirements2,
+        vkGetImageSparseMemoryRequirements2,
+        vkTrimCommandPool,
+        vkGetDeviceQueue2,
+        vkCreateSamplerYcbcrConversion,
+        vkDestroySamplerYcbcrConversion,
+        vkCreateDescriptorUpdateTemplate,
+        vkDestroyDescriptorUpdateTemplate,
+        vkUpdateDescriptorSetWithTemplate,
+        vkGetDescriptorSetLayoutSupport;
+
     // AMD_buffer_marker
     public final long
         vkCmdWriteBufferMarkerAMD;
@@ -157,6 +174,17 @@ public class VKCapabilitiesDevice {
         vkCmdDebugMarkerBeginEXT,
         vkCmdDebugMarkerEndEXT,
         vkCmdDebugMarkerInsertEXT;
+
+    // EXT_debug_utils
+    public final long
+        vkSetDebugUtilsObjectNameEXT,
+        vkSetDebugUtilsObjectTagEXT,
+        vkQueueBeginDebugUtilsLabelEXT,
+        vkQueueEndDebugUtilsLabelEXT,
+        vkQueueInsertDebugUtilsLabelEXT,
+        vkCmdBeginDebugUtilsLabelEXT,
+        vkCmdEndDebugUtilsLabelEXT,
+        vkCmdInsertDebugUtilsLabelEXT;
 
     // EXT_discard_rectangles
     public final long
@@ -205,6 +233,15 @@ public class VKCapabilitiesDevice {
         vkUpdateDescriptorSetWithTemplateKHR,
         vkCmdPushDescriptorSetWithTemplateKHR;
 
+    // KHR_device_group
+    public final long
+        vkGetDeviceGroupPeerMemoryFeaturesKHR,
+        vkCmdSetDeviceMaskKHR,
+        vkCmdDispatchBaseKHR,
+        vkGetDeviceGroupPresentCapabilitiesKHR,
+        vkGetDeviceGroupSurfacePresentModesKHR,
+        vkAcquireNextImage2KHR;
+
     // KHR_display_swapchain
     public final long
         vkCreateSharedSwapchainsKHR;
@@ -249,6 +286,10 @@ public class VKCapabilitiesDevice {
     public final long
         vkTrimCommandPoolKHR;
 
+    // KHR_maintenance3
+    public final long
+        vkGetDescriptorSetLayoutSupportKHR;
+
     // KHR_push_descriptor
     public final long
         vkCmdPushDescriptorSetKHR;
@@ -269,15 +310,6 @@ public class VKCapabilitiesDevice {
         vkGetSwapchainImagesKHR,
         vkAcquireNextImageKHR,
         vkQueuePresentKHR;
-
-    // KHX_device_group
-    public final long
-        vkGetDeviceGroupPeerMemoryFeaturesKHX,
-        vkCmdSetDeviceMaskKHX,
-        vkCmdDispatchBaseKHX,
-        vkGetDeviceGroupPresentCapabilitiesKHX,
-        vkGetDeviceGroupSurfacePresentModesKHX,
-        vkAcquireNextImage2KHX;
 
     // NV_clip_space_w_scaling
     public final long
@@ -303,6 +335,8 @@ public class VKCapabilitiesDevice {
 
     /** When true, {@link VK10} is supported. */
     public final boolean Vulkan10;
+    /** When true, {@link VK11} is supported. */
+    public final boolean Vulkan11;
     /** When true, {@link AMDBufferMarker} is supported. */
     public final boolean VK_AMD_buffer_marker;
     /** When true, {@link AMDDrawIndirectCount} is supported. */
@@ -321,6 +355,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_AMD_rasterization_order;
     /** When true, {@link AMDShaderBallot} is supported. */
     public final boolean VK_AMD_shader_ballot;
+    /** When true, {@link AMDShaderCoreProperties} is supported. */
+    public final boolean VK_AMD_shader_core_properties;
     /** When true, {@link AMDShaderExplicitVertexParameter} is supported. */
     public final boolean VK_AMD_shader_explicit_vertex_parameter;
     /** When true, {@link AMDShaderFragmentMask} is supported. */
@@ -341,6 +377,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_EXT_debug_marker;
     /** When true, {@link EXTDepthRangeUnrestricted} is supported. */
     public final boolean VK_EXT_depth_range_unrestricted;
+    /** When true, {@link EXTDescriptorIndexing} is supported. */
+    public final boolean VK_EXT_descriptor_indexing;
     /** When true, {@link EXTDiscardRectangles} is supported. */
     public final boolean VK_EXT_discard_rectangles;
     /** When true, {@link EXTDisplayControl} is supported. */
@@ -371,6 +409,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_EXT_shader_viewport_index_layer;
     /** When true, {@link EXTValidationCache} is supported. */
     public final boolean VK_EXT_validation_cache;
+    /** When true, {@link EXTVertexAttributeDivisor} is supported. */
+    public final boolean VK_EXT_vertex_attribute_divisor;
     /** When true, {@link GOOGLEDisplayTiming} is supported. */
     public final boolean VK_GOOGLE_display_timing;
     /** When true, {@link IMGFilterCubic} is supported. */
@@ -385,6 +425,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_KHR_dedicated_allocation;
     /** When true, {@link KHRDescriptorUpdateTemplate} is supported. */
     public final boolean VK_KHR_descriptor_update_template;
+    /** When true, {@link KHRDeviceGroup} is supported. */
+    public final boolean VK_KHR_device_group;
     /** When true, {@link KHRDisplaySwapchain} is supported. */
     public final boolean VK_KHR_display_swapchain;
     /** When true, {@link KHRExternalFence} is supported. */
@@ -415,6 +457,10 @@ public class VKCapabilitiesDevice {
     public final boolean VK_KHR_maintenance1;
     /** When true, {@link KHRMaintenance2} is supported. */
     public final boolean VK_KHR_maintenance2;
+    /** When true, {@link KHRMaintenance3} is supported. */
+    public final boolean VK_KHR_maintenance3;
+    /** When true, {@link KHRMultiview} is supported. */
+    public final boolean VK_KHR_multiview;
     /** When true, {@link KHRPushDescriptor} is supported. */
     public final boolean VK_KHR_push_descriptor;
     /** When true, {@link KHRRelaxedBlockLayout} is supported. */
@@ -435,10 +481,6 @@ public class VKCapabilitiesDevice {
     public final boolean VK_KHR_variable_pointers;
     /** When true, {@link KHRWin32KeyedMutex} is supported. */
     public final boolean VK_KHR_win32_keyed_mutex;
-    /** When true, {@link KHXDeviceGroup} is supported. */
-    public final boolean VK_KHX_device_group;
-    /** When true, {@link KHXMultiview} is supported. */
-    public final boolean VK_KHX_multiview;
     /** When true, {@link NVClipSpaceWScaling} is supported. */
     public final boolean VK_NV_clip_space_w_scaling;
     /** When true, {@link NVDedicatedAllocation} is supported. */
@@ -459,6 +501,8 @@ public class VKCapabilitiesDevice {
     public final boolean VK_NV_glsl_shader;
     /** When true, {@link NVSampleMaskOverrideCoverage} is supported. */
     public final boolean VK_NV_sample_mask_override_coverage;
+    /** When true, {@link NVShaderSubgroupPartitioned} is supported. */
+    public final boolean VK_NV_shader_subgroup_partitioned;
     /** When true, {@link NVViewportArray2} is supported. */
     public final boolean VK_NV_viewport_array2;
     /** When true, {@link NVViewportSwizzle} is supported. */
@@ -473,144 +517,12 @@ public class VKCapabilitiesDevice {
     VKCapabilitiesDevice(FunctionProvider provider, VKCapabilitiesInstance capsInstance, Set<String> ext) {
         this.apiVersion = capsInstance.apiVersion;
 
-        boolean supported;
+        Map<String, Long> caps = new HashMap<>(217);
 
-        {
-            supported = ext.contains("Vulkan10");
-            vkGetDeviceProcAddr = isSupported(provider, "vkGetDeviceProcAddr", supported);
-            vkDestroyDevice = isSupported(provider, "vkDestroyDevice", supported);
-            vkGetDeviceQueue = isSupported(provider, "vkGetDeviceQueue", supported);
-            vkQueueSubmit = isSupported(provider, "vkQueueSubmit", supported);
-            vkQueueWaitIdle = isSupported(provider, "vkQueueWaitIdle", supported);
-            vkDeviceWaitIdle = isSupported(provider, "vkDeviceWaitIdle", supported);
-            vkAllocateMemory = isSupported(provider, "vkAllocateMemory", supported);
-            vkFreeMemory = isSupported(provider, "vkFreeMemory", supported);
-            vkMapMemory = isSupported(provider, "vkMapMemory", supported);
-            vkUnmapMemory = isSupported(provider, "vkUnmapMemory", supported);
-            vkFlushMappedMemoryRanges = isSupported(provider, "vkFlushMappedMemoryRanges", supported);
-            vkInvalidateMappedMemoryRanges = isSupported(provider, "vkInvalidateMappedMemoryRanges", supported);
-            vkGetDeviceMemoryCommitment = isSupported(provider, "vkGetDeviceMemoryCommitment", supported);
-            vkBindBufferMemory = isSupported(provider, "vkBindBufferMemory", supported);
-            vkBindImageMemory = isSupported(provider, "vkBindImageMemory", supported);
-            vkGetBufferMemoryRequirements = isSupported(provider, "vkGetBufferMemoryRequirements", supported);
-            vkGetImageMemoryRequirements = isSupported(provider, "vkGetImageMemoryRequirements", supported);
-            vkGetImageSparseMemoryRequirements = isSupported(provider, "vkGetImageSparseMemoryRequirements", supported);
-            vkQueueBindSparse = isSupported(provider, "vkQueueBindSparse", supported);
-            vkCreateFence = isSupported(provider, "vkCreateFence", supported);
-            vkDestroyFence = isSupported(provider, "vkDestroyFence", supported);
-            vkResetFences = isSupported(provider, "vkResetFences", supported);
-            vkGetFenceStatus = isSupported(provider, "vkGetFenceStatus", supported);
-            vkWaitForFences = isSupported(provider, "vkWaitForFences", supported);
-            vkCreateSemaphore = isSupported(provider, "vkCreateSemaphore", supported);
-            vkDestroySemaphore = isSupported(provider, "vkDestroySemaphore", supported);
-            vkCreateEvent = isSupported(provider, "vkCreateEvent", supported);
-            vkDestroyEvent = isSupported(provider, "vkDestroyEvent", supported);
-            vkGetEventStatus = isSupported(provider, "vkGetEventStatus", supported);
-            vkSetEvent = isSupported(provider, "vkSetEvent", supported);
-            vkResetEvent = isSupported(provider, "vkResetEvent", supported);
-            vkCreateQueryPool = isSupported(provider, "vkCreateQueryPool", supported);
-            vkDestroyQueryPool = isSupported(provider, "vkDestroyQueryPool", supported);
-            vkGetQueryPoolResults = isSupported(provider, "vkGetQueryPoolResults", supported);
-            vkCreateBuffer = isSupported(provider, "vkCreateBuffer", supported);
-            vkDestroyBuffer = isSupported(provider, "vkDestroyBuffer", supported);
-            vkCreateBufferView = isSupported(provider, "vkCreateBufferView", supported);
-            vkDestroyBufferView = isSupported(provider, "vkDestroyBufferView", supported);
-            vkCreateImage = isSupported(provider, "vkCreateImage", supported);
-            vkDestroyImage = isSupported(provider, "vkDestroyImage", supported);
-            vkGetImageSubresourceLayout = isSupported(provider, "vkGetImageSubresourceLayout", supported);
-            vkCreateImageView = isSupported(provider, "vkCreateImageView", supported);
-            vkDestroyImageView = isSupported(provider, "vkDestroyImageView", supported);
-            vkCreateShaderModule = isSupported(provider, "vkCreateShaderModule", supported);
-            vkDestroyShaderModule = isSupported(provider, "vkDestroyShaderModule", supported);
-            vkCreatePipelineCache = isSupported(provider, "vkCreatePipelineCache", supported);
-            vkDestroyPipelineCache = isSupported(provider, "vkDestroyPipelineCache", supported);
-            vkGetPipelineCacheData = isSupported(provider, "vkGetPipelineCacheData", supported);
-            vkMergePipelineCaches = isSupported(provider, "vkMergePipelineCaches", supported);
-            vkCreateGraphicsPipelines = isSupported(provider, "vkCreateGraphicsPipelines", supported);
-            vkCreateComputePipelines = isSupported(provider, "vkCreateComputePipelines", supported);
-            vkDestroyPipeline = isSupported(provider, "vkDestroyPipeline", supported);
-            vkCreatePipelineLayout = isSupported(provider, "vkCreatePipelineLayout", supported);
-            vkDestroyPipelineLayout = isSupported(provider, "vkDestroyPipelineLayout", supported);
-            vkCreateSampler = isSupported(provider, "vkCreateSampler", supported);
-            vkDestroySampler = isSupported(provider, "vkDestroySampler", supported);
-            vkCreateDescriptorSetLayout = isSupported(provider, "vkCreateDescriptorSetLayout", supported);
-            vkDestroyDescriptorSetLayout = isSupported(provider, "vkDestroyDescriptorSetLayout", supported);
-            vkCreateDescriptorPool = isSupported(provider, "vkCreateDescriptorPool", supported);
-            vkDestroyDescriptorPool = isSupported(provider, "vkDestroyDescriptorPool", supported);
-            vkResetDescriptorPool = isSupported(provider, "vkResetDescriptorPool", supported);
-            vkAllocateDescriptorSets = isSupported(provider, "vkAllocateDescriptorSets", supported);
-            vkFreeDescriptorSets = isSupported(provider, "vkFreeDescriptorSets", supported);
-            vkUpdateDescriptorSets = isSupported(provider, "vkUpdateDescriptorSets", supported);
-            vkCreateFramebuffer = isSupported(provider, "vkCreateFramebuffer", supported);
-            vkDestroyFramebuffer = isSupported(provider, "vkDestroyFramebuffer", supported);
-            vkCreateRenderPass = isSupported(provider, "vkCreateRenderPass", supported);
-            vkDestroyRenderPass = isSupported(provider, "vkDestroyRenderPass", supported);
-            vkGetRenderAreaGranularity = isSupported(provider, "vkGetRenderAreaGranularity", supported);
-            vkCreateCommandPool = isSupported(provider, "vkCreateCommandPool", supported);
-            vkDestroyCommandPool = isSupported(provider, "vkDestroyCommandPool", supported);
-            vkResetCommandPool = isSupported(provider, "vkResetCommandPool", supported);
-            vkAllocateCommandBuffers = isSupported(provider, "vkAllocateCommandBuffers", supported);
-            vkFreeCommandBuffers = isSupported(provider, "vkFreeCommandBuffers", supported);
-            vkBeginCommandBuffer = isSupported(provider, "vkBeginCommandBuffer", supported);
-            vkEndCommandBuffer = isSupported(provider, "vkEndCommandBuffer", supported);
-            vkResetCommandBuffer = isSupported(provider, "vkResetCommandBuffer", supported);
-            vkCmdBindPipeline = isSupported(provider, "vkCmdBindPipeline", supported);
-            vkCmdSetViewport = isSupported(provider, "vkCmdSetViewport", supported);
-            vkCmdSetScissor = isSupported(provider, "vkCmdSetScissor", supported);
-            vkCmdSetLineWidth = isSupported(provider, "vkCmdSetLineWidth", supported);
-            vkCmdSetDepthBias = isSupported(provider, "vkCmdSetDepthBias", supported);
-            vkCmdSetBlendConstants = isSupported(provider, "vkCmdSetBlendConstants", supported);
-            vkCmdSetDepthBounds = isSupported(provider, "vkCmdSetDepthBounds", supported);
-            vkCmdSetStencilCompareMask = isSupported(provider, "vkCmdSetStencilCompareMask", supported);
-            vkCmdSetStencilWriteMask = isSupported(provider, "vkCmdSetStencilWriteMask", supported);
-            vkCmdSetStencilReference = isSupported(provider, "vkCmdSetStencilReference", supported);
-            vkCmdBindDescriptorSets = isSupported(provider, "vkCmdBindDescriptorSets", supported);
-            vkCmdBindIndexBuffer = isSupported(provider, "vkCmdBindIndexBuffer", supported);
-            vkCmdBindVertexBuffers = isSupported(provider, "vkCmdBindVertexBuffers", supported);
-            vkCmdDraw = isSupported(provider, "vkCmdDraw", supported);
-            vkCmdDrawIndexed = isSupported(provider, "vkCmdDrawIndexed", supported);
-            vkCmdDrawIndirect = isSupported(provider, "vkCmdDrawIndirect", supported);
-            vkCmdDrawIndexedIndirect = isSupported(provider, "vkCmdDrawIndexedIndirect", supported);
-            vkCmdDispatch = isSupported(provider, "vkCmdDispatch", supported);
-            vkCmdDispatchIndirect = isSupported(provider, "vkCmdDispatchIndirect", supported);
-            vkCmdCopyBuffer = isSupported(provider, "vkCmdCopyBuffer", supported);
-            vkCmdCopyImage = isSupported(provider, "vkCmdCopyImage", supported);
-            vkCmdBlitImage = isSupported(provider, "vkCmdBlitImage", supported);
-            vkCmdCopyBufferToImage = isSupported(provider, "vkCmdCopyBufferToImage", supported);
-            vkCmdCopyImageToBuffer = isSupported(provider, "vkCmdCopyImageToBuffer", supported);
-            vkCmdUpdateBuffer = isSupported(provider, "vkCmdUpdateBuffer", supported);
-            vkCmdFillBuffer = isSupported(provider, "vkCmdFillBuffer", supported);
-            vkCmdClearColorImage = isSupported(provider, "vkCmdClearColorImage", supported);
-            vkCmdClearDepthStencilImage = isSupported(provider, "vkCmdClearDepthStencilImage", supported);
-            vkCmdClearAttachments = isSupported(provider, "vkCmdClearAttachments", supported);
-            vkCmdResolveImage = isSupported(provider, "vkCmdResolveImage", supported);
-            vkCmdSetEvent = isSupported(provider, "vkCmdSetEvent", supported);
-            vkCmdResetEvent = isSupported(provider, "vkCmdResetEvent", supported);
-            vkCmdWaitEvents = isSupported(provider, "vkCmdWaitEvents", supported);
-            vkCmdPipelineBarrier = isSupported(provider, "vkCmdPipelineBarrier", supported);
-            vkCmdBeginQuery = isSupported(provider, "vkCmdBeginQuery", supported);
-            vkCmdEndQuery = isSupported(provider, "vkCmdEndQuery", supported);
-            vkCmdResetQueryPool = isSupported(provider, "vkCmdResetQueryPool", supported);
-            vkCmdWriteTimestamp = isSupported(provider, "vkCmdWriteTimestamp", supported);
-            vkCmdCopyQueryPoolResults = isSupported(provider, "vkCmdCopyQueryPoolResults", supported);
-            vkCmdPushConstants = isSupported(provider, "vkCmdPushConstants", supported);
-            vkCmdBeginRenderPass = isSupported(provider, "vkCmdBeginRenderPass", supported);
-            vkCmdNextSubpass = isSupported(provider, "vkCmdNextSubpass", supported);
-            vkCmdEndRenderPass = isSupported(provider, "vkCmdEndRenderPass", supported);
-            vkCmdExecuteCommands = isSupported(provider, "vkCmdExecuteCommands", supported);
-            Vulkan10 = supported && VK.checkExtension("Vulkan10", VK10.isAvailable(capsInstance, this));
-        }
-        {
-            supported = ext.contains("VK_AMD_buffer_marker");
-            vkCmdWriteBufferMarkerAMD = isSupported(provider, "vkCmdWriteBufferMarkerAMD", supported);
-            VK_AMD_buffer_marker = supported && VK.checkExtension("VK_AMD_buffer_marker", AMDBufferMarker.isAvailable(this));
-        }
-        {
-            supported = ext.contains("VK_AMD_draw_indirect_count");
-            vkCmdDrawIndirectCountAMD = isSupported(provider, "vkCmdDrawIndirectCountAMD", supported);
-            vkCmdDrawIndexedIndirectCountAMD = isSupported(provider, "vkCmdDrawIndexedIndirectCountAMD", supported);
-            VK_AMD_draw_indirect_count = supported && VK.checkExtension("VK_AMD_draw_indirect_count", AMDDrawIndirectCount.isAvailable(this));
-        }
+        Vulkan10 = VK10.checkCapsDevice(provider, caps, ext);
+        Vulkan11 = VK11.checkCapsDevice(provider, caps, ext);
+        VK_AMD_buffer_marker = AMDBufferMarker.checkCapsDevice(provider, caps, ext);
+        VK_AMD_draw_indirect_count = AMDDrawIndirectCount.checkCapsDevice(provider, caps, ext);
         VK_AMD_gcn_shader = ext.contains("VK_AMD_gcn_shader");
         VK_AMD_gpu_shader_half_float = ext.contains("VK_AMD_gpu_shader_half_float");
         VK_AMD_gpu_shader_int16 = ext.contains("VK_AMD_gpu_shader_int16");
@@ -618,232 +530,304 @@ public class VKCapabilitiesDevice {
         VK_AMD_negative_viewport_height = ext.contains("VK_AMD_negative_viewport_height");
         VK_AMD_rasterization_order = ext.contains("VK_AMD_rasterization_order");
         VK_AMD_shader_ballot = ext.contains("VK_AMD_shader_ballot");
+        VK_AMD_shader_core_properties = ext.contains("VK_AMD_shader_core_properties");
         VK_AMD_shader_explicit_vertex_parameter = ext.contains("VK_AMD_shader_explicit_vertex_parameter");
         VK_AMD_shader_fragment_mask = ext.contains("VK_AMD_shader_fragment_mask");
         VK_AMD_shader_image_load_store_lod = ext.contains("VK_AMD_shader_image_load_store_lod");
-        {
-            supported = ext.contains("VK_AMD_shader_info");
-            vkGetShaderInfoAMD = isSupported(provider, "vkGetShaderInfoAMD", supported);
-            VK_AMD_shader_info = supported && VK.checkExtension("VK_AMD_shader_info", AMDShaderInfo.isAvailable(this));
-        }
+        VK_AMD_shader_info = AMDShaderInfo.checkCapsDevice(provider, caps, ext);
         VK_AMD_shader_trinary_minmax = ext.contains("VK_AMD_shader_trinary_minmax");
         VK_AMD_texture_gather_bias_lod = ext.contains("VK_AMD_texture_gather_bias_lod");
         VK_EXT_blend_operation_advanced = ext.contains("VK_EXT_blend_operation_advanced");
         VK_EXT_conservative_rasterization = ext.contains("VK_EXT_conservative_rasterization");
-        {
-            supported = ext.contains("VK_EXT_debug_marker");
-            vkDebugMarkerSetObjectTagEXT = isSupported(provider, "vkDebugMarkerSetObjectTagEXT", supported);
-            vkDebugMarkerSetObjectNameEXT = isSupported(provider, "vkDebugMarkerSetObjectNameEXT", supported);
-            vkCmdDebugMarkerBeginEXT = isSupported(provider, "vkCmdDebugMarkerBeginEXT", supported);
-            vkCmdDebugMarkerEndEXT = isSupported(provider, "vkCmdDebugMarkerEndEXT", supported);
-            vkCmdDebugMarkerInsertEXT = isSupported(provider, "vkCmdDebugMarkerInsertEXT", supported);
-            VK_EXT_debug_marker = supported && VK.checkExtension("VK_EXT_debug_marker", EXTDebugMarker.isAvailable(this));
-        }
+        VK_EXT_debug_marker = EXTDebugMarker.checkCapsDevice(provider, caps, ext);
+        EXTDebugUtils.checkCapsDevice(provider, caps, capsInstance);
         VK_EXT_depth_range_unrestricted = ext.contains("VK_EXT_depth_range_unrestricted");
-        {
-            supported = ext.contains("VK_EXT_discard_rectangles");
-            vkCmdSetDiscardRectangleEXT = isSupported(provider, "vkCmdSetDiscardRectangleEXT", supported);
-            VK_EXT_discard_rectangles = supported && VK.checkExtension("VK_EXT_discard_rectangles", EXTDiscardRectangles.isAvailable(this));
-        }
-        {
-            supported = ext.contains("VK_EXT_display_control");
-            vkDisplayPowerControlEXT = isSupported(provider, "vkDisplayPowerControlEXT", supported);
-            vkRegisterDeviceEventEXT = isSupported(provider, "vkRegisterDeviceEventEXT", supported);
-            vkRegisterDisplayEventEXT = isSupported(provider, "vkRegisterDisplayEventEXT", supported);
-            vkGetSwapchainCounterEXT = isSupported(provider, "vkGetSwapchainCounterEXT", supported);
-            VK_EXT_display_control = supported && VK.checkExtension("VK_EXT_display_control", EXTDisplayControl.isAvailable(this));
-        }
+        VK_EXT_descriptor_indexing = ext.contains("VK_EXT_descriptor_indexing");
+        VK_EXT_discard_rectangles = EXTDiscardRectangles.checkCapsDevice(provider, caps, ext);
+        VK_EXT_display_control = EXTDisplayControl.checkCapsDevice(provider, caps, ext);
         VK_EXT_external_memory_dma_buf = ext.contains("VK_EXT_external_memory_dma_buf");
-        {
-            supported = ext.contains("VK_EXT_external_memory_host");
-            vkGetMemoryHostPointerPropertiesEXT = isSupported(provider, "vkGetMemoryHostPointerPropertiesEXT", supported);
-            VK_EXT_external_memory_host = supported && VK.checkExtension("VK_EXT_external_memory_host", EXTExternalMemoryHost.isAvailable(this));
-        }
+        VK_EXT_external_memory_host = EXTExternalMemoryHost.checkCapsDevice(provider, caps, ext);
         VK_EXT_global_priority = ext.contains("VK_EXT_global_priority");
-        {
-            supported = ext.contains("VK_EXT_hdr_metadata");
-            vkSetHdrMetadataEXT = isSupported(provider, "vkSetHdrMetadataEXT", supported);
-            VK_EXT_hdr_metadata = supported && VK.checkExtension("VK_EXT_hdr_metadata", EXTHdrMetadata.isAvailable(this));
-        }
+        VK_EXT_hdr_metadata = EXTHdrMetadata.checkCapsDevice(provider, caps, ext);
         VK_EXT_post_depth_coverage = ext.contains("VK_EXT_post_depth_coverage");
         VK_EXT_queue_family_foreign = ext.contains("VK_EXT_queue_family_foreign");
-        {
-            supported = ext.contains("VK_EXT_sample_locations");
-            vkCmdSetSampleLocationsEXT = isSupported(provider, "vkCmdSetSampleLocationsEXT", supported);
-            VK_EXT_sample_locations = supported && VK.checkExtension("VK_EXT_sample_locations", EXTSampleLocations.isAvailable(capsInstance, this));
-        }
+        VK_EXT_sample_locations = EXTSampleLocations.checkCapsDevice(provider, caps, ext);
         VK_EXT_sampler_filter_minmax = ext.contains("VK_EXT_sampler_filter_minmax");
         VK_EXT_shader_stencil_export = ext.contains("VK_EXT_shader_stencil_export");
         VK_EXT_shader_subgroup_ballot = ext.contains("VK_EXT_shader_subgroup_ballot");
         VK_EXT_shader_subgroup_vote = ext.contains("VK_EXT_shader_subgroup_vote");
         VK_EXT_shader_viewport_index_layer = ext.contains("VK_EXT_shader_viewport_index_layer");
-        {
-            supported = ext.contains("VK_EXT_validation_cache");
-            vkCreateValidationCacheEXT = isSupported(provider, "vkCreateValidationCacheEXT", supported);
-            vkDestroyValidationCacheEXT = isSupported(provider, "vkDestroyValidationCacheEXT", supported);
-            vkMergeValidationCachesEXT = isSupported(provider, "vkMergeValidationCachesEXT", supported);
-            vkGetValidationCacheDataEXT = isSupported(provider, "vkGetValidationCacheDataEXT", supported);
-            VK_EXT_validation_cache = supported && VK.checkExtension("VK_EXT_validation_cache", EXTValidationCache.isAvailable(this));
-        }
-        {
-            supported = ext.contains("VK_GOOGLE_display_timing");
-            vkGetRefreshCycleDurationGOOGLE = isSupported(provider, "vkGetRefreshCycleDurationGOOGLE", supported);
-            vkGetPastPresentationTimingGOOGLE = isSupported(provider, "vkGetPastPresentationTimingGOOGLE", supported);
-            VK_GOOGLE_display_timing = supported && VK.checkExtension("VK_GOOGLE_display_timing", GOOGLEDisplayTiming.isAvailable(this));
-        }
+        VK_EXT_validation_cache = EXTValidationCache.checkCapsDevice(provider, caps, ext);
+        VK_EXT_vertex_attribute_divisor = ext.contains("VK_EXT_vertex_attribute_divisor");
+        VK_GOOGLE_display_timing = GOOGLEDisplayTiming.checkCapsDevice(provider, caps, ext);
         VK_IMG_filter_cubic = ext.contains("VK_IMG_filter_cubic");
         VK_IMG_format_pvrtc = ext.contains("VK_IMG_format_pvrtc");
         VK_KHR_16bit_storage = ext.contains("VK_KHR_16bit_storage");
-        {
-            supported = ext.contains("VK_KHR_bind_memory2");
-            vkBindBufferMemory2KHR = isSupported(provider, "vkBindBufferMemory2KHR", supported);
-            vkBindImageMemory2KHR = isSupported(provider, "vkBindImageMemory2KHR", supported);
-            VK_KHR_bind_memory2 = supported && VK.checkExtension("VK_KHR_bind_memory2", KHRBindMemory2.isAvailable(this));
-        }
+        VK_KHR_bind_memory2 = KHRBindMemory2.checkCapsDevice(provider, caps, ext);
         VK_KHR_dedicated_allocation = ext.contains("VK_KHR_dedicated_allocation");
-        {
-            supported = ext.contains("VK_KHR_descriptor_update_template");
-            vkCreateDescriptorUpdateTemplateKHR = isSupported(provider, "vkCreateDescriptorUpdateTemplateKHR", supported);
-            vkDestroyDescriptorUpdateTemplateKHR = isSupported(provider, "vkDestroyDescriptorUpdateTemplateKHR", supported);
-            vkUpdateDescriptorSetWithTemplateKHR = isSupported(provider, "vkUpdateDescriptorSetWithTemplateKHR", supported);
-            vkCmdPushDescriptorSetWithTemplateKHR = isSupported(provider, "vkCmdPushDescriptorSetWithTemplateKHR", supported);
-            VK_KHR_descriptor_update_template = supported && VK.checkExtension("VK_KHR_descriptor_update_template", KHRDescriptorUpdateTemplate.isAvailable(this));
-        }
-        {
-            supported = ext.contains("VK_KHR_display_swapchain");
-            vkCreateSharedSwapchainsKHR = isSupported(provider, "vkCreateSharedSwapchainsKHR", supported);
-            VK_KHR_display_swapchain = supported && VK.checkExtension("VK_KHR_display_swapchain", KHRDisplaySwapchain.isAvailable(this));
-        }
+        VK_KHR_descriptor_update_template = KHRDescriptorUpdateTemplate.checkCapsDevice(provider, caps, ext);
+        VK_KHR_device_group = KHRDeviceGroup.checkCapsDevice(provider, caps, ext);
+        VK_KHR_display_swapchain = KHRDisplaySwapchain.checkCapsDevice(provider, caps, ext);
         VK_KHR_external_fence = ext.contains("VK_KHR_external_fence");
-        {
-            supported = ext.contains("VK_KHR_external_fence_fd");
-            vkImportFenceFdKHR = isSupported(provider, "vkImportFenceFdKHR", supported);
-            vkGetFenceFdKHR = isSupported(provider, "vkGetFenceFdKHR", supported);
-            VK_KHR_external_fence_fd = supported && VK.checkExtension("VK_KHR_external_fence_fd", KHRExternalFenceFd.isAvailable(this));
-        }
-        {
-            supported = ext.contains("VK_KHR_external_fence_win32");
-            vkImportFenceWin32HandleKHR = isSupported(provider, "vkImportFenceWin32HandleKHR", supported);
-            vkGetFenceWin32HandleKHR = isSupported(provider, "vkGetFenceWin32HandleKHR", supported);
-            VK_KHR_external_fence_win32 = supported && VK.checkExtension("VK_KHR_external_fence_win32", KHRExternalFenceWin32.isAvailable(this));
-        }
+        VK_KHR_external_fence_fd = KHRExternalFenceFd.checkCapsDevice(provider, caps, ext);
+        VK_KHR_external_fence_win32 = KHRExternalFenceWin32.checkCapsDevice(provider, caps, ext);
         VK_KHR_external_memory = ext.contains("VK_KHR_external_memory");
-        {
-            supported = ext.contains("VK_KHR_external_memory_fd");
-            vkGetMemoryFdKHR = isSupported(provider, "vkGetMemoryFdKHR", supported);
-            vkGetMemoryFdPropertiesKHR = isSupported(provider, "vkGetMemoryFdPropertiesKHR", supported);
-            VK_KHR_external_memory_fd = supported && VK.checkExtension("VK_KHR_external_memory_fd", KHRExternalMemoryFd.isAvailable(this));
-        }
-        {
-            supported = ext.contains("VK_KHR_external_memory_win32");
-            vkGetMemoryWin32HandleKHR = isSupported(provider, "vkGetMemoryWin32HandleKHR", supported);
-            vkGetMemoryWin32HandlePropertiesKHR = isSupported(provider, "vkGetMemoryWin32HandlePropertiesKHR", supported);
-            VK_KHR_external_memory_win32 = supported && VK.checkExtension("VK_KHR_external_memory_win32", KHRExternalMemoryWin32.isAvailable(this));
-        }
+        VK_KHR_external_memory_fd = KHRExternalMemoryFd.checkCapsDevice(provider, caps, ext);
+        VK_KHR_external_memory_win32 = KHRExternalMemoryWin32.checkCapsDevice(provider, caps, ext);
         VK_KHR_external_semaphore = ext.contains("VK_KHR_external_semaphore");
-        {
-            supported = ext.contains("VK_KHR_external_semaphore_fd");
-            vkImportSemaphoreFdKHR = isSupported(provider, "vkImportSemaphoreFdKHR", supported);
-            vkGetSemaphoreFdKHR = isSupported(provider, "vkGetSemaphoreFdKHR", supported);
-            VK_KHR_external_semaphore_fd = supported && VK.checkExtension("VK_KHR_external_semaphore_fd", KHRExternalSemaphoreFd.isAvailable(this));
-        }
-        {
-            supported = ext.contains("VK_KHR_external_semaphore_win32");
-            vkImportSemaphoreWin32HandleKHR = isSupported(provider, "vkImportSemaphoreWin32HandleKHR", supported);
-            vkGetSemaphoreWin32HandleKHR = isSupported(provider, "vkGetSemaphoreWin32HandleKHR", supported);
-            VK_KHR_external_semaphore_win32 = supported && VK.checkExtension("VK_KHR_external_semaphore_win32", KHRExternalSemaphoreWin32.isAvailable(this));
-        }
-        {
-            supported = ext.contains("VK_KHR_get_memory_requirements2");
-            vkGetImageMemoryRequirements2KHR = isSupported(provider, "vkGetImageMemoryRequirements2KHR", supported);
-            vkGetBufferMemoryRequirements2KHR = isSupported(provider, "vkGetBufferMemoryRequirements2KHR", supported);
-            vkGetImageSparseMemoryRequirements2KHR = isSupported(provider, "vkGetImageSparseMemoryRequirements2KHR", supported);
-            VK_KHR_get_memory_requirements2 = supported && VK.checkExtension("VK_KHR_get_memory_requirements2", KHRGetMemoryRequirements2.isAvailable(this));
-        }
+        VK_KHR_external_semaphore_fd = KHRExternalSemaphoreFd.checkCapsDevice(provider, caps, ext);
+        VK_KHR_external_semaphore_win32 = KHRExternalSemaphoreWin32.checkCapsDevice(provider, caps, ext);
+        VK_KHR_get_memory_requirements2 = KHRGetMemoryRequirements2.checkCapsDevice(provider, caps, ext);
         VK_KHR_image_format_list = ext.contains("VK_KHR_image_format_list");
         VK_KHR_incremental_present = ext.contains("VK_KHR_incremental_present");
-        {
-            supported = ext.contains("VK_KHR_maintenance1");
-            vkTrimCommandPoolKHR = isSupported(provider, "vkTrimCommandPoolKHR", supported);
-            VK_KHR_maintenance1 = supported && VK.checkExtension("VK_KHR_maintenance1", KHRMaintenance1.isAvailable(this));
-        }
+        VK_KHR_maintenance1 = KHRMaintenance1.checkCapsDevice(provider, caps, ext);
         VK_KHR_maintenance2 = ext.contains("VK_KHR_maintenance2");
-        {
-            supported = ext.contains("VK_KHR_push_descriptor");
-            vkCmdPushDescriptorSetKHR = isSupported(provider, "vkCmdPushDescriptorSetKHR", supported);
-            VK_KHR_push_descriptor = supported && VK.checkExtension("VK_KHR_push_descriptor", KHRPushDescriptor.isAvailable(this));
-        }
+        VK_KHR_maintenance3 = KHRMaintenance3.checkCapsDevice(provider, caps, ext);
+        VK_KHR_multiview = ext.contains("VK_KHR_multiview");
+        VK_KHR_push_descriptor = KHRPushDescriptor.checkCapsDevice(provider, caps, ext);
         VK_KHR_relaxed_block_layout = ext.contains("VK_KHR_relaxed_block_layout");
         VK_KHR_sampler_mirror_clamp_to_edge = ext.contains("VK_KHR_sampler_mirror_clamp_to_edge");
-        {
-            supported = ext.contains("VK_KHR_sampler_ycbcr_conversion");
-            vkCreateSamplerYcbcrConversionKHR = isSupported(provider, "vkCreateSamplerYcbcrConversionKHR", supported);
-            vkDestroySamplerYcbcrConversionKHR = isSupported(provider, "vkDestroySamplerYcbcrConversionKHR", supported);
-            VK_KHR_sampler_ycbcr_conversion = supported && VK.checkExtension("VK_KHR_sampler_ycbcr_conversion", KHRSamplerYcbcrConversion.isAvailable(this));
-        }
+        VK_KHR_sampler_ycbcr_conversion = KHRSamplerYcbcrConversion.checkCapsDevice(provider, caps, ext);
         VK_KHR_shader_draw_parameters = ext.contains("VK_KHR_shader_draw_parameters");
-        {
-            supported = ext.contains("VK_KHR_shared_presentable_image");
-            vkGetSwapchainStatusKHR = isSupported(provider, "vkGetSwapchainStatusKHR", supported);
-            VK_KHR_shared_presentable_image = supported && VK.checkExtension("VK_KHR_shared_presentable_image", KHRSharedPresentableImage.isAvailable(this));
-        }
+        VK_KHR_shared_presentable_image = KHRSharedPresentableImage.checkCapsDevice(provider, caps, ext);
         VK_KHR_storage_buffer_storage_class = ext.contains("VK_KHR_storage_buffer_storage_class");
-        {
-            supported = ext.contains("VK_KHR_swapchain");
-            vkCreateSwapchainKHR = isSupported(provider, "vkCreateSwapchainKHR", supported);
-            vkDestroySwapchainKHR = isSupported(provider, "vkDestroySwapchainKHR", supported);
-            vkGetSwapchainImagesKHR = isSupported(provider, "vkGetSwapchainImagesKHR", supported);
-            vkAcquireNextImageKHR = isSupported(provider, "vkAcquireNextImageKHR", supported);
-            vkQueuePresentKHR = isSupported(provider, "vkQueuePresentKHR", supported);
-            VK_KHR_swapchain = supported && VK.checkExtension("VK_KHR_swapchain", KHRSwapchain.isAvailable(this));
-        }
+        VK_KHR_swapchain = KHRSwapchain.checkCapsDevice(provider, caps, ext);
         VK_KHR_variable_pointers = ext.contains("VK_KHR_variable_pointers");
         VK_KHR_win32_keyed_mutex = ext.contains("VK_KHR_win32_keyed_mutex");
-        {
-            supported = ext.contains("VK_KHX_device_group");
-            vkGetDeviceGroupPeerMemoryFeaturesKHX = isSupported(provider, "vkGetDeviceGroupPeerMemoryFeaturesKHX", supported);
-            vkCmdSetDeviceMaskKHX = isSupported(provider, "vkCmdSetDeviceMaskKHX", supported);
-            vkCmdDispatchBaseKHX = isSupported(provider, "vkCmdDispatchBaseKHX", supported);
-            vkGetDeviceGroupPresentCapabilitiesKHX = isSupported(provider, "vkGetDeviceGroupPresentCapabilitiesKHX", supported);
-            vkGetDeviceGroupSurfacePresentModesKHX = isSupported(provider, "vkGetDeviceGroupSurfacePresentModesKHX", supported);
-            vkAcquireNextImage2KHX = isSupported(provider, "vkAcquireNextImage2KHX", supported);
-            VK_KHX_device_group = supported && VK.checkExtension("VK_KHX_device_group", KHXDeviceGroup.isAvailable(capsInstance, this, ext));
-        }
-        VK_KHX_multiview = ext.contains("VK_KHX_multiview");
-        {
-            supported = ext.contains("VK_NV_clip_space_w_scaling");
-            vkCmdSetViewportWScalingNV = isSupported(provider, "vkCmdSetViewportWScalingNV", supported);
-            VK_NV_clip_space_w_scaling = supported && VK.checkExtension("VK_NV_clip_space_w_scaling", NVClipSpaceWScaling.isAvailable(this));
-        }
+        VK_NV_clip_space_w_scaling = NVClipSpaceWScaling.checkCapsDevice(provider, caps, ext);
         VK_NV_dedicated_allocation = ext.contains("VK_NV_dedicated_allocation");
         VK_NV_external_memory = ext.contains("VK_NV_external_memory");
-        {
-            supported = ext.contains("VK_NV_external_memory_win32");
-            vkGetMemoryWin32HandleNV = isSupported(provider, "vkGetMemoryWin32HandleNV", supported);
-            VK_NV_external_memory_win32 = supported && VK.checkExtension("VK_NV_external_memory_win32", NVExternalMemoryWin32.isAvailable(this));
-        }
+        VK_NV_external_memory_win32 = NVExternalMemoryWin32.checkCapsDevice(provider, caps, ext);
         VK_NV_fill_rectangle = ext.contains("VK_NV_fill_rectangle");
         VK_NV_fragment_coverage_to_color = ext.contains("VK_NV_fragment_coverage_to_color");
         VK_NV_framebuffer_mixed_samples = ext.contains("VK_NV_framebuffer_mixed_samples");
         VK_NV_geometry_shader_passthrough = ext.contains("VK_NV_geometry_shader_passthrough");
         VK_NV_glsl_shader = ext.contains("VK_NV_glsl_shader");
         VK_NV_sample_mask_override_coverage = ext.contains("VK_NV_sample_mask_override_coverage");
+        VK_NV_shader_subgroup_partitioned = ext.contains("VK_NV_shader_subgroup_partitioned");
         VK_NV_viewport_array2 = ext.contains("VK_NV_viewport_array2");
         VK_NV_viewport_swizzle = ext.contains("VK_NV_viewport_swizzle");
         VK_NV_win32_keyed_mutex = ext.contains("VK_NV_win32_keyed_mutex");
-        {
-            supported = ext.contains("VK_NVX_device_generated_commands");
-            vkCmdProcessCommandsNVX = isSupported(provider, "vkCmdProcessCommandsNVX", supported);
-            vkCmdReserveSpaceForCommandsNVX = isSupported(provider, "vkCmdReserveSpaceForCommandsNVX", supported);
-            vkCreateIndirectCommandsLayoutNVX = isSupported(provider, "vkCreateIndirectCommandsLayoutNVX", supported);
-            vkDestroyIndirectCommandsLayoutNVX = isSupported(provider, "vkDestroyIndirectCommandsLayoutNVX", supported);
-            vkCreateObjectTableNVX = isSupported(provider, "vkCreateObjectTableNVX", supported);
-            vkDestroyObjectTableNVX = isSupported(provider, "vkDestroyObjectTableNVX", supported);
-            vkRegisterObjectsNVX = isSupported(provider, "vkRegisterObjectsNVX", supported);
-            vkUnregisterObjectsNVX = isSupported(provider, "vkUnregisterObjectsNVX", supported);
-            VK_NVX_device_generated_commands = supported && VK.checkExtension("VK_NVX_device_generated_commands", NVXDeviceGeneratedCommands.isAvailable(capsInstance, this));
-        }
+        VK_NVX_device_generated_commands = NVXDeviceGeneratedCommands.checkCapsDevice(provider, caps, ext);
         VK_NVX_multiview_per_view_attributes = ext.contains("VK_NVX_multiview_per_view_attributes");
+
+        vkGetDeviceProcAddr = VK.get(caps, "vkGetDeviceProcAddr");
+        vkDestroyDevice = VK.get(caps, "vkDestroyDevice");
+        vkGetDeviceQueue = VK.get(caps, "vkGetDeviceQueue");
+        vkQueueSubmit = VK.get(caps, "vkQueueSubmit");
+        vkQueueWaitIdle = VK.get(caps, "vkQueueWaitIdle");
+        vkDeviceWaitIdle = VK.get(caps, "vkDeviceWaitIdle");
+        vkAllocateMemory = VK.get(caps, "vkAllocateMemory");
+        vkFreeMemory = VK.get(caps, "vkFreeMemory");
+        vkMapMemory = VK.get(caps, "vkMapMemory");
+        vkUnmapMemory = VK.get(caps, "vkUnmapMemory");
+        vkFlushMappedMemoryRanges = VK.get(caps, "vkFlushMappedMemoryRanges");
+        vkInvalidateMappedMemoryRanges = VK.get(caps, "vkInvalidateMappedMemoryRanges");
+        vkGetDeviceMemoryCommitment = VK.get(caps, "vkGetDeviceMemoryCommitment");
+        vkBindBufferMemory = VK.get(caps, "vkBindBufferMemory");
+        vkBindImageMemory = VK.get(caps, "vkBindImageMemory");
+        vkGetBufferMemoryRequirements = VK.get(caps, "vkGetBufferMemoryRequirements");
+        vkGetImageMemoryRequirements = VK.get(caps, "vkGetImageMemoryRequirements");
+        vkGetImageSparseMemoryRequirements = VK.get(caps, "vkGetImageSparseMemoryRequirements");
+        vkQueueBindSparse = VK.get(caps, "vkQueueBindSparse");
+        vkCreateFence = VK.get(caps, "vkCreateFence");
+        vkDestroyFence = VK.get(caps, "vkDestroyFence");
+        vkResetFences = VK.get(caps, "vkResetFences");
+        vkGetFenceStatus = VK.get(caps, "vkGetFenceStatus");
+        vkWaitForFences = VK.get(caps, "vkWaitForFences");
+        vkCreateSemaphore = VK.get(caps, "vkCreateSemaphore");
+        vkDestroySemaphore = VK.get(caps, "vkDestroySemaphore");
+        vkCreateEvent = VK.get(caps, "vkCreateEvent");
+        vkDestroyEvent = VK.get(caps, "vkDestroyEvent");
+        vkGetEventStatus = VK.get(caps, "vkGetEventStatus");
+        vkSetEvent = VK.get(caps, "vkSetEvent");
+        vkResetEvent = VK.get(caps, "vkResetEvent");
+        vkCreateQueryPool = VK.get(caps, "vkCreateQueryPool");
+        vkDestroyQueryPool = VK.get(caps, "vkDestroyQueryPool");
+        vkGetQueryPoolResults = VK.get(caps, "vkGetQueryPoolResults");
+        vkCreateBuffer = VK.get(caps, "vkCreateBuffer");
+        vkDestroyBuffer = VK.get(caps, "vkDestroyBuffer");
+        vkCreateBufferView = VK.get(caps, "vkCreateBufferView");
+        vkDestroyBufferView = VK.get(caps, "vkDestroyBufferView");
+        vkCreateImage = VK.get(caps, "vkCreateImage");
+        vkDestroyImage = VK.get(caps, "vkDestroyImage");
+        vkGetImageSubresourceLayout = VK.get(caps, "vkGetImageSubresourceLayout");
+        vkCreateImageView = VK.get(caps, "vkCreateImageView");
+        vkDestroyImageView = VK.get(caps, "vkDestroyImageView");
+        vkCreateShaderModule = VK.get(caps, "vkCreateShaderModule");
+        vkDestroyShaderModule = VK.get(caps, "vkDestroyShaderModule");
+        vkCreatePipelineCache = VK.get(caps, "vkCreatePipelineCache");
+        vkDestroyPipelineCache = VK.get(caps, "vkDestroyPipelineCache");
+        vkGetPipelineCacheData = VK.get(caps, "vkGetPipelineCacheData");
+        vkMergePipelineCaches = VK.get(caps, "vkMergePipelineCaches");
+        vkCreateGraphicsPipelines = VK.get(caps, "vkCreateGraphicsPipelines");
+        vkCreateComputePipelines = VK.get(caps, "vkCreateComputePipelines");
+        vkDestroyPipeline = VK.get(caps, "vkDestroyPipeline");
+        vkCreatePipelineLayout = VK.get(caps, "vkCreatePipelineLayout");
+        vkDestroyPipelineLayout = VK.get(caps, "vkDestroyPipelineLayout");
+        vkCreateSampler = VK.get(caps, "vkCreateSampler");
+        vkDestroySampler = VK.get(caps, "vkDestroySampler");
+        vkCreateDescriptorSetLayout = VK.get(caps, "vkCreateDescriptorSetLayout");
+        vkDestroyDescriptorSetLayout = VK.get(caps, "vkDestroyDescriptorSetLayout");
+        vkCreateDescriptorPool = VK.get(caps, "vkCreateDescriptorPool");
+        vkDestroyDescriptorPool = VK.get(caps, "vkDestroyDescriptorPool");
+        vkResetDescriptorPool = VK.get(caps, "vkResetDescriptorPool");
+        vkAllocateDescriptorSets = VK.get(caps, "vkAllocateDescriptorSets");
+        vkFreeDescriptorSets = VK.get(caps, "vkFreeDescriptorSets");
+        vkUpdateDescriptorSets = VK.get(caps, "vkUpdateDescriptorSets");
+        vkCreateFramebuffer = VK.get(caps, "vkCreateFramebuffer");
+        vkDestroyFramebuffer = VK.get(caps, "vkDestroyFramebuffer");
+        vkCreateRenderPass = VK.get(caps, "vkCreateRenderPass");
+        vkDestroyRenderPass = VK.get(caps, "vkDestroyRenderPass");
+        vkGetRenderAreaGranularity = VK.get(caps, "vkGetRenderAreaGranularity");
+        vkCreateCommandPool = VK.get(caps, "vkCreateCommandPool");
+        vkDestroyCommandPool = VK.get(caps, "vkDestroyCommandPool");
+        vkResetCommandPool = VK.get(caps, "vkResetCommandPool");
+        vkAllocateCommandBuffers = VK.get(caps, "vkAllocateCommandBuffers");
+        vkFreeCommandBuffers = VK.get(caps, "vkFreeCommandBuffers");
+        vkBeginCommandBuffer = VK.get(caps, "vkBeginCommandBuffer");
+        vkEndCommandBuffer = VK.get(caps, "vkEndCommandBuffer");
+        vkResetCommandBuffer = VK.get(caps, "vkResetCommandBuffer");
+        vkCmdBindPipeline = VK.get(caps, "vkCmdBindPipeline");
+        vkCmdSetViewport = VK.get(caps, "vkCmdSetViewport");
+        vkCmdSetScissor = VK.get(caps, "vkCmdSetScissor");
+        vkCmdSetLineWidth = VK.get(caps, "vkCmdSetLineWidth");
+        vkCmdSetDepthBias = VK.get(caps, "vkCmdSetDepthBias");
+        vkCmdSetBlendConstants = VK.get(caps, "vkCmdSetBlendConstants");
+        vkCmdSetDepthBounds = VK.get(caps, "vkCmdSetDepthBounds");
+        vkCmdSetStencilCompareMask = VK.get(caps, "vkCmdSetStencilCompareMask");
+        vkCmdSetStencilWriteMask = VK.get(caps, "vkCmdSetStencilWriteMask");
+        vkCmdSetStencilReference = VK.get(caps, "vkCmdSetStencilReference");
+        vkCmdBindDescriptorSets = VK.get(caps, "vkCmdBindDescriptorSets");
+        vkCmdBindIndexBuffer = VK.get(caps, "vkCmdBindIndexBuffer");
+        vkCmdBindVertexBuffers = VK.get(caps, "vkCmdBindVertexBuffers");
+        vkCmdDraw = VK.get(caps, "vkCmdDraw");
+        vkCmdDrawIndexed = VK.get(caps, "vkCmdDrawIndexed");
+        vkCmdDrawIndirect = VK.get(caps, "vkCmdDrawIndirect");
+        vkCmdDrawIndexedIndirect = VK.get(caps, "vkCmdDrawIndexedIndirect");
+        vkCmdDispatch = VK.get(caps, "vkCmdDispatch");
+        vkCmdDispatchIndirect = VK.get(caps, "vkCmdDispatchIndirect");
+        vkCmdCopyBuffer = VK.get(caps, "vkCmdCopyBuffer");
+        vkCmdCopyImage = VK.get(caps, "vkCmdCopyImage");
+        vkCmdBlitImage = VK.get(caps, "vkCmdBlitImage");
+        vkCmdCopyBufferToImage = VK.get(caps, "vkCmdCopyBufferToImage");
+        vkCmdCopyImageToBuffer = VK.get(caps, "vkCmdCopyImageToBuffer");
+        vkCmdUpdateBuffer = VK.get(caps, "vkCmdUpdateBuffer");
+        vkCmdFillBuffer = VK.get(caps, "vkCmdFillBuffer");
+        vkCmdClearColorImage = VK.get(caps, "vkCmdClearColorImage");
+        vkCmdClearDepthStencilImage = VK.get(caps, "vkCmdClearDepthStencilImage");
+        vkCmdClearAttachments = VK.get(caps, "vkCmdClearAttachments");
+        vkCmdResolveImage = VK.get(caps, "vkCmdResolveImage");
+        vkCmdSetEvent = VK.get(caps, "vkCmdSetEvent");
+        vkCmdResetEvent = VK.get(caps, "vkCmdResetEvent");
+        vkCmdWaitEvents = VK.get(caps, "vkCmdWaitEvents");
+        vkCmdPipelineBarrier = VK.get(caps, "vkCmdPipelineBarrier");
+        vkCmdBeginQuery = VK.get(caps, "vkCmdBeginQuery");
+        vkCmdEndQuery = VK.get(caps, "vkCmdEndQuery");
+        vkCmdResetQueryPool = VK.get(caps, "vkCmdResetQueryPool");
+        vkCmdWriteTimestamp = VK.get(caps, "vkCmdWriteTimestamp");
+        vkCmdCopyQueryPoolResults = VK.get(caps, "vkCmdCopyQueryPoolResults");
+        vkCmdPushConstants = VK.get(caps, "vkCmdPushConstants");
+        vkCmdBeginRenderPass = VK.get(caps, "vkCmdBeginRenderPass");
+        vkCmdNextSubpass = VK.get(caps, "vkCmdNextSubpass");
+        vkCmdEndRenderPass = VK.get(caps, "vkCmdEndRenderPass");
+        vkCmdExecuteCommands = VK.get(caps, "vkCmdExecuteCommands");
+        vkBindBufferMemory2 = VK.get(caps, "vkBindBufferMemory2");
+        vkBindImageMemory2 = VK.get(caps, "vkBindImageMemory2");
+        vkGetDeviceGroupPeerMemoryFeatures = VK.get(caps, "vkGetDeviceGroupPeerMemoryFeatures");
+        vkCmdSetDeviceMask = VK.get(caps, "vkCmdSetDeviceMask");
+        vkCmdDispatchBase = VK.get(caps, "vkCmdDispatchBase");
+        vkGetImageMemoryRequirements2 = VK.get(caps, "vkGetImageMemoryRequirements2");
+        vkGetBufferMemoryRequirements2 = VK.get(caps, "vkGetBufferMemoryRequirements2");
+        vkGetImageSparseMemoryRequirements2 = VK.get(caps, "vkGetImageSparseMemoryRequirements2");
+        vkTrimCommandPool = VK.get(caps, "vkTrimCommandPool");
+        vkGetDeviceQueue2 = VK.get(caps, "vkGetDeviceQueue2");
+        vkCreateSamplerYcbcrConversion = VK.get(caps, "vkCreateSamplerYcbcrConversion");
+        vkDestroySamplerYcbcrConversion = VK.get(caps, "vkDestroySamplerYcbcrConversion");
+        vkCreateDescriptorUpdateTemplate = VK.get(caps, "vkCreateDescriptorUpdateTemplate");
+        vkDestroyDescriptorUpdateTemplate = VK.get(caps, "vkDestroyDescriptorUpdateTemplate");
+        vkUpdateDescriptorSetWithTemplate = VK.get(caps, "vkUpdateDescriptorSetWithTemplate");
+        vkGetDescriptorSetLayoutSupport = VK.get(caps, "vkGetDescriptorSetLayoutSupport");
+        vkCmdWriteBufferMarkerAMD = VK.get(caps, "vkCmdWriteBufferMarkerAMD");
+        vkCmdDrawIndirectCountAMD = VK.get(caps, "vkCmdDrawIndirectCountAMD");
+        vkCmdDrawIndexedIndirectCountAMD = VK.get(caps, "vkCmdDrawIndexedIndirectCountAMD");
+        vkGetShaderInfoAMD = VK.get(caps, "vkGetShaderInfoAMD");
+        vkDebugMarkerSetObjectTagEXT = VK.get(caps, "vkDebugMarkerSetObjectTagEXT");
+        vkDebugMarkerSetObjectNameEXT = VK.get(caps, "vkDebugMarkerSetObjectNameEXT");
+        vkCmdDebugMarkerBeginEXT = VK.get(caps, "vkCmdDebugMarkerBeginEXT");
+        vkCmdDebugMarkerEndEXT = VK.get(caps, "vkCmdDebugMarkerEndEXT");
+        vkCmdDebugMarkerInsertEXT = VK.get(caps, "vkCmdDebugMarkerInsertEXT");
+        vkSetDebugUtilsObjectNameEXT = VK.get(caps, "vkSetDebugUtilsObjectNameEXT");
+        vkSetDebugUtilsObjectTagEXT = VK.get(caps, "vkSetDebugUtilsObjectTagEXT");
+        vkQueueBeginDebugUtilsLabelEXT = VK.get(caps, "vkQueueBeginDebugUtilsLabelEXT");
+        vkQueueEndDebugUtilsLabelEXT = VK.get(caps, "vkQueueEndDebugUtilsLabelEXT");
+        vkQueueInsertDebugUtilsLabelEXT = VK.get(caps, "vkQueueInsertDebugUtilsLabelEXT");
+        vkCmdBeginDebugUtilsLabelEXT = VK.get(caps, "vkCmdBeginDebugUtilsLabelEXT");
+        vkCmdEndDebugUtilsLabelEXT = VK.get(caps, "vkCmdEndDebugUtilsLabelEXT");
+        vkCmdInsertDebugUtilsLabelEXT = VK.get(caps, "vkCmdInsertDebugUtilsLabelEXT");
+        vkCmdSetDiscardRectangleEXT = VK.get(caps, "vkCmdSetDiscardRectangleEXT");
+        vkDisplayPowerControlEXT = VK.get(caps, "vkDisplayPowerControlEXT");
+        vkRegisterDeviceEventEXT = VK.get(caps, "vkRegisterDeviceEventEXT");
+        vkRegisterDisplayEventEXT = VK.get(caps, "vkRegisterDisplayEventEXT");
+        vkGetSwapchainCounterEXT = VK.get(caps, "vkGetSwapchainCounterEXT");
+        vkGetMemoryHostPointerPropertiesEXT = VK.get(caps, "vkGetMemoryHostPointerPropertiesEXT");
+        vkSetHdrMetadataEXT = VK.get(caps, "vkSetHdrMetadataEXT");
+        vkCmdSetSampleLocationsEXT = VK.get(caps, "vkCmdSetSampleLocationsEXT");
+        vkCreateValidationCacheEXT = VK.get(caps, "vkCreateValidationCacheEXT");
+        vkDestroyValidationCacheEXT = VK.get(caps, "vkDestroyValidationCacheEXT");
+        vkMergeValidationCachesEXT = VK.get(caps, "vkMergeValidationCachesEXT");
+        vkGetValidationCacheDataEXT = VK.get(caps, "vkGetValidationCacheDataEXT");
+        vkGetRefreshCycleDurationGOOGLE = VK.get(caps, "vkGetRefreshCycleDurationGOOGLE");
+        vkGetPastPresentationTimingGOOGLE = VK.get(caps, "vkGetPastPresentationTimingGOOGLE");
+        vkBindBufferMemory2KHR = VK.get(caps, "vkBindBufferMemory2KHR");
+        vkBindImageMemory2KHR = VK.get(caps, "vkBindImageMemory2KHR");
+        vkCreateDescriptorUpdateTemplateKHR = VK.get(caps, "vkCreateDescriptorUpdateTemplateKHR");
+        vkDestroyDescriptorUpdateTemplateKHR = VK.get(caps, "vkDestroyDescriptorUpdateTemplateKHR");
+        vkUpdateDescriptorSetWithTemplateKHR = VK.get(caps, "vkUpdateDescriptorSetWithTemplateKHR");
+        vkCmdPushDescriptorSetWithTemplateKHR = VK.get(caps, "vkCmdPushDescriptorSetWithTemplateKHR");
+        vkGetDeviceGroupPeerMemoryFeaturesKHR = VK.get(caps, "vkGetDeviceGroupPeerMemoryFeaturesKHR");
+        vkCmdSetDeviceMaskKHR = VK.get(caps, "vkCmdSetDeviceMaskKHR");
+        vkCmdDispatchBaseKHR = VK.get(caps, "vkCmdDispatchBaseKHR");
+        vkGetDeviceGroupPresentCapabilitiesKHR = VK.get(caps, "vkGetDeviceGroupPresentCapabilitiesKHR");
+        vkGetDeviceGroupSurfacePresentModesKHR = VK.get(caps, "vkGetDeviceGroupSurfacePresentModesKHR");
+        vkAcquireNextImage2KHR = VK.get(caps, "vkAcquireNextImage2KHR");
+        vkCreateSharedSwapchainsKHR = VK.get(caps, "vkCreateSharedSwapchainsKHR");
+        vkImportFenceFdKHR = VK.get(caps, "vkImportFenceFdKHR");
+        vkGetFenceFdKHR = VK.get(caps, "vkGetFenceFdKHR");
+        vkImportFenceWin32HandleKHR = VK.get(caps, "vkImportFenceWin32HandleKHR");
+        vkGetFenceWin32HandleKHR = VK.get(caps, "vkGetFenceWin32HandleKHR");
+        vkGetMemoryFdKHR = VK.get(caps, "vkGetMemoryFdKHR");
+        vkGetMemoryFdPropertiesKHR = VK.get(caps, "vkGetMemoryFdPropertiesKHR");
+        vkGetMemoryWin32HandleKHR = VK.get(caps, "vkGetMemoryWin32HandleKHR");
+        vkGetMemoryWin32HandlePropertiesKHR = VK.get(caps, "vkGetMemoryWin32HandlePropertiesKHR");
+        vkImportSemaphoreFdKHR = VK.get(caps, "vkImportSemaphoreFdKHR");
+        vkGetSemaphoreFdKHR = VK.get(caps, "vkGetSemaphoreFdKHR");
+        vkImportSemaphoreWin32HandleKHR = VK.get(caps, "vkImportSemaphoreWin32HandleKHR");
+        vkGetSemaphoreWin32HandleKHR = VK.get(caps, "vkGetSemaphoreWin32HandleKHR");
+        vkGetImageMemoryRequirements2KHR = VK.get(caps, "vkGetImageMemoryRequirements2KHR");
+        vkGetBufferMemoryRequirements2KHR = VK.get(caps, "vkGetBufferMemoryRequirements2KHR");
+        vkGetImageSparseMemoryRequirements2KHR = VK.get(caps, "vkGetImageSparseMemoryRequirements2KHR");
+        vkTrimCommandPoolKHR = VK.get(caps, "vkTrimCommandPoolKHR");
+        vkGetDescriptorSetLayoutSupportKHR = VK.get(caps, "vkGetDescriptorSetLayoutSupportKHR");
+        vkCmdPushDescriptorSetKHR = VK.get(caps, "vkCmdPushDescriptorSetKHR");
+        vkCreateSamplerYcbcrConversionKHR = VK.get(caps, "vkCreateSamplerYcbcrConversionKHR");
+        vkDestroySamplerYcbcrConversionKHR = VK.get(caps, "vkDestroySamplerYcbcrConversionKHR");
+        vkGetSwapchainStatusKHR = VK.get(caps, "vkGetSwapchainStatusKHR");
+        vkCreateSwapchainKHR = VK.get(caps, "vkCreateSwapchainKHR");
+        vkDestroySwapchainKHR = VK.get(caps, "vkDestroySwapchainKHR");
+        vkGetSwapchainImagesKHR = VK.get(caps, "vkGetSwapchainImagesKHR");
+        vkAcquireNextImageKHR = VK.get(caps, "vkAcquireNextImageKHR");
+        vkQueuePresentKHR = VK.get(caps, "vkQueuePresentKHR");
+        vkCmdSetViewportWScalingNV = VK.get(caps, "vkCmdSetViewportWScalingNV");
+        vkGetMemoryWin32HandleNV = VK.get(caps, "vkGetMemoryWin32HandleNV");
+        vkCmdProcessCommandsNVX = VK.get(caps, "vkCmdProcessCommandsNVX");
+        vkCmdReserveSpaceForCommandsNVX = VK.get(caps, "vkCmdReserveSpaceForCommandsNVX");
+        vkCreateIndirectCommandsLayoutNVX = VK.get(caps, "vkCreateIndirectCommandsLayoutNVX");
+        vkDestroyIndirectCommandsLayoutNVX = VK.get(caps, "vkDestroyIndirectCommandsLayoutNVX");
+        vkCreateObjectTableNVX = VK.get(caps, "vkCreateObjectTableNVX");
+        vkDestroyObjectTableNVX = VK.get(caps, "vkDestroyObjectTableNVX");
+        vkRegisterObjectsNVX = VK.get(caps, "vkRegisterObjectsNVX");
+        vkUnregisterObjectsNVX = VK.get(caps, "vkUnregisterObjectsNVX");
     }
 
 }

@@ -9,33 +9,12 @@ import javax.annotation.*;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Structure providing information about a queue family.
- * 
- * <h5>Valid Usage (Implicit)</h5>
- * 
- * <ul>
- * <li>{@code sType} <b>must</b> be {@link KHRGetPhysicalDeviceProperties2#VK_STRUCTURE_TYPE_QUEUE_FAMILY_PROPERTIES_2_KHR STRUCTURE_TYPE_QUEUE_FAMILY_PROPERTIES_2_KHR}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * </ul>
- * 
- * <h5>See Also</h5>
- * 
- * <p>{@link VkQueueFamilyProperties}, {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceQueueFamilyProperties2KHR GetPhysicalDeviceQueueFamilyProperties2KHR}</p>
- * 
- * <h3>Member documentation</h3>
- * 
- * <ul>
- * <li>{@code sType} &ndash; the type of this structure.</li>
- * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code queueFamilyProperties} &ndash; a structure of type {@link VkQueueFamilyProperties} which is populated with the same values as in {@link VK10#vkGetPhysicalDeviceQueueFamilyProperties GetPhysicalDeviceQueueFamilyProperties}.</li>
- * </ul>
+ * See {@link VkQueueFamilyProperties2}.
  * 
  * <h3>Layout</h3>
  * 
@@ -46,33 +25,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link VkQueueFamilyProperties VkQueueFamilyProperties} queueFamilyProperties;
  * }</pre></code>
  */
-public class VkQueueFamilyProperties2KHR extends Struct implements NativeResource {
-
-    /** The struct size in bytes. */
-    public static final int SIZEOF;
-
-    public static final int ALIGNOF;
-
-    /** The struct member offsets. */
-    public static final int
-        STYPE,
-        PNEXT,
-        QUEUEFAMILYPROPERTIES;
-
-    static {
-        Layout layout = __struct(
-            __member(4),
-            __member(POINTER_SIZE),
-            __member(VkQueueFamilyProperties.SIZEOF, VkQueueFamilyProperties.ALIGNOF)
-        );
-
-        SIZEOF = layout.getSize();
-        ALIGNOF = layout.getAlignment();
-
-        STYPE = layout.offsetof(0);
-        PNEXT = layout.offsetof(1);
-        QUEUEFAMILYPROPERTIES = layout.offsetof(2);
-    }
+public class VkQueueFamilyProperties2KHR extends VkQueueFamilyProperties2 {
 
     VkQueueFamilyProperties2KHR(long address, @Nullable ByteBuffer container) {
         super(address, container);
@@ -88,34 +41,7 @@ public class VkQueueFamilyProperties2KHR extends Struct implements NativeResourc
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
-    @Override
-    public int sizeof() { return SIZEOF; }
-
-    /** Returns the value of the {@code sType} field. */
-    @NativeType("VkStructureType")
-    public int sType() { return nsType(address()); }
-    /** Returns the value of the {@code pNext} field. */
-    @NativeType("void *")
-    public long pNext() { return npNext(address()); }
-    /** Returns a {@link VkQueueFamilyProperties} view of the {@code queueFamilyProperties} field. */
-    public VkQueueFamilyProperties queueFamilyProperties() { return nqueueFamilyProperties(address()); }
-
     // -----------------------------------
-
-    /** Returns a new {@link VkQueueFamilyProperties2KHR} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static VkQueueFamilyProperties2KHR malloc() {
-        return create(nmemAllocChecked(SIZEOF));
-    }
-
-    /** Returns a new {@link VkQueueFamilyProperties2KHR} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static VkQueueFamilyProperties2KHR calloc() {
-        return create(nmemCallocChecked(1, SIZEOF));
-    }
-
-    /** Returns a new {@link VkQueueFamilyProperties2KHR} instance allocated with {@link BufferUtils}. */
-    public static VkQueueFamilyProperties2KHR create() {
-        return new VkQueueFamilyProperties2KHR(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link VkQueueFamilyProperties2KHR} instance for the specified memory address. */
     public static VkQueueFamilyProperties2KHR create(long address) {
@@ -126,33 +52,6 @@ public class VkQueueFamilyProperties2KHR extends Struct implements NativeResourc
     @Nullable
     public static VkQueueFamilyProperties2KHR createSafe(long address) {
         return address == NULL ? null : create(address);
-    }
-
-    /**
-     * Returns a new {@link VkQueueFamilyProperties2KHR.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkQueueFamilyProperties2KHR.Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VkQueueFamilyProperties2KHR.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkQueueFamilyProperties2KHR.Buffer calloc(int capacity) {
-        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VkQueueFamilyProperties2KHR.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkQueueFamilyProperties2KHR.Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -173,85 +72,8 @@ public class VkQueueFamilyProperties2KHR extends Struct implements NativeResourc
 
     // -----------------------------------
 
-    /** Returns a new {@link VkQueueFamilyProperties2KHR} instance allocated on the thread-local {@link MemoryStack}. */
-    public static VkQueueFamilyProperties2KHR mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link VkQueueFamilyProperties2KHR} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static VkQueueFamilyProperties2KHR callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link VkQueueFamilyProperties2KHR} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VkQueueFamilyProperties2KHR mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VkQueueFamilyProperties2KHR} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VkQueueFamilyProperties2KHR callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VkQueueFamilyProperties2KHR.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkQueueFamilyProperties2KHR.Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VkQueueFamilyProperties2KHR.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkQueueFamilyProperties2KHR.Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VkQueueFamilyProperties2KHR.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static VkQueueFamilyProperties2KHR.Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VkQueueFamilyProperties2KHR.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static VkQueueFamilyProperties2KHR.Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
-
-    /** Unsafe version of {@link #sType}. */
-    public static int nsType(long struct) { return memGetInt(struct + VkQueueFamilyProperties2KHR.STYPE); }
-    /** Unsafe version of {@link #pNext}. */
-    public static long npNext(long struct) { return memGetAddress(struct + VkQueueFamilyProperties2KHR.PNEXT); }
-    /** Unsafe version of {@link #queueFamilyProperties}. */
-    public static VkQueueFamilyProperties nqueueFamilyProperties(long struct) { return VkQueueFamilyProperties.create(struct + VkQueueFamilyProperties2KHR.QUEUEFAMILYPROPERTIES); }
-
-    // -----------------------------------
-
     /** An array of {@link VkQueueFamilyProperties2KHR} structs. */
-    public static class Buffer extends StructBuffer<VkQueueFamilyProperties2KHR, Buffer> implements NativeResource {
+    public static class Buffer extends VkQueueFamilyProperties2.Buffer {
 
         /**
          * Creates a new {@link VkQueueFamilyProperties2KHR.Buffer} instance backed by the specified container.
@@ -263,7 +85,7 @@ public class VkQueueFamilyProperties2KHR extends Struct implements NativeResourc
          * <p>The created buffer instance holds a strong reference to the container object.</p>
          */
         public Buffer(ByteBuffer container) {
-            super(container, container.remaining() / SIZEOF);
+            super(container);
         }
 
         public Buffer(long address, int cap) {
@@ -288,20 +110,6 @@ public class VkQueueFamilyProperties2KHR extends Struct implements NativeResourc
         protected VkQueueFamilyProperties2KHR newInstance(long address) {
             return new VkQueueFamilyProperties2KHR(address, container);
         }
-
-        @Override
-        public int sizeof() {
-            return SIZEOF;
-        }
-
-        /** Returns the value of the {@code sType} field. */
-        @NativeType("VkStructureType")
-        public int sType() { return VkQueueFamilyProperties2KHR.nsType(address()); }
-        /** Returns the value of the {@code pNext} field. */
-        @NativeType("void *")
-        public long pNext() { return VkQueueFamilyProperties2KHR.npNext(address()); }
-        /** Returns a {@link VkQueueFamilyProperties} view of the {@code queueFamilyProperties} field. */
-        public VkQueueFamilyProperties queueFamilyProperties() { return VkQueueFamilyProperties2KHR.nqueueFamilyProperties(address()); }
 
     }
 

@@ -8,6 +8,10 @@ package org.lwjgl.vulkan;
 /**
  * An application using external memory may wish to synchronize access to that memory using semaphores. This extension enables an application to create semaphores from which non-Vulkan handles that reference the underlying synchronization primitive can be exported.
  * 
+ * <h5>Promotion to Vulkan 1.1</h5>
+ * 
+ * <p>All functionality in this extension is included in core Vulkan 1.1, with the KHR suffix omitted. The original type, enum and command names are still available as aliases of the core functionality.</p>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>{@code VK_KHR_external_semaphore}</dd>
@@ -30,6 +34,10 @@ package org.lwjgl.vulkan;
  * <dd>2016-10-21</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
+ * <dt><b>Interactions and External Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Promoted to Vulkan 1.1 Core</li>
+ * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Jason Ekstrand, Intel</li>
@@ -54,21 +62,7 @@ public final class KHRExternalSemaphore {
     /** Extends {@code VkStructureType}. */
     public static final int VK_STRUCTURE_TYPE_EXPORT_SEMAPHORE_CREATE_INFO_KHR = 1000077000;
 
-    /**
-     * VkSemaphoreImportFlagBitsKHR - Bitmask specifying additional parameters of semaphore payload import
-     * 
-     * <h5>Description</h5>
-     * 
-     * <p>These bits have the following meanings:</p>
-     * 
-     * <ul>
-     * <li>{@link #VK_SEMAPHORE_IMPORT_TEMPORARY_BIT_KHR SEMAPHORE_IMPORT_TEMPORARY_BIT_KHR} indicates that the semaphore payload will be imported only temporarily, as described in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-semaphores-importing">Importing Semaphore Payloads</a>, regardless of the permanence of {@code handleType}.</li>
-     * </ul>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@code VkSemaphoreImportFlagsKHR}</p>
-     */
+    /** Extends {@code VkSemaphoreImportFlagBits}. */
     public static final int VK_SEMAPHORE_IMPORT_TEMPORARY_BIT_KHR = 0x1;
 
     private KHRExternalSemaphore() {}

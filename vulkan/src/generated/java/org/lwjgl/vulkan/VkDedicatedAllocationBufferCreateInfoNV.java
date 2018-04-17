@@ -29,7 +29,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <ul>
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code dedicatedAllocation} &ndash; indicates whether the buffer will have a dedicated allocation bound to it.</li>
+ * <li>{@code dedicatedAllocation} &ndash; specifies whether the buffer will have a dedicated allocation bound to it.</li>
  * </ul>
  * 
  * <h3>Layout</h3>

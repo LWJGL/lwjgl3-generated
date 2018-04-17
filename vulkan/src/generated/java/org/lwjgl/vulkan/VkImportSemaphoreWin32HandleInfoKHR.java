@@ -30,9 +30,9 @@ import org.lwjgl.system.windows.*;
  * <table class="lwjgl">
  * <thead><tr><th>Handle Type</th><th>Transference</th><th>Permanence Supported</th></tr></thead>
  * <tbody>
- * <tr><td>{@link KHRExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR}</td><td>Reference</td><td>Temporary,Permanent</td></tr>
- * <tr><td>{@link KHRExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHR EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHR}</td><td>Reference</td><td>Temporary,Permanent</td></tr>
- * <tr><td>{@link KHRExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHR EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHR}</td><td>Reference</td><td>Temporary,Permanent</td></tr>
+ * <tr><td>{@link VK11#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT}</td><td>Reference</td><td>Temporary,Permanent</td></tr>
+ * <tr><td>{@link VK11#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT}</td><td>Reference</td><td>Temporary,Permanent</td></tr>
+ * <tr><td>{@link VK11#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT}</td><td>Reference</td><td>Temporary,Permanent</td></tr>
  * </tbody>
  * </table>
  * 
@@ -40,7 +40,7 @@ import org.lwjgl.system.windows.*;
  * 
  * <ul>
  * <li>{@code handleType} <b>must</b> be a value included in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-semaphore-handletypes-win32">Handle Types Supported by VkImportSemaphoreWin32HandleInfoKHR</a> table.</li>
- * <li>If {@code handleType} is not {@link KHRExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR} or {@link KHRExternalSemaphoreCapabilities#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHR EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT_KHR}, {@code name} <b>must</b> be {@code NULL}.</li>
+ * <li>If {@code handleType} is not {@link VK11#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT EXTERNAL_SEMAPHORE_HANDLE_TYPE_OPAQUE_WIN32_BIT} or {@link VK11#VK_EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT EXTERNAL_SEMAPHORE_HANDLE_TYPE_D3D12_FENCE_BIT}, {@code name} <b>must</b> be {@code NULL}.</li>
  * <li>If {@code handleType} is not 0 and {@code handle} is {@code NULL}, {@code name} <b>must</b> name a valid synchronization primitive of the type specified by {@code handleType}.</li>
  * <li>If {@code handleType} is not 0 and {@code name} is {@code NULL}, {@code handle} <b>must</b> be a valid handle of the type specified by {@code handleType}.</li>
  * <li>If {@code handle} is not {@code NULL}, {@code name} must be {@code NULL}.</li>
@@ -54,8 +54,8 @@ import org.lwjgl.system.windows.*;
  * <li>{@code sType} <b>must</b> be {@link KHRExternalSemaphoreWin32#VK_STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR STRUCTURE_TYPE_IMPORT_SEMAPHORE_WIN32_HANDLE_INFO_KHR}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code semaphore} <b>must</b> be a valid {@code VkSemaphore} handle</li>
- * <li>{@code flags} <b>must</b> be a valid combination of {@code VkSemaphoreImportFlagBitsKHR} values</li>
- * <li>If {@code handleType} is not 0, {@code handleType} <b>must</b> be a valid {@code VkExternalSemaphoreHandleTypeFlagBitsKHR} value</li>
+ * <li>{@code flags} <b>must</b> be a valid combination of {@code VkSemaphoreImportFlagBits} values</li>
+ * <li>If {@code handleType} is not 0, {@code handleType} <b>must</b> be a valid {@code VkExternalSemaphoreHandleTypeFlagBits} value</li>
  * </ul>
  * 
  * <h5>Host Synchronization</h5>
@@ -74,7 +74,7 @@ import org.lwjgl.system.windows.*;
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code semaphore} &ndash; the semaphore into which the payload will be imported.</li>
- * <li>{@code flags} &ndash; a bitmask of {@code VkSemaphoreImportFlagBitsKHR} specifying additional parameters for the semaphore payload import operation.</li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkSemaphoreImportFlagBits} specifying additional parameters for the semaphore payload import operation.</li>
  * <li>{@code handleType} &ndash; specifies the type of {@code handle}.</li>
  * <li>{@code handle} &ndash; the external handle to import, or {@code NULL}.</li>
  * <li>{@code name} &ndash; a NULL-terminated UTF-16 string naming the underlying synchronization primitive to import, or {@code NULL}.</li>
@@ -87,8 +87,8 @@ import org.lwjgl.system.windows.*;
  *     VkStructureType sType;
  *     void const * pNext;
  *     VkSemaphore semaphore;
- *     VkSemaphoreImportFlagsKHR flags;
- *     VkExternalSemaphoreHandleTypeFlagBitsKHR handleType;
+ *     VkSemaphoreImportFlags flags;
+ *     VkExternalSemaphoreHandleTypeFlagBits handleType;
  *     HANDLE handle;
  *     LPCWSTR name;
  * }</pre></code>
@@ -160,10 +160,10 @@ public class VkImportSemaphoreWin32HandleInfoKHR extends Struct implements Nativ
     @NativeType("VkSemaphore")
     public long semaphore() { return nsemaphore(address()); }
     /** Returns the value of the {@code flags} field. */
-    @NativeType("VkSemaphoreImportFlagsKHR")
+    @NativeType("VkSemaphoreImportFlags")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code handleType} field. */
-    @NativeType("VkExternalSemaphoreHandleTypeFlagBitsKHR")
+    @NativeType("VkExternalSemaphoreHandleTypeFlagBits")
     public int handleType() { return nhandleType(address()); }
     /** Returns the value of the {@code handle} field. */
     @NativeType("HANDLE")
@@ -182,9 +182,9 @@ public class VkImportSemaphoreWin32HandleInfoKHR extends Struct implements Nativ
     /** Sets the specified value to the {@code semaphore} field. */
     public VkImportSemaphoreWin32HandleInfoKHR semaphore(@NativeType("VkSemaphore") long value) { nsemaphore(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkImportSemaphoreWin32HandleInfoKHR flags(@NativeType("VkSemaphoreImportFlagsKHR") int value) { nflags(address(), value); return this; }
+    public VkImportSemaphoreWin32HandleInfoKHR flags(@NativeType("VkSemaphoreImportFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
-    public VkImportSemaphoreWin32HandleInfoKHR handleType(@NativeType("VkExternalSemaphoreHandleTypeFlagBitsKHR") int value) { nhandleType(address(), value); return this; }
+    public VkImportSemaphoreWin32HandleInfoKHR handleType(@NativeType("VkExternalSemaphoreHandleTypeFlagBits") int value) { nhandleType(address(), value); return this; }
     /** Sets the specified value to the {@code handle} field. */
     public VkImportSemaphoreWin32HandleInfoKHR handle(@NativeType("HANDLE") long value) { nhandle(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code name} field. */
@@ -477,10 +477,10 @@ public class VkImportSemaphoreWin32HandleInfoKHR extends Struct implements Nativ
         @NativeType("VkSemaphore")
         public long semaphore() { return VkImportSemaphoreWin32HandleInfoKHR.nsemaphore(address()); }
         /** Returns the value of the {@code flags} field. */
-        @NativeType("VkSemaphoreImportFlagsKHR")
+        @NativeType("VkSemaphoreImportFlags")
         public int flags() { return VkImportSemaphoreWin32HandleInfoKHR.nflags(address()); }
         /** Returns the value of the {@code handleType} field. */
-        @NativeType("VkExternalSemaphoreHandleTypeFlagBitsKHR")
+        @NativeType("VkExternalSemaphoreHandleTypeFlagBits")
         public int handleType() { return VkImportSemaphoreWin32HandleInfoKHR.nhandleType(address()); }
         /** Returns the value of the {@code handle} field. */
         @NativeType("HANDLE")
@@ -499,9 +499,9 @@ public class VkImportSemaphoreWin32HandleInfoKHR extends Struct implements Nativ
         /** Sets the specified value to the {@code semaphore} field. */
         public VkImportSemaphoreWin32HandleInfoKHR.Buffer semaphore(@NativeType("VkSemaphore") long value) { VkImportSemaphoreWin32HandleInfoKHR.nsemaphore(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkImportSemaphoreWin32HandleInfoKHR.Buffer flags(@NativeType("VkSemaphoreImportFlagsKHR") int value) { VkImportSemaphoreWin32HandleInfoKHR.nflags(address(), value); return this; }
+        public VkImportSemaphoreWin32HandleInfoKHR.Buffer flags(@NativeType("VkSemaphoreImportFlags") int value) { VkImportSemaphoreWin32HandleInfoKHR.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */
-        public VkImportSemaphoreWin32HandleInfoKHR.Buffer handleType(@NativeType("VkExternalSemaphoreHandleTypeFlagBitsKHR") int value) { VkImportSemaphoreWin32HandleInfoKHR.nhandleType(address(), value); return this; }
+        public VkImportSemaphoreWin32HandleInfoKHR.Buffer handleType(@NativeType("VkExternalSemaphoreHandleTypeFlagBits") int value) { VkImportSemaphoreWin32HandleInfoKHR.nhandleType(address(), value); return this; }
         /** Sets the specified value to the {@code handle} field. */
         public VkImportSemaphoreWin32HandleInfoKHR.Buffer handle(@NativeType("HANDLE") long value) { VkImportSemaphoreWin32HandleInfoKHR.nhandle(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code name} field. */

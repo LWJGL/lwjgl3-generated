@@ -131,9 +131,12 @@ public class EXTDisplayControl {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesDevice caps) {
-        return checkFunctions(
-            caps.vkDisplayPowerControlEXT, caps.vkRegisterDeviceEventEXT, caps.vkRegisterDisplayEventEXT, caps.vkGetSwapchainCounterEXT
+    static boolean checkCapsDevice(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_EXT_display_control") && VK.checkExtension("VK_EXT_display_control",
+               VK.isSupported(provider, "vkDisplayPowerControlEXT", caps)
+            && VK.isSupported(provider, "vkRegisterDeviceEventEXT", caps)
+            && VK.isSupported(provider, "vkRegisterDisplayEventEXT", caps)
+            && VK.isSupported(provider, "vkGetSwapchainCounterEXT", caps)
         );
     }
 
@@ -367,6 +370,9 @@ public class EXTDisplayControl {
      * <dt>On success, this command returns</dt>
      * <dd><ul>
      * <li>{@link VK10#VK_SUCCESS SUCCESS}</li>
+     * </ul></dd>
+     * <dt>On failure, this command returns</dt>
+     * <dd><ul>
      * <li>{@link VK10#VK_ERROR_DEVICE_LOST ERROR_DEVICE_LOST}</li>
      * <li>{@link KHRSwapchain#VK_ERROR_OUT_OF_DATE_KHR ERROR_OUT_OF_DATE_KHR}</li>
      * </ul></dd>

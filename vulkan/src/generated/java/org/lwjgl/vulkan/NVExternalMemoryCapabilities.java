@@ -36,6 +36,7 @@ import static org.lwjgl.system.JNI.*;
  * <dd>No known IP claims.</dd>
  * <dt><b>Interactions and External Dependencies</b></dt>
  * <dd><ul>
+ * <li>Interacts with Vulkan 1.1.</li>
  * <li>Interacts with {@link KHRDedicatedAllocation VK_KHR_dedicated_allocation}.</li>
  * <li>Interacts with {@link NVDedicatedAllocation VK_NV_dedicated_allocation}.</li>
  * </ul></dd>
@@ -59,10 +60,10 @@ public class NVExternalMemoryCapabilities {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV} indicates a handle to memory returned by {@link NVExternalMemoryWin32#vkGetMemoryWin32HandleNV GetMemoryWin32HandleNV}.</li>
-     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV} indicates a handle to memory returned by {@link NVExternalMemoryWin32#vkGetMemoryWin32HandleNV GetMemoryWin32HandleNV}, or one duplicated from such a handle using {@code DuplicateHandle()}.</li>
-     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV} indicates a valid NT handle to memory returned by {@code IDXGIResource1::ftext:CreateSharedHandle()}, or a handle duplicated from such a handle using {@code DuplicateHandle()}.</li>
-     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV} indicates a handle to memory returned by {@code IDXGIResource::GetSharedHandle()}.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_NV} specifies a handle to memory returned by {@link NVExternalMemoryWin32#vkGetMemoryWin32HandleNV GetMemoryWin32HandleNV}.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_OPAQUE_WIN32_BIT_NV} specifies a handle to memory returned by {@link NVExternalMemoryWin32#vkGetMemoryWin32HandleNV GetMemoryWin32HandleNV}, or one duplicated from such a handle using {@code DuplicateHandle()}.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_BIT_NV} specifies a valid NT handle to memory returned by {@code IDXGIResource1::ftext:CreateSharedHandle()}, or a handle duplicated from such a handle using {@code DuplicateHandle()}.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV EXTERNAL_MEMORY_HANDLE_TYPE_D3D11_IMAGE_KMT_BIT_NV} specifies a handle to memory returned by {@code IDXGIResource::GetSharedHandle()}.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -81,9 +82,9 @@ public class NVExternalMemoryCapabilities {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_NV EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_NV} indicates that external memory of the specified type <b>must</b> be created as a dedicated allocation when used in the manner specified.</li>
-     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_NV EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_NV} indicates that the implementation supports exporting handles of the specified type.</li>
-     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_NV EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_NV} indicates that the implementation supports importing handles of the specified type.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_NV EXTERNAL_MEMORY_FEATURE_DEDICATED_ONLY_BIT_NV} specifies that external memory of the specified type <b>must</b> be created as a dedicated allocation when used in the manner specified.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_NV EXTERNAL_MEMORY_FEATURE_EXPORTABLE_BIT_NV} specifies that the implementation supports exporting handles of the specified type.</li>
+     * <li>{@link #VK_EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_NV EXTERNAL_MEMORY_FEATURE_IMPORTABLE_BIT_NV} specifies that the implementation supports importing handles of the specified type.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -99,9 +100,9 @@ public class NVExternalMemoryCapabilities {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesInstance caps) {
-        return checkFunctions(
-            caps.vkGetPhysicalDeviceExternalImageFormatPropertiesNV
+    static boolean checkCapsInstance(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_NV_external_memory_capabilities") && VK.checkExtension("VK_NV_external_memory_capabilities",
+               VK.isSupported(provider, "vkGetPhysicalDeviceExternalImageFormatPropertiesNV", caps)
         );
     }
 

@@ -218,10 +218,10 @@ public class NVXDeviceGeneratedCommands {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX} indicates that the processing of sequences <b>can</b> happen at an implementation-dependent order, which is not guaranteed to be coherent across multiple invocations.</li>
-     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_SPARSE_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_SPARSE_SEQUENCES_BIT_NVX} indicates that there is likely a high difference between allocated number of sequences and actually used.</li>
-     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EMPTY_EXECUTIONS_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_EMPTY_EXECUTIONS_BIT_NVX} indicates that there are likely many draw or dispatch calls that are zero-sized (zero grid dimension, no primitives to render).</li>
-     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX} indicates that the input data for the sequences is not implicitly indexed from 0..sequencesUsed but a user provided {@code VkBuffer} encoding the index is provided.</li>
+     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_UNORDERED_SEQUENCES_BIT_NVX} specifies that the processing of sequences <b>can</b> happen at an implementation-dependent order, which is not guaranteed to be coherent across multiple invocations.</li>
+     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_SPARSE_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_SPARSE_SEQUENCES_BIT_NVX} specifies that there is likely a high difference between allocated number of sequences and actually used.</li>
+     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_EMPTY_EXECUTIONS_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_EMPTY_EXECUTIONS_BIT_NVX} specifies that there are likely many draw or dispatch calls that are zero-sized (zero grid dimension, no primitives to render).</li>
+     * <li>{@link #VK_INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX INDIRECT_COMMANDS_LAYOUT_USAGE_INDEXED_SEQUENCES_BIT_NVX} specifies that the input data for the sequences is not implicitly indexed from 0..sequencesUsed but a user provided {@code VkBuffer} encoding the index is provided.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -240,8 +240,8 @@ public class NVXDeviceGeneratedCommands {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX} indicates that the resource is bound to {@link VK10#VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}</li>
-     * <li>{@link #VK_OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX} indicates that the resource is bound to {@link VK10#VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}</li>
+     * <li>{@link #VK_OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX OBJECT_ENTRY_USAGE_GRAPHICS_BIT_NVX} specifies that the resource is bound to {@link VK10#VK_PIPELINE_BIND_POINT_GRAPHICS PIPELINE_BIND_POINT_GRAPHICS}</li>
+     * <li>{@link #VK_OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX OBJECT_ENTRY_USAGE_COMPUTE_BIT_NVX} specifies that the resource is bound to {@link VK10#VK_PIPELINE_BIND_POINT_COMPUTE PIPELINE_BIND_POINT_COMPUTE}</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -293,11 +293,11 @@ public class NVXDeviceGeneratedCommands {
      * <h5>Description</h5>
      * 
      * <ul>
-     * <li>{@link #VK_OBJECT_ENTRY_TYPE_DESCRIPTOR_SET_NVX OBJECT_ENTRY_TYPE_DESCRIPTOR_SET_NVX} indicates a {@code VkDescriptorSet} resource entry that is registered via {@link VkObjectTableDescriptorSetEntryNVX}.</li>
-     * <li>{@link #VK_OBJECT_ENTRY_TYPE_PIPELINE_NVX OBJECT_ENTRY_TYPE_PIPELINE_NVX} indicates a {@code VkPipeline} resource entry that is registered via {@link VkObjectTablePipelineEntryNVX}.</li>
-     * <li>{@link #VK_OBJECT_ENTRY_TYPE_INDEX_BUFFER_NVX OBJECT_ENTRY_TYPE_INDEX_BUFFER_NVX} indicates a {@code VkBuffer} resource entry that is registered via {@link VkObjectTableIndexBufferEntryNVX}.</li>
-     * <li>{@link #VK_OBJECT_ENTRY_TYPE_VERTEX_BUFFER_NVX OBJECT_ENTRY_TYPE_VERTEX_BUFFER_NVX} indicates a {@code VkBuffer} resource entry that is registered via {@link VkObjectTableVertexBufferEntryNVX}.</li>
-     * <li>{@link #VK_OBJECT_ENTRY_TYPE_PUSH_CONSTANT_NVX OBJECT_ENTRY_TYPE_PUSH_CONSTANT_NVX} indicates the resource entry is registered via {@link VkObjectTablePushConstantEntryNVX}.</li>
+     * <li>{@link #VK_OBJECT_ENTRY_TYPE_DESCRIPTOR_SET_NVX OBJECT_ENTRY_TYPE_DESCRIPTOR_SET_NVX} specifies a {@code VkDescriptorSet} resource entry that is registered via {@link VkObjectTableDescriptorSetEntryNVX}.</li>
+     * <li>{@link #VK_OBJECT_ENTRY_TYPE_PIPELINE_NVX OBJECT_ENTRY_TYPE_PIPELINE_NVX} specifies a {@code VkPipeline} resource entry that is registered via {@link VkObjectTablePipelineEntryNVX}.</li>
+     * <li>{@link #VK_OBJECT_ENTRY_TYPE_INDEX_BUFFER_NVX OBJECT_ENTRY_TYPE_INDEX_BUFFER_NVX} specifies a {@code VkBuffer} resource entry that is registered via {@link VkObjectTableIndexBufferEntryNVX}.</li>
+     * <li>{@link #VK_OBJECT_ENTRY_TYPE_VERTEX_BUFFER_NVX OBJECT_ENTRY_TYPE_VERTEX_BUFFER_NVX} specifies a {@code VkBuffer} resource entry that is registered via {@link VkObjectTableVertexBufferEntryNVX}.</li>
+     * <li>{@link #VK_OBJECT_ENTRY_TYPE_PUSH_CONSTANT_NVX OBJECT_ENTRY_TYPE_PUSH_CONSTANT_NVX} specifies the resource entry is registered via {@link VkObjectTablePushConstantEntryNVX}.</li>
      * </ul>
      * 
      * <h5>See Also</h5>
@@ -315,16 +315,22 @@ public class NVXDeviceGeneratedCommands {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesInstance caps) {
-        return checkFunctions(
-            caps.vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX
+    static boolean checkCapsInstance(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_NVX_device_generated_commands") && VK.checkExtension("VK_NVX_device_generated_commands",
+               VK.isSupported(provider, "vkGetPhysicalDeviceGeneratedCommandsPropertiesNVX", caps)
         );
     }
 
-    static boolean isAvailable(VKCapabilitiesInstance capsInstance, VKCapabilitiesDevice caps) {
-        return isAvailable(capsInstance) && checkFunctions(
-            caps.vkCmdProcessCommandsNVX, caps.vkCmdReserveSpaceForCommandsNVX, caps.vkCreateIndirectCommandsLayoutNVX, caps.vkDestroyIndirectCommandsLayoutNVX, 
-            caps.vkCreateObjectTableNVX, caps.vkDestroyObjectTableNVX, caps.vkRegisterObjectsNVX, caps.vkUnregisterObjectsNVX
+    static boolean checkCapsDevice(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_NVX_device_generated_commands") && VK.checkExtension("VK_NVX_device_generated_commands",
+               VK.isSupported(provider, "vkCmdProcessCommandsNVX", caps)
+            && VK.isSupported(provider, "vkCmdReserveSpaceForCommandsNVX", caps)
+            && VK.isSupported(provider, "vkCreateIndirectCommandsLayoutNVX", caps)
+            && VK.isSupported(provider, "vkDestroyIndirectCommandsLayoutNVX", caps)
+            && VK.isSupported(provider, "vkCreateObjectTableNVX", caps)
+            && VK.isSupported(provider, "vkDestroyObjectTableNVX", caps)
+            && VK.isSupported(provider, "vkRegisterObjectsNVX", caps)
+            && VK.isSupported(provider, "vkUnregisterObjectsNVX", caps)
         );
     }
 
@@ -507,10 +513,10 @@ public class NVXDeviceGeneratedCommands {
      * 
      * <p>{@link VkAllocationCallbacks}, {@link VkIndirectCommandsLayoutCreateInfoNVX}</p>
      *
-     * @param device                  the logical device that creates the object table.
-     * @param pCreateInfo             a pointer to an instance of the {@link VkObjectTableCreateInfoNVX} structure containing parameters affecting creation of the table.
+     * @param device                  the logical device that creates the indirect command layout.
+     * @param pCreateInfo             a pointer to an instance of the {@link VkIndirectCommandsLayoutCreateInfoNVX} structure containing parameters affecting creation of the indirect command layout.
      * @param pAllocator              controls host memory allocation as described in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#memory-allocation">Memory Allocation</a> chapter.
-     * @param pIndirectCommandsLayout points to a {@code VkObjectTableNVX} handle in which the resulting object table is returned.
+     * @param pIndirectCommandsLayout points to a {@code VkIndirectCommandsLayoutNVX} handle in which the resulting indirect command layout is returned.
      */
     @NativeType("VkResult")
     public static int vkCreateIndirectCommandsLayoutNVX(VkDevice device, @NativeType("VkIndirectCommandsLayoutCreateInfoNVX const *") VkIndirectCommandsLayoutCreateInfoNVX pCreateInfo, @Nullable @NativeType("VkAllocationCallbacks const *") VkAllocationCallbacks pAllocator, @NativeType("VkIndirectCommandsLayoutNVX *") LongBuffer pIndirectCommandsLayout) {

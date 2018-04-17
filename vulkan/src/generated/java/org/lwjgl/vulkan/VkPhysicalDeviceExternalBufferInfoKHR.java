@@ -16,32 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Structure specifying buffer creation parameters.
- * 
- * <h5>Valid Usage (Implicit)</h5>
- * 
- * <ul>
- * <li>{@code sType} <b>must</b> be {@link KHRExternalMemoryCapabilities#VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO_KHR STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_BUFFER_INFO_KHR}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * <li>{@code flags} <b>must</b> be a valid combination of {@code VkBufferCreateFlagBits} values</li>
- * <li>{@code usage} <b>must</b> be a valid combination of {@code VkBufferUsageFlagBits} values</li>
- * <li>{@code usage} <b>must</b> not be 0</li>
- * <li>{@code handleType} <b>must</b> be a valid {@code VkExternalMemoryHandleTypeFlagBitsKHR} value</li>
- * </ul>
- * 
- * <h5>See Also</h5>
- * 
- * <p>{@link KHRExternalMemoryCapabilities#vkGetPhysicalDeviceExternalBufferPropertiesKHR GetPhysicalDeviceExternalBufferPropertiesKHR}</p>
- * 
- * <h3>Member documentation</h3>
- * 
- * <ul>
- * <li>{@code sType} &ndash; the type of this structure</li>
- * <li>{@code pNext} &ndash; NULL or a pointer to an extension-specific structure.</li>
- * <li>{@code flags} &ndash; a bitmask of {@code VkBufferCreateFlagBits} describing additional parameters of the buffer, corresponding to {@link VkBufferCreateInfo}{@code ::flags}.</li>
- * <li>{@code usage} &ndash; a bitmask of {@code VkBufferUsageFlagBits} describing the intended usage of the buffer, corresponding to {@link VkBufferCreateInfo}{@code ::usage}.</li>
- * <li>{@code handleType} &ndash; a {@code VkExternalMemoryHandleTypeFlagBitsKHR} value specifying the memory handle type that will be used with the memory associated with the buffer.</li>
- * </ul>
+ * See {@link VkPhysicalDeviceExternalBufferInfo}.
  * 
  * <h3>Layout</h3>
  * 
@@ -51,42 +26,10 @@ import static org.lwjgl.system.MemoryStack.*;
  *     void const * pNext;
  *     VkBufferCreateFlags flags;
  *     VkBufferUsageFlags usage;
- *     VkExternalMemoryHandleTypeFlagBitsKHR handleType;
+ *     VkExternalMemoryHandleTypeFlagBits handleType;
  * }</pre></code>
  */
-public class VkPhysicalDeviceExternalBufferInfoKHR extends Struct implements NativeResource {
-
-    /** The struct size in bytes. */
-    public static final int SIZEOF;
-
-    public static final int ALIGNOF;
-
-    /** The struct member offsets. */
-    public static final int
-        STYPE,
-        PNEXT,
-        FLAGS,
-        USAGE,
-        HANDLETYPE;
-
-    static {
-        Layout layout = __struct(
-            __member(4),
-            __member(POINTER_SIZE),
-            __member(4),
-            __member(4),
-            __member(4)
-        );
-
-        SIZEOF = layout.getSize();
-        ALIGNOF = layout.getAlignment();
-
-        STYPE = layout.offsetof(0);
-        PNEXT = layout.offsetof(1);
-        FLAGS = layout.offsetof(2);
-        USAGE = layout.offsetof(3);
-        HANDLETYPE = layout.offsetof(4);
-    }
+public class VkPhysicalDeviceExternalBufferInfoKHR extends VkPhysicalDeviceExternalBufferInfo {
 
     VkPhysicalDeviceExternalBufferInfoKHR(long address, @Nullable ByteBuffer container) {
         super(address, container);
@@ -102,37 +45,24 @@ public class VkPhysicalDeviceExternalBufferInfoKHR extends Struct implements Nat
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
-    @Override
-    public int sizeof() { return SIZEOF; }
-
-    /** Returns the value of the {@code sType} field. */
-    @NativeType("VkStructureType")
-    public int sType() { return nsType(address()); }
-    /** Returns the value of the {@code pNext} field. */
-    @NativeType("void const *")
-    public long pNext() { return npNext(address()); }
-    /** Returns the value of the {@code flags} field. */
-    @NativeType("VkBufferCreateFlags")
-    public int flags() { return nflags(address()); }
-    /** Returns the value of the {@code usage} field. */
-    @NativeType("VkBufferUsageFlags")
-    public int usage() { return nusage(address()); }
-    /** Returns the value of the {@code handleType} field. */
-    @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR")
-    public int handleType() { return nhandleType(address()); }
-
     /** Sets the specified value to the {@code sType} field. */
+    @Override
     public VkPhysicalDeviceExternalBufferInfoKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
+    @Override
     public VkPhysicalDeviceExternalBufferInfoKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
+    @Override
     public VkPhysicalDeviceExternalBufferInfoKHR flags(@NativeType("VkBufferCreateFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code usage} field. */
+    @Override
     public VkPhysicalDeviceExternalBufferInfoKHR usage(@NativeType("VkBufferUsageFlags") int value) { nusage(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
-    public VkPhysicalDeviceExternalBufferInfoKHR handleType(@NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int value) { nhandleType(address(), value); return this; }
+    @Override
+    public VkPhysicalDeviceExternalBufferInfoKHR handleType(@NativeType("VkExternalMemoryHandleTypeFlagBits") int value) { nhandleType(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
+    @Override
     public VkPhysicalDeviceExternalBufferInfoKHR set(
         int sType,
         long pNext,
@@ -302,32 +232,8 @@ public class VkPhysicalDeviceExternalBufferInfoKHR extends Struct implements Nat
 
     // -----------------------------------
 
-    /** Unsafe version of {@link #sType}. */
-    public static int nsType(long struct) { return memGetInt(struct + VkPhysicalDeviceExternalBufferInfoKHR.STYPE); }
-    /** Unsafe version of {@link #pNext}. */
-    public static long npNext(long struct) { return memGetAddress(struct + VkPhysicalDeviceExternalBufferInfoKHR.PNEXT); }
-    /** Unsafe version of {@link #flags}. */
-    public static int nflags(long struct) { return memGetInt(struct + VkPhysicalDeviceExternalBufferInfoKHR.FLAGS); }
-    /** Unsafe version of {@link #usage}. */
-    public static int nusage(long struct) { return memGetInt(struct + VkPhysicalDeviceExternalBufferInfoKHR.USAGE); }
-    /** Unsafe version of {@link #handleType}. */
-    public static int nhandleType(long struct) { return memGetInt(struct + VkPhysicalDeviceExternalBufferInfoKHR.HANDLETYPE); }
-
-    /** Unsafe version of {@link #sType(int) sType}. */
-    public static void nsType(long struct, int value) { memPutInt(struct + VkPhysicalDeviceExternalBufferInfoKHR.STYPE, value); }
-    /** Unsafe version of {@link #pNext(long) pNext}. */
-    public static void npNext(long struct, long value) { memPutAddress(struct + VkPhysicalDeviceExternalBufferInfoKHR.PNEXT, value); }
-    /** Unsafe version of {@link #flags(int) flags}. */
-    public static void nflags(long struct, int value) { memPutInt(struct + VkPhysicalDeviceExternalBufferInfoKHR.FLAGS, value); }
-    /** Unsafe version of {@link #usage(int) usage}. */
-    public static void nusage(long struct, int value) { memPutInt(struct + VkPhysicalDeviceExternalBufferInfoKHR.USAGE, value); }
-    /** Unsafe version of {@link #handleType(int) handleType}. */
-    public static void nhandleType(long struct, int value) { memPutInt(struct + VkPhysicalDeviceExternalBufferInfoKHR.HANDLETYPE, value); }
-
-    // -----------------------------------
-
     /** An array of {@link VkPhysicalDeviceExternalBufferInfoKHR} structs. */
-    public static class Buffer extends StructBuffer<VkPhysicalDeviceExternalBufferInfoKHR, Buffer> implements NativeResource {
+    public static class Buffer extends VkPhysicalDeviceExternalBufferInfo.Buffer {
 
         /**
          * Creates a new {@link VkPhysicalDeviceExternalBufferInfoKHR.Buffer} instance backed by the specified container.
@@ -339,7 +245,7 @@ public class VkPhysicalDeviceExternalBufferInfoKHR extends Struct implements Nat
          * <p>The created buffer instance holds a strong reference to the container object.</p>
          */
         public Buffer(ByteBuffer container) {
-            super(container, container.remaining() / SIZEOF);
+            super(container);
         }
 
         public Buffer(long address, int cap) {
@@ -365,37 +271,21 @@ public class VkPhysicalDeviceExternalBufferInfoKHR extends Struct implements Nat
             return new VkPhysicalDeviceExternalBufferInfoKHR(address, container);
         }
 
-        @Override
-        public int sizeof() {
-            return SIZEOF;
-        }
-
-        /** Returns the value of the {@code sType} field. */
-        @NativeType("VkStructureType")
-        public int sType() { return VkPhysicalDeviceExternalBufferInfoKHR.nsType(address()); }
-        /** Returns the value of the {@code pNext} field. */
-        @NativeType("void const *")
-        public long pNext() { return VkPhysicalDeviceExternalBufferInfoKHR.npNext(address()); }
-        /** Returns the value of the {@code flags} field. */
-        @NativeType("VkBufferCreateFlags")
-        public int flags() { return VkPhysicalDeviceExternalBufferInfoKHR.nflags(address()); }
-        /** Returns the value of the {@code usage} field. */
-        @NativeType("VkBufferUsageFlags")
-        public int usage() { return VkPhysicalDeviceExternalBufferInfoKHR.nusage(address()); }
-        /** Returns the value of the {@code handleType} field. */
-        @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR")
-        public int handleType() { return VkPhysicalDeviceExternalBufferInfoKHR.nhandleType(address()); }
-
         /** Sets the specified value to the {@code sType} field. */
+        @Override
         public VkPhysicalDeviceExternalBufferInfoKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceExternalBufferInfoKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
+        @Override
         public VkPhysicalDeviceExternalBufferInfoKHR.Buffer pNext(@NativeType("void const *") long value) { VkPhysicalDeviceExternalBufferInfoKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
+        @Override
         public VkPhysicalDeviceExternalBufferInfoKHR.Buffer flags(@NativeType("VkBufferCreateFlags") int value) { VkPhysicalDeviceExternalBufferInfoKHR.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code usage} field. */
+        @Override
         public VkPhysicalDeviceExternalBufferInfoKHR.Buffer usage(@NativeType("VkBufferUsageFlags") int value) { VkPhysicalDeviceExternalBufferInfoKHR.nusage(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */
-        public VkPhysicalDeviceExternalBufferInfoKHR.Buffer handleType(@NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int value) { VkPhysicalDeviceExternalBufferInfoKHR.nhandleType(address(), value); return this; }
+        @Override
+        public VkPhysicalDeviceExternalBufferInfoKHR.Buffer handleType(@NativeType("VkExternalMemoryHandleTypeFlagBits") int value) { VkPhysicalDeviceExternalBufferInfoKHR.nhandleType(address(), value); return this; }
 
     }
 

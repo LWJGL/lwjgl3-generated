@@ -9,38 +9,12 @@ import javax.annotation.*;
 
 import java.nio.*;
 
-import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
-import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * Structure specifying physical device properties.
- * 
- * <h5>Description</h5>
- * 
- * <p>The {@code pNext} chain of this structure is used to extend the structure with properties defined by extensions.</p>
- * 
- * <h5>Valid Usage (Implicit)</h5>
- * 
- * <ul>
- * <li>{@code sType} <b>must</b> be {@link KHRGetPhysicalDeviceProperties2#VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2_KHR STRUCTURE_TYPE_PHYSICAL_DEVICE_PROPERTIES_2_KHR}</li>
- * <li>Each {@code pNext} member of any structure (including this one) in the {@code pNext} chain <b>must</b> be either {@code NULL} or a pointer to a valid instance of {@link VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT}, {@link VkPhysicalDeviceConservativeRasterizationPropertiesEXT}, {@link VkPhysicalDeviceDiscardRectanglePropertiesEXT}, {@link VkPhysicalDeviceExternalMemoryHostPropertiesEXT}, {@link VkPhysicalDeviceIDPropertiesKHR}, {@link VkPhysicalDeviceMultiviewPerViewAttributesPropertiesNVX}, {@link VkPhysicalDeviceMultiviewPropertiesKHX}, {@link VkPhysicalDevicePointClippingPropertiesKHR}, {@link VkPhysicalDevicePushDescriptorPropertiesKHR}, {@link VkPhysicalDeviceSampleLocationsPropertiesEXT}, or {@link VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT}</li>
- * <li>Each {@code sType} member in the {@code pNext} chain <b>must</b> be unique</li>
- * </ul>
- * 
- * <h5>See Also</h5>
- * 
- * <p>{@link VkPhysicalDeviceProperties}, {@link KHRGetPhysicalDeviceProperties2#vkGetPhysicalDeviceProperties2KHR GetPhysicalDeviceProperties2KHR}</p>
- * 
- * <h3>Member documentation</h3>
- * 
- * <ul>
- * <li>{@code sType} &ndash; the type of this structure.</li>
- * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code properties} &ndash; a structure of type {@link VkPhysicalDeviceProperties} describing the properties of the physical device. This structure is written with the same values as if it were written by {@link VK10#vkGetPhysicalDeviceProperties GetPhysicalDeviceProperties}.</li>
- * </ul>
+ * See {@link VkPhysicalDeviceProperties2}.
  * 
  * <h3>Layout</h3>
  * 
@@ -51,33 +25,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link VkPhysicalDeviceProperties VkPhysicalDeviceProperties} properties;
  * }</pre></code>
  */
-public class VkPhysicalDeviceProperties2KHR extends Struct implements NativeResource {
-
-    /** The struct size in bytes. */
-    public static final int SIZEOF;
-
-    public static final int ALIGNOF;
-
-    /** The struct member offsets. */
-    public static final int
-        STYPE,
-        PNEXT,
-        PROPERTIES;
-
-    static {
-        Layout layout = __struct(
-            __member(4),
-            __member(POINTER_SIZE),
-            __member(VkPhysicalDeviceProperties.SIZEOF, VkPhysicalDeviceProperties.ALIGNOF)
-        );
-
-        SIZEOF = layout.getSize();
-        ALIGNOF = layout.getAlignment();
-
-        STYPE = layout.offsetof(0);
-        PNEXT = layout.offsetof(1);
-        PROPERTIES = layout.offsetof(2);
-    }
+public class VkPhysicalDeviceProperties2KHR extends VkPhysicalDeviceProperties2 {
 
     VkPhysicalDeviceProperties2KHR(long address, @Nullable ByteBuffer container) {
         super(address, container);
@@ -93,34 +41,7 @@ public class VkPhysicalDeviceProperties2KHR extends Struct implements NativeReso
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
-    @Override
-    public int sizeof() { return SIZEOF; }
-
-    /** Returns the value of the {@code sType} field. */
-    @NativeType("VkStructureType")
-    public int sType() { return nsType(address()); }
-    /** Returns the value of the {@code pNext} field. */
-    @NativeType("void *")
-    public long pNext() { return npNext(address()); }
-    /** Returns a {@link VkPhysicalDeviceProperties} view of the {@code properties} field. */
-    public VkPhysicalDeviceProperties properties() { return nproperties(address()); }
-
     // -----------------------------------
-
-    /** Returns a new {@link VkPhysicalDeviceProperties2KHR} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
-    public static VkPhysicalDeviceProperties2KHR malloc() {
-        return create(nmemAllocChecked(SIZEOF));
-    }
-
-    /** Returns a new {@link VkPhysicalDeviceProperties2KHR} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
-    public static VkPhysicalDeviceProperties2KHR calloc() {
-        return create(nmemCallocChecked(1, SIZEOF));
-    }
-
-    /** Returns a new {@link VkPhysicalDeviceProperties2KHR} instance allocated with {@link BufferUtils}. */
-    public static VkPhysicalDeviceProperties2KHR create() {
-        return new VkPhysicalDeviceProperties2KHR(BufferUtils.createByteBuffer(SIZEOF));
-    }
 
     /** Returns a new {@link VkPhysicalDeviceProperties2KHR} instance for the specified memory address. */
     public static VkPhysicalDeviceProperties2KHR create(long address) {
@@ -131,33 +52,6 @@ public class VkPhysicalDeviceProperties2KHR extends Struct implements NativeReso
     @Nullable
     public static VkPhysicalDeviceProperties2KHR createSafe(long address) {
         return address == NULL ? null : create(address);
-    }
-
-    /**
-     * Returns a new {@link VkPhysicalDeviceProperties2KHR.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkPhysicalDeviceProperties2KHR.Buffer malloc(int capacity) {
-        return create(__malloc(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VkPhysicalDeviceProperties2KHR.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkPhysicalDeviceProperties2KHR.Buffer calloc(int capacity) {
-        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VkPhysicalDeviceProperties2KHR.Buffer} instance allocated with {@link BufferUtils}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkPhysicalDeviceProperties2KHR.Buffer create(int capacity) {
-        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -178,85 +72,8 @@ public class VkPhysicalDeviceProperties2KHR extends Struct implements NativeReso
 
     // -----------------------------------
 
-    /** Returns a new {@link VkPhysicalDeviceProperties2KHR} instance allocated on the thread-local {@link MemoryStack}. */
-    public static VkPhysicalDeviceProperties2KHR mallocStack() {
-        return mallocStack(stackGet());
-    }
-
-    /** Returns a new {@link VkPhysicalDeviceProperties2KHR} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
-    public static VkPhysicalDeviceProperties2KHR callocStack() {
-        return callocStack(stackGet());
-    }
-
-    /**
-     * Returns a new {@link VkPhysicalDeviceProperties2KHR} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VkPhysicalDeviceProperties2KHR mallocStack(MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VkPhysicalDeviceProperties2KHR} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     */
-    public static VkPhysicalDeviceProperties2KHR callocStack(MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
-    }
-
-    /**
-     * Returns a new {@link VkPhysicalDeviceProperties2KHR.Buffer} instance allocated on the thread-local {@link MemoryStack}.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkPhysicalDeviceProperties2KHR.Buffer mallocStack(int capacity) {
-        return mallocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VkPhysicalDeviceProperties2KHR.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param capacity the buffer capacity
-     */
-    public static VkPhysicalDeviceProperties2KHR.Buffer callocStack(int capacity) {
-        return callocStack(capacity, stackGet());
-    }
-
-    /**
-     * Returns a new {@link VkPhysicalDeviceProperties2KHR.Buffer} instance allocated on the specified {@link MemoryStack}.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static VkPhysicalDeviceProperties2KHR.Buffer mallocStack(int capacity, MemoryStack stack) {
-        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
-    }
-
-    /**
-     * Returns a new {@link VkPhysicalDeviceProperties2KHR.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
-     *
-     * @param stack the stack from which to allocate
-     * @param capacity the buffer capacity
-     */
-    public static VkPhysicalDeviceProperties2KHR.Buffer callocStack(int capacity, MemoryStack stack) {
-        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
-    }
-
-    // -----------------------------------
-
-    /** Unsafe version of {@link #sType}. */
-    public static int nsType(long struct) { return memGetInt(struct + VkPhysicalDeviceProperties2KHR.STYPE); }
-    /** Unsafe version of {@link #pNext}. */
-    public static long npNext(long struct) { return memGetAddress(struct + VkPhysicalDeviceProperties2KHR.PNEXT); }
-    /** Unsafe version of {@link #properties}. */
-    public static VkPhysicalDeviceProperties nproperties(long struct) { return VkPhysicalDeviceProperties.create(struct + VkPhysicalDeviceProperties2KHR.PROPERTIES); }
-
-    // -----------------------------------
-
     /** An array of {@link VkPhysicalDeviceProperties2KHR} structs. */
-    public static class Buffer extends StructBuffer<VkPhysicalDeviceProperties2KHR, Buffer> implements NativeResource {
+    public static class Buffer extends VkPhysicalDeviceProperties2.Buffer {
 
         /**
          * Creates a new {@link VkPhysicalDeviceProperties2KHR.Buffer} instance backed by the specified container.
@@ -268,7 +85,7 @@ public class VkPhysicalDeviceProperties2KHR extends Struct implements NativeReso
          * <p>The created buffer instance holds a strong reference to the container object.</p>
          */
         public Buffer(ByteBuffer container) {
-            super(container, container.remaining() / SIZEOF);
+            super(container);
         }
 
         public Buffer(long address, int cap) {
@@ -293,20 +110,6 @@ public class VkPhysicalDeviceProperties2KHR extends Struct implements NativeReso
         protected VkPhysicalDeviceProperties2KHR newInstance(long address) {
             return new VkPhysicalDeviceProperties2KHR(address, container);
         }
-
-        @Override
-        public int sizeof() {
-            return SIZEOF;
-        }
-
-        /** Returns the value of the {@code sType} field. */
-        @NativeType("VkStructureType")
-        public int sType() { return VkPhysicalDeviceProperties2KHR.nsType(address()); }
-        /** Returns the value of the {@code pNext} field. */
-        @NativeType("void *")
-        public long pNext() { return VkPhysicalDeviceProperties2KHR.npNext(address()); }
-        /** Returns a {@link VkPhysicalDeviceProperties} view of the {@code properties} field. */
-        public VkPhysicalDeviceProperties properties() { return VkPhysicalDeviceProperties2KHR.nproperties(address()); }
 
     }
 

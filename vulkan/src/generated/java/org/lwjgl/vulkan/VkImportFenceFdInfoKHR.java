@@ -27,8 +27,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <table class="lwjgl">
  * <thead><tr><th>Handle Type</th><th>Transference</th><th>Permanence Supported</th></tr></thead>
  * <tbody>
- * <tr><td>{@link KHRExternalFenceCapabilities#VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_FD_BIT_KHR EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_FD_BIT_KHR}</td><td>Reference</td><td>Temporary,Permanent</td></tr>
- * <tr><td>{@link KHRExternalFenceCapabilities#VK_EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT_KHR EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT_KHR}</td><td>Copy</td><td>Temporary</td></tr>
+ * <tr><td>{@link VK11#VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_FD_BIT EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_FD_BIT}</td><td>Reference</td><td>Temporary,Permanent</td></tr>
+ * <tr><td>{@link VK11#VK_EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT}</td><td>Copy</td><td>Temporary</td></tr>
  * </tbody>
  * </table>
  * 
@@ -39,11 +39,11 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code fd} <b>must</b> obey any requirements listed for {@code handleType} in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#external-fence-handle-types-compatibility">external fence handle types compatibility</a>.</li>
  * </ul>
  * 
- * <p>If {@code handleType} is {@link KHRExternalFenceCapabilities#VK_EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT_KHR EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT_KHR}, the special value {@code -1} for {@code fd} is treated like a valid sync file descriptor referring to an object that has already signaled. The import operation will succeed and the {@code VkFence} will have a temporarily imported payload as if a valid file descriptor had been provided.</p>
+ * <p>If {@code handleType} is {@link VK11#VK_EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT}, the special value {@code -1} for {@code fd} is treated like a valid sync file descriptor referring to an object that has already signaled. The import operation will succeed and the {@code VkFence} will have a temporarily imported payload as if a valid file descriptor had been provided.</p>
  * 
  * <div style="margin-left: 26px; border-left: 1px solid gray; padding-left: 14px;"><h5>Note</h5>
  * 
- * <p>This special behavior for importing an invalid sync file descriptor allows easier interoperability with other system software which uses the convention that an invalid sync file descriptor represents work that has already completed and doesn't need to be waited for. It is consistent with the option for implementations to return a {@code -1} file descriptor when exporting a {@link KHRExternalFenceCapabilities#VK_EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT_KHR EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT_KHR} from a {@code VkFence} which is signaled.</p>
+ * <p>This special behavior for importing an invalid sync file descriptor allows easier interoperability with other system APIs which use the convention that an invalid sync file descriptor represents work that has already completed and doesn't need to be waited for. It is consistent with the option for implementations to return a {@code -1} file descriptor when exporting a {@link VK11#VK_EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT EXTERNAL_FENCE_HANDLE_TYPE_SYNC_FD_BIT} from a {@code VkFence} which is signaled.</p>
  * </div>
  * 
  * <h5>Valid Usage (Implicit)</h5>
@@ -52,8 +52,8 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} <b>must</b> be {@link KHRExternalFenceFd#VK_STRUCTURE_TYPE_IMPORT_FENCE_FD_INFO_KHR STRUCTURE_TYPE_IMPORT_FENCE_FD_INFO_KHR}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
- * <li>{@code flags} <b>must</b> be a valid combination of {@code VkFenceImportFlagBitsKHR} values</li>
- * <li>{@code handleType} <b>must</b> be a valid {@code VkExternalFenceHandleTypeFlagBitsKHR} value</li>
+ * <li>{@code flags} <b>must</b> be a valid combination of {@code VkFenceImportFlagBits} values</li>
+ * <li>{@code handleType} <b>must</b> be a valid {@code VkExternalFenceHandleTypeFlagBits} value</li>
  * </ul>
  * 
  * <h5>Host Synchronization</h5>
@@ -72,7 +72,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code fence} &ndash; the fence into which the payload will be imported.</li>
- * <li>{@code flags} &ndash; a bitmask of {@code VkFenceImportFlagBitsKHR} specifying additional parameters for the fence payload import operation.</li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkFenceImportFlagBits} specifying additional parameters for the fence payload import operation.</li>
  * <li>{@code handleType} &ndash; specifies the type of {@code fd}.</li>
  * <li>{@code fd} &ndash; the external handle to import.</li>
  * </ul>
@@ -84,8 +84,8 @@ import static org.lwjgl.system.MemoryStack.*;
  *     VkStructureType sType;
  *     void const * pNext;
  *     VkFence fence;
- *     VkFenceImportFlagsKHR flags;
- *     VkExternalFenceHandleTypeFlagBitsKHR handleType;
+ *     VkFenceImportFlags flags;
+ *     VkExternalFenceHandleTypeFlagBits handleType;
  *     int fd;
  * }</pre></code>
  */
@@ -153,10 +153,10 @@ public class VkImportFenceFdInfoKHR extends Struct implements NativeResource {
     @NativeType("VkFence")
     public long fence() { return nfence(address()); }
     /** Returns the value of the {@code flags} field. */
-    @NativeType("VkFenceImportFlagsKHR")
+    @NativeType("VkFenceImportFlags")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code handleType} field. */
-    @NativeType("VkExternalFenceHandleTypeFlagBitsKHR")
+    @NativeType("VkExternalFenceHandleTypeFlagBits")
     public int handleType() { return nhandleType(address()); }
     /** Returns the value of the {@code fd} field. */
     public int fd() { return nfd(address()); }
@@ -168,9 +168,9 @@ public class VkImportFenceFdInfoKHR extends Struct implements NativeResource {
     /** Sets the specified value to the {@code fence} field. */
     public VkImportFenceFdInfoKHR fence(@NativeType("VkFence") long value) { nfence(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkImportFenceFdInfoKHR flags(@NativeType("VkFenceImportFlagsKHR") int value) { nflags(address(), value); return this; }
+    public VkImportFenceFdInfoKHR flags(@NativeType("VkFenceImportFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
-    public VkImportFenceFdInfoKHR handleType(@NativeType("VkExternalFenceHandleTypeFlagBitsKHR") int value) { nhandleType(address(), value); return this; }
+    public VkImportFenceFdInfoKHR handleType(@NativeType("VkExternalFenceHandleTypeFlagBits") int value) { nhandleType(address(), value); return this; }
     /** Sets the specified value to the {@code fd} field. */
     public VkImportFenceFdInfoKHR fd(int value) { nfd(address(), value); return this; }
 
@@ -428,10 +428,10 @@ public class VkImportFenceFdInfoKHR extends Struct implements NativeResource {
         @NativeType("VkFence")
         public long fence() { return VkImportFenceFdInfoKHR.nfence(address()); }
         /** Returns the value of the {@code flags} field. */
-        @NativeType("VkFenceImportFlagsKHR")
+        @NativeType("VkFenceImportFlags")
         public int flags() { return VkImportFenceFdInfoKHR.nflags(address()); }
         /** Returns the value of the {@code handleType} field. */
-        @NativeType("VkExternalFenceHandleTypeFlagBitsKHR")
+        @NativeType("VkExternalFenceHandleTypeFlagBits")
         public int handleType() { return VkImportFenceFdInfoKHR.nhandleType(address()); }
         /** Returns the value of the {@code fd} field. */
         public int fd() { return VkImportFenceFdInfoKHR.nfd(address()); }
@@ -443,9 +443,9 @@ public class VkImportFenceFdInfoKHR extends Struct implements NativeResource {
         /** Sets the specified value to the {@code fence} field. */
         public VkImportFenceFdInfoKHR.Buffer fence(@NativeType("VkFence") long value) { VkImportFenceFdInfoKHR.nfence(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkImportFenceFdInfoKHR.Buffer flags(@NativeType("VkFenceImportFlagsKHR") int value) { VkImportFenceFdInfoKHR.nflags(address(), value); return this; }
+        public VkImportFenceFdInfoKHR.Buffer flags(@NativeType("VkFenceImportFlags") int value) { VkImportFenceFdInfoKHR.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */
-        public VkImportFenceFdInfoKHR.Buffer handleType(@NativeType("VkExternalFenceHandleTypeFlagBitsKHR") int value) { VkImportFenceFdInfoKHR.nhandleType(address(), value); return this; }
+        public VkImportFenceFdInfoKHR.Buffer handleType(@NativeType("VkExternalFenceHandleTypeFlagBits") int value) { VkImportFenceFdInfoKHR.nhandleType(address(), value); return this; }
         /** Sets the specified value to the {@code fd} field. */
         public VkImportFenceFdInfoKHR.Buffer fd(int value) { VkImportFenceFdInfoKHR.nfd(address(), value); return this; }
 

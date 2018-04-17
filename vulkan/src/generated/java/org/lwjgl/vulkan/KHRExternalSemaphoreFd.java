@@ -73,9 +73,10 @@ public class KHRExternalSemaphoreFd {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesDevice caps) {
-        return checkFunctions(
-            caps.vkImportSemaphoreFdKHR, caps.vkGetSemaphoreFdKHR
+    static boolean checkCapsDevice(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_KHR_external_semaphore_fd") && VK.checkExtension("VK_KHR_external_semaphore_fd",
+               VK.isSupported(provider, "vkImportSemaphoreFdKHR", caps)
+            && VK.isSupported(provider, "vkGetSemaphoreFdKHR", caps)
         );
     }
 
@@ -131,7 +132,7 @@ public class KHRExternalSemaphoreFd {
      * <dt>On failure, this command returns</dt>
      * <dd><ul>
      * <li>{@link VK10#VK_ERROR_OUT_OF_HOST_MEMORY ERROR_OUT_OF_HOST_MEMORY}</li>
-     * <li>{@link KHRExternalMemory#VK_ERROR_INVALID_EXTERNAL_HANDLE_KHR ERROR_INVALID_EXTERNAL_HANDLE_KHR}</li>
+     * <li>{@link VK11#VK_ERROR_INVALID_EXTERNAL_HANDLE ERROR_INVALID_EXTERNAL_HANDLE}</li>
      * </ul></dd>
      * </dl>
      * 

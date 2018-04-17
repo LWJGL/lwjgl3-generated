@@ -18,6 +18,10 @@ import static org.lwjgl.system.MemoryUtil.*;
 /**
  * This extension provides new entry points to query memory requirements of images and buffers in a way that can be easily extended by other extensions, without introducing any further entry points. The Vulkan 1.0 {@link VkMemoryRequirements} and {@link VkSparseImageMemoryRequirements} structures do not include a {@code sType}/{@code pNext}, this extension wraps them in new structures with {@code sType}/{@code pNext} so an application can query a chain of memory requirements structures by constructing the chain and letting the implementation fill them in. A new command is added for each ftext:vkGet*MemoryRequrements command in core Vulkan 1.0.
  * 
+ * <h5>Promotion to Vulkan 1.1</h5>
+ * 
+ * <p>All functionality in this extension is included in core Vulkan 1.1, with the KHR suffix omitted. The original type, enum and command names are still available as aliases of the core functionality.</p>
+ * 
  * <dl>
  * <dt><b>Name String</b></dt>
  * <dd>{@code VK_KHR_get_memory_requirements2}</dd>
@@ -36,9 +40,13 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>Jason Ekstrand @jekstrand</li>
  * </ul></dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>2017-03-23</dd>
+ * <dd>2017-09-05</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
+ * <dt><b>Interactions and External Dependencies</b></dt>
+ * <dd><ul>
+ * <li>Promoted to Vulkan 1.1 Core</li>
+ * </ul></dd>
  * <dt><b>Contributors</b></dt>
  * <dd><ul>
  * <li>Jason Ekstrand, Intel</li>
@@ -79,9 +87,11 @@ public class KHRGetMemoryRequirements2 {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesDevice caps) {
-        return checkFunctions(
-            caps.vkGetImageMemoryRequirements2KHR, caps.vkGetBufferMemoryRequirements2KHR, caps.vkGetImageSparseMemoryRequirements2KHR
+    static boolean checkCapsDevice(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_KHR_get_memory_requirements2") && VK.checkExtension("VK_KHR_get_memory_requirements2",
+               VK.isSupported(provider, "vkGetImageMemoryRequirements2KHR", caps)
+            && VK.isSupported(provider, "vkGetBufferMemoryRequirements2KHR", caps)
+            && VK.isSupported(provider, "vkGetImageSparseMemoryRequirements2KHR", caps)
         );
     }
 
@@ -97,35 +107,13 @@ public class KHRGetMemoryRequirements2 {
     }
 
     /**
-     * Returns the memory requirements for specified Vulkan object.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To determine the memory requirements for an image resource, call:</p>
-     * 
-     * <code><pre>
-     * void vkGetImageMemoryRequirements2KHR(
-     *     VkDevice                                    device,
-     *     const VkImageMemoryRequirementsInfo2KHR*    pInfo,
-     *     VkMemoryRequirements2KHR*                   pMemoryRequirements);</pre></code>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pInfo} <b>must</b> be a valid pointer to a valid {@link VkImageMemoryRequirementsInfo2KHR} structure</li>
-     * <li>{@code pMemoryRequirements} <b>must</b> be a valid pointer to a {@link VkMemoryRequirements2KHR} structure</li>
-     * </ul>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkImageMemoryRequirementsInfo2KHR}, {@link VkMemoryRequirements2KHR}</p>
+     * See {@link VK11#vkGetImageMemoryRequirements2 GetImageMemoryRequirements2}.
      *
      * @param device              the logical device that owns the image.
-     * @param pInfo               a pointer to an instance of the {@link VkImageMemoryRequirementsInfo2KHR} structure containing parameters required for the memory requirements query.
-     * @param pMemoryRequirements points to an instance of the {@link VkMemoryRequirements2KHR} structure in which the memory requirements of the image object are returned.
+     * @param pInfo               a pointer to an instance of the {@link VkImageMemoryRequirementsInfo2} structure containing parameters required for the memory requirements query.
+     * @param pMemoryRequirements points to an instance of the {@link VkMemoryRequirements2} structure in which the memory requirements of the image object are returned.
      */
-    public static void vkGetImageMemoryRequirements2KHR(VkDevice device, @NativeType("VkImageMemoryRequirementsInfo2KHR const *") VkImageMemoryRequirementsInfo2KHR pInfo, @NativeType("VkMemoryRequirements2KHR *") VkMemoryRequirements2KHR pMemoryRequirements) {
+    public static void vkGetImageMemoryRequirements2KHR(VkDevice device, @NativeType("VkImageMemoryRequirementsInfo2 const *") VkImageMemoryRequirementsInfo2 pInfo, @NativeType("VkMemoryRequirements2 *") VkMemoryRequirements2 pMemoryRequirements) {
         nvkGetImageMemoryRequirements2KHR(device, pInfo.address(), pMemoryRequirements.address());
     }
 
@@ -141,40 +129,23 @@ public class KHRGetMemoryRequirements2 {
     }
 
     /**
-     * Returns the memory requirements for specified Vulkan object.
-     * 
-     * <h5>C Specification</h5>
-     * 
-     * <p>To determine the memory requirements for a buffer resource, call:</p>
-     * 
-     * <code><pre>
-     * void vkGetBufferMemoryRequirements2KHR(
-     *     VkDevice                                    device,
-     *     const VkBufferMemoryRequirementsInfo2KHR*   pInfo,
-     *     VkMemoryRequirements2KHR*                   pMemoryRequirements);</pre></code>
-     * 
-     * <h5>Valid Usage (Implicit)</h5>
-     * 
-     * <ul>
-     * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code pInfo} <b>must</b> be a valid pointer to a valid {@link VkBufferMemoryRequirementsInfo2KHR} structure</li>
-     * <li>{@code pMemoryRequirements} <b>must</b> be a valid pointer to a {@link VkMemoryRequirements2KHR} structure</li>
-     * </ul>
-     * 
-     * <h5>See Also</h5>
-     * 
-     * <p>{@link VkBufferMemoryRequirementsInfo2KHR}, {@link VkMemoryRequirements2KHR}</p>
+     * See {@link VK11#vkGetBufferMemoryRequirements2 GetBufferMemoryRequirements2}.
      *
      * @param device              the logical device that owns the buffer.
-     * @param pInfo               a pointer to an instance of the {@link VkBufferMemoryRequirementsInfo2KHR} structure containing parameters required for the memory requirements query.
-     * @param pMemoryRequirements points to an instance of the {@link VkMemoryRequirements2KHR} structure in which the memory requirements of the buffer object are returned.
+     * @param pInfo               a pointer to an instance of the {@link VkBufferMemoryRequirementsInfo2} structure containing parameters required for the memory requirements query.
+     * @param pMemoryRequirements points to an instance of the {@link VkMemoryRequirements2} structure in which the memory requirements of the buffer object are returned.
      */
-    public static void vkGetBufferMemoryRequirements2KHR(VkDevice device, @NativeType("VkBufferMemoryRequirementsInfo2KHR const *") VkBufferMemoryRequirementsInfo2KHR pInfo, @NativeType("VkMemoryRequirements2KHR *") VkMemoryRequirements2KHR pMemoryRequirements) {
+    public static void vkGetBufferMemoryRequirements2KHR(VkDevice device, @NativeType("VkBufferMemoryRequirementsInfo2 const *") VkBufferMemoryRequirementsInfo2 pInfo, @NativeType("VkMemoryRequirements2 *") VkMemoryRequirements2 pMemoryRequirements) {
         nvkGetBufferMemoryRequirements2KHR(device, pInfo.address(), pMemoryRequirements.address());
     }
 
     // --- [ vkGetImageSparseMemoryRequirements2KHR ] ---
 
+    /**
+     * Unsafe version of: {@link #vkGetImageSparseMemoryRequirements2KHR GetImageSparseMemoryRequirements2KHR}
+     *
+     * @param pSparseMemoryRequirementCount a pointer to an integer related to the number of sparse memory requirements available or queried, as described below.
+     */
     public static void nvkGetImageSparseMemoryRequirements2KHR(VkDevice device, long pInfo, long pSparseMemoryRequirementCount, long pSparseMemoryRequirements) {
         long __functionAddress = device.getCapabilities().vkGetImageSparseMemoryRequirements2KHR;
         if (CHECKS) {
@@ -183,7 +154,15 @@ public class KHRGetMemoryRequirements2 {
         callPPPPV(__functionAddress, device.address(), pInfo, pSparseMemoryRequirementCount, pSparseMemoryRequirements);
     }
 
-    public static void vkGetImageSparseMemoryRequirements2KHR(VkDevice device, @NativeType("VkImageSparseMemoryRequirementsInfo2KHR const *") VkImageSparseMemoryRequirementsInfo2KHR pInfo, @NativeType("uint32_t *") IntBuffer pSparseMemoryRequirementCount, @Nullable @NativeType("VkSparseImageMemoryRequirements2KHR *") VkSparseImageMemoryRequirements2KHR.Buffer pSparseMemoryRequirements) {
+    /**
+     * See {@link VK11#vkGetImageSparseMemoryRequirements2 GetImageSparseMemoryRequirements2}.
+     *
+     * @param device                        the logical device that owns the image.
+     * @param pInfo                         a pointer to an instance of the {@link VkImageSparseMemoryRequirementsInfo2} structure containing parameters required for the memory requirements query.
+     * @param pSparseMemoryRequirementCount a pointer to an integer related to the number of sparse memory requirements available or queried, as described below.
+     * @param pSparseMemoryRequirements     either {@code NULL} or a pointer to an array of {@link VkSparseImageMemoryRequirements2} structures.
+     */
+    public static void vkGetImageSparseMemoryRequirements2KHR(VkDevice device, @NativeType("VkImageSparseMemoryRequirementsInfo2 const *") VkImageSparseMemoryRequirementsInfo2 pInfo, @NativeType("uint32_t *") IntBuffer pSparseMemoryRequirementCount, @Nullable @NativeType("VkSparseImageMemoryRequirements2 *") VkSparseImageMemoryRequirements2.Buffer pSparseMemoryRequirements) {
         if (CHECKS) {
             check(pSparseMemoryRequirementCount, 1);
             checkSafe(pSparseMemoryRequirements, pSparseMemoryRequirementCount.get(pSparseMemoryRequirementCount.position()));
@@ -192,7 +171,7 @@ public class KHRGetMemoryRequirements2 {
     }
 
     /** Array version of: {@link #vkGetImageSparseMemoryRequirements2KHR GetImageSparseMemoryRequirements2KHR} */
-    public static void vkGetImageSparseMemoryRequirements2KHR(VkDevice device, @NativeType("VkImageSparseMemoryRequirementsInfo2KHR const *") VkImageSparseMemoryRequirementsInfo2KHR pInfo, @NativeType("uint32_t *") int[] pSparseMemoryRequirementCount, @Nullable @NativeType("VkSparseImageMemoryRequirements2KHR *") VkSparseImageMemoryRequirements2KHR.Buffer pSparseMemoryRequirements) {
+    public static void vkGetImageSparseMemoryRequirements2KHR(VkDevice device, @NativeType("VkImageSparseMemoryRequirementsInfo2 const *") VkImageSparseMemoryRequirementsInfo2 pInfo, @NativeType("uint32_t *") int[] pSparseMemoryRequirementCount, @Nullable @NativeType("VkSparseImageMemoryRequirements2 *") VkSparseImageMemoryRequirements2.Buffer pSparseMemoryRequirements) {
         long __functionAddress = device.getCapabilities().vkGetImageSparseMemoryRequirements2KHR;
         if (CHECKS) {
             check(__functionAddress);

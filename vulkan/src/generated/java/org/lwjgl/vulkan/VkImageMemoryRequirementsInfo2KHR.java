@@ -16,35 +16,7 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
- * (None).
- * 
- * <h5>Valid Usage</h5>
- * 
- * <ul>
- * <li>If {@code image} was created with a <em>multi-planar</em> format and the {@link KHRSamplerYcbcrConversion#VK_IMAGE_CREATE_DISJOINT_BIT_KHR IMAGE_CREATE_DISJOINT_BIT_KHR} flag, there <b>must</b> be a {@link VkImagePlaneMemoryRequirementsInfoKHR} in the {@code pNext} chain of the {@link VkImageMemoryRequirementsInfo2KHR} structure</li>
- * <li>If {@code image} was not created with the {@link KHRSamplerYcbcrConversion#VK_IMAGE_CREATE_DISJOINT_BIT_KHR IMAGE_CREATE_DISJOINT_BIT_KHR} flag, there <b>must</b> not be a {@link VkImagePlaneMemoryRequirementsInfoKHR} in the {@code pNext} chain of the {@link VkImageMemoryRequirementsInfo2KHR} structure</li>
- * <li>If {@code image} was created with a single-plane format, there <b>must</b> not be a {@link VkImagePlaneMemoryRequirementsInfoKHR} in the {@code pNext} chain of the {@link VkImageMemoryRequirementsInfo2KHR} structure</li>
- * </ul>
- * 
- * <h5>Valid Usage (Implicit)</h5>
- * 
- * <ul>
- * <li>{@code sType} <b>must</b> be {@link KHRGetMemoryRequirements2#VK_STRUCTURE_TYPE_IMAGE_MEMORY_REQUIREMENTS_INFO_2_KHR STRUCTURE_TYPE_IMAGE_MEMORY_REQUIREMENTS_INFO_2_KHR}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL} or a pointer to a valid instance of {@link VkImagePlaneMemoryRequirementsInfoKHR}</li>
- * <li>{@code image} <b>must</b> be a valid {@code VkImage} handle</li>
- * </ul>
- * 
- * <h5>See Also</h5>
- * 
- * <p>{@link KHRGetMemoryRequirements2#vkGetImageMemoryRequirements2KHR GetImageMemoryRequirements2KHR}</p>
- * 
- * <h3>Member documentation</h3>
- * 
- * <ul>
- * <li>{@code sType} &ndash; the type of this structure.</li>
- * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code image} &ndash; the image to query.</li>
- * </ul>
+ * See {@link VkImageMemoryRequirementsInfo2}.
  * 
  * <h3>Layout</h3>
  * 
@@ -55,33 +27,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     VkImage image;
  * }</pre></code>
  */
-public class VkImageMemoryRequirementsInfo2KHR extends Struct implements NativeResource {
-
-    /** The struct size in bytes. */
-    public static final int SIZEOF;
-
-    public static final int ALIGNOF;
-
-    /** The struct member offsets. */
-    public static final int
-        STYPE,
-        PNEXT,
-        IMAGE;
-
-    static {
-        Layout layout = __struct(
-            __member(4),
-            __member(POINTER_SIZE),
-            __member(8)
-        );
-
-        SIZEOF = layout.getSize();
-        ALIGNOF = layout.getAlignment();
-
-        STYPE = layout.offsetof(0);
-        PNEXT = layout.offsetof(1);
-        IMAGE = layout.offsetof(2);
-    }
+public class VkImageMemoryRequirementsInfo2KHR extends VkImageMemoryRequirementsInfo2 {
 
     VkImageMemoryRequirementsInfo2KHR(long address, @Nullable ByteBuffer container) {
         super(address, container);
@@ -97,27 +43,18 @@ public class VkImageMemoryRequirementsInfo2KHR extends Struct implements NativeR
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
-    @Override
-    public int sizeof() { return SIZEOF; }
-
-    /** Returns the value of the {@code sType} field. */
-    @NativeType("VkStructureType")
-    public int sType() { return nsType(address()); }
-    /** Returns the value of the {@code pNext} field. */
-    @NativeType("void const *")
-    public long pNext() { return npNext(address()); }
-    /** Returns the value of the {@code image} field. */
-    @NativeType("VkImage")
-    public long image() { return nimage(address()); }
-
     /** Sets the specified value to the {@code sType} field. */
+    @Override
     public VkImageMemoryRequirementsInfo2KHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
+    @Override
     public VkImageMemoryRequirementsInfo2KHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code image} field. */
+    @Override
     public VkImageMemoryRequirementsInfo2KHR image(@NativeType("VkImage") long value) { nimage(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
+    @Override
     public VkImageMemoryRequirementsInfo2KHR set(
         int sType,
         long pNext,
@@ -283,24 +220,8 @@ public class VkImageMemoryRequirementsInfo2KHR extends Struct implements NativeR
 
     // -----------------------------------
 
-    /** Unsafe version of {@link #sType}. */
-    public static int nsType(long struct) { return memGetInt(struct + VkImageMemoryRequirementsInfo2KHR.STYPE); }
-    /** Unsafe version of {@link #pNext}. */
-    public static long npNext(long struct) { return memGetAddress(struct + VkImageMemoryRequirementsInfo2KHR.PNEXT); }
-    /** Unsafe version of {@link #image}. */
-    public static long nimage(long struct) { return memGetLong(struct + VkImageMemoryRequirementsInfo2KHR.IMAGE); }
-
-    /** Unsafe version of {@link #sType(int) sType}. */
-    public static void nsType(long struct, int value) { memPutInt(struct + VkImageMemoryRequirementsInfo2KHR.STYPE, value); }
-    /** Unsafe version of {@link #pNext(long) pNext}. */
-    public static void npNext(long struct, long value) { memPutAddress(struct + VkImageMemoryRequirementsInfo2KHR.PNEXT, value); }
-    /** Unsafe version of {@link #image(long) image}. */
-    public static void nimage(long struct, long value) { memPutLong(struct + VkImageMemoryRequirementsInfo2KHR.IMAGE, value); }
-
-    // -----------------------------------
-
     /** An array of {@link VkImageMemoryRequirementsInfo2KHR} structs. */
-    public static class Buffer extends StructBuffer<VkImageMemoryRequirementsInfo2KHR, Buffer> implements NativeResource {
+    public static class Buffer extends VkImageMemoryRequirementsInfo2.Buffer {
 
         /**
          * Creates a new {@link VkImageMemoryRequirementsInfo2KHR.Buffer} instance backed by the specified container.
@@ -312,7 +233,7 @@ public class VkImageMemoryRequirementsInfo2KHR extends Struct implements NativeR
          * <p>The created buffer instance holds a strong reference to the container object.</p>
          */
         public Buffer(ByteBuffer container) {
-            super(container, container.remaining() / SIZEOF);
+            super(container);
         }
 
         public Buffer(long address, int cap) {
@@ -338,26 +259,14 @@ public class VkImageMemoryRequirementsInfo2KHR extends Struct implements NativeR
             return new VkImageMemoryRequirementsInfo2KHR(address, container);
         }
 
-        @Override
-        public int sizeof() {
-            return SIZEOF;
-        }
-
-        /** Returns the value of the {@code sType} field. */
-        @NativeType("VkStructureType")
-        public int sType() { return VkImageMemoryRequirementsInfo2KHR.nsType(address()); }
-        /** Returns the value of the {@code pNext} field. */
-        @NativeType("void const *")
-        public long pNext() { return VkImageMemoryRequirementsInfo2KHR.npNext(address()); }
-        /** Returns the value of the {@code image} field. */
-        @NativeType("VkImage")
-        public long image() { return VkImageMemoryRequirementsInfo2KHR.nimage(address()); }
-
         /** Sets the specified value to the {@code sType} field. */
+        @Override
         public VkImageMemoryRequirementsInfo2KHR.Buffer sType(@NativeType("VkStructureType") int value) { VkImageMemoryRequirementsInfo2KHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
+        @Override
         public VkImageMemoryRequirementsInfo2KHR.Buffer pNext(@NativeType("void const *") long value) { VkImageMemoryRequirementsInfo2KHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code image} field. */
+        @Override
         public VkImageMemoryRequirementsInfo2KHR.Buffer image(@NativeType("VkImage") long value) { VkImageMemoryRequirementsInfo2KHR.nimage(address(), value); return this; }
 
     }

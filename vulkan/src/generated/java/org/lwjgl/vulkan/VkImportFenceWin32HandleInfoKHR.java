@@ -30,8 +30,8 @@ import org.lwjgl.system.windows.*;
  * <table class="lwjgl">
  * <thead><tr><th>Handle Type</th><th>Transference</th><th>Permanence Supported</th></tr></thead>
  * <tbody>
- * <tr><td>{@link KHRExternalFenceCapabilities#VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR}</td><td>Reference</td><td>Temporary,Permanent</td></tr>
- * <tr><td>{@link KHRExternalFenceCapabilities#VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHR EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT_KHR}</td><td>Reference</td><td>Temporary,Permanent</td></tr>
+ * <tr><td>{@link VK11#VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT}</td><td>Reference</td><td>Temporary,Permanent</td></tr>
+ * <tr><td>{@link VK11#VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_KMT_BIT}</td><td>Reference</td><td>Temporary,Permanent</td></tr>
  * </tbody>
  * </table>
  * 
@@ -39,7 +39,7 @@ import org.lwjgl.system.windows.*;
  * 
  * <ul>
  * <li>{@code handleType} <b>must</b> be a value included in the <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-fence-handletypes-win32">Handle Types Supported by VkImportFenceWin32HandleInfoKHR</a> table.</li>
- * <li>If {@code handleType} is not {@link KHRExternalFenceCapabilities#VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT_KHR}, {@code name} <b>must</b> be {@code NULL}.</li>
+ * <li>If {@code handleType} is not {@link VK11#VK_EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT EXTERNAL_FENCE_HANDLE_TYPE_OPAQUE_WIN32_BIT}, {@code name} <b>must</b> be {@code NULL}.</li>
  * <li>If {@code handleType} is not 0 and {@code handle} is {@code NULL}, {@code name} <b>must</b> name a valid synchronization primitive of the type specified by {@code handleType}.</li>
  * <li>If {@code handleType} is not 0 and {@code name} is {@code NULL}, {@code handle} <b>must</b> be a valid handle of the type specified by {@code handleType}.</li>
  * <li>If {@code handle} is not {@code NULL}, {@code name} must be {@code NULL}.</li>
@@ -53,8 +53,8 @@ import org.lwjgl.system.windows.*;
  * <li>{@code sType} <b>must</b> be {@link KHRExternalFenceWin32#VK_STRUCTURE_TYPE_IMPORT_FENCE_WIN32_HANDLE_INFO_KHR STRUCTURE_TYPE_IMPORT_FENCE_WIN32_HANDLE_INFO_KHR}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
- * <li>{@code flags} <b>must</b> be a valid combination of {@code VkFenceImportFlagBitsKHR} values</li>
- * <li>If {@code handleType} is not 0, {@code handleType} <b>must</b> be a valid {@code VkExternalFenceHandleTypeFlagBitsKHR} value</li>
+ * <li>{@code flags} <b>must</b> be a valid combination of {@code VkFenceImportFlagBits} values</li>
+ * <li>If {@code handleType} is not 0, {@code handleType} <b>must</b> be a valid {@code VkExternalFenceHandleTypeFlagBits} value</li>
  * </ul>
  * 
  * <h5>Host Synchronization</h5>
@@ -73,7 +73,7 @@ import org.lwjgl.system.windows.*;
  * <li>{@code sType} &ndash; the type of this structure.</li>
  * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
  * <li>{@code fence} &ndash; the fence into which the state will be imported.</li>
- * <li>{@code flags} &ndash; a bitmask of {@code VkFenceImportFlagBitsKHR} specifying additional parameters for the fence payload import operation.</li>
+ * <li>{@code flags} &ndash; a bitmask of {@code VkFenceImportFlagBits} specifying additional parameters for the fence payload import operation.</li>
  * <li>{@code handleType} &ndash; specifies the type of {@code handle}.</li>
  * <li>{@code handle} &ndash; the external handle to import, or {@code NULL}.</li>
  * <li>{@code name} &ndash; the NULL-terminated UTF-16 string naming the underlying synchronization primitive to import, or {@code NULL}.</li>
@@ -86,8 +86,8 @@ import org.lwjgl.system.windows.*;
  *     VkStructureType sType;
  *     void const * pNext;
  *     VkFence fence;
- *     VkFenceImportFlagsKHR flags;
- *     VkExternalFenceHandleTypeFlagBitsKHR handleType;
+ *     VkFenceImportFlags flags;
+ *     VkExternalFenceHandleTypeFlagBits handleType;
  *     HANDLE handle;
  *     LPCWSTR name;
  * }</pre></code>
@@ -159,10 +159,10 @@ public class VkImportFenceWin32HandleInfoKHR extends Struct implements NativeRes
     @NativeType("VkFence")
     public long fence() { return nfence(address()); }
     /** Returns the value of the {@code flags} field. */
-    @NativeType("VkFenceImportFlagsKHR")
+    @NativeType("VkFenceImportFlags")
     public int flags() { return nflags(address()); }
     /** Returns the value of the {@code handleType} field. */
-    @NativeType("VkExternalFenceHandleTypeFlagBitsKHR")
+    @NativeType("VkExternalFenceHandleTypeFlagBits")
     public int handleType() { return nhandleType(address()); }
     /** Returns the value of the {@code handle} field. */
     @NativeType("HANDLE")
@@ -181,9 +181,9 @@ public class VkImportFenceWin32HandleInfoKHR extends Struct implements NativeRes
     /** Sets the specified value to the {@code fence} field. */
     public VkImportFenceWin32HandleInfoKHR fence(@NativeType("VkFence") long value) { nfence(address(), value); return this; }
     /** Sets the specified value to the {@code flags} field. */
-    public VkImportFenceWin32HandleInfoKHR flags(@NativeType("VkFenceImportFlagsKHR") int value) { nflags(address(), value); return this; }
+    public VkImportFenceWin32HandleInfoKHR flags(@NativeType("VkFenceImportFlags") int value) { nflags(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
-    public VkImportFenceWin32HandleInfoKHR handleType(@NativeType("VkExternalFenceHandleTypeFlagBitsKHR") int value) { nhandleType(address(), value); return this; }
+    public VkImportFenceWin32HandleInfoKHR handleType(@NativeType("VkExternalFenceHandleTypeFlagBits") int value) { nhandleType(address(), value); return this; }
     /** Sets the specified value to the {@code handle} field. */
     public VkImportFenceWin32HandleInfoKHR handle(@NativeType("HANDLE") long value) { nhandle(address(), value); return this; }
     /** Sets the address of the specified encoded string to the {@code name} field. */
@@ -476,10 +476,10 @@ public class VkImportFenceWin32HandleInfoKHR extends Struct implements NativeRes
         @NativeType("VkFence")
         public long fence() { return VkImportFenceWin32HandleInfoKHR.nfence(address()); }
         /** Returns the value of the {@code flags} field. */
-        @NativeType("VkFenceImportFlagsKHR")
+        @NativeType("VkFenceImportFlags")
         public int flags() { return VkImportFenceWin32HandleInfoKHR.nflags(address()); }
         /** Returns the value of the {@code handleType} field. */
-        @NativeType("VkExternalFenceHandleTypeFlagBitsKHR")
+        @NativeType("VkExternalFenceHandleTypeFlagBits")
         public int handleType() { return VkImportFenceWin32HandleInfoKHR.nhandleType(address()); }
         /** Returns the value of the {@code handle} field. */
         @NativeType("HANDLE")
@@ -498,9 +498,9 @@ public class VkImportFenceWin32HandleInfoKHR extends Struct implements NativeRes
         /** Sets the specified value to the {@code fence} field. */
         public VkImportFenceWin32HandleInfoKHR.Buffer fence(@NativeType("VkFence") long value) { VkImportFenceWin32HandleInfoKHR.nfence(address(), value); return this; }
         /** Sets the specified value to the {@code flags} field. */
-        public VkImportFenceWin32HandleInfoKHR.Buffer flags(@NativeType("VkFenceImportFlagsKHR") int value) { VkImportFenceWin32HandleInfoKHR.nflags(address(), value); return this; }
+        public VkImportFenceWin32HandleInfoKHR.Buffer flags(@NativeType("VkFenceImportFlags") int value) { VkImportFenceWin32HandleInfoKHR.nflags(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */
-        public VkImportFenceWin32HandleInfoKHR.Buffer handleType(@NativeType("VkExternalFenceHandleTypeFlagBitsKHR") int value) { VkImportFenceWin32HandleInfoKHR.nhandleType(address(), value); return this; }
+        public VkImportFenceWin32HandleInfoKHR.Buffer handleType(@NativeType("VkExternalFenceHandleTypeFlagBits") int value) { VkImportFenceWin32HandleInfoKHR.nhandleType(address(), value); return this; }
         /** Sets the specified value to the {@code handle} field. */
         public VkImportFenceWin32HandleInfoKHR.Buffer handle(@NativeType("HANDLE") long value) { VkImportFenceWin32HandleInfoKHR.nhandle(address(), value); return this; }
         /** Sets the address of the specified encoded string to the {@code name} field. */

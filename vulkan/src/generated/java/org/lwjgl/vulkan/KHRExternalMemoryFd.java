@@ -73,9 +73,10 @@ public class KHRExternalMemoryFd {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesDevice caps) {
-        return checkFunctions(
-            caps.vkGetMemoryFdKHR, caps.vkGetMemoryFdPropertiesKHR
+    static boolean checkCapsDevice(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_KHR_external_memory_fd") && VK.checkExtension("VK_KHR_external_memory_fd",
+               VK.isSupported(provider, "vkGetMemoryFdKHR", caps)
+            && VK.isSupported(provider, "vkGetMemoryFdPropertiesKHR", caps)
         );
     }
 
@@ -166,7 +167,7 @@ public class KHRExternalMemoryFd {
      * <code><pre>
      * VkResult vkGetMemoryFdPropertiesKHR(
      *     VkDevice                                    device,
-     *     VkExternalMemoryHandleTypeFlagBitsKHR       handleType,
+     *     VkExternalMemoryHandleTypeFlagBits          handleType,
      *     int                                         fd,
      *     VkMemoryFdPropertiesKHR*                    pMemoryFdProperties);</pre></code>
      * 
@@ -181,7 +182,7 @@ public class KHRExternalMemoryFd {
      * 
      * <ul>
      * <li>{@code device} <b>must</b> be a valid {@code VkDevice} handle</li>
-     * <li>{@code handleType} <b>must</b> be a valid {@code VkExternalMemoryHandleTypeFlagBitsKHR} value</li>
+     * <li>{@code handleType} <b>must</b> be a valid {@code VkExternalMemoryHandleTypeFlagBits} value</li>
      * <li>{@code pMemoryFdProperties} <b>must</b> be a valid pointer to a {@link VkMemoryFdPropertiesKHR} structure</li>
      * </ul>
      * 
@@ -194,7 +195,7 @@ public class KHRExternalMemoryFd {
      * </ul></dd>
      * <dt>On failure, this command returns</dt>
      * <dd><ul>
-     * <li>{@link KHRExternalMemory#VK_ERROR_INVALID_EXTERNAL_HANDLE_KHR ERROR_INVALID_EXTERNAL_HANDLE_KHR}</li>
+     * <li>{@link VK11#VK_ERROR_INVALID_EXTERNAL_HANDLE ERROR_INVALID_EXTERNAL_HANDLE}</li>
      * </ul></dd>
      * </dl>
      * 
@@ -208,7 +209,7 @@ public class KHRExternalMemoryFd {
      * @param pMemoryFdProperties will return properties of the handle {@code fd}.
      */
     @NativeType("VkResult")
-    public static int vkGetMemoryFdPropertiesKHR(VkDevice device, @NativeType("VkExternalMemoryHandleTypeFlagBitsKHR") int handleType, int fd, @NativeType("VkMemoryFdPropertiesKHR *") VkMemoryFdPropertiesKHR pMemoryFdProperties) {
+    public static int vkGetMemoryFdPropertiesKHR(VkDevice device, @NativeType("VkExternalMemoryHandleTypeFlagBits") int handleType, int fd, @NativeType("VkMemoryFdPropertiesKHR *") VkMemoryFdPropertiesKHR pMemoryFdProperties) {
         return nvkGetMemoryFdPropertiesKHR(device, handleType, fd, pMemoryFdProperties.address());
     }
 

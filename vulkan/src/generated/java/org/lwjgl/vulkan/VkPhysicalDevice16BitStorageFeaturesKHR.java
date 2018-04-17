@@ -16,6 +16,8 @@ import static org.lwjgl.system.MemoryUtil.*;
 import static org.lwjgl.system.MemoryStack.*;
 
 /**
+ * See {@link VkPhysicalDevice16BitStorageFeatures}.
+ * 
  * <h3>Layout</h3>
  * 
  * <code><pre>
@@ -28,42 +30,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     VkBool32 storageInputOutput16;
  * }</pre></code>
  */
-public class VkPhysicalDevice16BitStorageFeaturesKHR extends Struct implements NativeResource {
-
-    /** The struct size in bytes. */
-    public static final int SIZEOF;
-
-    public static final int ALIGNOF;
-
-    /** The struct member offsets. */
-    public static final int
-        STYPE,
-        PNEXT,
-        STORAGEBUFFER16BITACCESS,
-        UNIFORMANDSTORAGEBUFFER16BITACCESS,
-        STORAGEPUSHCONSTANT16,
-        STORAGEINPUTOUTPUT16;
-
-    static {
-        Layout layout = __struct(
-            __member(4),
-            __member(POINTER_SIZE),
-            __member(4),
-            __member(4),
-            __member(4),
-            __member(4)
-        );
-
-        SIZEOF = layout.getSize();
-        ALIGNOF = layout.getAlignment();
-
-        STYPE = layout.offsetof(0);
-        PNEXT = layout.offsetof(1);
-        STORAGEBUFFER16BITACCESS = layout.offsetof(2);
-        UNIFORMANDSTORAGEBUFFER16BITACCESS = layout.offsetof(3);
-        STORAGEPUSHCONSTANT16 = layout.offsetof(4);
-        STORAGEINPUTOUTPUT16 = layout.offsetof(5);
-    }
+public class VkPhysicalDevice16BitStorageFeaturesKHR extends VkPhysicalDevice16BitStorageFeatures {
 
     VkPhysicalDevice16BitStorageFeaturesKHR(long address, @Nullable ByteBuffer container) {
         super(address, container);
@@ -79,42 +46,27 @@ public class VkPhysicalDevice16BitStorageFeaturesKHR extends Struct implements N
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
-    @Override
-    public int sizeof() { return SIZEOF; }
-
-    /** Returns the value of the {@code sType} field. */
-    @NativeType("VkStructureType")
-    public int sType() { return nsType(address()); }
-    /** Returns the value of the {@code pNext} field. */
-    @NativeType("void *")
-    public long pNext() { return npNext(address()); }
-    /** Returns the value of the {@code storageBuffer16BitAccess} field. */
-    @NativeType("VkBool32")
-    public boolean storageBuffer16BitAccess() { return nstorageBuffer16BitAccess(address()) != 0; }
-    /** Returns the value of the {@code uniformAndStorageBuffer16BitAccess} field. */
-    @NativeType("VkBool32")
-    public boolean uniformAndStorageBuffer16BitAccess() { return nuniformAndStorageBuffer16BitAccess(address()) != 0; }
-    /** Returns the value of the {@code storagePushConstant16} field. */
-    @NativeType("VkBool32")
-    public boolean storagePushConstant16() { return nstoragePushConstant16(address()) != 0; }
-    /** Returns the value of the {@code storageInputOutput16} field. */
-    @NativeType("VkBool32")
-    public boolean storageInputOutput16() { return nstorageInputOutput16(address()) != 0; }
-
     /** Sets the specified value to the {@code sType} field. */
+    @Override
     public VkPhysicalDevice16BitStorageFeaturesKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
     /** Sets the specified value to the {@code pNext} field. */
+    @Override
     public VkPhysicalDevice16BitStorageFeaturesKHR pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
     /** Sets the specified value to the {@code storageBuffer16BitAccess} field. */
+    @Override
     public VkPhysicalDevice16BitStorageFeaturesKHR storageBuffer16BitAccess(@NativeType("VkBool32") boolean value) { nstorageBuffer16BitAccess(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code uniformAndStorageBuffer16BitAccess} field. */
+    @Override
     public VkPhysicalDevice16BitStorageFeaturesKHR uniformAndStorageBuffer16BitAccess(@NativeType("VkBool32") boolean value) { nuniformAndStorageBuffer16BitAccess(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code storagePushConstant16} field. */
+    @Override
     public VkPhysicalDevice16BitStorageFeaturesKHR storagePushConstant16(@NativeType("VkBool32") boolean value) { nstoragePushConstant16(address(), value ? 1 : 0); return this; }
     /** Sets the specified value to the {@code storageInputOutput16} field. */
+    @Override
     public VkPhysicalDevice16BitStorageFeaturesKHR storageInputOutput16(@NativeType("VkBool32") boolean value) { nstorageInputOutput16(address(), value ? 1 : 0); return this; }
 
     /** Initializes this struct with the specified values. */
+    @Override
     public VkPhysicalDevice16BitStorageFeaturesKHR set(
         int sType,
         long pNext,
@@ -286,36 +238,8 @@ public class VkPhysicalDevice16BitStorageFeaturesKHR extends Struct implements N
 
     // -----------------------------------
 
-    /** Unsafe version of {@link #sType}. */
-    public static int nsType(long struct) { return memGetInt(struct + VkPhysicalDevice16BitStorageFeaturesKHR.STYPE); }
-    /** Unsafe version of {@link #pNext}. */
-    public static long npNext(long struct) { return memGetAddress(struct + VkPhysicalDevice16BitStorageFeaturesKHR.PNEXT); }
-    /** Unsafe version of {@link #storageBuffer16BitAccess}. */
-    public static int nstorageBuffer16BitAccess(long struct) { return memGetInt(struct + VkPhysicalDevice16BitStorageFeaturesKHR.STORAGEBUFFER16BITACCESS); }
-    /** Unsafe version of {@link #uniformAndStorageBuffer16BitAccess}. */
-    public static int nuniformAndStorageBuffer16BitAccess(long struct) { return memGetInt(struct + VkPhysicalDevice16BitStorageFeaturesKHR.UNIFORMANDSTORAGEBUFFER16BITACCESS); }
-    /** Unsafe version of {@link #storagePushConstant16}. */
-    public static int nstoragePushConstant16(long struct) { return memGetInt(struct + VkPhysicalDevice16BitStorageFeaturesKHR.STORAGEPUSHCONSTANT16); }
-    /** Unsafe version of {@link #storageInputOutput16}. */
-    public static int nstorageInputOutput16(long struct) { return memGetInt(struct + VkPhysicalDevice16BitStorageFeaturesKHR.STORAGEINPUTOUTPUT16); }
-
-    /** Unsafe version of {@link #sType(int) sType}. */
-    public static void nsType(long struct, int value) { memPutInt(struct + VkPhysicalDevice16BitStorageFeaturesKHR.STYPE, value); }
-    /** Unsafe version of {@link #pNext(long) pNext}. */
-    public static void npNext(long struct, long value) { memPutAddress(struct + VkPhysicalDevice16BitStorageFeaturesKHR.PNEXT, value); }
-    /** Unsafe version of {@link #storageBuffer16BitAccess(boolean) storageBuffer16BitAccess}. */
-    public static void nstorageBuffer16BitAccess(long struct, int value) { memPutInt(struct + VkPhysicalDevice16BitStorageFeaturesKHR.STORAGEBUFFER16BITACCESS, value); }
-    /** Unsafe version of {@link #uniformAndStorageBuffer16BitAccess(boolean) uniformAndStorageBuffer16BitAccess}. */
-    public static void nuniformAndStorageBuffer16BitAccess(long struct, int value) { memPutInt(struct + VkPhysicalDevice16BitStorageFeaturesKHR.UNIFORMANDSTORAGEBUFFER16BITACCESS, value); }
-    /** Unsafe version of {@link #storagePushConstant16(boolean) storagePushConstant16}. */
-    public static void nstoragePushConstant16(long struct, int value) { memPutInt(struct + VkPhysicalDevice16BitStorageFeaturesKHR.STORAGEPUSHCONSTANT16, value); }
-    /** Unsafe version of {@link #storageInputOutput16(boolean) storageInputOutput16}. */
-    public static void nstorageInputOutput16(long struct, int value) { memPutInt(struct + VkPhysicalDevice16BitStorageFeaturesKHR.STORAGEINPUTOUTPUT16, value); }
-
-    // -----------------------------------
-
     /** An array of {@link VkPhysicalDevice16BitStorageFeaturesKHR} structs. */
-    public static class Buffer extends StructBuffer<VkPhysicalDevice16BitStorageFeaturesKHR, Buffer> implements NativeResource {
+    public static class Buffer extends VkPhysicalDevice16BitStorageFeatures.Buffer {
 
         /**
          * Creates a new {@link VkPhysicalDevice16BitStorageFeaturesKHR.Buffer} instance backed by the specified container.
@@ -327,7 +251,7 @@ public class VkPhysicalDevice16BitStorageFeaturesKHR extends Struct implements N
          * <p>The created buffer instance holds a strong reference to the container object.</p>
          */
         public Buffer(ByteBuffer container) {
-            super(container, container.remaining() / SIZEOF);
+            super(container);
         }
 
         public Buffer(long address, int cap) {
@@ -353,41 +277,23 @@ public class VkPhysicalDevice16BitStorageFeaturesKHR extends Struct implements N
             return new VkPhysicalDevice16BitStorageFeaturesKHR(address, container);
         }
 
-        @Override
-        public int sizeof() {
-            return SIZEOF;
-        }
-
-        /** Returns the value of the {@code sType} field. */
-        @NativeType("VkStructureType")
-        public int sType() { return VkPhysicalDevice16BitStorageFeaturesKHR.nsType(address()); }
-        /** Returns the value of the {@code pNext} field. */
-        @NativeType("void *")
-        public long pNext() { return VkPhysicalDevice16BitStorageFeaturesKHR.npNext(address()); }
-        /** Returns the value of the {@code storageBuffer16BitAccess} field. */
-        @NativeType("VkBool32")
-        public boolean storageBuffer16BitAccess() { return VkPhysicalDevice16BitStorageFeaturesKHR.nstorageBuffer16BitAccess(address()) != 0; }
-        /** Returns the value of the {@code uniformAndStorageBuffer16BitAccess} field. */
-        @NativeType("VkBool32")
-        public boolean uniformAndStorageBuffer16BitAccess() { return VkPhysicalDevice16BitStorageFeaturesKHR.nuniformAndStorageBuffer16BitAccess(address()) != 0; }
-        /** Returns the value of the {@code storagePushConstant16} field. */
-        @NativeType("VkBool32")
-        public boolean storagePushConstant16() { return VkPhysicalDevice16BitStorageFeaturesKHR.nstoragePushConstant16(address()) != 0; }
-        /** Returns the value of the {@code storageInputOutput16} field. */
-        @NativeType("VkBool32")
-        public boolean storageInputOutput16() { return VkPhysicalDevice16BitStorageFeaturesKHR.nstorageInputOutput16(address()) != 0; }
-
         /** Sets the specified value to the {@code sType} field. */
+        @Override
         public VkPhysicalDevice16BitStorageFeaturesKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDevice16BitStorageFeaturesKHR.nsType(address(), value); return this; }
         /** Sets the specified value to the {@code pNext} field. */
+        @Override
         public VkPhysicalDevice16BitStorageFeaturesKHR.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDevice16BitStorageFeaturesKHR.npNext(address(), value); return this; }
         /** Sets the specified value to the {@code storageBuffer16BitAccess} field. */
+        @Override
         public VkPhysicalDevice16BitStorageFeaturesKHR.Buffer storageBuffer16BitAccess(@NativeType("VkBool32") boolean value) { VkPhysicalDevice16BitStorageFeaturesKHR.nstorageBuffer16BitAccess(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code uniformAndStorageBuffer16BitAccess} field. */
+        @Override
         public VkPhysicalDevice16BitStorageFeaturesKHR.Buffer uniformAndStorageBuffer16BitAccess(@NativeType("VkBool32") boolean value) { VkPhysicalDevice16BitStorageFeaturesKHR.nuniformAndStorageBuffer16BitAccess(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code storagePushConstant16} field. */
+        @Override
         public VkPhysicalDevice16BitStorageFeaturesKHR.Buffer storagePushConstant16(@NativeType("VkBool32") boolean value) { VkPhysicalDevice16BitStorageFeaturesKHR.nstoragePushConstant16(address(), value ? 1 : 0); return this; }
         /** Sets the specified value to the {@code storageInputOutput16} field. */
+        @Override
         public VkPhysicalDevice16BitStorageFeaturesKHR.Buffer storageInputOutput16(@NativeType("VkBool32") boolean value) { VkPhysicalDevice16BitStorageFeaturesKHR.nstorageInputOutput16(address(), value ? 1 : 0); return this; }
 
     }

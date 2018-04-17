@@ -14,26 +14,7 @@ import org.lwjgl.system.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
 /**
- * Structure describing the point clipping behavior supported by an implementation.
- * 
- * <h5>Description</h5>
- * 
- * <p>If the {@link VkPhysicalDevicePointClippingPropertiesKHR} structure is included in the {@code pNext} chain of flink:VkPhysicalDeviceProperties2KHR, it is filled with the implementation-dependent limits.</p>
- * 
- * <h5>Valid Usage (Implicit)</h5>
- * 
- * <ul>
- * <li>{@code sType} <b>must</b> be {@link KHRMaintenance2#VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES_KHR STRUCTURE_TYPE_PHYSICAL_DEVICE_POINT_CLIPPING_PROPERTIES_KHR}</li>
- * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
- * </ul>
- * 
- * <h3>Member documentation</h3>
- * 
- * <ul>
- * <li>{@code sType} &ndash; the type of this structure.</li>
- * <li>{@code pNext} &ndash; {@code NULL} or a pointer to an extension-specific structure.</li>
- * <li>{@code pointClippingBehavior} &ndash; the point clipping behavior supported by the implementation, and is of type {@code VkPointClippingBehaviorKHR}.</li>
- * </ul>
+ * See {@link VkPhysicalDevicePointClippingProperties}.
  * 
  * <h3>Layout</h3>
  * 
@@ -41,36 +22,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  * struct VkPhysicalDevicePointClippingPropertiesKHR {
  *     VkStructureType sType;
  *     void * pNext;
- *     VkPointClippingBehaviorKHR pointClippingBehavior;
+ *     VkPointClippingBehavior pointClippingBehavior;
  * }</pre></code>
  */
-public class VkPhysicalDevicePointClippingPropertiesKHR extends Struct {
-
-    /** The struct size in bytes. */
-    public static final int SIZEOF;
-
-    public static final int ALIGNOF;
-
-    /** The struct member offsets. */
-    public static final int
-        STYPE,
-        PNEXT,
-        POINTCLIPPINGBEHAVIOR;
-
-    static {
-        Layout layout = __struct(
-            __member(4),
-            __member(POINTER_SIZE),
-            __member(4)
-        );
-
-        SIZEOF = layout.getSize();
-        ALIGNOF = layout.getAlignment();
-
-        STYPE = layout.offsetof(0);
-        PNEXT = layout.offsetof(1);
-        POINTCLIPPINGBEHAVIOR = layout.offsetof(2);
-    }
+public class VkPhysicalDevicePointClippingPropertiesKHR extends VkPhysicalDevicePointClippingProperties {
 
     VkPhysicalDevicePointClippingPropertiesKHR(long address, @Nullable ByteBuffer container) {
         super(address, container);
@@ -85,19 +40,6 @@ public class VkPhysicalDevicePointClippingPropertiesKHR extends Struct {
     public VkPhysicalDevicePointClippingPropertiesKHR(ByteBuffer container) {
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
-
-    @Override
-    public int sizeof() { return SIZEOF; }
-
-    /** Returns the value of the {@code sType} field. */
-    @NativeType("VkStructureType")
-    public int sType() { return nsType(address()); }
-    /** Returns the value of the {@code pNext} field. */
-    @NativeType("void *")
-    public long pNext() { return npNext(address()); }
-    /** Returns the value of the {@code pointClippingBehavior} field. */
-    @NativeType("VkPointClippingBehaviorKHR")
-    public int pointClippingBehavior() { return npointClippingBehavior(address()); }
 
     // -----------------------------------
 
@@ -130,17 +72,8 @@ public class VkPhysicalDevicePointClippingPropertiesKHR extends Struct {
 
     // -----------------------------------
 
-    /** Unsafe version of {@link #sType}. */
-    public static int nsType(long struct) { return memGetInt(struct + VkPhysicalDevicePointClippingPropertiesKHR.STYPE); }
-    /** Unsafe version of {@link #pNext}. */
-    public static long npNext(long struct) { return memGetAddress(struct + VkPhysicalDevicePointClippingPropertiesKHR.PNEXT); }
-    /** Unsafe version of {@link #pointClippingBehavior}. */
-    public static int npointClippingBehavior(long struct) { return memGetInt(struct + VkPhysicalDevicePointClippingPropertiesKHR.POINTCLIPPINGBEHAVIOR); }
-
-    // -----------------------------------
-
     /** An array of {@link VkPhysicalDevicePointClippingPropertiesKHR} structs. */
-    public static class Buffer extends StructBuffer<VkPhysicalDevicePointClippingPropertiesKHR, Buffer> {
+    public static class Buffer extends VkPhysicalDevicePointClippingProperties.Buffer {
 
         /**
          * Creates a new {@link VkPhysicalDevicePointClippingPropertiesKHR.Buffer} instance backed by the specified container.
@@ -152,7 +85,7 @@ public class VkPhysicalDevicePointClippingPropertiesKHR extends Struct {
          * <p>The created buffer instance holds a strong reference to the container object.</p>
          */
         public Buffer(ByteBuffer container) {
-            super(container, container.remaining() / SIZEOF);
+            super(container);
         }
 
         public Buffer(long address, int cap) {
@@ -177,21 +110,6 @@ public class VkPhysicalDevicePointClippingPropertiesKHR extends Struct {
         protected VkPhysicalDevicePointClippingPropertiesKHR newInstance(long address) {
             return new VkPhysicalDevicePointClippingPropertiesKHR(address, container);
         }
-
-        @Override
-        public int sizeof() {
-            return SIZEOF;
-        }
-
-        /** Returns the value of the {@code sType} field. */
-        @NativeType("VkStructureType")
-        public int sType() { return VkPhysicalDevicePointClippingPropertiesKHR.nsType(address()); }
-        /** Returns the value of the {@code pNext} field. */
-        @NativeType("void *")
-        public long pNext() { return VkPhysicalDevicePointClippingPropertiesKHR.npNext(address()); }
-        /** Returns the value of the {@code pointClippingBehavior} field. */
-        @NativeType("VkPointClippingBehaviorKHR")
-        public int pointClippingBehavior() { return VkPhysicalDevicePointClippingPropertiesKHR.npointClippingBehavior(address()); }
 
     }
 

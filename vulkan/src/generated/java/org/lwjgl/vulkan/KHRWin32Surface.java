@@ -76,9 +76,10 @@ public class KHRWin32Surface {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesInstance caps) {
-        return checkFunctions(
-            caps.vkCreateWin32SurfaceKHR, caps.vkGetPhysicalDeviceWin32PresentationSupportKHR
+    static boolean checkCapsInstance(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_KHR_win32_surface") && VK.checkExtension("VK_KHR_win32_surface",
+               VK.isSupported(provider, "vkCreateWin32SurfaceKHR", caps)
+            && VK.isSupported(provider, "vkGetPhysicalDeviceWin32PresentationSupportKHR", caps)
         );
     }
 

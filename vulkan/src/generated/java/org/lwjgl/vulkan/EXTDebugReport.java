@@ -96,7 +96,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <li>Courtney Goeltzenleuchter @courtney</li>
  * </ul></dd>
  * <dt><b>Last Modified Date</b></dt>
- * <dd>2017-04-27</dd>
+ * <dd>2017-09-12</dd>
  * <dt><b>IP Status</b></dt>
  * <dd>No known IP claims.</dd>
  * <dt><b>Contributors</b></dt>
@@ -124,6 +124,20 @@ public class EXTDebugReport {
 
     /** Extends {@code VkObjectType}. */
     public static final int VK_OBJECT_TYPE_DEBUG_REPORT_CALLBACK_EXT = 1000011000;
+
+    /**
+     * Extends {@code VkDebugReportObjectTypeEXT}.
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_SAMPLER_YCBCR_CONVERSION_EXT DEBUG_REPORT_OBJECT_TYPE_SAMPLER_YCBCR_CONVERSION_EXT}</li>
+     * <li>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_EXT DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_EXT}</li>
+     * </ul>
+     */
+    public static final int
+        VK_DEBUG_REPORT_OBJECT_TYPE_SAMPLER_YCBCR_CONVERSION_EXT   = 1000011000,
+        VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_EXT = 1000011000;
 
     /**
      * VkDebugReportObjectTypeEXT - Specify the type of an object handle
@@ -168,7 +182,7 @@ public class EXTDebugReport {
      * <tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_DISPLAY_MODE_KHR_EXT DEBUG_REPORT_OBJECT_TYPE_DISPLAY_MODE_KHR_EXT}</td><td>{@code VkDisplayModeKHR}</td></tr>
      * <tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_OBJECT_TABLE_NVX_EXT DEBUG_REPORT_OBJECT_TYPE_OBJECT_TABLE_NVX_EXT}</td><td>{@code VkObjectTableNVX}</td></tr>
      * <tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX_EXT DEBUG_REPORT_OBJECT_TYPE_INDIRECT_COMMANDS_LAYOUT_NVX_EXT}</td><td>{@code VkIndirectCommandsLayoutNVX}</td></tr>
-     * <tr><td>{@link KHRDescriptorUpdateTemplate#VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR_EXT DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_KHR_EXT}</td><td>{@code VkDescriptorUpdateTemplateKHR}</td></tr>
+     * <tr><td>{@link #VK_DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_EXT DEBUG_REPORT_OBJECT_TYPE_DESCRIPTOR_UPDATE_TEMPLATE_EXT}</td><td>{@code VkDescriptorUpdateTemplate}</td></tr>
      * </tbody>
      * </table>
      * 
@@ -251,9 +265,11 @@ public class EXTDebugReport {
         throw new UnsupportedOperationException();
     }
 
-    static boolean isAvailable(VKCapabilitiesInstance caps) {
-        return checkFunctions(
-            caps.vkCreateDebugReportCallbackEXT, caps.vkDestroyDebugReportCallbackEXT, caps.vkDebugReportMessageEXT
+    static boolean checkCapsInstance(FunctionProvider provider, java.util.Map<String, Long> caps, java.util.Set<String> ext) {
+        return ext.contains("VK_EXT_debug_report") && VK.checkExtension("VK_EXT_debug_report",
+               VK.isSupported(provider, "vkCreateDebugReportCallbackEXT", caps)
+            && VK.isSupported(provider, "vkDestroyDebugReportCallbackEXT", caps)
+            && VK.isSupported(provider, "vkDebugReportMessageEXT", caps)
         );
     }
 
@@ -436,7 +452,7 @@ public class EXTDebugReport {
      * </ul>
      *
      * @param instance     the debug stream&#8217;s {@code VkInstance}.
-     * @param flags        indicates the {@code VkDebugReportFlagBitsEXT} classification of this event/message.
+     * @param flags        specifies the {@code VkDebugReportFlagBitsEXT} classification of this event/message.
      * @param objectType   a {@code VkDebugReportObjectTypeEXT} specifying the type of object being used or created at the time the event was triggered.
      * @param object       this is the object where the issue was detected. {@code object} <b>can</b> be {@link VK10#VK_NULL_HANDLE NULL_HANDLE} if there is no object associated with the event.
      * @param location     an application defined value.
@@ -493,7 +509,7 @@ public class EXTDebugReport {
      * </ul>
      *
      * @param instance     the debug stream&#8217;s {@code VkInstance}.
-     * @param flags        indicates the {@code VkDebugReportFlagBitsEXT} classification of this event/message.
+     * @param flags        specifies the {@code VkDebugReportFlagBitsEXT} classification of this event/message.
      * @param objectType   a {@code VkDebugReportObjectTypeEXT} specifying the type of object being used or created at the time the event was triggered.
      * @param object       this is the object where the issue was detected. {@code object} <b>can</b> be {@link VK10#VK_NULL_HANDLE NULL_HANDLE} if there is no object associated with the event.
      * @param location     an application defined value.

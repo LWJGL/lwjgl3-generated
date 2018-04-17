@@ -20,14 +20,14 @@ import static org.lwjgl.system.MemoryStack.*;
  * 
  * <h5>Description</h5>
  * 
- * <p>The properties of the handle returned depend on the value of {@code handleType}. See {@code VkExternalFenceHandleTypeFlagBitsKHR} for a description of the properties of the defined external fence handle types.</p>
+ * <p>The properties of the handle returned depend on the value of {@code handleType}. See {@code VkExternalFenceHandleTypeFlagBits} for a description of the properties of the defined external fence handle types.</p>
  * 
  * <h5>Valid Usage</h5>
  * 
  * <ul>
- * <li>{@code handleType} <b>must</b> have been included in {@link VkExportFenceCreateInfoKHR}{@code ::handleTypes} when the {@code fence}&#8217;s current payload was created.</li>
+ * <li>{@code handleType} <b>must</b> have been included in {@link VkExportFenceCreateInfo}{@code ::handleTypes} when the {@code fence}&#8217;s current payload was created.</li>
  * <li>If {@code handleType} is defined as an NT handle, {@link KHRExternalFenceWin32#vkGetFenceWin32HandleKHR GetFenceWin32HandleKHR} <b>must</b> be called no more than once for each valid unique combination of {@code fence} and {@code handleType}.</li>
- * <li>{@code fence} <b>must</b> not currently have its payload replaced by an imported payload as described below in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-fences-importing">Importing Fence Payloads</a> unless that imported payload&#8217;s handle type was included in {@link VkExternalFencePropertiesKHR}{@code ::exportFromImportedHandleTypes} for {@code handleType}.</li>
+ * <li>{@code fence} <b>must</b> not currently have its payload replaced by an imported payload as described below in <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-fences-importing">Importing Fence Payloads</a> unless that imported payload&#8217;s handle type was included in {@link VkExternalFenceProperties}{@code ::exportFromImportedHandleTypes} for {@code handleType}.</li>
  * <li>If {@code handleType} refers to a handle type with copy payload transference semantics, {@code fence} <b>must</b> be signaled, or have an associated <a target="_blank" href="https://www.khronos.org/registry/vulkan/specs/1.0-extensions/html/vkspec.html#synchronization-fences-signaling">fence signal operation</a> pending execution.</li>
  * <li>{@code handleType} <b>must</b> be defined as an NT handle or a global share handle.</li>
  * </ul>
@@ -38,7 +38,7 @@ import static org.lwjgl.system.MemoryStack.*;
  * <li>{@code sType} <b>must</b> be {@link KHRExternalFenceWin32#VK_STRUCTURE_TYPE_FENCE_GET_WIN32_HANDLE_INFO_KHR STRUCTURE_TYPE_FENCE_GET_WIN32_HANDLE_INFO_KHR}</li>
  * <li>{@code pNext} <b>must</b> be {@code NULL}</li>
  * <li>{@code fence} <b>must</b> be a valid {@code VkFence} handle</li>
- * <li>{@code handleType} <b>must</b> be a valid {@code VkExternalFenceHandleTypeFlagBitsKHR} value</li>
+ * <li>{@code handleType} <b>must</b> be a valid {@code VkExternalFenceHandleTypeFlagBits} value</li>
  * </ul>
  * 
  * <h5>See Also</h5>
@@ -61,7 +61,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     VkStructureType sType;
  *     void const * pNext;
  *     VkFence fence;
- *     VkExternalFenceHandleTypeFlagBitsKHR handleType;
+ *     VkExternalFenceHandleTypeFlagBits handleType;
  * }</pre></code>
  */
 public class VkFenceGetWin32HandleInfoKHR extends Struct implements NativeResource {
@@ -122,7 +122,7 @@ public class VkFenceGetWin32HandleInfoKHR extends Struct implements NativeResour
     @NativeType("VkFence")
     public long fence() { return nfence(address()); }
     /** Returns the value of the {@code handleType} field. */
-    @NativeType("VkExternalFenceHandleTypeFlagBitsKHR")
+    @NativeType("VkExternalFenceHandleTypeFlagBits")
     public int handleType() { return nhandleType(address()); }
 
     /** Sets the specified value to the {@code sType} field. */
@@ -132,7 +132,7 @@ public class VkFenceGetWin32HandleInfoKHR extends Struct implements NativeResour
     /** Sets the specified value to the {@code fence} field. */
     public VkFenceGetWin32HandleInfoKHR fence(@NativeType("VkFence") long value) { nfence(address(), value); return this; }
     /** Sets the specified value to the {@code handleType} field. */
-    public VkFenceGetWin32HandleInfoKHR handleType(@NativeType("VkExternalFenceHandleTypeFlagBitsKHR") int value) { nhandleType(address(), value); return this; }
+    public VkFenceGetWin32HandleInfoKHR handleType(@NativeType("VkExternalFenceHandleTypeFlagBits") int value) { nhandleType(address(), value); return this; }
 
     /** Initializes this struct with the specified values. */
     public VkFenceGetWin32HandleInfoKHR set(
@@ -376,7 +376,7 @@ public class VkFenceGetWin32HandleInfoKHR extends Struct implements NativeResour
         @NativeType("VkFence")
         public long fence() { return VkFenceGetWin32HandleInfoKHR.nfence(address()); }
         /** Returns the value of the {@code handleType} field. */
-        @NativeType("VkExternalFenceHandleTypeFlagBitsKHR")
+        @NativeType("VkExternalFenceHandleTypeFlagBits")
         public int handleType() { return VkFenceGetWin32HandleInfoKHR.nhandleType(address()); }
 
         /** Sets the specified value to the {@code sType} field. */
@@ -386,7 +386,7 @@ public class VkFenceGetWin32HandleInfoKHR extends Struct implements NativeResour
         /** Sets the specified value to the {@code fence} field. */
         public VkFenceGetWin32HandleInfoKHR.Buffer fence(@NativeType("VkFence") long value) { VkFenceGetWin32HandleInfoKHR.nfence(address(), value); return this; }
         /** Sets the specified value to the {@code handleType} field. */
-        public VkFenceGetWin32HandleInfoKHR.Buffer handleType(@NativeType("VkExternalFenceHandleTypeFlagBitsKHR") int value) { VkFenceGetWin32HandleInfoKHR.nhandleType(address(), value); return this; }
+        public VkFenceGetWin32HandleInfoKHR.Buffer handleType(@NativeType("VkExternalFenceHandleTypeFlagBits") int value) { VkFenceGetWin32HandleInfoKHR.nhandleType(address(), value); return this; }
 
     }
 
