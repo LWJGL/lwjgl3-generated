@@ -130,8 +130,8 @@ public class VkSpecializationInfo extends Struct implements NativeResource {
 
     /** Initializes this struct with the specified values. */
     public VkSpecializationInfo set(
-        VkSpecializationMapEntry.Buffer pMapEntries,
-        ByteBuffer pData
+        @Nullable VkSpecializationMapEntry.Buffer pMapEntries,
+        @Nullable ByteBuffer pData
     ) {
         pMapEntries(pMapEntries);
         pData(pData);

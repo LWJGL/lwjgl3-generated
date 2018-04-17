@@ -141,7 +141,7 @@ public class STBTTPackRange extends Struct implements NativeResource {
     public STBTTPackRange set(
         float font_size,
         int first_unicode_codepoint_in_range,
-        IntBuffer array_of_unicode_codepoints,
+        @Nullable IntBuffer array_of_unicode_codepoints,
         int num_chars,
         STBTTPackedchar.Buffer chardata_for_range,
         byte h_oversample,

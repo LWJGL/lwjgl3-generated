@@ -273,10 +273,10 @@ public class NkStyle extends Struct implements NativeResource {
 
     /** Initializes this struct with the specified values. */
     public NkStyle set(
-        NkUserFont font,
+        @Nullable NkUserFont font,
         PointerBuffer cursors,
-        NkCursor cursor_active,
-        NkCursor cursor_last,
+        @Nullable NkCursor cursor_active,
+        @Nullable NkCursor cursor_last,
         boolean cursor_visible,
         NkStyleText text,
         NkStyleButton button,

@@ -107,7 +107,7 @@ public class EXRAttribute extends Struct implements NativeResource {
     public EXRAttribute set(
         ByteBuffer name,
         ByteBuffer type,
-        ByteBuffer value
+        @Nullable ByteBuffer value
     ) {
         name(name);
         type(type);

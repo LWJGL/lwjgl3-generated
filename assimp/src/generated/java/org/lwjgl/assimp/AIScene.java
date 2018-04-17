@@ -241,14 +241,14 @@ public class AIScene extends Struct implements NativeResource {
     /** Initializes this struct with the specified values. */
     public AIScene set(
         int mFlags,
-        AINode mRootNode,
-        PointerBuffer mMeshes,
-        PointerBuffer mMaterials,
-        PointerBuffer mAnimations,
-        PointerBuffer mTextures,
-        PointerBuffer mLights,
-        PointerBuffer mCameras,
-        AIMetaData mMetaData
+        @Nullable AINode mRootNode,
+        @Nullable PointerBuffer mMeshes,
+        @Nullable PointerBuffer mMaterials,
+        @Nullable PointerBuffer mAnimations,
+        @Nullable PointerBuffer mTextures,
+        @Nullable PointerBuffer mLights,
+        @Nullable PointerBuffer mCameras,
+        @Nullable AIMetaData mMetaData
     ) {
         mFlags(mFlags);
         mRootNode(mRootNode);

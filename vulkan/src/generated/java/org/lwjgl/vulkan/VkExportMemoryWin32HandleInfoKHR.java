@@ -165,7 +165,7 @@ public class VkExportMemoryWin32HandleInfoKHR extends Struct implements NativeRe
     public VkExportMemoryWin32HandleInfoKHR set(
         int sType,
         long pNext,
-        SECURITY_ATTRIBUTES pAttributes,
+        @Nullable SECURITY_ATTRIBUTES pAttributes,
         int dwAccess,
         ByteBuffer name
     ) {

@@ -133,7 +133,7 @@ public class VkCommandBufferBeginInfo extends Struct implements NativeResource {
         int sType,
         long pNext,
         int flags,
-        VkCommandBufferInheritanceInfo pInheritanceInfo
+        @Nullable VkCommandBufferInheritanceInfo pInheritanceInfo
     ) {
         sType(sType);
         pNext(pNext);

@@ -122,7 +122,7 @@ public class AIExportDataBlob extends Struct implements NativeResource {
     public AIExportDataBlob set(
         ByteBuffer data,
         AIString name,
-        AIExportDataBlob next
+        @Nullable AIExportDataBlob next
     ) {
         data(data);
         name(name);

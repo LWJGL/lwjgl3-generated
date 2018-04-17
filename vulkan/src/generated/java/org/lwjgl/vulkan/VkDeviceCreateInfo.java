@@ -197,9 +197,9 @@ public class VkDeviceCreateInfo extends Struct implements NativeResource {
         long pNext,
         int flags,
         VkDeviceQueueCreateInfo.Buffer pQueueCreateInfos,
-        PointerBuffer ppEnabledLayerNames,
-        PointerBuffer ppEnabledExtensionNames,
-        VkPhysicalDeviceFeatures pEnabledFeatures
+        @Nullable PointerBuffer ppEnabledLayerNames,
+        @Nullable PointerBuffer ppEnabledExtensionNames,
+        @Nullable VkPhysicalDeviceFeatures pEnabledFeatures
     ) {
         sType(sType);
         pNext(pNext);

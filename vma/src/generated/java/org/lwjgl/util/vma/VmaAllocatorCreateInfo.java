@@ -203,10 +203,10 @@ public class VmaAllocatorCreateInfo extends Struct implements NativeResource {
         VkPhysicalDevice physicalDevice,
         VkDevice device,
         long preferredLargeHeapBlockSize,
-        VkAllocationCallbacks pAllocationCallbacks,
-        VmaDeviceMemoryCallbacks pDeviceMemoryCallbacks,
+        @Nullable VkAllocationCallbacks pAllocationCallbacks,
+        @Nullable VmaDeviceMemoryCallbacks pDeviceMemoryCallbacks,
         int frameInUseCount,
-        LongBuffer pHeapSizeLimit,
+        @Nullable LongBuffer pHeapSizeLimit,
         VmaVulkanFunctions pVulkanFunctions
     ) {
         flags(flags);

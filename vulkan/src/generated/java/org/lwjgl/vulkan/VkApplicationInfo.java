@@ -165,9 +165,9 @@ public class VkApplicationInfo extends Struct implements NativeResource {
     public VkApplicationInfo set(
         int sType,
         long pNext,
-        ByteBuffer pApplicationName,
+        @Nullable ByteBuffer pApplicationName,
         int applicationVersion,
-        ByteBuffer pEngineName,
+        @Nullable ByteBuffer pEngineName,
         int engineVersion,
         int apiVersion
     ) {

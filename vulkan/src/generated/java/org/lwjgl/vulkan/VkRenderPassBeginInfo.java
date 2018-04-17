@@ -177,7 +177,7 @@ public class VkRenderPassBeginInfo extends Struct implements NativeResource {
         long renderPass,
         long framebuffer,
         VkRect2D renderArea,
-        VkClearValue.Buffer pClearValues
+        @Nullable VkClearValue.Buffer pClearValues
     ) {
         sType(sType);
         pNext(pNext);

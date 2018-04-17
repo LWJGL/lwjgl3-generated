@@ -182,8 +182,8 @@ public class VkPipelineLayoutCreateInfo extends Struct implements NativeResource
         int sType,
         long pNext,
         int flags,
-        LongBuffer pSetLayouts,
-        VkPushConstantRange.Buffer pPushConstantRanges
+        @Nullable LongBuffer pSetLayouts,
+        @Nullable VkPushConstantRange.Buffer pPushConstantRanges
     ) {
         sType(sType);
         pNext(pNext);

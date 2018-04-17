@@ -186,7 +186,7 @@ public class VkPipelineCoverageModulationStateCreateInfoNV extends Struct implem
         int coverageModulationMode,
         boolean coverageModulationTableEnable,
         int coverageModulationTableCount,
-        FloatBuffer pCoverageModulationTable
+        @Nullable FloatBuffer pCoverageModulationTable
     ) {
         sType(sType);
         pNext(pNext);

@@ -143,7 +143,7 @@ public class VkPipelineViewportSwizzleStateCreateInfoNV extends Struct implement
         long pNext,
         int flags,
         int viewportCount,
-        VkViewportSwizzleNV.Buffer pViewportSwizzles
+        @Nullable VkViewportSwizzleNV.Buffer pViewportSwizzles
     ) {
         sType(sType);
         pNext(pNext);

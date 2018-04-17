@@ -204,11 +204,11 @@ public class VkBindSparseInfo extends Struct implements NativeResource {
     public VkBindSparseInfo set(
         int sType,
         long pNext,
-        LongBuffer pWaitSemaphores,
-        VkSparseBufferMemoryBindInfo.Buffer pBufferBinds,
-        VkSparseImageOpaqueMemoryBindInfo.Buffer pImageOpaqueBinds,
-        VkSparseImageMemoryBindInfo.Buffer pImageBinds,
-        LongBuffer pSignalSemaphores
+        @Nullable LongBuffer pWaitSemaphores,
+        @Nullable VkSparseBufferMemoryBindInfo.Buffer pBufferBinds,
+        @Nullable VkSparseImageOpaqueMemoryBindInfo.Buffer pImageOpaqueBinds,
+        @Nullable VkSparseImageMemoryBindInfo.Buffer pImageBinds,
+        @Nullable LongBuffer pSignalSemaphores
     ) {
         sType(sType);
         pNext(pNext);

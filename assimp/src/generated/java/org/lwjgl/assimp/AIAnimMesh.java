@@ -167,10 +167,10 @@ public class AIAnimMesh extends Struct implements NativeResource {
 
     /** Initializes this struct with the specified values. */
     public AIAnimMesh set(
-        AIVector3D.Buffer mVertices,
-        AIVector3D.Buffer mNormals,
-        AIVector3D.Buffer mTangents,
-        AIVector3D.Buffer mBitangents,
+        @Nullable AIVector3D.Buffer mVertices,
+        @Nullable AIVector3D.Buffer mNormals,
+        @Nullable AIVector3D.Buffer mTangents,
+        @Nullable AIVector3D.Buffer mBitangents,
         PointerBuffer mColors,
         PointerBuffer mTextureCoords,
         int mNumVertices

@@ -296,17 +296,17 @@ public class AIMesh extends Struct implements NativeResource {
         int mPrimitiveTypes,
         int mNumVertices,
         AIVector3D.Buffer mVertices,
-        AIVector3D.Buffer mNormals,
-        AIVector3D.Buffer mTangents,
-        AIVector3D.Buffer mBitangents,
+        @Nullable AIVector3D.Buffer mNormals,
+        @Nullable AIVector3D.Buffer mTangents,
+        @Nullable AIVector3D.Buffer mBitangents,
         PointerBuffer mColors,
         PointerBuffer mTextureCoords,
         IntBuffer mNumUVComponents,
         AIFace.Buffer mFaces,
-        PointerBuffer mBones,
+        @Nullable PointerBuffer mBones,
         int mMaterialIndex,
         AIString mName,
-        PointerBuffer mAnimMeshes
+        @Nullable PointerBuffer mAnimMeshes
     ) {
         mPrimitiveTypes(mPrimitiveTypes);
         mNumVertices(mNumVertices);

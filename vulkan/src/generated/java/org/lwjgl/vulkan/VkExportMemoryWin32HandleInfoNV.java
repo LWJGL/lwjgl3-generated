@@ -130,7 +130,7 @@ public class VkExportMemoryWin32HandleInfoNV extends Struct implements NativeRes
     public VkExportMemoryWin32HandleInfoNV set(
         int sType,
         long pNext,
-        SECURITY_ATTRIBUTES pAttributes,
+        @Nullable SECURITY_ATTRIBUTES pAttributes,
         int dwAccess
     ) {
         sType(sType);

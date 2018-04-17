@@ -143,8 +143,8 @@ public class VkRenderPassSampleLocationsBeginInfoEXT extends Struct implements N
     public VkRenderPassSampleLocationsBeginInfoEXT set(
         int sType,
         long pNext,
-        VkAttachmentSampleLocationsEXT.Buffer pAttachmentInitialSampleLocations,
-        VkSubpassSampleLocationsEXT.Buffer pPostSubpassSampleLocations
+        @Nullable VkAttachmentSampleLocationsEXT.Buffer pAttachmentInitialSampleLocations,
+        @Nullable VkSubpassSampleLocationsEXT.Buffer pPostSubpassSampleLocations
     ) {
         sType(sType);
         pNext(pNext);

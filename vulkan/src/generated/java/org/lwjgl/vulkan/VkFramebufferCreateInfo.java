@@ -212,7 +212,7 @@ public class VkFramebufferCreateInfo extends Struct implements NativeResource {
         long pNext,
         int flags,
         long renderPass,
-        LongBuffer pAttachments,
+        @Nullable LongBuffer pAttachments,
         int width,
         int height,
         int layers

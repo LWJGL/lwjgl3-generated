@@ -183,7 +183,7 @@ public class VkPipelineColorBlendStateCreateInfo extends Struct implements Nativ
         int flags,
         boolean logicOpEnable,
         int logicOp,
-        VkPipelineColorBlendAttachmentState.Buffer pAttachments,
+        @Nullable VkPipelineColorBlendAttachmentState.Buffer pAttachments,
         FloatBuffer blendConstants
     ) {
         sType(sType);

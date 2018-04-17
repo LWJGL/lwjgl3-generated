@@ -213,7 +213,7 @@ public class WNDCLASSEX extends Struct implements NativeResource {
         long hIcon,
         long hCursor,
         long hbrBackground,
-        ByteBuffer lpszMenuName,
+        @Nullable ByteBuffer lpszMenuName,
         ByteBuffer lpszClassName,
         long hIconSm
     ) {

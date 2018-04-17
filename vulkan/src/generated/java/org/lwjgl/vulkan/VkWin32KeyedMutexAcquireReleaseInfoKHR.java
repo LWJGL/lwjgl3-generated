@@ -183,12 +183,12 @@ public class VkWin32KeyedMutexAcquireReleaseInfoKHR extends Struct implements Na
         int sType,
         long pNext,
         int acquireCount,
-        LongBuffer pAcquireSyncs,
-        LongBuffer pAcquireKeys,
-        IntBuffer pAcquireTimeouts,
+        @Nullable LongBuffer pAcquireSyncs,
+        @Nullable LongBuffer pAcquireKeys,
+        @Nullable IntBuffer pAcquireTimeouts,
         int releaseCount,
-        LongBuffer pReleaseSyncs,
-        LongBuffer pReleaseKeys
+        @Nullable LongBuffer pReleaseSyncs,
+        @Nullable LongBuffer pReleaseKeys
     ) {
         sType(sType);
         pNext(pNext);

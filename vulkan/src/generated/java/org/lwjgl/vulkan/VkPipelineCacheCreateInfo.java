@@ -142,7 +142,7 @@ public class VkPipelineCacheCreateInfo extends Struct implements NativeResource 
         int sType,
         long pNext,
         int flags,
-        ByteBuffer pInitialData
+        @Nullable ByteBuffer pInitialData
     ) {
         sType(sType);
         pNext(pNext);

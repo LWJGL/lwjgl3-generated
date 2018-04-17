@@ -171,9 +171,9 @@ public class VkPipelineViewportStateCreateInfo extends Struct implements NativeR
         long pNext,
         int flags,
         int viewportCount,
-        VkViewport.Buffer pViewports,
+        @Nullable VkViewport.Buffer pViewports,
         int scissorCount,
-        VkRect2D.Buffer pScissors
+        @Nullable VkRect2D.Buffer pScissors
     ) {
         sType(sType);
         pNext(pNext);

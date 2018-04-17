@@ -153,9 +153,9 @@ public class VkD3D12FenceSubmitInfoKHR extends Struct implements NativeResource 
         int sType,
         long pNext,
         int waitSemaphoreValuesCount,
-        LongBuffer pWaitSemaphoreValues,
+        @Nullable LongBuffer pWaitSemaphoreValues,
         int signalSemaphoreValuesCount,
-        LongBuffer pSignalSemaphoreValues
+        @Nullable LongBuffer pSignalSemaphoreValues
     ) {
         sType(sType);
         pNext(pNext);

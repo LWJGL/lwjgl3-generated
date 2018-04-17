@@ -131,7 +131,7 @@ public class VkPresentRegionsKHR extends Struct implements NativeResource {
         int sType,
         long pNext,
         int swapchainCount,
-        VkPresentRegionKHR.Buffer pRegions
+        @Nullable VkPresentRegionKHR.Buffer pRegions
     ) {
         sType(sType);
         pNext(pNext);

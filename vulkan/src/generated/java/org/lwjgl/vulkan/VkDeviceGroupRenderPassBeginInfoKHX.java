@@ -150,7 +150,7 @@ public class VkDeviceGroupRenderPassBeginInfoKHX extends Struct implements Nativ
         int sType,
         long pNext,
         int deviceMask,
-        VkRect2D.Buffer pDeviceRenderAreas
+        @Nullable VkRect2D.Buffer pDeviceRenderAreas
     ) {
         sType(sType);
         pNext(pNext);

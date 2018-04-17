@@ -237,7 +237,7 @@ public class VkCmdProcessCommandsInfoNVX extends Struct implements NativeResourc
         long indirectCommandsLayout,
         VkIndirectCommandsTokenNVX.Buffer pIndirectCommandsTokens,
         int maxSequencesCount,
-        VkCommandBuffer targetCommandBuffer,
+        @Nullable VkCommandBuffer targetCommandBuffer,
         long sequencesCountBuffer,
         long sequencesCountOffset,
         long sequencesIndexBuffer,

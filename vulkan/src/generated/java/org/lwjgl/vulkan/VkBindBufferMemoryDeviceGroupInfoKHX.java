@@ -134,7 +134,7 @@ public class VkBindBufferMemoryDeviceGroupInfoKHX extends Struct implements Nati
     public VkBindBufferMemoryDeviceGroupInfoKHX set(
         int sType,
         long pNext,
-        IntBuffer pDeviceIndices
+        @Nullable IntBuffer pDeviceIndices
     ) {
         sType(sType);
         pNext(pNext);

@@ -313,7 +313,7 @@ public class VkSwapchainCreateInfoKHR extends Struct implements NativeResource {
         int imageArrayLayers,
         int imageUsage,
         int imageSharingMode,
-        IntBuffer pQueueFamilyIndices,
+        @Nullable IntBuffer pQueueFamilyIndices,
         int preTransform,
         int compositeAlpha,
         int presentMode,

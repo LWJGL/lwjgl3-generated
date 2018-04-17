@@ -190,9 +190,9 @@ public class VkRenderPassCreateInfo extends Struct implements NativeResource {
         int sType,
         long pNext,
         int flags,
-        VkAttachmentDescription.Buffer pAttachments,
+        @Nullable VkAttachmentDescription.Buffer pAttachments,
         VkSubpassDescription.Buffer pSubpasses,
-        VkSubpassDependency.Buffer pDependencies
+        @Nullable VkSubpassDependency.Buffer pDependencies
     ) {
         sType(sType);
         pNext(pNext);

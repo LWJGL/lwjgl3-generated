@@ -220,12 +220,12 @@ public class VkSubpassDescription extends Struct implements NativeResource {
     public VkSubpassDescription set(
         int flags,
         int pipelineBindPoint,
-        VkAttachmentReference.Buffer pInputAttachments,
+        @Nullable VkAttachmentReference.Buffer pInputAttachments,
         int colorAttachmentCount,
-        VkAttachmentReference.Buffer pColorAttachments,
-        VkAttachmentReference.Buffer pResolveAttachments,
-        VkAttachmentReference pDepthStencilAttachment,
-        IntBuffer pPreserveAttachments
+        @Nullable VkAttachmentReference.Buffer pColorAttachments,
+        @Nullable VkAttachmentReference.Buffer pResolveAttachments,
+        @Nullable VkAttachmentReference pDepthStencilAttachment,
+        @Nullable IntBuffer pPreserveAttachments
     ) {
         flags(flags);
         pipelineBindPoint(pipelineBindPoint);

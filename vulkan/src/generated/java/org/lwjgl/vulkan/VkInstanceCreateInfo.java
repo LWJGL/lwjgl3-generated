@@ -168,9 +168,9 @@ public class VkInstanceCreateInfo extends Struct implements NativeResource {
         int sType,
         long pNext,
         int flags,
-        VkApplicationInfo pApplicationInfo,
-        PointerBuffer ppEnabledLayerNames,
-        PointerBuffer ppEnabledExtensionNames
+        @Nullable VkApplicationInfo pApplicationInfo,
+        @Nullable PointerBuffer ppEnabledLayerNames,
+        @Nullable PointerBuffer ppEnabledExtensionNames
     ) {
         sType(sType);
         pNext(pNext);

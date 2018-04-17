@@ -120,8 +120,8 @@ public class EXRImage extends Struct implements NativeResource {
 
     /** Initializes this struct with the specified values. */
     public EXRImage set(
-        EXRTile.Buffer tiles,
-        PointerBuffer images,
+        @Nullable EXRTile.Buffer tiles,
+        @Nullable PointerBuffer images,
         int width,
         int height,
         int num_channels

@@ -178,12 +178,12 @@ public class VkWin32KeyedMutexAcquireReleaseInfoNV extends Struct implements Nat
         int sType,
         long pNext,
         int acquireCount,
-        LongBuffer pAcquireSyncs,
-        LongBuffer pAcquireKeys,
-        IntBuffer pAcquireTimeoutMilliseconds,
+        @Nullable LongBuffer pAcquireSyncs,
+        @Nullable LongBuffer pAcquireKeys,
+        @Nullable IntBuffer pAcquireTimeoutMilliseconds,
         int releaseCount,
-        LongBuffer pReleaseSyncs,
-        LongBuffer pReleaseKeys
+        @Nullable LongBuffer pReleaseSyncs,
+        @Nullable LongBuffer pReleaseKeys
     ) {
         sType(sType);
         pNext(pNext);

@@ -228,9 +228,9 @@ public class VkWriteDescriptorSet extends Struct implements NativeResource {
         int dstBinding,
         int dstArrayElement,
         int descriptorType,
-        VkDescriptorImageInfo.Buffer pImageInfo,
-        VkDescriptorBufferInfo.Buffer pBufferInfo,
-        LongBuffer pTexelBufferView
+        @Nullable VkDescriptorImageInfo.Buffer pImageInfo,
+        @Nullable VkDescriptorBufferInfo.Buffer pBufferInfo,
+        @Nullable LongBuffer pTexelBufferView
     ) {
         sType(sType);
         pNext(pNext);

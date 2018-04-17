@@ -186,7 +186,7 @@ public class VkBufferCreateInfo extends Struct implements NativeResource {
         long size,
         int usage,
         int sharingMode,
-        IntBuffer pQueueFamilyIndices
+        @Nullable IntBuffer pQueueFamilyIndices
     ) {
         sType(sType);
         pNext(pNext);

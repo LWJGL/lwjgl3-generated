@@ -353,7 +353,7 @@ public class VkImageCreateInfo extends Struct implements NativeResource {
         int tiling,
         int usage,
         int sharingMode,
-        IntBuffer pQueueFamilyIndices,
+        @Nullable IntBuffer pQueueFamilyIndices,
         int initialLayout
     ) {
         sType(sType);

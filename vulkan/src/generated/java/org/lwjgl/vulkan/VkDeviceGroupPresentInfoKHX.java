@@ -153,7 +153,7 @@ public class VkDeviceGroupPresentInfoKHX extends Struct implements NativeResourc
     public VkDeviceGroupPresentInfoKHX set(
         int sType,
         long pNext,
-        IntBuffer pDeviceMasks,
+        @Nullable IntBuffer pDeviceMasks,
         int mode
     ) {
         sType(sType);

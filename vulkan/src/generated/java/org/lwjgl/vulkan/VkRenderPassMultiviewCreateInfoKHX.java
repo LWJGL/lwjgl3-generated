@@ -186,9 +186,9 @@ public class VkRenderPassMultiviewCreateInfoKHX extends Struct implements Native
     public VkRenderPassMultiviewCreateInfoKHX set(
         int sType,
         long pNext,
-        IntBuffer pViewMasks,
-        IntBuffer pViewOffsets,
-        IntBuffer pCorrelationMasks
+        @Nullable IntBuffer pViewMasks,
+        @Nullable IntBuffer pViewOffsets,
+        @Nullable IntBuffer pCorrelationMasks
     ) {
         sType(sType);
         pNext(pNext);

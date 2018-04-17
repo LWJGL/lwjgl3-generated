@@ -101,7 +101,7 @@ public class VkPresentRegionKHR extends Struct implements NativeResource {
     /** Initializes this struct with the specified values. */
     public VkPresentRegionKHR set(
         int rectangleCount,
-        VkRectLayerKHR.Buffer pRectangles
+        @Nullable VkRectLayerKHR.Buffer pRectangles
     ) {
         rectangleCount(rectangleCount);
         pRectangles(pRectangles);

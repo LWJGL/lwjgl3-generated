@@ -156,10 +156,10 @@ public class AINode extends Struct implements NativeResource {
     public AINode set(
         AIString mName,
         AIMatrix4x4 mTransformation,
-        AINode mParent,
-        PointerBuffer mChildren,
-        IntBuffer mMeshes,
-        AIMetaData mMetadata
+        @Nullable AINode mParent,
+        @Nullable PointerBuffer mChildren,
+        @Nullable IntBuffer mMeshes,
+        @Nullable AIMetaData mMetadata
     ) {
         mName(mName);
         mTransformation(mTransformation);

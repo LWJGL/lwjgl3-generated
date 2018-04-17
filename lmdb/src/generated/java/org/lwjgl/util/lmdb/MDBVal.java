@@ -98,7 +98,7 @@ public class MDBVal extends Struct implements NativeResource {
     /** Initializes this struct with the specified values. */
     public MDBVal set(
         long mv_size,
-        ByteBuffer mv_data
+        @Nullable ByteBuffer mv_data
     ) {
         mv_size(mv_size);
         mv_data(mv_data);

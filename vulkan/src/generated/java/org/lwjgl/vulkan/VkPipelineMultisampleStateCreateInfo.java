@@ -193,7 +193,7 @@ public class VkPipelineMultisampleStateCreateInfo extends Struct implements Nati
         int rasterizationSamples,
         boolean sampleShadingEnable,
         float minSampleShading,
-        IntBuffer pSampleMask,
+        @Nullable IntBuffer pSampleMask,
         boolean alphaToCoverageEnable,
         boolean alphaToOneEnable
     ) {

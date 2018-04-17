@@ -212,18 +212,18 @@ public class YGNode extends Struct implements NativeResource {
     /** Initializes this struct with the specified values. */
     public YGNode set(
         long context,
-        YGPrintFuncI print,
+        @Nullable YGPrintFuncI print,
         boolean hasNewLayout,
         int nodeType,
-        YGMeasureFuncI measure,
-        YGBaselineFuncI baseline,
-        YGDirtiedFuncI dirtied,
+        @Nullable YGMeasureFuncI measure,
+        @Nullable YGBaselineFuncI baseline,
+        @Nullable YGDirtiedFuncI dirtied,
         YGStyle style,
         YGLayout layout,
         int lineIndex,
         long parent,
         long children,
-        YGNode nextChild,
+        @Nullable YGNode nextChild,
         long config,
         boolean isDirty,
         PointerBuffer resolvedDimensions

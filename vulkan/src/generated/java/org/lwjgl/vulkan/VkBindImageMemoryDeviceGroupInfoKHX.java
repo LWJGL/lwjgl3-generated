@@ -167,8 +167,8 @@ public class VkBindImageMemoryDeviceGroupInfoKHX extends Struct implements Nativ
     public VkBindImageMemoryDeviceGroupInfoKHX set(
         int sType,
         long pNext,
-        IntBuffer pDeviceIndices,
-        VkRect2D.Buffer pSFRRects
+        @Nullable IntBuffer pDeviceIndices,
+        @Nullable VkRect2D.Buffer pSFRRects
     ) {
         sType(sType);
         pNext(pNext);

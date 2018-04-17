@@ -165,7 +165,7 @@ public class VkExportSemaphoreWin32HandleInfoKHR extends Struct implements Nativ
     public VkExportSemaphoreWin32HandleInfoKHR set(
         int sType,
         long pNext,
-        SECURITY_ATTRIBUTES pAttributes,
+        @Nullable SECURITY_ATTRIBUTES pAttributes,
         int dwAccess,
         ByteBuffer name
     ) {

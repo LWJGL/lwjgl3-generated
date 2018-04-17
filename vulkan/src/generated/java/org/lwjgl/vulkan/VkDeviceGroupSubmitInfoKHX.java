@@ -172,9 +172,9 @@ public class VkDeviceGroupSubmitInfoKHX extends Struct implements NativeResource
     public VkDeviceGroupSubmitInfoKHX set(
         int sType,
         long pNext,
-        IntBuffer pWaitSemaphoreDeviceIndices,
-        IntBuffer pCommandBufferDeviceMasks,
-        IntBuffer pSignalSemaphoreDeviceIndices
+        @Nullable IntBuffer pWaitSemaphoreDeviceIndices,
+        @Nullable IntBuffer pCommandBufferDeviceMasks,
+        @Nullable IntBuffer pSignalSemaphoreDeviceIndices
     ) {
         sType(sType);
         pNext(pNext);

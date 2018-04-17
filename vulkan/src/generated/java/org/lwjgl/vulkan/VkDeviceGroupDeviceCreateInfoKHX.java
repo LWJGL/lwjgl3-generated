@@ -132,7 +132,7 @@ public class VkDeviceGroupDeviceCreateInfoKHX extends Struct implements NativeRe
     public VkDeviceGroupDeviceCreateInfoKHX set(
         int sType,
         long pNext,
-        PointerBuffer pPhysicalDevices
+        @Nullable PointerBuffer pPhysicalDevices
     ) {
         sType(sType);
         pNext(pNext);

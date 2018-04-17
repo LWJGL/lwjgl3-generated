@@ -131,7 +131,7 @@ public class VkPresentTimesInfoGOOGLE extends Struct implements NativeResource {
         int sType,
         long pNext,
         int swapchainCount,
-        VkPresentTimeGOOGLE.Buffer pTimes
+        @Nullable VkPresentTimeGOOGLE.Buffer pTimes
     ) {
         sType(sType);
         pNext(pNext);

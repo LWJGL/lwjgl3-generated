@@ -131,7 +131,7 @@ public class VkImageFormatListCreateInfoKHR extends Struct implements NativeReso
     public VkImageFormatListCreateInfoKHR set(
         int sType,
         long pNext,
-        IntBuffer pViewFormats
+        @Nullable IntBuffer pViewFormats
     ) {
         sType(sType);
         pNext(pNext);

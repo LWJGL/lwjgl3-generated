@@ -179,9 +179,9 @@ public class AINodeAnim extends Struct implements NativeResource {
     /** Initializes this struct with the specified values. */
     public AINodeAnim set(
         AIString mNodeName,
-        AIVectorKey.Buffer mPositionKeys,
-        AIQuatKey.Buffer mRotationKeys,
-        AIVectorKey.Buffer mScalingKeys,
+        @Nullable AIVectorKey.Buffer mPositionKeys,
+        @Nullable AIQuatKey.Buffer mRotationKeys,
+        @Nullable AIVectorKey.Buffer mScalingKeys,
         int mPreState,
         int mPostState
     ) {

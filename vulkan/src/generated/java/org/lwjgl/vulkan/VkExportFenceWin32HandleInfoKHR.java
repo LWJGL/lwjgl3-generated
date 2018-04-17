@@ -157,7 +157,7 @@ public class VkExportFenceWin32HandleInfoKHR extends Struct implements NativeRes
     public VkExportFenceWin32HandleInfoKHR set(
         int sType,
         long pNext,
-        SECURITY_ATTRIBUTES pAttributes,
+        @Nullable SECURITY_ATTRIBUTES pAttributes,
         int dwAccess,
         ByteBuffer name
     ) {

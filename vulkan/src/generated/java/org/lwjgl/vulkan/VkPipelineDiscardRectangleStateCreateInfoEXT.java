@@ -154,7 +154,7 @@ public class VkPipelineDiscardRectangleStateCreateInfoEXT extends Struct impleme
         int flags,
         int discardRectangleMode,
         int discardRectangleCount,
-        VkRect2D.Buffer pDiscardRectangles
+        @Nullable VkRect2D.Buffer pDiscardRectangles
     ) {
         sType(sType);
         pNext(pNext);

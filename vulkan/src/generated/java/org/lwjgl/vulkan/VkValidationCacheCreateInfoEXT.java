@@ -142,7 +142,7 @@ public class VkValidationCacheCreateInfoEXT extends Struct implements NativeReso
         int sType,
         long pNext,
         int flags,
-        ByteBuffer pInitialData
+        @Nullable ByteBuffer pInitialData
     ) {
         sType(sType);
         pNext(pNext);

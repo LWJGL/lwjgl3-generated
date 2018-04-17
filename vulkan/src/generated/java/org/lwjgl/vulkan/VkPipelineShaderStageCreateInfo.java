@@ -188,7 +188,7 @@ public class VkPipelineShaderStageCreateInfo extends Struct implements NativeRes
         int stage,
         long module,
         ByteBuffer pName,
-        VkSpecializationInfo pSpecializationInfo
+        @Nullable VkSpecializationInfo pSpecializationInfo
     ) {
         sType(sType);
         pNext(pNext);

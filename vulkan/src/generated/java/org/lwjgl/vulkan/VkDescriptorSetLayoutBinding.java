@@ -153,7 +153,7 @@ public class VkDescriptorSetLayoutBinding extends Struct implements NativeResour
         int descriptorType,
         int descriptorCount,
         int stageFlags,
-        LongBuffer pImmutableSamplers
+        @Nullable LongBuffer pImmutableSamplers
     ) {
         binding(binding);
         descriptorType(descriptorType);

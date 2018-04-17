@@ -143,7 +143,7 @@ public class VkDescriptorSetLayoutCreateInfo extends Struct implements NativeRes
         int sType,
         long pNext,
         int flags,
-        VkDescriptorSetLayoutBinding.Buffer pBindings
+        @Nullable VkDescriptorSetLayoutBinding.Buffer pBindings
     ) {
         sType(sType);
         pNext(pNext);

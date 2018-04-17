@@ -194,10 +194,10 @@ public class VkSubmitInfo extends Struct implements NativeResource {
         int sType,
         long pNext,
         int waitSemaphoreCount,
-        LongBuffer pWaitSemaphores,
-        IntBuffer pWaitDstStageMask,
-        PointerBuffer pCommandBuffers,
-        LongBuffer pSignalSemaphores
+        @Nullable LongBuffer pWaitSemaphores,
+        @Nullable IntBuffer pWaitDstStageMask,
+        @Nullable PointerBuffer pCommandBuffers,
+        @Nullable LongBuffer pSignalSemaphores
     ) {
         sType(sType);
         pNext(pNext);

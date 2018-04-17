@@ -185,11 +185,11 @@ public class VkPresentInfoKHR extends Struct implements NativeResource {
     public VkPresentInfoKHR set(
         int sType,
         long pNext,
-        LongBuffer pWaitSemaphores,
+        @Nullable LongBuffer pWaitSemaphores,
         int swapchainCount,
         LongBuffer pSwapchains,
         IntBuffer pImageIndices,
-        IntBuffer pResults
+        @Nullable IntBuffer pResults
     ) {
         sType(sType);
         pNext(pNext);

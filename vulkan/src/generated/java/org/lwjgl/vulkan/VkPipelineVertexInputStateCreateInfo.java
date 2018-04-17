@@ -165,8 +165,8 @@ public class VkPipelineVertexInputStateCreateInfo extends Struct implements Nati
         int sType,
         long pNext,
         int flags,
-        VkVertexInputBindingDescription.Buffer pVertexBindingDescriptions,
-        VkVertexInputAttributeDescription.Buffer pVertexAttributeDescriptions
+        @Nullable VkVertexInputBindingDescription.Buffer pVertexBindingDescriptions,
+        @Nullable VkVertexInputAttributeDescription.Buffer pVertexAttributeDescriptions
     ) {
         sType(sType);
         pNext(pNext);
