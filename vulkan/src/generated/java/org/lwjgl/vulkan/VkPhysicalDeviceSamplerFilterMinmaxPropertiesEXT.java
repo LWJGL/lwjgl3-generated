@@ -125,6 +125,34 @@ public class VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT extends Struct {
     @NativeType("VkBool32")
     public boolean filterMinmaxImageComponentMapping() { return nfilterMinmaxImageComponentMapping(address()) != 0; }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT set(VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT} instance for the specified memory address. */
@@ -164,6 +192,11 @@ public class VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT extends Struct {
     public static int nfilterMinmaxSingleComponentFormats(long struct) { return memGetInt(struct + VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT.FILTERMINMAXSINGLECOMPONENTFORMATS); }
     /** Unsafe version of {@link #filterMinmaxImageComponentMapping}. */
     public static int nfilterMinmaxImageComponentMapping(long struct) { return memGetInt(struct + VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT.FILTERMINMAXIMAGECOMPONENTMAPPING); }
+
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT.PNEXT, value); }
 
     // -----------------------------------
 
@@ -223,6 +256,11 @@ public class VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT extends Struct {
         /** Returns the value of the {@code filterMinmaxImageComponentMapping} field. */
         @NativeType("VkBool32")
         public boolean filterMinmaxImageComponentMapping() { return VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT.nfilterMinmaxImageComponentMapping(address()) != 0; }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDeviceSamplerFilterMinmaxPropertiesEXT.npNext(address(), value); return this; }
 
     }
 

@@ -98,6 +98,34 @@ public class VkDescriptorSetVariableDescriptorCountLayoutSupportEXT extends Stru
     @NativeType("uint32_t")
     public int maxVariableDescriptorCount() { return nmaxVariableDescriptorCount(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkDescriptorSetVariableDescriptorCountLayoutSupportEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkDescriptorSetVariableDescriptorCountLayoutSupportEXT pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkDescriptorSetVariableDescriptorCountLayoutSupportEXT set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkDescriptorSetVariableDescriptorCountLayoutSupportEXT set(VkDescriptorSetVariableDescriptorCountLayoutSupportEXT src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkDescriptorSetVariableDescriptorCountLayoutSupportEXT} instance for the specified memory address. */
@@ -135,6 +163,11 @@ public class VkDescriptorSetVariableDescriptorCountLayoutSupportEXT extends Stru
     public static long npNext(long struct) { return memGetAddress(struct + VkDescriptorSetVariableDescriptorCountLayoutSupportEXT.PNEXT); }
     /** Unsafe version of {@link #maxVariableDescriptorCount}. */
     public static int nmaxVariableDescriptorCount(long struct) { return memGetInt(struct + VkDescriptorSetVariableDescriptorCountLayoutSupportEXT.MAXVARIABLEDESCRIPTORCOUNT); }
+
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkDescriptorSetVariableDescriptorCountLayoutSupportEXT.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkDescriptorSetVariableDescriptorCountLayoutSupportEXT.PNEXT, value); }
 
     // -----------------------------------
 
@@ -191,6 +224,11 @@ public class VkDescriptorSetVariableDescriptorCountLayoutSupportEXT extends Stru
         /** Returns the value of the {@code maxVariableDescriptorCount} field. */
         @NativeType("uint32_t")
         public int maxVariableDescriptorCount() { return VkDescriptorSetVariableDescriptorCountLayoutSupportEXT.nmaxVariableDescriptorCount(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkDescriptorSetVariableDescriptorCountLayoutSupportEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkDescriptorSetVariableDescriptorCountLayoutSupportEXT.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkDescriptorSetVariableDescriptorCountLayoutSupportEXT.Buffer pNext(@NativeType("void *") long value) { VkDescriptorSetVariableDescriptorCountLayoutSupportEXT.npNext(address(), value); return this; }
 
     }
 

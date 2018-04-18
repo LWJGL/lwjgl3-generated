@@ -102,6 +102,34 @@ public class VkPhysicalDeviceMultiviewProperties extends Struct {
     @NativeType("uint32_t")
     public int maxMultiviewInstanceIndex() { return nmaxMultiviewInstanceIndex(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkPhysicalDeviceMultiviewProperties sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkPhysicalDeviceMultiviewProperties pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkPhysicalDeviceMultiviewProperties set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkPhysicalDeviceMultiviewProperties set(VkPhysicalDeviceMultiviewProperties src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkPhysicalDeviceMultiviewProperties} instance for the specified memory address. */
@@ -141,6 +169,11 @@ public class VkPhysicalDeviceMultiviewProperties extends Struct {
     public static int nmaxMultiviewViewCount(long struct) { return memGetInt(struct + VkPhysicalDeviceMultiviewProperties.MAXMULTIVIEWVIEWCOUNT); }
     /** Unsafe version of {@link #maxMultiviewInstanceIndex}. */
     public static int nmaxMultiviewInstanceIndex(long struct) { return memGetInt(struct + VkPhysicalDeviceMultiviewProperties.MAXMULTIVIEWINSTANCEINDEX); }
+
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkPhysicalDeviceMultiviewProperties.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkPhysicalDeviceMultiviewProperties.PNEXT, value); }
 
     // -----------------------------------
 
@@ -200,6 +233,11 @@ public class VkPhysicalDeviceMultiviewProperties extends Struct {
         /** Returns the value of the {@code maxMultiviewInstanceIndex} field. */
         @NativeType("uint32_t")
         public int maxMultiviewInstanceIndex() { return VkPhysicalDeviceMultiviewProperties.nmaxMultiviewInstanceIndex(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkPhysicalDeviceMultiviewProperties.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceMultiviewProperties.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkPhysicalDeviceMultiviewProperties.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDeviceMultiviewProperties.npNext(address(), value); return this; }
 
     }
 

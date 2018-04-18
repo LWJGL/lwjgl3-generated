@@ -197,6 +197,34 @@ public class VkPhysicalDeviceShaderCorePropertiesAMD extends Struct {
     @NativeType("uint32_t")
     public int vgprAllocationGranularity() { return nvgprAllocationGranularity(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkPhysicalDeviceShaderCorePropertiesAMD sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkPhysicalDeviceShaderCorePropertiesAMD pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkPhysicalDeviceShaderCorePropertiesAMD set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkPhysicalDeviceShaderCorePropertiesAMD set(VkPhysicalDeviceShaderCorePropertiesAMD src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkPhysicalDeviceShaderCorePropertiesAMD} instance for the specified memory address. */
@@ -260,6 +288,11 @@ public class VkPhysicalDeviceShaderCorePropertiesAMD extends Struct {
     public static int nmaxVgprAllocation(long struct) { return memGetInt(struct + VkPhysicalDeviceShaderCorePropertiesAMD.MAXVGPRALLOCATION); }
     /** Unsafe version of {@link #vgprAllocationGranularity}. */
     public static int nvgprAllocationGranularity(long struct) { return memGetInt(struct + VkPhysicalDeviceShaderCorePropertiesAMD.VGPRALLOCATIONGRANULARITY); }
+
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkPhysicalDeviceShaderCorePropertiesAMD.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkPhysicalDeviceShaderCorePropertiesAMD.PNEXT, value); }
 
     // -----------------------------------
 
@@ -355,6 +388,11 @@ public class VkPhysicalDeviceShaderCorePropertiesAMD extends Struct {
         /** Returns the value of the {@code vgprAllocationGranularity} field. */
         @NativeType("uint32_t")
         public int vgprAllocationGranularity() { return VkPhysicalDeviceShaderCorePropertiesAMD.nvgprAllocationGranularity(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkPhysicalDeviceShaderCorePropertiesAMD.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceShaderCorePropertiesAMD.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkPhysicalDeviceShaderCorePropertiesAMD.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDeviceShaderCorePropertiesAMD.npNext(address(), value); return this; }
 
     }
 

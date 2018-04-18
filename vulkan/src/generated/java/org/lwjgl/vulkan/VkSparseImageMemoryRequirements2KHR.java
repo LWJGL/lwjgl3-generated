@@ -9,9 +9,11 @@ import javax.annotation.*;
 
 import java.nio.*;
 
+import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * See {@link VkSparseImageMemoryRequirements2}.
@@ -41,7 +43,53 @@ public class VkSparseImageMemoryRequirements2KHR extends VkSparseImageMemoryRequ
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
+    /** Sets the specified value to the {@code sType} field. */
+    @Override
+    public VkSparseImageMemoryRequirements2KHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    @Override
+    public VkSparseImageMemoryRequirements2KHR pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    @Override
+    public VkSparseImageMemoryRequirements2KHR set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkSparseImageMemoryRequirements2KHR set(VkSparseImageMemoryRequirements2KHR src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
+
+    /** Returns a new {@link VkSparseImageMemoryRequirements2KHR} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
+    public static VkSparseImageMemoryRequirements2KHR malloc() {
+        return create(nmemAllocChecked(SIZEOF));
+    }
+
+    /** Returns a new {@link VkSparseImageMemoryRequirements2KHR} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
+    public static VkSparseImageMemoryRequirements2KHR calloc() {
+        return create(nmemCallocChecked(1, SIZEOF));
+    }
+
+    /** Returns a new {@link VkSparseImageMemoryRequirements2KHR} instance allocated with {@link BufferUtils}. */
+    public static VkSparseImageMemoryRequirements2KHR create() {
+        return new VkSparseImageMemoryRequirements2KHR(BufferUtils.createByteBuffer(SIZEOF));
+    }
 
     /** Returns a new {@link VkSparseImageMemoryRequirements2KHR} instance for the specified memory address. */
     public static VkSparseImageMemoryRequirements2KHR create(long address) {
@@ -52,6 +100,33 @@ public class VkSparseImageMemoryRequirements2KHR extends VkSparseImageMemoryRequ
     @Nullable
     public static VkSparseImageMemoryRequirements2KHR createSafe(long address) {
         return address == NULL ? null : create(address);
+    }
+
+    /**
+     * Returns a new {@link VkSparseImageMemoryRequirements2KHR.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static VkSparseImageMemoryRequirements2KHR.Buffer malloc(int capacity) {
+        return create(__malloc(capacity, SIZEOF), capacity);
+    }
+
+    /**
+     * Returns a new {@link VkSparseImageMemoryRequirements2KHR.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static VkSparseImageMemoryRequirements2KHR.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
+    }
+
+    /**
+     * Returns a new {@link VkSparseImageMemoryRequirements2KHR.Buffer} instance allocated with {@link BufferUtils}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static VkSparseImageMemoryRequirements2KHR.Buffer create(int capacity) {
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -68,6 +143,74 @@ public class VkSparseImageMemoryRequirements2KHR extends VkSparseImageMemoryRequ
     @Nullable
     public static VkSparseImageMemoryRequirements2KHR.Buffer createSafe(long address, int capacity) {
         return address == NULL ? null : create(address, capacity);
+    }
+
+    // -----------------------------------
+
+    /** Returns a new {@link VkSparseImageMemoryRequirements2KHR} instance allocated on the thread-local {@link MemoryStack}. */
+    public static VkSparseImageMemoryRequirements2KHR mallocStack() {
+        return mallocStack(stackGet());
+    }
+
+    /** Returns a new {@link VkSparseImageMemoryRequirements2KHR} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+    public static VkSparseImageMemoryRequirements2KHR callocStack() {
+        return callocStack(stackGet());
+    }
+
+    /**
+     * Returns a new {@link VkSparseImageMemoryRequirements2KHR} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static VkSparseImageMemoryRequirements2KHR mallocStack(MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, SIZEOF));
+    }
+
+    /**
+     * Returns a new {@link VkSparseImageMemoryRequirements2KHR} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static VkSparseImageMemoryRequirements2KHR callocStack(MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+    }
+
+    /**
+     * Returns a new {@link VkSparseImageMemoryRequirements2KHR.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static VkSparseImageMemoryRequirements2KHR.Buffer mallocStack(int capacity) {
+        return mallocStack(capacity, stackGet());
+    }
+
+    /**
+     * Returns a new {@link VkSparseImageMemoryRequirements2KHR.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static VkSparseImageMemoryRequirements2KHR.Buffer callocStack(int capacity) {
+        return callocStack(capacity, stackGet());
+    }
+
+    /**
+     * Returns a new {@link VkSparseImageMemoryRequirements2KHR.Buffer} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static VkSparseImageMemoryRequirements2KHR.Buffer mallocStack(int capacity, MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+    }
+
+    /**
+     * Returns a new {@link VkSparseImageMemoryRequirements2KHR.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static VkSparseImageMemoryRequirements2KHR.Buffer callocStack(int capacity, MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
     // -----------------------------------
@@ -110,6 +253,13 @@ public class VkSparseImageMemoryRequirements2KHR extends VkSparseImageMemoryRequ
         protected VkSparseImageMemoryRequirements2KHR newInstance(long address) {
             return new VkSparseImageMemoryRequirements2KHR(address, container);
         }
+
+        /** Sets the specified value to the {@code sType} field. */
+        @Override
+        public VkSparseImageMemoryRequirements2KHR.Buffer sType(@NativeType("VkStructureType") int value) { VkSparseImageMemoryRequirements2KHR.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        @Override
+        public VkSparseImageMemoryRequirements2KHR.Buffer pNext(@NativeType("void *") long value) { VkSparseImageMemoryRequirements2KHR.npNext(address(), value); return this; }
 
     }
 

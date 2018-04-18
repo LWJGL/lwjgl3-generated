@@ -88,6 +88,34 @@ public class VkTextureLODGatherFormatPropertiesAMD extends Struct {
     @NativeType("VkBool32")
     public boolean supportsTextureGatherLODBiasAMD() { return nsupportsTextureGatherLODBiasAMD(address()) != 0; }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkTextureLODGatherFormatPropertiesAMD sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkTextureLODGatherFormatPropertiesAMD pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkTextureLODGatherFormatPropertiesAMD set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkTextureLODGatherFormatPropertiesAMD set(VkTextureLODGatherFormatPropertiesAMD src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkTextureLODGatherFormatPropertiesAMD} instance for the specified memory address. */
@@ -125,6 +153,11 @@ public class VkTextureLODGatherFormatPropertiesAMD extends Struct {
     public static long npNext(long struct) { return memGetAddress(struct + VkTextureLODGatherFormatPropertiesAMD.PNEXT); }
     /** Unsafe version of {@link #supportsTextureGatherLODBiasAMD}. */
     public static int nsupportsTextureGatherLODBiasAMD(long struct) { return memGetInt(struct + VkTextureLODGatherFormatPropertiesAMD.SUPPORTSTEXTUREGATHERLODBIASAMD); }
+
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkTextureLODGatherFormatPropertiesAMD.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkTextureLODGatherFormatPropertiesAMD.PNEXT, value); }
 
     // -----------------------------------
 
@@ -181,6 +214,11 @@ public class VkTextureLODGatherFormatPropertiesAMD extends Struct {
         /** Returns the value of the {@code supportsTextureGatherLODBiasAMD} field. */
         @NativeType("VkBool32")
         public boolean supportsTextureGatherLODBiasAMD() { return VkTextureLODGatherFormatPropertiesAMD.nsupportsTextureGatherLODBiasAMD(address()) != 0; }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkTextureLODGatherFormatPropertiesAMD.Buffer sType(@NativeType("VkStructureType") int value) { VkTextureLODGatherFormatPropertiesAMD.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkTextureLODGatherFormatPropertiesAMD.Buffer pNext(@NativeType("void *") long value) { VkTextureLODGatherFormatPropertiesAMD.npNext(address(), value); return this; }
 
     }
 

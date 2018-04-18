@@ -120,6 +120,34 @@ public class VkPhysicalDeviceSubgroupProperties extends Struct {
     @NativeType("VkBool32")
     public boolean quadOperationsInAllStages() { return nquadOperationsInAllStages(address()) != 0; }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkPhysicalDeviceSubgroupProperties sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkPhysicalDeviceSubgroupProperties pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkPhysicalDeviceSubgroupProperties set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkPhysicalDeviceSubgroupProperties set(VkPhysicalDeviceSubgroupProperties src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkPhysicalDeviceSubgroupProperties} instance for the specified memory address. */
@@ -163,6 +191,11 @@ public class VkPhysicalDeviceSubgroupProperties extends Struct {
     public static int nsupportedOperations(long struct) { return memGetInt(struct + VkPhysicalDeviceSubgroupProperties.SUPPORTEDOPERATIONS); }
     /** Unsafe version of {@link #quadOperationsInAllStages}. */
     public static int nquadOperationsInAllStages(long struct) { return memGetInt(struct + VkPhysicalDeviceSubgroupProperties.QUADOPERATIONSINALLSTAGES); }
+
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkPhysicalDeviceSubgroupProperties.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkPhysicalDeviceSubgroupProperties.PNEXT, value); }
 
     // -----------------------------------
 
@@ -228,6 +261,11 @@ public class VkPhysicalDeviceSubgroupProperties extends Struct {
         /** Returns the value of the {@code quadOperationsInAllStages} field. */
         @NativeType("VkBool32")
         public boolean quadOperationsInAllStages() { return VkPhysicalDeviceSubgroupProperties.nquadOperationsInAllStages(address()) != 0; }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkPhysicalDeviceSubgroupProperties.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceSubgroupProperties.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkPhysicalDeviceSubgroupProperties.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDeviceSubgroupProperties.npNext(address(), value); return this; }
 
     }
 

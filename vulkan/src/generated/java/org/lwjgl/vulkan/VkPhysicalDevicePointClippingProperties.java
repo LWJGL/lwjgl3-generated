@@ -98,6 +98,34 @@ public class VkPhysicalDevicePointClippingProperties extends Struct {
     @NativeType("VkPointClippingBehavior")
     public int pointClippingBehavior() { return npointClippingBehavior(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkPhysicalDevicePointClippingProperties sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkPhysicalDevicePointClippingProperties pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkPhysicalDevicePointClippingProperties set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkPhysicalDevicePointClippingProperties set(VkPhysicalDevicePointClippingProperties src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkPhysicalDevicePointClippingProperties} instance for the specified memory address. */
@@ -135,6 +163,11 @@ public class VkPhysicalDevicePointClippingProperties extends Struct {
     public static long npNext(long struct) { return memGetAddress(struct + VkPhysicalDevicePointClippingProperties.PNEXT); }
     /** Unsafe version of {@link #pointClippingBehavior}. */
     public static int npointClippingBehavior(long struct) { return memGetInt(struct + VkPhysicalDevicePointClippingProperties.POINTCLIPPINGBEHAVIOR); }
+
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkPhysicalDevicePointClippingProperties.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkPhysicalDevicePointClippingProperties.PNEXT, value); }
 
     // -----------------------------------
 
@@ -191,6 +224,11 @@ public class VkPhysicalDevicePointClippingProperties extends Struct {
         /** Returns the value of the {@code pointClippingBehavior} field. */
         @NativeType("VkPointClippingBehavior")
         public int pointClippingBehavior() { return VkPhysicalDevicePointClippingProperties.npointClippingBehavior(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkPhysicalDevicePointClippingProperties.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDevicePointClippingProperties.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkPhysicalDevicePointClippingProperties.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDevicePointClippingProperties.npNext(address(), value); return this; }
 
     }
 

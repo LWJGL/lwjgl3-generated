@@ -119,6 +119,34 @@ public class VkExternalSemaphoreProperties extends Struct implements NativeResou
     @NativeType("VkExternalSemaphoreFeatureFlags")
     public int externalSemaphoreFeatures() { return nexternalSemaphoreFeatures(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkExternalSemaphoreProperties sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkExternalSemaphoreProperties pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkExternalSemaphoreProperties set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkExternalSemaphoreProperties set(VkExternalSemaphoreProperties src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkExternalSemaphoreProperties} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -271,6 +299,11 @@ public class VkExternalSemaphoreProperties extends Struct implements NativeResou
     /** Unsafe version of {@link #externalSemaphoreFeatures}. */
     public static int nexternalSemaphoreFeatures(long struct) { return memGetInt(struct + VkExternalSemaphoreProperties.EXTERNALSEMAPHOREFEATURES); }
 
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkExternalSemaphoreProperties.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkExternalSemaphoreProperties.PNEXT, value); }
+
     // -----------------------------------
 
     /** An array of {@link VkExternalSemaphoreProperties} structs. */
@@ -332,6 +365,11 @@ public class VkExternalSemaphoreProperties extends Struct implements NativeResou
         /** Returns the value of the {@code externalSemaphoreFeatures} field. */
         @NativeType("VkExternalSemaphoreFeatureFlags")
         public int externalSemaphoreFeatures() { return VkExternalSemaphoreProperties.nexternalSemaphoreFeatures(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkExternalSemaphoreProperties.Buffer sType(@NativeType("VkStructureType") int value) { VkExternalSemaphoreProperties.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkExternalSemaphoreProperties.Buffer pNext(@NativeType("void *") long value) { VkExternalSemaphoreProperties.npNext(address(), value); return this; }
 
     }
 

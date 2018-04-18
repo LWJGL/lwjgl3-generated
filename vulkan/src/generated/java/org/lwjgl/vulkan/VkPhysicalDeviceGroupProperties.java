@@ -113,6 +113,34 @@ public class VkPhysicalDeviceGroupProperties extends Struct implements NativeRes
     @NativeType("VkBool32")
     public boolean subsetAllocation() { return nsubsetAllocation(address()) != 0; }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkPhysicalDeviceGroupProperties sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkPhysicalDeviceGroupProperties pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkPhysicalDeviceGroupProperties set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkPhysicalDeviceGroupProperties set(VkPhysicalDeviceGroupProperties src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkPhysicalDeviceGroupProperties} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -269,6 +297,11 @@ public class VkPhysicalDeviceGroupProperties extends Struct implements NativeRes
     /** Unsafe version of {@link #subsetAllocation}. */
     public static int nsubsetAllocation(long struct) { return memGetInt(struct + VkPhysicalDeviceGroupProperties.SUBSETALLOCATION); }
 
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkPhysicalDeviceGroupProperties.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkPhysicalDeviceGroupProperties.PNEXT, value); }
+
     // -----------------------------------
 
     /** An array of {@link VkPhysicalDeviceGroupProperties} structs. */
@@ -333,6 +366,11 @@ public class VkPhysicalDeviceGroupProperties extends Struct implements NativeRes
         /** Returns the value of the {@code subsetAllocation} field. */
         @NativeType("VkBool32")
         public boolean subsetAllocation() { return VkPhysicalDeviceGroupProperties.nsubsetAllocation(address()) != 0; }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkPhysicalDeviceGroupProperties.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceGroupProperties.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkPhysicalDeviceGroupProperties.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDeviceGroupProperties.npNext(address(), value); return this; }
 
     }
 

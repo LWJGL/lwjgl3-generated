@@ -42,6 +42,37 @@ public class VkMemoryDedicatedRequirementsKHR extends VkMemoryDedicatedRequireme
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
+    /** Sets the specified value to the {@code sType} field. */
+    @Override
+    public VkMemoryDedicatedRequirementsKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    @Override
+    public VkMemoryDedicatedRequirementsKHR pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    @Override
+    public VkMemoryDedicatedRequirementsKHR set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkMemoryDedicatedRequirementsKHR set(VkMemoryDedicatedRequirementsKHR src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkMemoryDedicatedRequirementsKHR} instance for the specified memory address. */
@@ -111,6 +142,13 @@ public class VkMemoryDedicatedRequirementsKHR extends VkMemoryDedicatedRequireme
         protected VkMemoryDedicatedRequirementsKHR newInstance(long address) {
             return new VkMemoryDedicatedRequirementsKHR(address, container);
         }
+
+        /** Sets the specified value to the {@code sType} field. */
+        @Override
+        public VkMemoryDedicatedRequirementsKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkMemoryDedicatedRequirementsKHR.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        @Override
+        public VkMemoryDedicatedRequirementsKHR.Buffer pNext(@NativeType("void *") long value) { VkMemoryDedicatedRequirementsKHR.npNext(address(), value); return this; }
 
     }
 

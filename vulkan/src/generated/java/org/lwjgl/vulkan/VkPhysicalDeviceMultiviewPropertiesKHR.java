@@ -42,6 +42,37 @@ public class VkPhysicalDeviceMultiviewPropertiesKHR extends VkPhysicalDeviceMult
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
+    /** Sets the specified value to the {@code sType} field. */
+    @Override
+    public VkPhysicalDeviceMultiviewPropertiesKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    @Override
+    public VkPhysicalDeviceMultiviewPropertiesKHR pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    @Override
+    public VkPhysicalDeviceMultiviewPropertiesKHR set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkPhysicalDeviceMultiviewPropertiesKHR set(VkPhysicalDeviceMultiviewPropertiesKHR src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkPhysicalDeviceMultiviewPropertiesKHR} instance for the specified memory address. */
@@ -111,6 +142,13 @@ public class VkPhysicalDeviceMultiviewPropertiesKHR extends VkPhysicalDeviceMult
         protected VkPhysicalDeviceMultiviewPropertiesKHR newInstance(long address) {
             return new VkPhysicalDeviceMultiviewPropertiesKHR(address, container);
         }
+
+        /** Sets the specified value to the {@code sType} field. */
+        @Override
+        public VkPhysicalDeviceMultiviewPropertiesKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceMultiviewPropertiesKHR.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        @Override
+        public VkPhysicalDeviceMultiviewPropertiesKHR.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDeviceMultiviewPropertiesKHR.npNext(address(), value); return this; }
 
     }
 

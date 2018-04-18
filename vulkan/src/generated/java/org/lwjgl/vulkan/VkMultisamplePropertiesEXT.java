@@ -100,6 +100,34 @@ public class VkMultisamplePropertiesEXT extends Struct implements NativeResource
     /** Returns a {@link VkExtent2D} view of the {@code maxSampleLocationGridSize} field. */
     public VkExtent2D maxSampleLocationGridSize() { return nmaxSampleLocationGridSize(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkMultisamplePropertiesEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkMultisamplePropertiesEXT pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkMultisamplePropertiesEXT set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkMultisamplePropertiesEXT set(VkMultisamplePropertiesEXT src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkMultisamplePropertiesEXT} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -248,6 +276,11 @@ public class VkMultisamplePropertiesEXT extends Struct implements NativeResource
     /** Unsafe version of {@link #maxSampleLocationGridSize}. */
     public static VkExtent2D nmaxSampleLocationGridSize(long struct) { return VkExtent2D.create(struct + VkMultisamplePropertiesEXT.MAXSAMPLELOCATIONGRIDSIZE); }
 
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkMultisamplePropertiesEXT.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkMultisamplePropertiesEXT.PNEXT, value); }
+
     // -----------------------------------
 
     /** An array of {@link VkMultisamplePropertiesEXT} structs. */
@@ -302,6 +335,11 @@ public class VkMultisamplePropertiesEXT extends Struct implements NativeResource
         public long pNext() { return VkMultisamplePropertiesEXT.npNext(address()); }
         /** Returns a {@link VkExtent2D} view of the {@code maxSampleLocationGridSize} field. */
         public VkExtent2D maxSampleLocationGridSize() { return VkMultisamplePropertiesEXT.nmaxSampleLocationGridSize(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkMultisamplePropertiesEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkMultisamplePropertiesEXT.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkMultisamplePropertiesEXT.Buffer pNext(@NativeType("void *") long value) { VkMultisamplePropertiesEXT.npNext(address(), value); return this; }
 
     }
 

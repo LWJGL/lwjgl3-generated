@@ -100,6 +100,34 @@ public class VkSurfaceFormat2KHR extends Struct implements NativeResource {
     /** Returns a {@link VkSurfaceFormatKHR} view of the {@code surfaceFormat} field. */
     public VkSurfaceFormatKHR surfaceFormat() { return nsurfaceFormat(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkSurfaceFormat2KHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkSurfaceFormat2KHR pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkSurfaceFormat2KHR set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkSurfaceFormat2KHR set(VkSurfaceFormat2KHR src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkSurfaceFormat2KHR} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -248,6 +276,11 @@ public class VkSurfaceFormat2KHR extends Struct implements NativeResource {
     /** Unsafe version of {@link #surfaceFormat}. */
     public static VkSurfaceFormatKHR nsurfaceFormat(long struct) { return VkSurfaceFormatKHR.create(struct + VkSurfaceFormat2KHR.SURFACEFORMAT); }
 
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkSurfaceFormat2KHR.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkSurfaceFormat2KHR.PNEXT, value); }
+
     // -----------------------------------
 
     /** An array of {@link VkSurfaceFormat2KHR} structs. */
@@ -302,6 +335,11 @@ public class VkSurfaceFormat2KHR extends Struct implements NativeResource {
         public long pNext() { return VkSurfaceFormat2KHR.npNext(address()); }
         /** Returns a {@link VkSurfaceFormatKHR} view of the {@code surfaceFormat} field. */
         public VkSurfaceFormatKHR surfaceFormat() { return VkSurfaceFormat2KHR.nsurfaceFormat(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkSurfaceFormat2KHR.Buffer sType(@NativeType("VkStructureType") int value) { VkSurfaceFormat2KHR.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkSurfaceFormat2KHR.Buffer pNext(@NativeType("void *") long value) { VkSurfaceFormat2KHR.npNext(address(), value); return this; }
 
     }
 

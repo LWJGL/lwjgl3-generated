@@ -134,6 +134,34 @@ public class VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT extends Struct 
     @NativeType("VkBool32")
     public boolean advancedBlendAllOperations() { return nadvancedBlendAllOperations(address()) != 0; }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT set(VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT} instance for the specified memory address. */
@@ -181,6 +209,11 @@ public class VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT extends Struct 
     public static int nadvancedBlendCorrelatedOverlap(long struct) { return memGetInt(struct + VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.ADVANCEDBLENDCORRELATEDOVERLAP); }
     /** Unsafe version of {@link #advancedBlendAllOperations}. */
     public static int nadvancedBlendAllOperations(long struct) { return memGetInt(struct + VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.ADVANCEDBLENDALLOPERATIONS); }
+
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.PNEXT, value); }
 
     // -----------------------------------
 
@@ -252,6 +285,11 @@ public class VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT extends Struct 
         /** Returns the value of the {@code advancedBlendAllOperations} field. */
         @NativeType("VkBool32")
         public boolean advancedBlendAllOperations() { return VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.nadvancedBlendAllOperations(address()) != 0; }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDeviceBlendOperationAdvancedPropertiesEXT.npNext(address(), value); return this; }
 
     }
 

@@ -46,6 +46,37 @@ public class VkPhysicalDeviceIDPropertiesKHR extends VkPhysicalDeviceIDPropertie
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
+    /** Sets the specified value to the {@code sType} field. */
+    @Override
+    public VkPhysicalDeviceIDPropertiesKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    @Override
+    public VkPhysicalDeviceIDPropertiesKHR pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    @Override
+    public VkPhysicalDeviceIDPropertiesKHR set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkPhysicalDeviceIDPropertiesKHR set(VkPhysicalDeviceIDPropertiesKHR src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkPhysicalDeviceIDPropertiesKHR} instance for the specified memory address. */
@@ -115,6 +146,13 @@ public class VkPhysicalDeviceIDPropertiesKHR extends VkPhysicalDeviceIDPropertie
         protected VkPhysicalDeviceIDPropertiesKHR newInstance(long address) {
             return new VkPhysicalDeviceIDPropertiesKHR(address, container);
         }
+
+        /** Sets the specified value to the {@code sType} field. */
+        @Override
+        public VkPhysicalDeviceIDPropertiesKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceIDPropertiesKHR.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        @Override
+        public VkPhysicalDeviceIDPropertiesKHR.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDeviceIDPropertiesKHR.npNext(address(), value); return this; }
 
     }
 

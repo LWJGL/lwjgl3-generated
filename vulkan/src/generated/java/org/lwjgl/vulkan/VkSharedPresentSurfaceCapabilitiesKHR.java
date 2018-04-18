@@ -94,6 +94,34 @@ public class VkSharedPresentSurfaceCapabilitiesKHR extends Struct {
     @NativeType("VkImageUsageFlags")
     public int sharedPresentSupportedUsageFlags() { return nsharedPresentSupportedUsageFlags(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkSharedPresentSurfaceCapabilitiesKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkSharedPresentSurfaceCapabilitiesKHR pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkSharedPresentSurfaceCapabilitiesKHR set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkSharedPresentSurfaceCapabilitiesKHR set(VkSharedPresentSurfaceCapabilitiesKHR src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkSharedPresentSurfaceCapabilitiesKHR} instance for the specified memory address. */
@@ -131,6 +159,11 @@ public class VkSharedPresentSurfaceCapabilitiesKHR extends Struct {
     public static long npNext(long struct) { return memGetAddress(struct + VkSharedPresentSurfaceCapabilitiesKHR.PNEXT); }
     /** Unsafe version of {@link #sharedPresentSupportedUsageFlags}. */
     public static int nsharedPresentSupportedUsageFlags(long struct) { return memGetInt(struct + VkSharedPresentSurfaceCapabilitiesKHR.SHAREDPRESENTSUPPORTEDUSAGEFLAGS); }
+
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkSharedPresentSurfaceCapabilitiesKHR.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkSharedPresentSurfaceCapabilitiesKHR.PNEXT, value); }
 
     // -----------------------------------
 
@@ -187,6 +220,11 @@ public class VkSharedPresentSurfaceCapabilitiesKHR extends Struct {
         /** Returns the value of the {@code sharedPresentSupportedUsageFlags} field. */
         @NativeType("VkImageUsageFlags")
         public int sharedPresentSupportedUsageFlags() { return VkSharedPresentSurfaceCapabilitiesKHR.nsharedPresentSupportedUsageFlags(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkSharedPresentSurfaceCapabilitiesKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkSharedPresentSurfaceCapabilitiesKHR.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkSharedPresentSurfaceCapabilitiesKHR.Buffer pNext(@NativeType("void *") long value) { VkSharedPresentSurfaceCapabilitiesKHR.npNext(address(), value); return this; }
 
     }
 

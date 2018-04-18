@@ -9,9 +9,11 @@ import javax.annotation.*;
 
 import java.nio.*;
 
+import org.lwjgl.*;
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.MemoryUtil.*;
+import static org.lwjgl.system.MemoryStack.*;
 
 /**
  * See {@link VkExternalBufferProperties}.
@@ -41,7 +43,53 @@ public class VkExternalBufferPropertiesKHR extends VkExternalBufferProperties {
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
+    /** Sets the specified value to the {@code sType} field. */
+    @Override
+    public VkExternalBufferPropertiesKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    @Override
+    public VkExternalBufferPropertiesKHR pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    @Override
+    public VkExternalBufferPropertiesKHR set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkExternalBufferPropertiesKHR set(VkExternalBufferPropertiesKHR src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
+
+    /** Returns a new {@link VkExternalBufferPropertiesKHR} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
+    public static VkExternalBufferPropertiesKHR malloc() {
+        return create(nmemAllocChecked(SIZEOF));
+    }
+
+    /** Returns a new {@link VkExternalBufferPropertiesKHR} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed. */
+    public static VkExternalBufferPropertiesKHR calloc() {
+        return create(nmemCallocChecked(1, SIZEOF));
+    }
+
+    /** Returns a new {@link VkExternalBufferPropertiesKHR} instance allocated with {@link BufferUtils}. */
+    public static VkExternalBufferPropertiesKHR create() {
+        return new VkExternalBufferPropertiesKHR(BufferUtils.createByteBuffer(SIZEOF));
+    }
 
     /** Returns a new {@link VkExternalBufferPropertiesKHR} instance for the specified memory address. */
     public static VkExternalBufferPropertiesKHR create(long address) {
@@ -52,6 +100,33 @@ public class VkExternalBufferPropertiesKHR extends VkExternalBufferProperties {
     @Nullable
     public static VkExternalBufferPropertiesKHR createSafe(long address) {
         return address == NULL ? null : create(address);
+    }
+
+    /**
+     * Returns a new {@link VkExternalBufferPropertiesKHR.Buffer} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static VkExternalBufferPropertiesKHR.Buffer malloc(int capacity) {
+        return create(__malloc(capacity, SIZEOF), capacity);
+    }
+
+    /**
+     * Returns a new {@link VkExternalBufferPropertiesKHR.Buffer} instance allocated with {@link MemoryUtil#memCalloc memCalloc}. The instance must be explicitly freed.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static VkExternalBufferPropertiesKHR.Buffer calloc(int capacity) {
+        return create(nmemCallocChecked(capacity, SIZEOF), capacity);
+    }
+
+    /**
+     * Returns a new {@link VkExternalBufferPropertiesKHR.Buffer} instance allocated with {@link BufferUtils}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static VkExternalBufferPropertiesKHR.Buffer create(int capacity) {
+        return new Buffer(__create(capacity, SIZEOF));
     }
 
     /**
@@ -68,6 +143,74 @@ public class VkExternalBufferPropertiesKHR extends VkExternalBufferProperties {
     @Nullable
     public static VkExternalBufferPropertiesKHR.Buffer createSafe(long address, int capacity) {
         return address == NULL ? null : create(address, capacity);
+    }
+
+    // -----------------------------------
+
+    /** Returns a new {@link VkExternalBufferPropertiesKHR} instance allocated on the thread-local {@link MemoryStack}. */
+    public static VkExternalBufferPropertiesKHR mallocStack() {
+        return mallocStack(stackGet());
+    }
+
+    /** Returns a new {@link VkExternalBufferPropertiesKHR} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero. */
+    public static VkExternalBufferPropertiesKHR callocStack() {
+        return callocStack(stackGet());
+    }
+
+    /**
+     * Returns a new {@link VkExternalBufferPropertiesKHR} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static VkExternalBufferPropertiesKHR mallocStack(MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, SIZEOF));
+    }
+
+    /**
+     * Returns a new {@link VkExternalBufferPropertiesKHR} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     */
+    public static VkExternalBufferPropertiesKHR callocStack(MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, 1, SIZEOF));
+    }
+
+    /**
+     * Returns a new {@link VkExternalBufferPropertiesKHR.Buffer} instance allocated on the thread-local {@link MemoryStack}.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static VkExternalBufferPropertiesKHR.Buffer mallocStack(int capacity) {
+        return mallocStack(capacity, stackGet());
+    }
+
+    /**
+     * Returns a new {@link VkExternalBufferPropertiesKHR.Buffer} instance allocated on the thread-local {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param capacity the buffer capacity
+     */
+    public static VkExternalBufferPropertiesKHR.Buffer callocStack(int capacity) {
+        return callocStack(capacity, stackGet());
+    }
+
+    /**
+     * Returns a new {@link VkExternalBufferPropertiesKHR.Buffer} instance allocated on the specified {@link MemoryStack}.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static VkExternalBufferPropertiesKHR.Buffer mallocStack(int capacity, MemoryStack stack) {
+        return create(stack.nmalloc(ALIGNOF, capacity * SIZEOF), capacity);
+    }
+
+    /**
+     * Returns a new {@link VkExternalBufferPropertiesKHR.Buffer} instance allocated on the specified {@link MemoryStack} and initializes all its bits to zero.
+     *
+     * @param stack the stack from which to allocate
+     * @param capacity the buffer capacity
+     */
+    public static VkExternalBufferPropertiesKHR.Buffer callocStack(int capacity, MemoryStack stack) {
+        return create(stack.ncalloc(ALIGNOF, capacity, SIZEOF), capacity);
     }
 
     // -----------------------------------
@@ -110,6 +253,13 @@ public class VkExternalBufferPropertiesKHR extends VkExternalBufferProperties {
         protected VkExternalBufferPropertiesKHR newInstance(long address) {
             return new VkExternalBufferPropertiesKHR(address, container);
         }
+
+        /** Sets the specified value to the {@code sType} field. */
+        @Override
+        public VkExternalBufferPropertiesKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkExternalBufferPropertiesKHR.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        @Override
+        public VkExternalBufferPropertiesKHR.Buffer pNext(@NativeType("void *") long value) { VkExternalBufferPropertiesKHR.npNext(address(), value); return this; }
 
     }
 

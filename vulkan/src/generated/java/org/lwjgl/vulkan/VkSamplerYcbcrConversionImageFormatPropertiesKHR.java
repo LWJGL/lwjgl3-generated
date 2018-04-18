@@ -41,6 +41,37 @@ public class VkSamplerYcbcrConversionImageFormatPropertiesKHR extends VkSamplerY
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
+    /** Sets the specified value to the {@code sType} field. */
+    @Override
+    public VkSamplerYcbcrConversionImageFormatPropertiesKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    @Override
+    public VkSamplerYcbcrConversionImageFormatPropertiesKHR pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    @Override
+    public VkSamplerYcbcrConversionImageFormatPropertiesKHR set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkSamplerYcbcrConversionImageFormatPropertiesKHR set(VkSamplerYcbcrConversionImageFormatPropertiesKHR src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkSamplerYcbcrConversionImageFormatPropertiesKHR} instance for the specified memory address. */
@@ -110,6 +141,13 @@ public class VkSamplerYcbcrConversionImageFormatPropertiesKHR extends VkSamplerY
         protected VkSamplerYcbcrConversionImageFormatPropertiesKHR newInstance(long address) {
             return new VkSamplerYcbcrConversionImageFormatPropertiesKHR(address, container);
         }
+
+        /** Sets the specified value to the {@code sType} field. */
+        @Override
+        public VkSamplerYcbcrConversionImageFormatPropertiesKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkSamplerYcbcrConversionImageFormatPropertiesKHR.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        @Override
+        public VkSamplerYcbcrConversionImageFormatPropertiesKHR.Buffer pNext(@NativeType("void *") long value) { VkSamplerYcbcrConversionImageFormatPropertiesKHR.npNext(address(), value); return this; }
 
     }
 

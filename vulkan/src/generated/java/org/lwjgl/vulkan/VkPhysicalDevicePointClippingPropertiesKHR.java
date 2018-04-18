@@ -41,6 +41,37 @@ public class VkPhysicalDevicePointClippingPropertiesKHR extends VkPhysicalDevice
         this(memAddress(container), __checkContainer(container, SIZEOF));
     }
 
+    /** Sets the specified value to the {@code sType} field. */
+    @Override
+    public VkPhysicalDevicePointClippingPropertiesKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    @Override
+    public VkPhysicalDevicePointClippingPropertiesKHR pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    @Override
+    public VkPhysicalDevicePointClippingPropertiesKHR set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkPhysicalDevicePointClippingPropertiesKHR set(VkPhysicalDevicePointClippingPropertiesKHR src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkPhysicalDevicePointClippingPropertiesKHR} instance for the specified memory address. */
@@ -110,6 +141,13 @@ public class VkPhysicalDevicePointClippingPropertiesKHR extends VkPhysicalDevice
         protected VkPhysicalDevicePointClippingPropertiesKHR newInstance(long address) {
             return new VkPhysicalDevicePointClippingPropertiesKHR(address, container);
         }
+
+        /** Sets the specified value to the {@code sType} field. */
+        @Override
+        public VkPhysicalDevicePointClippingPropertiesKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDevicePointClippingPropertiesKHR.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        @Override
+        public VkPhysicalDevicePointClippingPropertiesKHR.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDevicePointClippingPropertiesKHR.npNext(address(), value); return this; }
 
     }
 

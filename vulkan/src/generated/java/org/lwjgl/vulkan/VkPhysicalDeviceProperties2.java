@@ -105,6 +105,34 @@ public class VkPhysicalDeviceProperties2 extends Struct implements NativeResourc
     /** Returns a {@link VkPhysicalDeviceProperties} view of the {@code properties} field. */
     public VkPhysicalDeviceProperties properties() { return nproperties(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkPhysicalDeviceProperties2 sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkPhysicalDeviceProperties2 pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkPhysicalDeviceProperties2 set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkPhysicalDeviceProperties2 set(VkPhysicalDeviceProperties2 src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkPhysicalDeviceProperties2} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -253,6 +281,11 @@ public class VkPhysicalDeviceProperties2 extends Struct implements NativeResourc
     /** Unsafe version of {@link #properties}. */
     public static VkPhysicalDeviceProperties nproperties(long struct) { return VkPhysicalDeviceProperties.create(struct + VkPhysicalDeviceProperties2.PROPERTIES); }
 
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkPhysicalDeviceProperties2.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkPhysicalDeviceProperties2.PNEXT, value); }
+
     // -----------------------------------
 
     /** An array of {@link VkPhysicalDeviceProperties2} structs. */
@@ -307,6 +340,11 @@ public class VkPhysicalDeviceProperties2 extends Struct implements NativeResourc
         public long pNext() { return VkPhysicalDeviceProperties2.npNext(address()); }
         /** Returns a {@link VkPhysicalDeviceProperties} view of the {@code properties} field. */
         public VkPhysicalDeviceProperties properties() { return VkPhysicalDeviceProperties2.nproperties(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkPhysicalDeviceProperties2.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceProperties2.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkPhysicalDeviceProperties2.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDeviceProperties2.npNext(address(), value); return this; }
 
     }
 

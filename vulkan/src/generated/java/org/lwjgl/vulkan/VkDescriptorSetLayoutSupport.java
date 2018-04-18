@@ -105,6 +105,34 @@ public class VkDescriptorSetLayoutSupport extends Struct implements NativeResour
     @NativeType("VkBool32")
     public boolean supported() { return nsupported(address()) != 0; }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkDescriptorSetLayoutSupport sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkDescriptorSetLayoutSupport pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkDescriptorSetLayoutSupport set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkDescriptorSetLayoutSupport set(VkDescriptorSetLayoutSupport src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkDescriptorSetLayoutSupport} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -253,6 +281,11 @@ public class VkDescriptorSetLayoutSupport extends Struct implements NativeResour
     /** Unsafe version of {@link #supported}. */
     public static int nsupported(long struct) { return memGetInt(struct + VkDescriptorSetLayoutSupport.SUPPORTED); }
 
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkDescriptorSetLayoutSupport.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkDescriptorSetLayoutSupport.PNEXT, value); }
+
     // -----------------------------------
 
     /** An array of {@link VkDescriptorSetLayoutSupport} structs. */
@@ -308,6 +341,11 @@ public class VkDescriptorSetLayoutSupport extends Struct implements NativeResour
         /** Returns the value of the {@code supported} field. */
         @NativeType("VkBool32")
         public boolean supported() { return VkDescriptorSetLayoutSupport.nsupported(address()) != 0; }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkDescriptorSetLayoutSupport.Buffer sType(@NativeType("VkStructureType") int value) { VkDescriptorSetLayoutSupport.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkDescriptorSetLayoutSupport.Buffer pNext(@NativeType("void *") long value) { VkDescriptorSetLayoutSupport.npNext(address(), value); return this; }
 
     }
 

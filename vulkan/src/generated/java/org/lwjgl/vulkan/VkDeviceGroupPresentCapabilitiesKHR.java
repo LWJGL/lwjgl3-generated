@@ -124,6 +124,34 @@ public class VkDeviceGroupPresentCapabilitiesKHR extends Struct implements Nativ
     @NativeType("VkDeviceGroupPresentModeFlagsKHR")
     public int modes() { return nmodes(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkDeviceGroupPresentCapabilitiesKHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkDeviceGroupPresentCapabilitiesKHR pNext(@NativeType("void const *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkDeviceGroupPresentCapabilitiesKHR set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkDeviceGroupPresentCapabilitiesKHR set(VkDeviceGroupPresentCapabilitiesKHR src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkDeviceGroupPresentCapabilitiesKHR} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -278,6 +306,11 @@ public class VkDeviceGroupPresentCapabilitiesKHR extends Struct implements Nativ
     /** Unsafe version of {@link #modes}. */
     public static int nmodes(long struct) { return memGetInt(struct + VkDeviceGroupPresentCapabilitiesKHR.MODES); }
 
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkDeviceGroupPresentCapabilitiesKHR.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkDeviceGroupPresentCapabilitiesKHR.PNEXT, value); }
+
     // -----------------------------------
 
     /** An array of {@link VkDeviceGroupPresentCapabilitiesKHR} structs. */
@@ -339,6 +372,11 @@ public class VkDeviceGroupPresentCapabilitiesKHR extends Struct implements Nativ
         /** Returns the value of the {@code modes} field. */
         @NativeType("VkDeviceGroupPresentModeFlagsKHR")
         public int modes() { return VkDeviceGroupPresentCapabilitiesKHR.nmodes(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkDeviceGroupPresentCapabilitiesKHR.Buffer sType(@NativeType("VkStructureType") int value) { VkDeviceGroupPresentCapabilitiesKHR.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkDeviceGroupPresentCapabilitiesKHR.Buffer pNext(@NativeType("void const *") long value) { VkDeviceGroupPresentCapabilitiesKHR.npNext(address(), value); return this; }
 
     }
 

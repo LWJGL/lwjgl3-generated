@@ -100,6 +100,34 @@ public class VkSparseImageFormatProperties2 extends Struct implements NativeReso
     /** Returns a {@link VkSparseImageFormatProperties} view of the {@code properties} field. */
     public VkSparseImageFormatProperties properties() { return nproperties(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkSparseImageFormatProperties2 sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkSparseImageFormatProperties2 pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkSparseImageFormatProperties2 set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkSparseImageFormatProperties2 set(VkSparseImageFormatProperties2 src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkSparseImageFormatProperties2} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -248,6 +276,11 @@ public class VkSparseImageFormatProperties2 extends Struct implements NativeReso
     /** Unsafe version of {@link #properties}. */
     public static VkSparseImageFormatProperties nproperties(long struct) { return VkSparseImageFormatProperties.create(struct + VkSparseImageFormatProperties2.PROPERTIES); }
 
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkSparseImageFormatProperties2.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkSparseImageFormatProperties2.PNEXT, value); }
+
     // -----------------------------------
 
     /** An array of {@link VkSparseImageFormatProperties2} structs. */
@@ -302,6 +335,11 @@ public class VkSparseImageFormatProperties2 extends Struct implements NativeReso
         public long pNext() { return VkSparseImageFormatProperties2.npNext(address()); }
         /** Returns a {@link VkSparseImageFormatProperties} view of the {@code properties} field. */
         public VkSparseImageFormatProperties properties() { return VkSparseImageFormatProperties2.nproperties(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkSparseImageFormatProperties2.Buffer sType(@NativeType("VkStructureType") int value) { VkSparseImageFormatProperties2.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkSparseImageFormatProperties2.Buffer pNext(@NativeType("void *") long value) { VkSparseImageFormatProperties2.npNext(address(), value); return this; }
 
     }
 

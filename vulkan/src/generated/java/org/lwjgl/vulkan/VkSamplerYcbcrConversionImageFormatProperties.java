@@ -94,6 +94,34 @@ public class VkSamplerYcbcrConversionImageFormatProperties extends Struct {
     @NativeType("uint32_t")
     public int combinedImageSamplerDescriptorCount() { return ncombinedImageSamplerDescriptorCount(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkSamplerYcbcrConversionImageFormatProperties sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkSamplerYcbcrConversionImageFormatProperties pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkSamplerYcbcrConversionImageFormatProperties set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkSamplerYcbcrConversionImageFormatProperties set(VkSamplerYcbcrConversionImageFormatProperties src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkSamplerYcbcrConversionImageFormatProperties} instance for the specified memory address. */
@@ -131,6 +159,11 @@ public class VkSamplerYcbcrConversionImageFormatProperties extends Struct {
     public static long npNext(long struct) { return memGetAddress(struct + VkSamplerYcbcrConversionImageFormatProperties.PNEXT); }
     /** Unsafe version of {@link #combinedImageSamplerDescriptorCount}. */
     public static int ncombinedImageSamplerDescriptorCount(long struct) { return memGetInt(struct + VkSamplerYcbcrConversionImageFormatProperties.COMBINEDIMAGESAMPLERDESCRIPTORCOUNT); }
+
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkSamplerYcbcrConversionImageFormatProperties.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkSamplerYcbcrConversionImageFormatProperties.PNEXT, value); }
 
     // -----------------------------------
 
@@ -187,6 +220,11 @@ public class VkSamplerYcbcrConversionImageFormatProperties extends Struct {
         /** Returns the value of the {@code combinedImageSamplerDescriptorCount} field. */
         @NativeType("uint32_t")
         public int combinedImageSamplerDescriptorCount() { return VkSamplerYcbcrConversionImageFormatProperties.ncombinedImageSamplerDescriptorCount(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkSamplerYcbcrConversionImageFormatProperties.Buffer sType(@NativeType("VkStructureType") int value) { VkSamplerYcbcrConversionImageFormatProperties.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkSamplerYcbcrConversionImageFormatProperties.Buffer pNext(@NativeType("void *") long value) { VkSamplerYcbcrConversionImageFormatProperties.npNext(address(), value); return this; }
 
     }
 

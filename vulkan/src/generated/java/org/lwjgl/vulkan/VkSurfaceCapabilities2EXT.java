@@ -174,6 +174,34 @@ public class VkSurfaceCapabilities2EXT extends Struct implements NativeResource 
     @NativeType("VkSurfaceCounterFlagsEXT")
     public int supportedSurfaceCounters() { return nsupportedSurfaceCounters(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkSurfaceCapabilities2EXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkSurfaceCapabilities2EXT pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkSurfaceCapabilities2EXT set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkSurfaceCapabilities2EXT set(VkSurfaceCapabilities2EXT src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkSurfaceCapabilities2EXT} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -342,6 +370,11 @@ public class VkSurfaceCapabilities2EXT extends Struct implements NativeResource 
     /** Unsafe version of {@link #supportedSurfaceCounters}. */
     public static int nsupportedSurfaceCounters(long struct) { return memGetInt(struct + VkSurfaceCapabilities2EXT.SUPPORTEDSURFACECOUNTERS); }
 
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkSurfaceCapabilities2EXT.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkSurfaceCapabilities2EXT.PNEXT, value); }
+
     // -----------------------------------
 
     /** An array of {@link VkSurfaceCapabilities2EXT} structs. */
@@ -424,6 +457,11 @@ public class VkSurfaceCapabilities2EXT extends Struct implements NativeResource 
         /** Returns the value of the {@code supportedSurfaceCounters} field. */
         @NativeType("VkSurfaceCounterFlagsEXT")
         public int supportedSurfaceCounters() { return VkSurfaceCapabilities2EXT.nsupportedSurfaceCounters(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkSurfaceCapabilities2EXT.Buffer sType(@NativeType("VkStructureType") int value) { VkSurfaceCapabilities2EXT.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkSurfaceCapabilities2EXT.Buffer pNext(@NativeType("void *") long value) { VkSurfaceCapabilities2EXT.npNext(address(), value); return this; }
 
     }
 

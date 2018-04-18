@@ -119,6 +119,34 @@ public class VkExternalFenceProperties extends Struct implements NativeResource 
     @NativeType("VkExternalFenceFeatureFlags")
     public int externalFenceFeatures() { return nexternalFenceFeatures(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkExternalFenceProperties sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkExternalFenceProperties pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkExternalFenceProperties set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkExternalFenceProperties set(VkExternalFenceProperties src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkExternalFenceProperties} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -271,6 +299,11 @@ public class VkExternalFenceProperties extends Struct implements NativeResource 
     /** Unsafe version of {@link #externalFenceFeatures}. */
     public static int nexternalFenceFeatures(long struct) { return memGetInt(struct + VkExternalFenceProperties.EXTERNALFENCEFEATURES); }
 
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkExternalFenceProperties.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkExternalFenceProperties.PNEXT, value); }
+
     // -----------------------------------
 
     /** An array of {@link VkExternalFenceProperties} structs. */
@@ -332,6 +365,11 @@ public class VkExternalFenceProperties extends Struct implements NativeResource 
         /** Returns the value of the {@code externalFenceFeatures} field. */
         @NativeType("VkExternalFenceFeatureFlags")
         public int externalFenceFeatures() { return VkExternalFenceProperties.nexternalFenceFeatures(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkExternalFenceProperties.Buffer sType(@NativeType("VkStructureType") int value) { VkExternalFenceProperties.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkExternalFenceProperties.Buffer pNext(@NativeType("void *") long value) { VkExternalFenceProperties.npNext(address(), value); return this; }
 
     }
 

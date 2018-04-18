@@ -100,6 +100,34 @@ public class VkMemoryRequirements2 extends Struct implements NativeResource {
     /** Returns a {@link VkMemoryRequirements} view of the {@code memoryRequirements} field. */
     public VkMemoryRequirements memoryRequirements() { return nmemoryRequirements(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkMemoryRequirements2 sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkMemoryRequirements2 pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkMemoryRequirements2 set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkMemoryRequirements2 set(VkMemoryRequirements2 src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkMemoryRequirements2} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -248,6 +276,11 @@ public class VkMemoryRequirements2 extends Struct implements NativeResource {
     /** Unsafe version of {@link #memoryRequirements}. */
     public static VkMemoryRequirements nmemoryRequirements(long struct) { return VkMemoryRequirements.create(struct + VkMemoryRequirements2.MEMORYREQUIREMENTS); }
 
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkMemoryRequirements2.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkMemoryRequirements2.PNEXT, value); }
+
     // -----------------------------------
 
     /** An array of {@link VkMemoryRequirements2} structs. */
@@ -302,6 +335,11 @@ public class VkMemoryRequirements2 extends Struct implements NativeResource {
         public long pNext() { return VkMemoryRequirements2.npNext(address()); }
         /** Returns a {@link VkMemoryRequirements} view of the {@code memoryRequirements} field. */
         public VkMemoryRequirements memoryRequirements() { return VkMemoryRequirements2.nmemoryRequirements(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkMemoryRequirements2.Buffer sType(@NativeType("VkStructureType") int value) { VkMemoryRequirements2.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkMemoryRequirements2.Buffer pNext(@NativeType("void *") long value) { VkMemoryRequirements2.npNext(address(), value); return this; }
 
     }
 

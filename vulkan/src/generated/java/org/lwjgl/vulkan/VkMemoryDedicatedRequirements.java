@@ -126,6 +126,34 @@ public class VkMemoryDedicatedRequirements extends Struct {
     @NativeType("VkBool32")
     public boolean requiresDedicatedAllocation() { return nrequiresDedicatedAllocation(address()) != 0; }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkMemoryDedicatedRequirements sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkMemoryDedicatedRequirements pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkMemoryDedicatedRequirements set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkMemoryDedicatedRequirements set(VkMemoryDedicatedRequirements src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkMemoryDedicatedRequirements} instance for the specified memory address. */
@@ -165,6 +193,11 @@ public class VkMemoryDedicatedRequirements extends Struct {
     public static int nprefersDedicatedAllocation(long struct) { return memGetInt(struct + VkMemoryDedicatedRequirements.PREFERSDEDICATEDALLOCATION); }
     /** Unsafe version of {@link #requiresDedicatedAllocation}. */
     public static int nrequiresDedicatedAllocation(long struct) { return memGetInt(struct + VkMemoryDedicatedRequirements.REQUIRESDEDICATEDALLOCATION); }
+
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkMemoryDedicatedRequirements.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkMemoryDedicatedRequirements.PNEXT, value); }
 
     // -----------------------------------
 
@@ -224,6 +257,11 @@ public class VkMemoryDedicatedRequirements extends Struct {
         /** Returns the value of the {@code requiresDedicatedAllocation} field. */
         @NativeType("VkBool32")
         public boolean requiresDedicatedAllocation() { return VkMemoryDedicatedRequirements.nrequiresDedicatedAllocation(address()) != 0; }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkMemoryDedicatedRequirements.Buffer sType(@NativeType("VkStructureType") int value) { VkMemoryDedicatedRequirements.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkMemoryDedicatedRequirements.Buffer pNext(@NativeType("void *") long value) { VkMemoryDedicatedRequirements.npNext(address(), value); return this; }
 
     }
 

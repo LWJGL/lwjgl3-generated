@@ -100,6 +100,34 @@ public class VkSurfaceCapabilities2KHR extends Struct implements NativeResource 
     /** Returns a {@link VkSurfaceCapabilitiesKHR} view of the {@code surfaceCapabilities} field. */
     public VkSurfaceCapabilitiesKHR surfaceCapabilities() { return nsurfaceCapabilities(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkSurfaceCapabilities2KHR sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkSurfaceCapabilities2KHR pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkSurfaceCapabilities2KHR set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkSurfaceCapabilities2KHR set(VkSurfaceCapabilities2KHR src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkSurfaceCapabilities2KHR} instance allocated with {@link MemoryUtil#memAlloc memAlloc}. The instance must be explicitly freed. */
@@ -248,6 +276,11 @@ public class VkSurfaceCapabilities2KHR extends Struct implements NativeResource 
     /** Unsafe version of {@link #surfaceCapabilities}. */
     public static VkSurfaceCapabilitiesKHR nsurfaceCapabilities(long struct) { return VkSurfaceCapabilitiesKHR.create(struct + VkSurfaceCapabilities2KHR.SURFACECAPABILITIES); }
 
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkSurfaceCapabilities2KHR.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkSurfaceCapabilities2KHR.PNEXT, value); }
+
     // -----------------------------------
 
     /** An array of {@link VkSurfaceCapabilities2KHR} structs. */
@@ -302,6 +335,11 @@ public class VkSurfaceCapabilities2KHR extends Struct implements NativeResource 
         public long pNext() { return VkSurfaceCapabilities2KHR.npNext(address()); }
         /** Returns a {@link VkSurfaceCapabilitiesKHR} view of the {@code surfaceCapabilities} field. */
         public VkSurfaceCapabilitiesKHR surfaceCapabilities() { return VkSurfaceCapabilities2KHR.nsurfaceCapabilities(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkSurfaceCapabilities2KHR.Buffer sType(@NativeType("VkStructureType") int value) { VkSurfaceCapabilities2KHR.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkSurfaceCapabilities2KHR.Buffer pNext(@NativeType("void *") long value) { VkSurfaceCapabilities2KHR.npNext(address(), value); return this; }
 
     }
 

@@ -104,6 +104,34 @@ public class VkPhysicalDeviceMaintenance3Properties extends Struct {
     @NativeType("VkDeviceSize")
     public long maxMemoryAllocationSize() { return nmaxMemoryAllocationSize(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkPhysicalDeviceMaintenance3Properties sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkPhysicalDeviceMaintenance3Properties pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkPhysicalDeviceMaintenance3Properties set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkPhysicalDeviceMaintenance3Properties set(VkPhysicalDeviceMaintenance3Properties src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkPhysicalDeviceMaintenance3Properties} instance for the specified memory address. */
@@ -143,6 +171,11 @@ public class VkPhysicalDeviceMaintenance3Properties extends Struct {
     public static int nmaxPerSetDescriptors(long struct) { return memGetInt(struct + VkPhysicalDeviceMaintenance3Properties.MAXPERSETDESCRIPTORS); }
     /** Unsafe version of {@link #maxMemoryAllocationSize}. */
     public static long nmaxMemoryAllocationSize(long struct) { return memGetLong(struct + VkPhysicalDeviceMaintenance3Properties.MAXMEMORYALLOCATIONSIZE); }
+
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkPhysicalDeviceMaintenance3Properties.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkPhysicalDeviceMaintenance3Properties.PNEXT, value); }
 
     // -----------------------------------
 
@@ -202,6 +235,11 @@ public class VkPhysicalDeviceMaintenance3Properties extends Struct {
         /** Returns the value of the {@code maxMemoryAllocationSize} field. */
         @NativeType("VkDeviceSize")
         public long maxMemoryAllocationSize() { return VkPhysicalDeviceMaintenance3Properties.nmaxMemoryAllocationSize(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkPhysicalDeviceMaintenance3Properties.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceMaintenance3Properties.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkPhysicalDeviceMaintenance3Properties.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDeviceMaintenance3Properties.npNext(address(), value); return this; }
 
     }
 

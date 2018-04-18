@@ -272,6 +272,34 @@ public class VkPhysicalDeviceDescriptorIndexingPropertiesEXT extends Struct {
     @NativeType("uint32_t")
     public int maxDescriptorSetUpdateAfterBindInputAttachments() { return nmaxDescriptorSetUpdateAfterBindInputAttachments(address()); }
 
+    /** Sets the specified value to the {@code sType} field. */
+    public VkPhysicalDeviceDescriptorIndexingPropertiesEXT sType(@NativeType("VkStructureType") int value) { nsType(address(), value); return this; }
+    /** Sets the specified value to the {@code pNext} field. */
+    public VkPhysicalDeviceDescriptorIndexingPropertiesEXT pNext(@NativeType("void *") long value) { npNext(address(), value); return this; }
+
+    /** Initializes this struct with the specified values. */
+    public VkPhysicalDeviceDescriptorIndexingPropertiesEXT set(
+        int sType,
+        long pNext
+    ) {
+        sType(sType);
+        pNext(pNext);
+
+        return this;
+    }
+
+    /**
+     * Copies the specified struct data to this struct.
+     *
+     * @param src the source struct
+     *
+     * @return this struct
+     */
+    public VkPhysicalDeviceDescriptorIndexingPropertiesEXT set(VkPhysicalDeviceDescriptorIndexingPropertiesEXT src) {
+        memCopy(src.address(), address(), SIZEOF);
+        return this;
+    }
+
     // -----------------------------------
 
     /** Returns a new {@link VkPhysicalDeviceDescriptorIndexingPropertiesEXT} instance for the specified memory address. */
@@ -353,6 +381,11 @@ public class VkPhysicalDeviceDescriptorIndexingPropertiesEXT extends Struct {
     public static int nmaxDescriptorSetUpdateAfterBindStorageImages(long struct) { return memGetInt(struct + VkPhysicalDeviceDescriptorIndexingPropertiesEXT.MAXDESCRIPTORSETUPDATEAFTERBINDSTORAGEIMAGES); }
     /** Unsafe version of {@link #maxDescriptorSetUpdateAfterBindInputAttachments}. */
     public static int nmaxDescriptorSetUpdateAfterBindInputAttachments(long struct) { return memGetInt(struct + VkPhysicalDeviceDescriptorIndexingPropertiesEXT.MAXDESCRIPTORSETUPDATEAFTERBINDINPUTATTACHMENTS); }
+
+    /** Unsafe version of {@link #sType(int) sType}. */
+    public static void nsType(long struct, int value) { memPutInt(struct + VkPhysicalDeviceDescriptorIndexingPropertiesEXT.STYPE, value); }
+    /** Unsafe version of {@link #pNext(long) pNext}. */
+    public static void npNext(long struct, long value) { memPutAddress(struct + VkPhysicalDeviceDescriptorIndexingPropertiesEXT.PNEXT, value); }
 
     // -----------------------------------
 
@@ -475,6 +508,11 @@ public class VkPhysicalDeviceDescriptorIndexingPropertiesEXT extends Struct {
         /** Returns the value of the {@code maxDescriptorSetUpdateAfterBindInputAttachments} field. */
         @NativeType("uint32_t")
         public int maxDescriptorSetUpdateAfterBindInputAttachments() { return VkPhysicalDeviceDescriptorIndexingPropertiesEXT.nmaxDescriptorSetUpdateAfterBindInputAttachments(address()); }
+
+        /** Sets the specified value to the {@code sType} field. */
+        public VkPhysicalDeviceDescriptorIndexingPropertiesEXT.Buffer sType(@NativeType("VkStructureType") int value) { VkPhysicalDeviceDescriptorIndexingPropertiesEXT.nsType(address(), value); return this; }
+        /** Sets the specified value to the {@code pNext} field. */
+        public VkPhysicalDeviceDescriptorIndexingPropertiesEXT.Buffer pNext(@NativeType("void *") long value) { VkPhysicalDeviceDescriptorIndexingPropertiesEXT.npNext(address(), value); return this; }
 
     }
 
