@@ -59,6 +59,13 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeInsertChild(JNIEnv *
     YGNodeInsertChild(node, child, (uint32_t)index);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeInsertSharedChild(JNIEnv *__env, jclass clazz, jlong nodeAddress, jlong childAddress, jint index) {
+    YGNodeRef const node = (YGNodeRef const)(intptr_t)nodeAddress;
+    YGNodeRef const child = (YGNodeRef const)(intptr_t)childAddress;
+    UNUSED_PARAMS(__env, clazz)
+    YGNodeInsertSharedChild(node, child, (uint32_t)index);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeRemoveChild(JNIEnv *__env, jclass clazz, jlong nodeAddress, jlong childAddress) {
     YGNodeRef const node = (YGNodeRef const)(intptr_t)nodeAddress;
     YGNodeRef const child = (YGNodeRef const)(intptr_t)childAddress;
@@ -78,10 +85,10 @@ JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeGetChild(JNIEnv *__
     return (jlong)(intptr_t)YGNodeGetChild(node, (uint32_t)index);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeGetParent(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeGetOwner(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
     YGNodeRef const node = (YGNodeRef const)(intptr_t)nodeAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jlong)(intptr_t)YGNodeGetParent(node);
+    return (jlong)(intptr_t)YGNodeGetOwner(node);
 }
 
 JNIEXPORT jint JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeGetChildCount(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
@@ -90,10 +97,17 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeGetChildCount(JNIEnv
     return (jint)YGNodeGetChildCount(node);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeCalculateLayout(JNIEnv *__env, jclass clazz, jlong nodeAddress, jfloat availableWidth, jfloat availableHeight, jint parentDirection) {
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeSetChildren(JNIEnv *__env, jclass clazz, jlong ownerAddress, jlong childrenAddress, jint count) {
+    YGNodeRef const owner = (YGNodeRef const)(intptr_t)ownerAddress;
+    YGNodeRef const *children = (YGNodeRef const *)(intptr_t)childrenAddress;
+    UNUSED_PARAMS(__env, clazz)
+    YGNodeSetChildren(owner, children, (uint32_t)count);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeCalculateLayout(JNIEnv *__env, jclass clazz, jlong nodeAddress, jfloat availableWidth, jfloat availableHeight, jint ownerDirection) {
     YGNodeRef const node = (YGNodeRef const)(intptr_t)nodeAddress;
     UNUSED_PARAMS(__env, clazz)
-    YGNodeCalculateLayout(node, availableWidth, availableHeight, (YGDirection)parentDirection);
+    YGNodeCalculateLayout(node, availableWidth, availableHeight, (YGDirection)ownerDirection);
 }
 
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeMarkDirty(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
@@ -665,6 +679,12 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeLayoutGetHadOver
     return (jboolean)YGNodeLayoutGetHadOverflow(node);
 }
 
+JNIEXPORT jboolean JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeLayoutGetDidLegacyStretchFlagAffectLayout(JNIEnv *__env, jclass clazz, jlong nodeAddress) {
+    YGNodeRef const node = (YGNodeRef const)(intptr_t)nodeAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jboolean)YGNodeLayoutGetDidLegacyStretchFlagAffectLayout(node);
+}
+
 JNIEXPORT jfloat JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGNodeLayoutGetMargin(JNIEnv *__env, jclass clazz, jlong nodeAddress, jint edge) {
     YGNodeRef const node = (YGNodeRef const)(intptr_t)nodeAddress;
     UNUSED_PARAMS(__env, clazz)
@@ -753,6 +773,12 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigSetPointScaleFacto
     YGConfigSetPointScaleFactor(config, pixelsInPoint);
 }
 
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigSetShouldDiffLayoutWithoutLegacyStretchBehaviour(JNIEnv *__env, jclass clazz, jlong configAddress, jboolean shouldDiffLayout) {
+    YGConfigRef const config = (YGConfigRef const)(intptr_t)configAddress;
+    UNUSED_PARAMS(__env, clazz)
+    YGConfigSetShouldDiffLayoutWithoutLegacyStretchBehaviour(config, (bool)shouldDiffLayout);
+}
+
 JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigSetUseLegacyStretchBehaviour(JNIEnv *__env, jclass clazz, jlong configAddress, jboolean useLegacyStretchBehaviour) {
     YGConfigRef const config = (YGConfigRef const)(intptr_t)configAddress;
     UNUSED_PARAMS(__env, clazz)
@@ -783,11 +809,11 @@ JNIEXPORT jboolean JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigGetUseWebDefau
     return (jboolean)YGConfigGetUseWebDefaults(config);
 }
 
-JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigSetNodeClonedFunc(JNIEnv *__env, jclass clazz, jlong configAddress, jlong callbackAddress) {
+JNIEXPORT void JNICALL Java_org_lwjgl_util_yoga_Yoga_nYGConfigSetCloneNodeFunc(JNIEnv *__env, jclass clazz, jlong configAddress, jlong callbackAddress) {
     YGConfigRef const config = (YGConfigRef const)(intptr_t)configAddress;
-    YGNodeClonedFunc callback = (YGNodeClonedFunc)(intptr_t)callbackAddress;
+    YGCloneNodeFunc callback = (YGCloneNodeFunc)(intptr_t)callbackAddress;
     UNUSED_PARAMS(__env, clazz)
-    YGConfigSetNodeClonedFunc(config, callback);
+    YGConfigSetCloneNodeFunc(config, callback);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_yoga_Yoga_YGConfigGetDefault(JNIEnv *__env, jclass clazz) {

@@ -27,13 +27,14 @@ JNIEXPORT void JNICALL Java_org_lwjgl_util_lz4_LZ4FrameX_nLZ4F_1freeCDict(JNIEnv
     LZ4F_freeCDict(CDict);
 }
 
-JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4FrameX_nLZ4F_1compressFrame_1usingCDict(JNIEnv *__env, jclass clazz, jlong dstAddress, jlong dstCapacity, jlong srcAddress, jlong srcSize, jlong cdictAddress, jlong preferencesPtrAddress) {
+JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4FrameX_nLZ4F_1compressFrame_1usingCDict(JNIEnv *__env, jclass clazz, jlong cctxAddress, jlong dstAddress, jlong dstCapacity, jlong srcAddress, jlong srcSize, jlong cdictAddress, jlong preferencesPtrAddress) {
+    LZ4F_cctx *cctx = (LZ4F_cctx *)(intptr_t)cctxAddress;
     void *dst = (void *)(intptr_t)dstAddress;
     void const *src = (void const *)(intptr_t)srcAddress;
     LZ4F_CDict const *cdict = (LZ4F_CDict const *)(intptr_t)cdictAddress;
     LZ4F_preferences_t const *preferencesPtr = (LZ4F_preferences_t const *)(intptr_t)preferencesPtrAddress;
     UNUSED_PARAMS(__env, clazz)
-    return (jlong)LZ4F_compressFrame_usingCDict(dst, (size_t)dstCapacity, src, (size_t)srcSize, cdict, preferencesPtr);
+    return (jlong)LZ4F_compressFrame_usingCDict(cctx, dst, (size_t)dstCapacity, src, (size_t)srcSize, cdict, preferencesPtr);
 }
 
 JNIEXPORT jlong JNICALL Java_org_lwjgl_util_lz4_LZ4FrameX_nLZ4F_1compressBegin_1usingCDict(JNIEnv *__env, jclass clazz, jlong cctxAddress, jlong dstBufferAddress, jlong dstCapacity, jlong cdictAddress, jlong prefsPtrAddress) {

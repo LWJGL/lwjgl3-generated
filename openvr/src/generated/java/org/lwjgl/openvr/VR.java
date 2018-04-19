@@ -146,11 +146,13 @@ public class VR {
         k_pch_SteamVR_RetailDemo_Bool                                  = "retailDemo",
         k_pch_SteamVR_IpdOffset_Float                                  = "ipdOffset",
         k_pch_SteamVR_AllowSupersampleFiltering_Bool                   = "allowSupersampleFiltering",
+        k_pch_SteamVR_SupersampleManualOverride_Bool                   = "supersampleManualOverride",
         k_pch_SteamVR_EnableLinuxVulkanAsync_Bool                      = "enableLinuxVulkanAsync",
         k_pch_SteamVR_AllowDisplayLockedMode_Bool                      = "allowDisplayLockedMode",
         k_pch_SteamVR_HaveStartedTutorialForNativeChaperoneDriver_Bool = "haveStartedTutorialForNativeChaperoneDriver",
         k_pch_SteamVR_ForceWindows32bitVRMonitor                       = "forceWindows32BitVRMonitor",
         k_pch_SteamVR_DebugInput                                       = "debugInput",
+        k_pch_SteamVR_LegacyInputRebinding                             = "legacyInputRebinding",
         k_pch_Lighthouse_Section                                       = "driver_lighthouse",
         k_pch_Lighthouse_DisableIMU_Bool                               = "disableimu",
         k_pch_Lighthouse_DisableIMUExceptHMD_Bool                      = "disableimuexcepthmd",
@@ -214,6 +216,7 @@ public class VR {
         k_pch_Camera_BoundsColorGammaB_Int32                           = "cameraBoundsColorGammaB",
         k_pch_Camera_BoundsColorGammaA_Int32                           = "cameraBoundsColorGammaA",
         k_pch_Camera_BoundsStrength_Int32                              = "cameraBoundsStrength",
+        k_pch_Camera_RoomViewMode_Int32                                = "cameraRoomViewMode",
         k_pch_audio_Section                                            = "audio",
         k_pch_audio_OnPlaybackDevice_String                            = "onPlaybackDevice",
         k_pch_audio_OnRecordDevice_String                              = "onRecordDevice",
@@ -232,6 +235,7 @@ public class VR {
         k_pch_Dashboard_EnableDashboard_Bool                           = "enableDashboard",
         k_pch_Dashboard_ArcadeMode_Bool                                = "arcadeMode",
         k_pch_Dashboard_EnableWebUI                                    = "webUI",
+        k_pch_Dashboard_EnableWebUIDevTools                            = "webUIDevTools",
         k_pch_modelskin_Section                                        = "modelskins",
         k_pch_Driver_Enable_Bool                                       = "enable",
         k_pch_WebInterface_Section                                     = "WebInterface",
@@ -347,13 +351,15 @@ public class VR {
      * <li>{@link #ETrackedControllerRole_TrackedControllerRole_LeftHand ETrackedControllerRole_TrackedControllerRole_LeftHand} - Tracked device associated with the left hand.</li>
      * <li>{@link #ETrackedControllerRole_TrackedControllerRole_RightHand ETrackedControllerRole_TrackedControllerRole_RightHand} - Tracked device associated with the right hand.</li>
      * <li>{@link #ETrackedControllerRole_TrackedControllerRole_OptOut ETrackedControllerRole_TrackedControllerRole_OptOut} - Tracked device is opting out of left/right hand selection.</li>
+     * <li>{@link #ETrackedControllerRole_TrackedControllerRole_Max ETrackedControllerRole_TrackedControllerRole_Max}</li>
      * </ul>
      */
     public static final int
         ETrackedControllerRole_TrackedControllerRole_Invalid   = 0,
         ETrackedControllerRole_TrackedControllerRole_LeftHand  = 1,
         ETrackedControllerRole_TrackedControllerRole_RightHand = 2,
-        ETrackedControllerRole_TrackedControllerRole_OptOut    = 3;
+        ETrackedControllerRole_TrackedControllerRole_OptOut    = 3,
+        ETrackedControllerRole_TrackedControllerRole_Max       = 4;
 
     /**
      * {@code ETrackingUniverseOrigin}: Identifies which style of tracking origin the application wants to use for the poses it is requesting.
@@ -421,6 +427,8 @@ public class VR {
      * <li>{@link #ETrackedDeviceProperty_Prop_RegisteredDeviceType_String ETrackedDeviceProperty_Prop_RegisteredDeviceType_String}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_InputProfilePath_String ETrackedDeviceProperty_Prop_InputProfilePath_String} - input profile to use for this device in the input system. Will default to tracking system name if this isn't provided.</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_NeverTracked_Bool ETrackedDeviceProperty_Prop_NeverTracked_Bool} - used for devices that will never have a valid pose by design.</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_NumCameras_Int32 ETrackedDeviceProperty_Prop_NumCameras_Int32}</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_CameraFrameLayout_Int32 ETrackedDeviceProperty_Prop_CameraFrameLayout_Int32}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_DisplayFrequency_Float ETrackedDeviceProperty_Prop_DisplayFrequency_Float}</li>
@@ -564,6 +572,8 @@ public class VR {
         ETrackedDeviceProperty_Prop_RegisteredDeviceType_String                    = 1036,
         ETrackedDeviceProperty_Prop_InputProfilePath_String                        = 1037,
         ETrackedDeviceProperty_Prop_NeverTracked_Bool                              = 1038,
+        ETrackedDeviceProperty_Prop_NumCameras_Int32                               = 1039,
+        ETrackedDeviceProperty_Prop_CameraFrameLayout_Int32                        = 1040,
         ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool                     = 2000,
         ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float                = 2001,
         ETrackedDeviceProperty_Prop_DisplayFrequency_Float                         = 2002,
@@ -813,6 +823,7 @@ public class VR {
      * <li>{@link #EVREventType_VREvent_InputFocusChanged EVREventType_VREvent_InputFocusChanged} - data is process</li>
      * <li>{@link #EVREventType_VREvent_SceneApplicationSecondaryRenderingStarted EVREventType_VREvent_SceneApplicationSecondaryRenderingStarted} - data is process</li>
      * <li>{@link #EVREventType_VREvent_SceneApplicationUsingWrongGraphicsAdapter EVREventType_VREvent_SceneApplicationUsingWrongGraphicsAdapter} - data is process</li>
+     * <li>{@link #EVREventType_VREvent_ActionBindingReloaded EVREventType_VREvent_ActionBindingReloaded}</li>
      * <li>{@link #EVREventType_VREvent_HideRenderModels EVREventType_VREvent_HideRenderModels} - Sent to the scene application to request hiding render models temporarily</li>
      * <li>{@link #EVREventType_VREvent_ShowRenderModels EVREventType_VREvent_ShowRenderModels} - Sent to the scene application to request restoring render model visibility</li>
      * <li>{@link #EVREventType_VREvent_ConsoleOpened EVREventType_VREvent_ConsoleOpened}</li>
@@ -954,6 +965,7 @@ public class VR {
         EVREventType_VREvent_InputFocusChanged                         = 406,
         EVREventType_VREvent_SceneApplicationSecondaryRenderingStarted = 407,
         EVREventType_VREvent_SceneApplicationUsingWrongGraphicsAdapter = 408,
+        EVREventType_VREvent_ActionBindingReloaded                     = 409,
         EVREventType_VREvent_HideRenderModels                          = 410,
         EVREventType_VREvent_ShowRenderModels                          = 411,
         EVREventType_VREvent_ConsoleOpened                             = 420,
@@ -1640,6 +1652,24 @@ public class VR {
         EVRTrackedCameraError_VRTrackedCameraError_InvalidFrameBufferSize     = 115;
 
     /**
+     * EVRTrackedCameraFrameLayout
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #EVRTrackedCameraFrameLayout_Mono EVRTrackedCameraFrameLayout_Mono}</li>
+     * <li>{@link #EVRTrackedCameraFrameLayout_Stereo EVRTrackedCameraFrameLayout_Stereo}</li>
+     * <li>{@link #EVRTrackedCameraFrameLayout_VerticalLayout EVRTrackedCameraFrameLayout_VerticalLayout}</li>
+     * <li>{@link #EVRTrackedCameraFrameLayout_HorizontalLayout EVRTrackedCameraFrameLayout_HorizontalLayout}</li>
+     * </ul>
+     */
+    public static final int
+        EVRTrackedCameraFrameLayout_Mono             = 1,
+        EVRTrackedCameraFrameLayout_Stereo           = 2,
+        EVRTrackedCameraFrameLayout_VerticalLayout   = 16,
+        EVRTrackedCameraFrameLayout_HorizontalLayout = 32;
+
+    /**
      * EVRTrackedCameraFrameType
      * 
      * <h5>Enum values:</h5>
@@ -1656,6 +1686,22 @@ public class VR {
         EVRTrackedCameraFrameType_VRTrackedCameraFrameType_Undistorted        = 1,
         EVRTrackedCameraFrameType_VRTrackedCameraFrameType_MaximumUndistorted = 2,
         EVRTrackedCameraFrameType_MAX_CAMERA_FRAME_TYPES                      = 3;
+
+    /**
+     * EVSync
+     * 
+     * <h5>Enum values:</h5>
+     * 
+     * <ul>
+     * <li>{@link #EVSync_VSync_None EVSync_VSync_None}</li>
+     * <li>{@link #EVSync_VSync_WaitRender EVSync_VSync_WaitRender}</li>
+     * <li>{@link #EVSync_VSync_NoWaitRender EVSync_VSync_NoWaitRender}</li>
+     * </ul>
+     */
+    public static final int
+        EVSync_VSync_None         = 0,
+        EVSync_VSync_WaitRender   = 1,
+        EVSync_VSync_NoWaitRender = 2;
 
     /**
      * {@code EVRApplicationError}: Used for all errors reported by the {@link VRApplications} interface.

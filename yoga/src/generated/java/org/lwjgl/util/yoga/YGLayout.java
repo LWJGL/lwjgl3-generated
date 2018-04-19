@@ -26,10 +26,10 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     float padding[6];
  *     YGDirection direction;
  *     uint32_t computedFlexBasisGeneration;
- *     float computedFlexBasis;
+ *     {@link YGFloatOptional YGFloatOptional} computedFlexBasis;
  *     bool hadOverflow;
  *     uint32_t generationCount;
- *     YGDirection lastParentDirection;
+ *     YGDirection lastOwnerDirection;
  *     uint32_t nextCachedMeasurementsIndex;
  *     {@link YGCachedMeasurement YGCachedMeasurement} cachedMeasurements[16];
  *     float measuredDimensions[2];
@@ -57,7 +57,7 @@ public class YGLayout extends Struct {
         COMPUTEDFLEXBASIS,
         HADOVERFLOW,
         GENERATIONCOUNT,
-        LASTPARENTDIRECTION,
+        LASTOWNERDIRECTION,
         NEXTCACHEDMEASUREMENTSINDEX,
         CACHEDMEASUREMENTS,
         MEASUREDDIMENSIONS,
@@ -74,7 +74,7 @@ public class YGLayout extends Struct {
             __array(4, 6),
             __member(4),
             __member(4),
-            __member(4),
+            __member(YGFloatOptional.SIZEOF, YGFloatOptional.ALIGNOF),
             __member(1),
             __member(4),
             __member(4),
@@ -99,7 +99,7 @@ public class YGLayout extends Struct {
         COMPUTEDFLEXBASIS = layout.offsetof(7);
         HADOVERFLOW = layout.offsetof(8);
         GENERATIONCOUNT = layout.offsetof(9);
-        LASTPARENTDIRECTION = layout.offsetof(10);
+        LASTOWNERDIRECTION = layout.offsetof(10);
         NEXTCACHEDMEASUREMENTSINDEX = layout.offsetof(11);
         CACHEDMEASUREMENTS = layout.offsetof(12);
         MEASUREDDIMENSIONS = layout.offsetof(13);
@@ -156,17 +156,17 @@ public class YGLayout extends Struct {
     /** Returns the value of the {@code computedFlexBasisGeneration} field. */
     @NativeType("uint32_t")
     public int computedFlexBasisGeneration() { return ncomputedFlexBasisGeneration(address()); }
-    /** Returns the value of the {@code computedFlexBasis} field. */
-    public float computedFlexBasis() { return ncomputedFlexBasis(address()); }
+    /** Returns a {@link YGFloatOptional} view of the {@code computedFlexBasis} field. */
+    public YGFloatOptional computedFlexBasis() { return ncomputedFlexBasis(address()); }
     /** Returns the value of the {@code hadOverflow} field. */
     @NativeType("bool")
     public boolean hadOverflow() { return nhadOverflow(address()); }
     /** Returns the value of the {@code generationCount} field. */
     @NativeType("uint32_t")
     public int generationCount() { return ngenerationCount(address()); }
-    /** Returns the value of the {@code lastParentDirection} field. */
+    /** Returns the value of the {@code lastOwnerDirection} field. */
     @NativeType("YGDirection")
-    public int lastParentDirection() { return nlastParentDirection(address()); }
+    public int lastOwnerDirection() { return nlastOwnerDirection(address()); }
     /** Returns the value of the {@code nextCachedMeasurementsIndex} field. */
     @NativeType("uint32_t")
     public int nextCachedMeasurementsIndex() { return nnextCachedMeasurementsIndex(address()); }
@@ -255,13 +255,13 @@ public class YGLayout extends Struct {
     /** Unsafe version of {@link #computedFlexBasisGeneration}. */
     public static int ncomputedFlexBasisGeneration(long struct) { return memGetInt(struct + YGLayout.COMPUTEDFLEXBASISGENERATION); }
     /** Unsafe version of {@link #computedFlexBasis}. */
-    public static float ncomputedFlexBasis(long struct) { return memGetFloat(struct + YGLayout.COMPUTEDFLEXBASIS); }
+    public static YGFloatOptional ncomputedFlexBasis(long struct) { return YGFloatOptional.create(struct + YGLayout.COMPUTEDFLEXBASIS); }
     /** Unsafe version of {@link #hadOverflow}. */
     public static boolean nhadOverflow(long struct) { return memGetByte(struct + YGLayout.HADOVERFLOW) != 0; }
     /** Unsafe version of {@link #generationCount}. */
     public static int ngenerationCount(long struct) { return memGetInt(struct + YGLayout.GENERATIONCOUNT); }
-    /** Unsafe version of {@link #lastParentDirection}. */
-    public static int nlastParentDirection(long struct) { return memGetInt(struct + YGLayout.LASTPARENTDIRECTION); }
+    /** Unsafe version of {@link #lastOwnerDirection}. */
+    public static int nlastOwnerDirection(long struct) { return memGetInt(struct + YGLayout.LASTOWNERDIRECTION); }
     /** Unsafe version of {@link #nextCachedMeasurementsIndex}. */
     public static int nnextCachedMeasurementsIndex(long struct) { return memGetInt(struct + YGLayout.NEXTCACHEDMEASUREMENTSINDEX); }
     /** Unsafe version of {@link #cachedMeasurements}. */
@@ -360,17 +360,17 @@ public class YGLayout extends Struct {
         /** Returns the value of the {@code computedFlexBasisGeneration} field. */
         @NativeType("uint32_t")
         public int computedFlexBasisGeneration() { return YGLayout.ncomputedFlexBasisGeneration(address()); }
-        /** Returns the value of the {@code computedFlexBasis} field. */
-        public float computedFlexBasis() { return YGLayout.ncomputedFlexBasis(address()); }
+        /** Returns a {@link YGFloatOptional} view of the {@code computedFlexBasis} field. */
+        public YGFloatOptional computedFlexBasis() { return YGLayout.ncomputedFlexBasis(address()); }
         /** Returns the value of the {@code hadOverflow} field. */
         @NativeType("bool")
         public boolean hadOverflow() { return YGLayout.nhadOverflow(address()); }
         /** Returns the value of the {@code generationCount} field. */
         @NativeType("uint32_t")
         public int generationCount() { return YGLayout.ngenerationCount(address()); }
-        /** Returns the value of the {@code lastParentDirection} field. */
+        /** Returns the value of the {@code lastOwnerDirection} field. */
         @NativeType("YGDirection")
-        public int lastParentDirection() { return YGLayout.nlastParentDirection(address()); }
+        public int lastOwnerDirection() { return YGLayout.nlastOwnerDirection(address()); }
         /** Returns the value of the {@code nextCachedMeasurementsIndex} field. */
         @NativeType("uint32_t")
         public int nextCachedMeasurementsIndex() { return YGLayout.nnextCachedMeasurementsIndex(address()); }

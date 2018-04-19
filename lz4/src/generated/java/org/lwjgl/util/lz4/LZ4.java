@@ -564,4 +564,89 @@ public class LZ4 {
         return nLZ4_decompress_fast_usingDict(memAddress(src), memAddress(dst), dst.remaining(), memAddress(dictStart), dictStart.remaining());
     }
 
+    // --- [ LZ4_resetStream_fast ] ---
+
+    /** Unsafe version of: {@link #LZ4_resetStream_fast resetStream_fast} */
+    public static native void nLZ4_resetStream_fast(long streamPtr);
+
+    /**
+     * When an {@code LZ4_stream_t} is known to be in a internally coherent state, it can often be prepared for a new compression with almost no work, only
+     * sometimes falling back to the full, expensive reset that is always required when the stream is in an indeterminate state (i.e., the reset performed b
+     * {@link #LZ4_resetStream resetStream}).
+     * 
+     * <p>{@code LZ4_streams} are guaranteed to be in a valid state when:</p>
+     * 
+     * <ul>
+     * <li>returned from {@link #LZ4_createStream createStream}</li>
+     * <li>reset by {@link #LZ4_resetStream resetStream}</li>
+     * <li>{@code memset(stream, 0, sizeof(LZ4_stream_t))}</li>
+     * <li>the stream was in a valid state and was reset by {@link #LZ4_resetStream_fast resetStream_fast}</li>
+     * <li>the stream was in a valid state and was then used in any compression call that returned success</li>
+     * <li>the stream was in an indeterminate state and was used in a compression call that fully reset the state ({@link #LZ4_compress_fast_extState compress_fast_extState}) and that
+     * returned success</li>
+     * </ul>
+     *
+     * @param streamPtr 
+     */
+    public static void LZ4_resetStream_fast(@NativeType("LZ4_stream_t *") long streamPtr) {
+        if (CHECKS) {
+            check(streamPtr);
+        }
+        nLZ4_resetStream_fast(streamPtr);
+    }
+
+    // --- [ LZ4_compress_fast_extState_fastReset ] ---
+
+    /** Unsafe version of: {@link #LZ4_compress_fast_extState_fastReset compress_fast_extState_fastReset} */
+    public static native int nLZ4_compress_fast_extState_fastReset(long state, long src, long dst, int srcSize, int dstCapacity, int acceleration);
+
+    /**
+     * A variant of {@link #LZ4_compress_fast_extState compress_fast_extState}.
+     * 
+     * <p>Using this variant avoids an expensive initialization step. It is only safe to call if the state buffer is known to be correctly initialized already
+     * (see above comment on {@link #LZ4_resetStream_fast resetStream_fast} for a definition of "correctly initialized"). From a high level, the difference is that this function
+     * initializes the provided state with a call to {@link #LZ4_resetStream_fast resetStream_fast} while {@link #LZ4_compress_fast_extState compress_fast_extState} starts with a call to {@link #LZ4_resetStream resetStream}.</p>
+     *
+     * @param state        
+     * @param src          
+     * @param dst          
+     * @param acceleration 
+     */
+    public static int LZ4_compress_fast_extState_fastReset(@NativeType("void *") ByteBuffer state, @NativeType("char const *") ByteBuffer src, @NativeType("char *") ByteBuffer dst, int acceleration) {
+        return nLZ4_compress_fast_extState_fastReset(memAddress(state), memAddress(src), memAddress(dst), src.remaining(), dst.remaining(), acceleration);
+    }
+
+    // --- [ LZ4_attach_dictionary ] ---
+
+    /** Unsafe version of: {@link #LZ4_attach_dictionary attach_dictionary} */
+    public static native void nLZ4_attach_dictionary(long working_stream, long dictionary_stream);
+
+    /**
+     * This is an experimental API that allows for the efficient use of a static dictionary many times.
+     * 
+     * <p>Rather than re-loading the dictionary buffer into a working context before each compression, or copying a pre-loaded dictionary's {@code LZ4_stream_t}
+     * into a working {@code LZ4_stream_t}, this function introduces a no-copy setup mechanism, in which the working stream references the dictionary stream
+     * in-place.</p>
+     * 
+     * <p>Several assumptions are made about the state of the dictionary stream. Currently, only streams which have been prepared by {@link #LZ4_loadDict loadDict} should be
+     * expected to work.</p>
+     * 
+     * <p>Alternatively, the provided dictionary stream pointer may be {@code NULL}, in which case any existing dictionary stream is unset.</p>
+     * 
+     * <p>If a dictionary is provided, it replaces any pre-existing stream history. The dictionary contents are the only history that can be referenced and
+     * logically immediately precede the data compressed in the first subsequent compression call.</p>
+     * 
+     * <p>The dictionary will only remain attached to the working stream through the first compression call, at the end of which it is cleared. The dictionary
+     * stream (and source buffer) must remain in-place / accessible / unchanged through the completion of the first compression call on the stream.</p>
+     *
+     * @param working_stream    
+     * @param dictionary_stream 
+     */
+    public static void LZ4_attach_dictionary(@NativeType("LZ4_stream_t *") long working_stream, @NativeType("LZ4_stream_t const *") long dictionary_stream) {
+        if (CHECKS) {
+            check(working_stream);
+        }
+        nLZ4_attach_dictionary(working_stream, dictionary_stream);
+    }
+
 }

@@ -27,6 +27,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  * <code><pre>
  * struct VREvent_Overlay_t {
  *     uint64_t overlayHandle;
+ *     uint64_t devicePath;
  * }</pre></code>
  */
 @NativeType("struct VREvent_Overlay_t")
@@ -39,10 +40,12 @@ public class VREventOverlay extends Struct {
 
     /** The struct member offsets. */
     public static final int
-        OVERLAYHANDLE;
+        OVERLAYHANDLE,
+        DEVICEPATH;
 
     static {
         Layout layout = __struct(
+            __member(8),
             __member(8)
         );
 
@@ -50,6 +53,7 @@ public class VREventOverlay extends Struct {
         ALIGNOF = layout.getAlignment();
 
         OVERLAYHANDLE = layout.offsetof(0);
+        DEVICEPATH = layout.offsetof(1);
     }
 
     VREventOverlay(long address, @Nullable ByteBuffer container) {
@@ -72,6 +76,9 @@ public class VREventOverlay extends Struct {
     /** Returns the value of the {@code overlayHandle} field. */
     @NativeType("uint64_t")
     public long overlayHandle() { return noverlayHandle(address()); }
+    /** Returns the value of the {@code devicePath} field. */
+    @NativeType("uint64_t")
+    public long devicePath() { return ndevicePath(address()); }
 
     // -----------------------------------
 
@@ -106,6 +113,8 @@ public class VREventOverlay extends Struct {
 
     /** Unsafe version of {@link #overlayHandle}. */
     public static long noverlayHandle(long struct) { return memGetLong(struct + VREventOverlay.OVERLAYHANDLE); }
+    /** Unsafe version of {@link #devicePath}. */
+    public static long ndevicePath(long struct) { return memGetLong(struct + VREventOverlay.DEVICEPATH); }
 
     // -----------------------------------
 
@@ -156,6 +165,9 @@ public class VREventOverlay extends Struct {
         /** Returns the value of the {@code overlayHandle} field. */
         @NativeType("uint64_t")
         public long overlayHandle() { return VREventOverlay.noverlayHandle(address()); }
+        /** Returns the value of the {@code devicePath} field. */
+        @NativeType("uint64_t")
+        public long devicePath() { return VREventOverlay.ndevicePath(address()); }
 
     }
 

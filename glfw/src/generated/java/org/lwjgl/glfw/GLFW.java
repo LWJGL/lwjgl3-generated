@@ -4258,7 +4258,7 @@ public class GLFW {
      * 
      * <p>The Guide button may not be available for input as it is often hooked by the system or the Steam client.</p>
      * 
-     * <p>Not all devices have all the buttons or axes provided by {@link GLFWGamepadState}. Unavailable buttons and axes will always report {@link #GLFW_RELEASE RELEASE} and 1.0
+     * <p>Not all devices have all the buttons or axes provided by {@link GLFWGamepadState}. Unavailable buttons and axes will always report {@link #GLFW_RELEASE RELEASE} and 0.0
      * respectively.</p>
      *
      * @param jid   the joystick to query

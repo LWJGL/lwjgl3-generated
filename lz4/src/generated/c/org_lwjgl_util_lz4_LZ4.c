@@ -5,6 +5,7 @@
  */
 #include "common_tools.h"
 DISABLE_WARNINGS()
+#define LZ4_STATIC_LINKING_ONLY
 #include "lz4.h"
 ENABLE_WARNINGS()
 
@@ -168,6 +169,27 @@ JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1decompress_1fast_1using
     char const *dictStart = (char const *)(intptr_t)dictStartAddress;
     UNUSED_PARAMS(__env, clazz)
     return (jint)LZ4_decompress_fast_usingDict(src, dst, originalSize, dictStart, dictSize);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1resetStream_1fast(JNIEnv *__env, jclass clazz, jlong streamPtrAddress) {
+    LZ4_stream_t *streamPtr = (LZ4_stream_t *)(intptr_t)streamPtrAddress;
+    UNUSED_PARAMS(__env, clazz)
+    LZ4_resetStream_fast(streamPtr);
+}
+
+JNIEXPORT jint JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1compress_1fast_1extState_1fastReset(JNIEnv *__env, jclass clazz, jlong stateAddress, jlong srcAddress, jlong dstAddress, jint srcSize, jint dstCapacity, jint acceleration) {
+    void *state = (void *)(intptr_t)stateAddress;
+    char const *src = (char const *)(intptr_t)srcAddress;
+    char *dst = (char *)(intptr_t)dstAddress;
+    UNUSED_PARAMS(__env, clazz)
+    return (jint)LZ4_compress_fast_extState_fastReset(state, src, dst, srcSize, dstCapacity, acceleration);
+}
+
+JNIEXPORT void JNICALL Java_org_lwjgl_util_lz4_LZ4_nLZ4_1attach_1dictionary(JNIEnv *__env, jclass clazz, jlong working_streamAddress, jlong dictionary_streamAddress) {
+    LZ4_stream_t *working_stream = (LZ4_stream_t *)(intptr_t)working_streamAddress;
+    LZ4_stream_t const *dictionary_stream = (LZ4_stream_t const *)(intptr_t)dictionary_streamAddress;
+    UNUSED_PARAMS(__env, clazz)
+    LZ4_attach_dictionary(working_stream, dictionary_stream);
 }
 
 EXTERN_C_EXIT

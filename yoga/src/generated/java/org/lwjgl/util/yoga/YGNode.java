@@ -31,7 +31,7 @@ import static org.lwjgl.system.MemoryStack.*;
  *     {@link YGStyle YGStyle} style;
  *     {@link YGLayout YGLayout} layout;
  *     uint32_t lineIndex;
- *     YGNodeRef parent;
+ *     YGNodeRef owner;
  *     YGNodeListRef children;
  *     {@link YGNode YGNode} * nextChild;
  *     YGConfigRef config;
@@ -58,7 +58,7 @@ public class YGNode extends Struct implements NativeResource {
         STYLE,
         LAYOUT,
         LINEINDEX,
-        PARENT,
+        OWNER,
         CHILDREN,
         NEXTCHILD,
         CONFIG,
@@ -98,7 +98,7 @@ public class YGNode extends Struct implements NativeResource {
         STYLE = layout.offsetof(7);
         LAYOUT = layout.offsetof(8);
         LINEINDEX = layout.offsetof(9);
-        PARENT = layout.offsetof(10);
+        OWNER = layout.offsetof(10);
         CHILDREN = layout.offsetof(11);
         NEXTCHILD = layout.offsetof(12);
         CONFIG = layout.offsetof(13);
@@ -151,9 +151,9 @@ public class YGNode extends Struct implements NativeResource {
     /** Returns the value of the {@code lineIndex} field. */
     @NativeType("uint32_t")
     public int lineIndex() { return nlineIndex(address()); }
-    /** Returns the value of the {@code parent} field. */
+    /** Returns the value of the {@code owner} field. */
     @NativeType("YGNodeRef")
-    public long parent() { return nparent(address()); }
+    public long owner() { return nowner(address()); }
     /** Returns the value of the {@code children} field. */
     @NativeType("YGNodeListRef")
     public long children() { return nchildren(address()); }
@@ -194,8 +194,8 @@ public class YGNode extends Struct implements NativeResource {
     public YGNode layout(YGLayout value) { nlayout(address(), value); return this; }
     /** Sets the specified value to the {@code lineIndex} field. */
     public YGNode lineIndex(@NativeType("uint32_t") int value) { nlineIndex(address(), value); return this; }
-    /** Sets the specified value to the {@code parent} field. */
-    public YGNode parent(@NativeType("YGNodeRef") long value) { nparent(address(), value); return this; }
+    /** Sets the specified value to the {@code owner} field. */
+    public YGNode owner(@NativeType("YGNodeRef") long value) { nowner(address(), value); return this; }
     /** Sets the specified value to the {@code children} field. */
     public YGNode children(@NativeType("YGNodeListRef") long value) { nchildren(address(), value); return this; }
     /** Sets the address of the specified {@link YGNode} to the {@code nextChild} field. */
@@ -221,7 +221,7 @@ public class YGNode extends Struct implements NativeResource {
         YGStyle style,
         YGLayout layout,
         int lineIndex,
-        long parent,
+        long owner,
         long children,
         @Nullable YGNode nextChild,
         long config,
@@ -238,7 +238,7 @@ public class YGNode extends Struct implements NativeResource {
         style(style);
         layout(layout);
         lineIndex(lineIndex);
-        parent(parent);
+        owner(owner);
         children(children);
         nextChild(nextChild);
         config(config);
@@ -421,8 +421,8 @@ public class YGNode extends Struct implements NativeResource {
     public static YGLayout nlayout(long struct) { return YGLayout.create(struct + YGNode.LAYOUT); }
     /** Unsafe version of {@link #lineIndex}. */
     public static int nlineIndex(long struct) { return memGetInt(struct + YGNode.LINEINDEX); }
-    /** Unsafe version of {@link #parent}. */
-    public static long nparent(long struct) { return memGetAddress(struct + YGNode.PARENT); }
+    /** Unsafe version of {@link #owner}. */
+    public static long nowner(long struct) { return memGetAddress(struct + YGNode.OWNER); }
     /** Unsafe version of {@link #children}. */
     public static long nchildren(long struct) { return memGetAddress(struct + YGNode.CHILDREN); }
     /** Unsafe version of {@link #nextChild}. */
@@ -458,8 +458,8 @@ public class YGNode extends Struct implements NativeResource {
     public static void nlayout(long struct, YGLayout value) { memCopy(value.address(), struct + YGNode.LAYOUT, YGLayout.SIZEOF); }
     /** Unsafe version of {@link #lineIndex(int) lineIndex}. */
     public static void nlineIndex(long struct, int value) { memPutInt(struct + YGNode.LINEINDEX, value); }
-    /** Unsafe version of {@link #parent(long) parent}. */
-    public static void nparent(long struct, long value) { memPutAddress(struct + YGNode.PARENT, value); }
+    /** Unsafe version of {@link #owner(long) owner}. */
+    public static void nowner(long struct, long value) { memPutAddress(struct + YGNode.OWNER, value); }
     /** Unsafe version of {@link #children(long) children}. */
     public static void nchildren(long struct, long value) { memPutAddress(struct + YGNode.CHILDREN, value); }
     /** Unsafe version of {@link #nextChild(YGNode) nextChild}. */
@@ -573,9 +573,9 @@ public class YGNode extends Struct implements NativeResource {
         /** Returns the value of the {@code lineIndex} field. */
         @NativeType("uint32_t")
         public int lineIndex() { return YGNode.nlineIndex(address()); }
-        /** Returns the value of the {@code parent} field. */
+        /** Returns the value of the {@code owner} field. */
         @NativeType("YGNodeRef")
-        public long parent() { return YGNode.nparent(address()); }
+        public long owner() { return YGNode.nowner(address()); }
         /** Returns the value of the {@code children} field. */
         @NativeType("YGNodeListRef")
         public long children() { return YGNode.nchildren(address()); }
@@ -616,8 +616,8 @@ public class YGNode extends Struct implements NativeResource {
         public YGNode.Buffer layout(YGLayout value) { YGNode.nlayout(address(), value); return this; }
         /** Sets the specified value to the {@code lineIndex} field. */
         public YGNode.Buffer lineIndex(@NativeType("uint32_t") int value) { YGNode.nlineIndex(address(), value); return this; }
-        /** Sets the specified value to the {@code parent} field. */
-        public YGNode.Buffer parent(@NativeType("YGNodeRef") long value) { YGNode.nparent(address(), value); return this; }
+        /** Sets the specified value to the {@code owner} field. */
+        public YGNode.Buffer owner(@NativeType("YGNodeRef") long value) { YGNode.nowner(address(), value); return this; }
         /** Sets the specified value to the {@code children} field. */
         public YGNode.Buffer children(@NativeType("YGNodeListRef") long value) { YGNode.nchildren(address(), value); return this; }
         /** Sets the address of the specified {@link YGNode} to the {@code nextChild} field. */

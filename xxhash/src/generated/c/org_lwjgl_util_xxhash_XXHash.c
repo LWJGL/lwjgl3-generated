@@ -8,7 +8,7 @@
 #endif
 #include "common_tools.h"
 DISABLE_WARNINGS()
-#define XXH_PRIVATE_API
+#define XXH_INLINE_ALL
 #include "lwjgl_malloc.h"
 #include "xxhash.h"
 ENABLE_WARNINGS()

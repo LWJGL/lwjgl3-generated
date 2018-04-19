@@ -38,7 +38,7 @@ import static org.lwjgl.util.lz4.LZ4HC.*;
  *     uint8_t const * end;
  *     uint8_t const * base;
  *     uint8_t const * dictBase;
- *     uint8_t * inputBuffer;
+ *     void * inputBuffer;
  *     uint32_t dictLimit;
  *     uint32_t lowLimit;
  *     uint32_t nextToUpdate;
@@ -150,7 +150,7 @@ public class LZ4HCCCtxInternal extends Struct {
      *
      * @param capacity the number of elements in the returned buffer
      */
-    @NativeType("uint8_t *")
+    @NativeType("void *")
     public ByteBuffer inputBuffer(int capacity) { return ninputBuffer(address(), capacity); }
     /** Returns the value of the {@code dictLimit} field. */
     @NativeType("uint32_t")
@@ -308,7 +308,7 @@ public class LZ4HCCCtxInternal extends Struct {
          *
          * @param capacity the number of elements in the returned buffer
          */
-        @NativeType("uint8_t *")
+        @NativeType("void *")
         public ByteBuffer inputBuffer(int capacity) { return LZ4HCCCtxInternal.ninputBuffer(address(), capacity); }
         /** Returns the value of the {@code dictLimit} field. */
         @NativeType("uint32_t")

@@ -83,6 +83,8 @@ import static org.lwjgl.system.MemoryUtil.*;
  *     uint16_t numUniforms;
  *     uint16_t numVertexBuffers;
  *     uint16_t numVertexDecls;
+ *     int64_t textureMemoryUsed;
+ *     int64_t rtMemoryUsed;
  *     int64_t gpuMemoryMax;
  *     int64_t gpuMemoryUsed;
  *     uint16_t width;
@@ -128,6 +130,8 @@ public class BGFXStats extends Struct {
         NUMUNIFORMS,
         NUMVERTEXBUFFERS,
         NUMVERTEXDECLS,
+        TEXTUREMEMORYUSED,
+        RTMEMORYUSED,
         GPUMEMORYMAX,
         GPUMEMORYUSED,
         WIDTH,
@@ -166,6 +170,8 @@ public class BGFXStats extends Struct {
             __member(2),
             __member(8),
             __member(8),
+            __member(8),
+            __member(8),
             __member(2),
             __member(2),
             __member(2),
@@ -202,16 +208,18 @@ public class BGFXStats extends Struct {
         NUMUNIFORMS = layout.offsetof(20);
         NUMVERTEXBUFFERS = layout.offsetof(21);
         NUMVERTEXDECLS = layout.offsetof(22);
-        GPUMEMORYMAX = layout.offsetof(23);
-        GPUMEMORYUSED = layout.offsetof(24);
-        WIDTH = layout.offsetof(25);
-        HEIGHT = layout.offsetof(26);
-        TEXTWIDTH = layout.offsetof(27);
-        TEXTHEIGHT = layout.offsetof(28);
-        NUMVIEWS = layout.offsetof(29);
-        VIEWSTATS = layout.offsetof(30);
-        NUMENCODER = layout.offsetof(31);
-        ENCODERSTATS = layout.offsetof(32);
+        TEXTUREMEMORYUSED = layout.offsetof(23);
+        RTMEMORYUSED = layout.offsetof(24);
+        GPUMEMORYMAX = layout.offsetof(25);
+        GPUMEMORYUSED = layout.offsetof(26);
+        WIDTH = layout.offsetof(27);
+        HEIGHT = layout.offsetof(28);
+        TEXTWIDTH = layout.offsetof(29);
+        TEXTHEIGHT = layout.offsetof(30);
+        NUMVIEWS = layout.offsetof(31);
+        VIEWSTATS = layout.offsetof(32);
+        NUMENCODER = layout.offsetof(33);
+        ENCODERSTATS = layout.offsetof(34);
     }
 
     BGFXStats(long address, @Nullable ByteBuffer container) {
@@ -300,6 +308,12 @@ public class BGFXStats extends Struct {
     /** Returns the value of the {@code numVertexDecls} field. */
     @NativeType("uint16_t")
     public short numVertexDecls() { return nnumVertexDecls(address()); }
+    /** Returns the value of the {@code textureMemoryUsed} field. */
+    @NativeType("int64_t")
+    public long textureMemoryUsed() { return ntextureMemoryUsed(address()); }
+    /** Returns the value of the {@code rtMemoryUsed} field. */
+    @NativeType("int64_t")
+    public long rtMemoryUsed() { return nrtMemoryUsed(address()); }
     /** Returns the value of the {@code gpuMemoryMax} field. */
     @NativeType("int64_t")
     public long gpuMemoryMax() { return ngpuMemoryMax(address()); }
@@ -408,6 +422,10 @@ public class BGFXStats extends Struct {
     public static short nnumVertexBuffers(long struct) { return memGetShort(struct + BGFXStats.NUMVERTEXBUFFERS); }
     /** Unsafe version of {@link #numVertexDecls}. */
     public static short nnumVertexDecls(long struct) { return memGetShort(struct + BGFXStats.NUMVERTEXDECLS); }
+    /** Unsafe version of {@link #textureMemoryUsed}. */
+    public static long ntextureMemoryUsed(long struct) { return memGetLong(struct + BGFXStats.TEXTUREMEMORYUSED); }
+    /** Unsafe version of {@link #rtMemoryUsed}. */
+    public static long nrtMemoryUsed(long struct) { return memGetLong(struct + BGFXStats.RTMEMORYUSED); }
     /** Unsafe version of {@link #gpuMemoryMax}. */
     public static long ngpuMemoryMax(long struct) { return memGetLong(struct + BGFXStats.GPUMEMORYMAX); }
     /** Unsafe version of {@link #gpuMemoryUsed}. */
@@ -544,6 +562,12 @@ public class BGFXStats extends Struct {
         /** Returns the value of the {@code numVertexDecls} field. */
         @NativeType("uint16_t")
         public short numVertexDecls() { return BGFXStats.nnumVertexDecls(address()); }
+        /** Returns the value of the {@code textureMemoryUsed} field. */
+        @NativeType("int64_t")
+        public long textureMemoryUsed() { return BGFXStats.ntextureMemoryUsed(address()); }
+        /** Returns the value of the {@code rtMemoryUsed} field. */
+        @NativeType("int64_t")
+        public long rtMemoryUsed() { return BGFXStats.nrtMemoryUsed(address()); }
         /** Returns the value of the {@code gpuMemoryMax} field. */
         @NativeType("int64_t")
         public long gpuMemoryMax() { return BGFXStats.ngpuMemoryMax(address()); }

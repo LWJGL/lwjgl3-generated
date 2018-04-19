@@ -114,26 +114,28 @@ public class LZ4FrameX {
     // --- [ LZ4F_compressFrame_usingCDict ] ---
 
     /** Unsafe version of: {@link #LZ4F_compressFrame_usingCDict compressFrame_usingCDict} */
-    public static native long nLZ4F_compressFrame_usingCDict(long dst, long dstCapacity, long src, long srcSize, long cdict, long preferencesPtr);
+    public static native long nLZ4F_compressFrame_usingCDict(long cctx, long dst, long dstCapacity, long src, long srcSize, long cdict, long preferencesPtr);
 
     /**
      * Compress an entire {@code srcBuffer} into a valid LZ4 frame using a digested Dictionary.
      * 
-     * <p>If {@code cdict==NULL}, compress without a dictionary.</p>
-     * 
-     * <p>{@code dstBuffer} MUST be &ge; {@link LZ4Frame#LZ4F_compressFrameBound compressFrameBound}{@code (srcSize, preferencesPtr)}. If this condition is not respected, function will fail (return
-     * an {@code errorCode}).</p>
+     * <p>{@code dst} MUST be &ge; {@link LZ4Frame#LZ4F_compressFrameBound compressFrameBound}{@code (srcSize, preferencesPtr)}. If this condition is not respected, function will fail (return an
+     * {@code errorCode}).</p>
      *
+     * @param cctx           must point to a context created by {@link LZ4Frame#LZ4F_createCompressionContext createCompressionContext}.
      * @param dst            
      * @param src            
-     * @param cdict          
+     * @param cdict          if {@code NULL}, compress without a dictionary
      * @param preferencesPtr optional: you may provide {@code NULL} as argument, but it's not recommended, as it's the only way to provide {@code dictID} in the frame header
      *
      * @return number of bytes written into {@code dstBuffer} or an error code if it fails (can be tested using {@link LZ4Frame#LZ4F_isError isError})
      */
     @NativeType("size_t")
-    public static long LZ4F_compressFrame_usingCDict(@NativeType("void *") ByteBuffer dst, @NativeType("void const *") ByteBuffer src, @NativeType("LZ4F_CDict const *") long cdict, @NativeType("LZ4F_preferences_t const *") LZ4FPreferences preferencesPtr) {
-        return nLZ4F_compressFrame_usingCDict(memAddress(dst), dst.remaining(), memAddress(src), src.remaining(), cdict, preferencesPtr.address());
+    public static long LZ4F_compressFrame_usingCDict(@NativeType("LZ4F_cctx *") long cctx, @NativeType("void *") ByteBuffer dst, @NativeType("void const *") ByteBuffer src, @NativeType("LZ4F_CDict const *") long cdict, @NativeType("LZ4F_preferences_t const *") LZ4FPreferences preferencesPtr) {
+        if (CHECKS) {
+            check(cctx);
+        }
+        return nLZ4F_compressFrame_usingCDict(cctx, memAddress(dst), dst.remaining(), memAddress(src), src.remaining(), cdict, preferencesPtr.address());
     }
 
     // --- [ LZ4F_compressBegin_usingCDict ] ---

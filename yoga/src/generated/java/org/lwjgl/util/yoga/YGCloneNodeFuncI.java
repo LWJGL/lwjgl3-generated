@@ -13,32 +13,30 @@ import static org.lwjgl.system.dyncall.DynCallback.*;
  * <h3>Type</h3>
  * 
  * <code><pre>
- * void (*) (
+ * YGNodeRef (*) (
  *     YGNodeRef oldNode,
- *     YGNodeRef newNode,
- *     YGNodeRef parent,
+ *     YGNodeRef owner,
  *     int childIndex
  * )</pre></code>
  */
 @FunctionalInterface
-@NativeType("YGNodeClonedFunc")
-public interface YGNodeClonedFuncI extends CallbackI.V {
+@NativeType("YGCloneNodeFunc")
+public interface YGCloneNodeFuncI extends CallbackI.P {
 
-    String SIGNATURE = "(pppi)v";
+    String SIGNATURE = "(ppi)p";
 
     @Override
     default String getSignature() { return SIGNATURE; }
 
     @Override
-    default void callback(long args) {
-        invoke(
-            dcbArgPointer(args),
+    default long callback(long args) {
+        return invoke(
             dcbArgPointer(args),
             dcbArgPointer(args),
             dcbArgInt(args)
         );
     }
 
-    void invoke(@NativeType("YGNodeRef") long oldNode, @NativeType("YGNodeRef") long newNode, @NativeType("YGNodeRef") long parent, int childIndex);
+    @NativeType("YGNodeRef") long invoke(@NativeType("YGNodeRef") long oldNode, @NativeType("YGNodeRef") long owner, int childIndex);
 
 }

@@ -9,6 +9,8 @@ import javax.annotation.*;
 
 import java.nio.*;
 
+import org.lwjgl.*;
+
 import org.lwjgl.system.*;
 
 import static org.lwjgl.system.Checks.*;
@@ -62,7 +64,7 @@ import static org.lwjgl.system.MemoryUtil.*;
  */
 public class Yoga {
 
-    public static final float YGUndefined = Float.NaN;
+    public static final float YGUndefined = 10e20f;
 
     /**
      * YGAlign
@@ -422,6 +424,28 @@ public class Yoga {
         nYGNodeInsertChild(node, child, index);
     }
 
+    // --- [ YGNodeInsertSharedChild ] ---
+
+    /** Unsafe version of: {@link #YGNodeInsertSharedChild NodeInsertSharedChild} */
+    public static native void nYGNodeInsertSharedChild(long node, long child, int index);
+
+    /**
+     * This function inserts the child {@code YGNodeRef} as a children of the node received by parameter and set the Owner of the child object to null. This
+     * function is expected to be called when using Yoga in persistent mode in order to share a {@code YGNodeRef} object as a child of two different Yoga
+     * trees. The child {@code YGNodeRef} is expected to be referenced from its original owner and from a clone of its original owner.
+     *
+     * @param node  
+     * @param child 
+     * @param index 
+     */
+    public static void YGNodeInsertSharedChild(@NativeType("YGNodeRef const") long node, @NativeType("YGNodeRef const") long child, @NativeType("uint32_t") int index) {
+        if (CHECKS) {
+            check(node);
+            check(child);
+        }
+        nYGNodeInsertSharedChild(node, child, index);
+    }
+
     // --- [ YGNodeRemoveChild ] ---
 
     public static native void nYGNodeRemoveChild(long node, long child);
@@ -457,16 +481,16 @@ public class Yoga {
         return nYGNodeGetChild(node, index);
     }
 
-    // --- [ YGNodeGetParent ] ---
+    // --- [ YGNodeGetOwner ] ---
 
-    public static native long nYGNodeGetParent(long node);
+    public static native long nYGNodeGetOwner(long node);
 
     @NativeType("YGNodeRef")
-    public static long YGNodeGetParent(@NativeType("YGNodeRef const") long node) {
+    public static long YGNodeGetOwner(@NativeType("YGNodeRef const") long node) {
         if (CHECKS) {
             check(node);
         }
-        return nYGNodeGetParent(node);
+        return nYGNodeGetOwner(node);
     }
 
     // --- [ YGNodeGetChildCount ] ---
@@ -481,22 +505,33 @@ public class Yoga {
         return nYGNodeGetChildCount(node);
     }
 
+    // --- [ YGNodeSetChildren ] ---
+
+    public static native void nYGNodeSetChildren(long owner, long children, int count);
+
+    public static void YGNodeSetChildren(@NativeType("YGNodeRef const") long owner, @NativeType("YGNodeRef const *") PointerBuffer children) {
+        if (CHECKS) {
+            check(owner);
+        }
+        nYGNodeSetChildren(owner, memAddress(children), children.remaining());
+    }
+
     // --- [ YGNodeCalculateLayout ] ---
 
     /** Unsafe version of: {@link #YGNodeCalculateLayout NodeCalculateLayout} */
-    public static native void nYGNodeCalculateLayout(long node, float availableWidth, float availableHeight, int parentDirection);
+    public static native void nYGNodeCalculateLayout(long node, float availableWidth, float availableHeight, int ownerDirection);
 
     /**
      * @param node            
      * @param availableWidth  
      * @param availableHeight 
-     * @param parentDirection one of:<br><table><tr><td>{@link #YGDirectionInherit DirectionInherit}</td><td>{@link #YGDirectionLTR DirectionLTR}</td><td>{@link #YGDirectionRTL DirectionRTL}</td></tr></table>
+     * @param ownerDirection  one of:<br><table><tr><td>{@link #YGDirectionInherit DirectionInherit}</td><td>{@link #YGDirectionLTR DirectionLTR}</td><td>{@link #YGDirectionRTL DirectionRTL}</td></tr></table>
      */
-    public static void YGNodeCalculateLayout(@NativeType("YGNodeRef const") long node, float availableWidth, float availableHeight, @NativeType("YGDirection") int parentDirection) {
+    public static void YGNodeCalculateLayout(@NativeType("YGNodeRef const") long node, float availableWidth, float availableHeight, @NativeType("YGDirection") int ownerDirection) {
         if (CHECKS) {
             check(node);
         }
-        nYGNodeCalculateLayout(node, availableWidth, availableHeight, parentDirection);
+        nYGNodeCalculateLayout(node, availableWidth, availableHeight, ownerDirection);
     }
 
     // --- [ YGNodeMarkDirty ] ---
@@ -652,11 +687,11 @@ public class Yoga {
 
     public static native void nYGNodeSetMeasureFunc(long node, long measureFunc);
 
-    public static void YGNodeSetMeasureFunc(@NativeType("YGNodeRef const") long node, @NativeType("YGMeasureFunc") YGMeasureFuncI measureFunc) {
+    public static void YGNodeSetMeasureFunc(@NativeType("YGNodeRef const") long node, @Nullable @NativeType("YGMeasureFunc") YGMeasureFuncI measureFunc) {
         if (CHECKS) {
             check(node);
         }
-        nYGNodeSetMeasureFunc(node, measureFunc.address());
+        nYGNodeSetMeasureFunc(node, memAddressSafe(measureFunc));
     }
 
     // --- [ YGNodeGetMeasureFunc ] ---
@@ -675,11 +710,11 @@ public class Yoga {
 
     public static native void nYGNodeSetBaselineFunc(long node, long baselineFunc);
 
-    public static void YGNodeSetBaselineFunc(@NativeType("YGNodeRef const") long node, @NativeType("YGBaselineFunc") YGBaselineFuncI baselineFunc) {
+    public static void YGNodeSetBaselineFunc(@NativeType("YGNodeRef const") long node, @Nullable @NativeType("YGBaselineFunc") YGBaselineFuncI baselineFunc) {
         if (CHECKS) {
             check(node);
         }
-        nYGNodeSetBaselineFunc(node, baselineFunc.address());
+        nYGNodeSetBaselineFunc(node, memAddressSafe(baselineFunc));
     }
 
     // --- [ YGNodeGetBaselineFunc ] ---
@@ -698,11 +733,11 @@ public class Yoga {
 
     public static native void nYGNodeSetDirtiedFunc(long node, long dirtiedFunc);
 
-    public static void YGNodeSetDirtiedFunc(@NativeType("YGNodeRef const") long node, @NativeType("YGDirtiedFunc") YGDirtiedFuncI dirtiedFunc) {
+    public static void YGNodeSetDirtiedFunc(@NativeType("YGNodeRef const") long node, @Nullable @NativeType("YGDirtiedFunc") YGDirtiedFuncI dirtiedFunc) {
         if (CHECKS) {
             check(node);
         }
-        nYGNodeSetDirtiedFunc(node, dirtiedFunc.address());
+        nYGNodeSetDirtiedFunc(node, memAddressSafe(dirtiedFunc));
     }
 
     // --- [ YGNodeGetDirtiedFunc ] ---
@@ -721,11 +756,11 @@ public class Yoga {
 
     public static native void nYGNodeSetPrintFunc(long node, long printFunc);
 
-    public static void YGNodeSetPrintFunc(@NativeType("YGNodeRef const") long node, @NativeType("YGPrintFunc") YGPrintFuncI printFunc) {
+    public static void YGNodeSetPrintFunc(@NativeType("YGNodeRef const") long node, @Nullable @NativeType("YGPrintFunc") YGPrintFuncI printFunc) {
         if (CHECKS) {
             check(node);
         }
-        nYGNodeSetPrintFunc(node, printFunc.address());
+        nYGNodeSetPrintFunc(node, memAddressSafe(printFunc));
     }
 
     // --- [ YGNodeGetPrintFunc ] ---
@@ -1752,6 +1787,18 @@ public class Yoga {
         return nYGNodeLayoutGetHadOverflow(node);
     }
 
+    // --- [ YGNodeLayoutGetDidLegacyStretchFlagAffectLayout ] ---
+
+    public static native boolean nYGNodeLayoutGetDidLegacyStretchFlagAffectLayout(long node);
+
+    @NativeType("bool")
+    public static boolean YGNodeLayoutGetDidLegacyStretchFlagAffectLayout(@NativeType("YGNodeRef const") long node) {
+        if (CHECKS) {
+            check(node);
+        }
+        return nYGNodeLayoutGetDidLegacyStretchFlagAffectLayout(node);
+    }
+
     // --- [ YGNodeLayoutGetMargin ] ---
 
     /** Unsafe version of: {@link #YGNodeLayoutGetMargin NodeLayoutGetMargin} */
@@ -1813,11 +1860,11 @@ public class Yoga {
 
     public static native void nYGConfigSetLogger(long config, long logger);
 
-    public static void YGConfigSetLogger(@NativeType("YGConfigRef const") long config, @NativeType("YGLogger") YGLoggerI logger) {
+    public static void YGConfigSetLogger(@NativeType("YGConfigRef const") long config, @Nullable @NativeType("YGLogger") YGLoggerI logger) {
         if (CHECKS) {
             check(config);
         }
-        nYGConfigSetLogger(config, logger.address());
+        nYGConfigSetLogger(config, memAddressSafe(logger));
     }
 
     // --- [ YGLog ] ---
@@ -2003,6 +2050,17 @@ public class Yoga {
         nYGConfigSetPointScaleFactor(config, pixelsInPoint);
     }
 
+    // --- [ YGConfigSetShouldDiffLayoutWithoutLegacyStretchBehaviour ] ---
+
+    public static native void nYGConfigSetShouldDiffLayoutWithoutLegacyStretchBehaviour(long config, boolean shouldDiffLayout);
+
+    public static void YGConfigSetShouldDiffLayoutWithoutLegacyStretchBehaviour(@NativeType("YGConfigRef const") long config, @NativeType("bool") boolean shouldDiffLayout) {
+        if (CHECKS) {
+            check(config);
+        }
+        nYGConfigSetShouldDiffLayoutWithoutLegacyStretchBehaviour(config, shouldDiffLayout);
+    }
+
     // --- [ YGConfigSetUseLegacyStretchBehaviour ] ---
 
     /** Unsafe version of: {@link #YGConfigSetUseLegacyStretchBehaviour ConfigSetUseLegacyStretchBehaviour} */
@@ -2087,15 +2145,15 @@ public class Yoga {
         return nYGConfigGetUseWebDefaults(config);
     }
 
-    // --- [ YGConfigSetNodeClonedFunc ] ---
+    // --- [ YGConfigSetCloneNodeFunc ] ---
 
-    public static native void nYGConfigSetNodeClonedFunc(long config, long callback);
+    public static native void nYGConfigSetCloneNodeFunc(long config, long callback);
 
-    public static void YGConfigSetNodeClonedFunc(@NativeType("YGConfigRef const") long config, @NativeType("YGNodeClonedFunc") YGNodeClonedFuncI callback) {
+    public static void YGConfigSetCloneNodeFunc(@NativeType("YGConfigRef const") long config, @Nullable @NativeType("YGCloneNodeFunc") YGCloneNodeFuncI callback) {
         if (CHECKS) {
             check(config);
         }
-        nYGConfigSetNodeClonedFunc(config, callback.address());
+        nYGConfigSetCloneNodeFunc(config, memAddressSafe(callback));
     }
 
     // --- [ YGConfigGetDefault ] ---
