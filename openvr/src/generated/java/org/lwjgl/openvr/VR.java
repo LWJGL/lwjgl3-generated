@@ -428,7 +428,7 @@ public class VR {
      * <li>{@link #ETrackedDeviceProperty_Prop_InputProfilePath_String ETrackedDeviceProperty_Prop_InputProfilePath_String} - input profile to use for this device in the input system. Will default to tracking system name if this isn't provided.</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_NeverTracked_Bool ETrackedDeviceProperty_Prop_NeverTracked_Bool} - used for devices that will never have a valid pose by design.</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_NumCameras_Int32 ETrackedDeviceProperty_Prop_NumCameras_Int32}</li>
-     * <li>{@link #ETrackedDeviceProperty_Prop_CameraFrameLayout_Int32 ETrackedDeviceProperty_Prop_CameraFrameLayout_Int32}</li>
+     * <li>{@link #ETrackedDeviceProperty_Prop_CameraFrameLayout_Int32 ETrackedDeviceProperty_Prop_CameraFrameLayout_Int32} - {@code EVRTrackedCameraFrameLayout} value</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool ETrackedDeviceProperty_Prop_ReportsTimeSinceVSync_Bool}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float ETrackedDeviceProperty_Prop_SecondsFromVsyncToPhotons_Float}</li>
      * <li>{@link #ETrackedDeviceProperty_Prop_DisplayFrequency_Float ETrackedDeviceProperty_Prop_DisplayFrequency_Float}</li>
@@ -823,7 +823,7 @@ public class VR {
      * <li>{@link #EVREventType_VREvent_InputFocusChanged EVREventType_VREvent_InputFocusChanged} - data is process</li>
      * <li>{@link #EVREventType_VREvent_SceneApplicationSecondaryRenderingStarted EVREventType_VREvent_SceneApplicationSecondaryRenderingStarted} - data is process</li>
      * <li>{@link #EVREventType_VREvent_SceneApplicationUsingWrongGraphicsAdapter EVREventType_VREvent_SceneApplicationUsingWrongGraphicsAdapter} - data is process</li>
-     * <li>{@link #EVREventType_VREvent_ActionBindingReloaded EVREventType_VREvent_ActionBindingReloaded}</li>
+     * <li>{@link #EVREventType_VREvent_ActionBindingReloaded EVREventType_VREvent_ActionBindingReloaded} - data is process - The App that action binds reloaded for</li>
      * <li>{@link #EVREventType_VREvent_HideRenderModels EVREventType_VREvent_HideRenderModels} - Sent to the scene application to request hiding render models temporarily</li>
      * <li>{@link #EVREventType_VREvent_ShowRenderModels EVREventType_VREvent_ShowRenderModels} - Sent to the scene application to request restoring render model visibility</li>
      * <li>{@link #EVREventType_VREvent_ConsoleOpened EVREventType_VREvent_ConsoleOpened}</li>
@@ -1659,8 +1659,8 @@ public class VR {
      * <ul>
      * <li>{@link #EVRTrackedCameraFrameLayout_Mono EVRTrackedCameraFrameLayout_Mono}</li>
      * <li>{@link #EVRTrackedCameraFrameLayout_Stereo EVRTrackedCameraFrameLayout_Stereo}</li>
-     * <li>{@link #EVRTrackedCameraFrameLayout_VerticalLayout EVRTrackedCameraFrameLayout_VerticalLayout}</li>
-     * <li>{@link #EVRTrackedCameraFrameLayout_HorizontalLayout EVRTrackedCameraFrameLayout_HorizontalLayout}</li>
+     * <li>{@link #EVRTrackedCameraFrameLayout_VerticalLayout EVRTrackedCameraFrameLayout_VerticalLayout} - Stereo frames are Top/Bottom (left/right)</li>
+     * <li>{@link #EVRTrackedCameraFrameLayout_HorizontalLayout EVRTrackedCameraFrameLayout_HorizontalLayout} - Stereo frames are Left/Right</li>
      * </ul>
      */
     public static final int
@@ -1694,8 +1694,8 @@ public class VR {
      * 
      * <ul>
      * <li>{@link #EVSync_VSync_None EVSync_VSync_None}</li>
-     * <li>{@link #EVSync_VSync_WaitRender EVSync_VSync_WaitRender}</li>
-     * <li>{@link #EVSync_VSync_NoWaitRender EVSync_VSync_NoWaitRender}</li>
+     * <li>{@link #EVSync_VSync_WaitRender EVSync_VSync_WaitRender} - block following render work until vsync</li>
+     * <li>{@link #EVSync_VSync_NoWaitRender EVSync_VSync_NoWaitRender} - do not block following render work (allow to get started early)</li>
      * </ul>
      */
     public static final int
